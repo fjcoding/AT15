@@ -1,2 +1,3 @@
 Javascript, Java, Python
 Visual Studio Code, Atom, Notepad++
+Windows, Ubuntu, MacOS
