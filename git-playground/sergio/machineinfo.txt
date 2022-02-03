@@ -1,3 +1,4 @@
 Intel,  Core i7 7th Gen 
 RAM 16 Gb 2666 MHz
 1 TB HDD & 500 GB SSD
+power code: Intel,  Core i7 7th Gen - 16 GB
