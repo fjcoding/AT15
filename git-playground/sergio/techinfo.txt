@@ -2,3 +2,4 @@ Java
 Apache NetBeans, IntelliJ IDEA
 Windows 10 
 techcode: Java-Apache NetBeans
+langs count: 1
