@@ -2,3 +2,4 @@ AMD Ryzen 9 5900HS
 16 GB
 1 TB SSD
 power code: AMD Ryzen 9 - 16 GB
+pc code: AMD-16g-1t
