@@ -2,3 +2,5 @@ Javascript, Java, Python
 Visual Studio Code, Atom, Notepad++
 Windows, Ubuntu, MacOS
 editors/IDEs count:  3
+techcode: Javascript-Visual Studio Code
+langs count: 3

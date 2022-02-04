@@ -2,3 +2,5 @@ Java
 Apache NetBeans, IntelliJ IDEA
 Windows 10 
 editors/IDEs count:  2
+techcode: Java-Apache NetBeans
+langs count: 1

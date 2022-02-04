@@ -1,3 +1,4 @@
 Intel,  Core i7 7th Gen 
 RAM 16 Gb 2666 MHz
 1 TB HDD & 500 GB SSD
+pc code: Intel-16g-1.5t
