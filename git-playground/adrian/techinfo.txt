@@ -2,3 +2,4 @@ Javascript, Java, Python
 Visual Studio Code, Atom, Notepad++
 Windows, Ubuntu, MacOS
 techcode: Javascript-Visual Studio Code
+langs count: 3
