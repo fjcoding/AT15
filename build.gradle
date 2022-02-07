@@ -5,7 +5,7 @@ repositories {
 }
 
 task runLangtonAnt (dependsOn: 'classes', type: JavaExec) {
-    main = 'org.fundacionjala.at15.katas.langtonant.Main'
+    main = 'org.fundacionjala.at15.katas.langtonant.adrian.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
 
