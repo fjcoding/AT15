@@ -4,7 +4,7 @@ public class Grid {
     // TODO: Make Grid Class with constructor and methods
 
     // variables
-    boolean [] [] grid; // bi-dimensional boolean array. ! Non initialized boolean (primitive) value is false !
+    boolean [][] grid; // bi-dimensional boolean array. ! Non initialized boolean (primitive) value is false !
     int height;
     int width;
 
@@ -37,8 +37,11 @@ public class Grid {
 
     // setters
 
-    // https://www.geeksforgeeks.org/public-vs-protected-access-modifier-in-java/ <-- probably the best way
-    public void setWhite(int h, int w) {
+    protected void setWhite(int h, int w) {
+        if (h < height && w < width) grid[h][w] = true;
+    }
+
+    protected void setBlack(int h, int w) {
         if (h < height && w < width) grid[h][w] = true;
     }
 
@@ -51,7 +54,7 @@ public class Grid {
                     System.out.print("[x]");
                 }
             }
-            System.out.println();
+            System.out.println(); // Line Break
         }
     }
 }
