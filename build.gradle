@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+task runLangtonAnt (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.langtonant.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
