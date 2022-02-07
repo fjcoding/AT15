@@ -10,6 +10,6 @@ task runLangtonAnt (dependsOn: 'classes', type: JavaExec) {
 }
 
 task adrianExample (dependsOn: 'classes', type: JavaExec) {
-    main = 'org.fundacionjala.at15.katas.langtonant.MainAdrian'
+    main = 'org.fundacionjala.at15.katas.langtonant.adrian.MainAdrian'
     classpath = sourceSets.main.runtimeClasspath
 }

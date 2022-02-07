@@ -1,4 +1,4 @@
-package org.fundacionjala.at15.katas.langtonant;
+package org.fundacionjala.at15.katas.langtonant.adrian;
 
 public class MainAdrian {
     public static void main(String[] args) {
