@@ -4,5 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("This is Langton's Ant main class, you can do yout implementation here :)");
+
+        // TODO: Create Grid Class instance
+        Grid grid = new Grid(5,5);
+        // TODO: Create Ant Class instance
+
+        grid.printGrid();
+
     }
 }
