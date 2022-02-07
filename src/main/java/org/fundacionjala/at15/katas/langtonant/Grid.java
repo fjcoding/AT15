@@ -57,4 +57,6 @@ public class Grid {
             System.out.println(); // Line Break
         }
     }
+
+    // TODO: Make a matrix design for the tiles
 }

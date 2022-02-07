@@ -46,5 +46,62 @@ public class Ant {
 
     public void run() {
         //TODO: while(!isFinished) determine direction, change tile color
+
+        while (xPos >= 0 && yPos >= 0 && xPos < g.getWidth() && yPos < g.getHeight() && !isFinished) {
+            System.out.println("x: " + xPos + ", " + "y: " + yPos + ", " + "Facing: " + direction + ", " + "Color: " + g.isWhite(xPos, yPos));
+            if (xPos == 0) {
+                isFinished = true;
+            } else if (xPos == g.getWidth()) {
+                isFinished = true;
+            } else if (yPos == 0) {
+                isFinished = true;
+            } else if (yPos == g.getHeight()) {
+                isFinished = true;
+            }
+
+            // direction
+
+            if (direction.equals("NORTH")) {
+                if (g.isWhite(xPos, yPos)) {
+                    g.setBlack(xPos,yPos);
+                    setDirection("WEST");
+                    xPos--; //move west
+                } else {
+                    g.setWhite(xPos,yPos);
+                    setDirection("EAST");
+                    xPos++; // move east
+                }
+            } else if (direction.equals("WEST")) {
+                if(g.isWhite(xPos, yPos)) {
+                    g.setBlack(xPos,yPos);
+                    setDirection("SOUTH");
+                    yPos--;
+                } else {
+                    g.setWhite(xPos,yPos);
+                    setDirection("NORTH");
+                    yPos++;
+                }
+            } else if (direction.equals("SOUTH")) {
+                if(g.isWhite(xPos,yPos)) {
+                    g.setBlack(xPos,yPos);
+                    setDirection("EAST");
+                    xPos++;
+                } else {
+                    g.setWhite(xPos,yPos);
+                    setDirection("WEST");
+                    xPos--;
+                }
+            } else if (direction.equals("EAST")) {
+                if(g.isWhite(xPos,yPos)) {
+                    g.setBlack(xPos,yPos);
+                    setDirection("NORTH");
+                    yPos++;
+                } else {
+                    g.setBlack(xPos,yPos);
+                    setDirection("SOUTH");
+                    yPos--;
+                }
+            }
+        }
     }
 }
