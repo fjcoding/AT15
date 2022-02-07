@@ -1,4 +1,4 @@
-package org.fundacionjala.at15.katas.langtonant;
+package org.fundacionjala.at15.katas.langtonant.agustin;
 
 public class Grid {
     // TODO: Make Grid Class with constructor and methods
