@@ -34,10 +34,10 @@ task runMyKataExample (dependsOn: 'classes', type: JavaExec) {
 After adding the gradle task, run it using gradle wrapper
 Windows
 ```
-gradlew.bat runMyKataExample
+gradlew.bat -q runMyKataExample
 ```
 
 Unix/Linux/Git Bash
 ```
-./gradlew runMyKataExample
+./gradlew -q runMyKataExample
 ```
