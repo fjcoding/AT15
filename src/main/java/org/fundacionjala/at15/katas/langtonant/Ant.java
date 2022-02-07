@@ -66,40 +66,48 @@ public class Ant {
                     g.setBlack(xPos,yPos);
                     setDirection("WEST");
                     xPos--; //move west
+                    g.printGrid();
                 } else {
                     g.setWhite(xPos,yPos);
                     setDirection("EAST");
                     xPos++; // move east
+                    g.printGrid();
                 }
             } else if (direction.equals("WEST")) {
                 if(g.isWhite(xPos, yPos)) {
                     g.setBlack(xPos,yPos);
                     setDirection("SOUTH");
                     yPos--;
+                    g.printGrid();
                 } else {
                     g.setWhite(xPos,yPos);
                     setDirection("NORTH");
                     yPos++;
+                    g.printGrid();
                 }
             } else if (direction.equals("SOUTH")) {
                 if(g.isWhite(xPos,yPos)) {
                     g.setBlack(xPos,yPos);
                     setDirection("EAST");
                     xPos++;
+                    g.printGrid();
                 } else {
                     g.setWhite(xPos,yPos);
                     setDirection("WEST");
                     xPos--;
+                    g.printGrid();
                 }
             } else if (direction.equals("EAST")) {
                 if(g.isWhite(xPos,yPos)) {
                     g.setBlack(xPos,yPos);
                     setDirection("NORTH");
                     yPos++;
+                    g.printGrid();
                 } else {
                     g.setBlack(xPos,yPos);
                     setDirection("SOUTH");
                     yPos--;
+                    g.printGrid();
                 }
             }
         }

@@ -13,6 +13,7 @@ public class Main {
         ant.run();
 
         // print in console the state of the grid
+        System.out.println("Final State: ");
         grid.printGrid();
 
     }
