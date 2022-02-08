@@ -11,19 +11,26 @@ public class Main {
         int sum=0;
         int fly1=0,fly2=0;
         for (int i = 0; i < rent.length; i++) {
-            for (int j = i+1; j < rent.length; j++) {
-				SD=rent[i].getStartTime()+rent[i].getTravelDuration();
-				S=rent[j].getStartTime();
-				if (S-SD>=0) {
-					if (rent[i].getPrice()+rent[j].getPrice()>sum) {
-						sum=rent[i].getPrice()+rent[j].getPrice();
-						fly1=i;
-						fly2=j;
+					for (int j = i+1; j < rent.length; j++) {
+						SD=rent[i].getStartTime()+rent[i].getTravelDuration();
+						S=rent[j].getStartTime();
+						if (S-SD>=0) {
+							if (rent[i].getPrice()+rent[j].getPrice()>sum) {
+								sum=rent[i].getPrice()+rent[j].getPrice();
+								fly1=i;
+								fly2=j;
+							}
+						}
 					}
 				}
-			}
-	
-		}      
+				int fin=0;
+        int ind=0;
+        for (int i = 0; i < rent.length; i++) {
+					if (rent[i].getPrice()>sum) {
+						fin=rent[i].getPrice();
+						ind=i;
+					}
+				}      
     }
 
 }
