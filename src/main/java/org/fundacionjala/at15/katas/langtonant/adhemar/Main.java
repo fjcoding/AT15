@@ -11,7 +11,7 @@ public class Main {
         int steps = 1;
 
         //Create a grid
-        boolean color = true; //false: white, true: black
+        boolean color = false; //false: white, true: black
         Grid grid = new Grid(rows, columns, color);
         grid.printGrid();
 

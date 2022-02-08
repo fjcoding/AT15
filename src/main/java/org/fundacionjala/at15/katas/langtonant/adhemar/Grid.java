@@ -26,6 +26,10 @@ public class Grid {
         return this.matrix[row][column];
     }
 
+    public void changeColor(int row, int column, boolean color) {
+        this.matrix[row][column] = color;
+    }
+
     public void printGrid() {
         for (int i = 0; i < this.rows; i++) {
             for (int j = 0; j < this.columns; j++) {
