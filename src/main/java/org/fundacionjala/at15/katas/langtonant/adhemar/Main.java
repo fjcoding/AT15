@@ -17,7 +17,7 @@ public class Main {
 
         //Move the ant
         Ant ant = new Ant(initialPosition[0], initialPosition[1]);
-        ant.move(steps);
+        ant.move(steps, grid);
 
         //Show grid status
         grid.printGrid();

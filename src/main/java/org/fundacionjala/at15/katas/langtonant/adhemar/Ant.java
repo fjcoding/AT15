@@ -9,9 +9,9 @@ public class Ant {
         this.column = column;
     }
 
-    public void move(int steps) {
+    public void move(int steps, Grid grid) {
         for (int i = 0; i < steps; i++) {
-            //Ask current color
+            System.out.println(grid.getCurrentColor(row, column));
             //turn
             //Change color
             //check border
