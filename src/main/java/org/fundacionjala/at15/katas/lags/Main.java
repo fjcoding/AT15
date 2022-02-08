@@ -33,6 +33,8 @@ public class Main {
 				}
                 if (fin!=0) {
                     System.out.println("vuelo: "+rent[ind].getNameTravel()+" ganancia: "+fin);  
+                }else {
+                    System.out.println("vuelo1: "+rent[fly1].getNameTravel()+" vuelo2: "+rent[fly2].getNameTravel()+" ganancia: "+sum);
                 }        
     }
 
