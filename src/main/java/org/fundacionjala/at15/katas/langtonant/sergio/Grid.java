@@ -1,7 +1,5 @@
 package org.fundacionjala.at15.katas.langtonant.sergio;
 
-import javax.sound.sampled.SourceDataLine;
-
 public class Grid {
     //atributos
     private boolean [][] grid;
@@ -32,12 +30,12 @@ public class Grid {
     }
     //setters
 
-    private void setWhite(int h, int w){
+    public void setWhite(int h, int w){
         if(h<height && w<width){
             grid[h][w]=true;
         }        
     }
-    private void setBlack(int h, int w){
+    public void setBlack(int h, int w){
         if(h<height && w<width){
             grid[h][w]=false;
         }
