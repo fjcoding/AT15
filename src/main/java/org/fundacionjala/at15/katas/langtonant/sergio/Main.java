@@ -6,10 +6,10 @@ public class Main {
        // System.out.println("Hello World");
        Grid grid = new Grid(5,7);
        
-       Ant ant = new Ant(3,4,"up",grid);
+       Ant ant = new Ant(3,4,"up",3,grid);
        ant.run();
 
-       System.out.println("Final Position: ");
-       grid.printGrid();
+       //System.out.println("Final Position: ");
+       //grid.printGrid();
     }
 }

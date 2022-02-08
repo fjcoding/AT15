@@ -32,12 +32,12 @@ public class Grid {
 
     public void setWhite(int h, int w){
         if(h<height && w<width){
-            grid[h][w]=true;
+            this.grid[h][w]=true;
         }        
     }
     public void setBlack(int h, int w){
         if(h<height && w<width){
-            grid[h][w]=false;
+            this.grid[h][w]=false;
         }
     }
     public void printGrid(){

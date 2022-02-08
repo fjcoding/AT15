@@ -4,15 +4,18 @@ public class Ant {
     private int xPos;
     private int yPos;
     private String direction;
+    private int moves;
     Grid grid;
     boolean isWall;
 
-    public Ant(int xPos, int yPos, String direction, Grid grid){
+    public Ant(int xPos, int yPos, String direction, int moves, Grid grid){
         this.xPos = xPos;
         this.yPos = yPos;
         this.direction = direction;
+        this.moves = moves;
         this.grid = grid;
     }
+    
     public void setXPos(int xPos){
         this.xPos = xPos;
     }
@@ -25,41 +28,33 @@ public class Ant {
 
     public void run(){
         
-        String color;
-        if (grid.isWhite(xPos, yPos)){
-            color = "White"; 
-        }else{
-            color = "Black";
-        }
-        while (xPos >= 0 && yPos >= 0 && xPos < grid.getWidth() && yPos < grid.getHeight()&& !isWall){
-            System.out.println("x:"+xPos+"\n y:"+yPos+"\n direction: "+direction+"\n color: "+color);
+        //String color;
+        //if (grid.isWhite(xPos, yPos)){
+        //    color = "White"; 
+        //}else{
+        //    color = "Black";
+        //}
+        while (xPos >= 0 && yPos >= 0 && xPos < grid.getHeight() && yPos < grid.getWidth()&& !isWall && moves !=0){
+            System.out.println("x:"+xPos+"\ny:"+yPos+"\ndirection: "+direction+"\ncolor: "+grid.isWhite(xPos, yPos));
             if (xPos == 0 && direction == "left"){
-                isWall = true;
-                System.out.println("I can't go on anymore");                
-            }else if (xPos == grid.getWidth() && direction == "right"){
-                isWall = true;
-                System.out.println("I can't go on anymore");
+                isWall = true;                               
+            }else if (xPos == grid.getHeight() && direction == "right"){
+                isWall = true;                
             }else if (yPos == 0 && direction == "up"){
-                isWall = true;
-                System.out.println("I can't go on anymore");
-            }else if (yPos == grid.getHeight()&& direction=="down"){
-                isWall = true;
-                System.out.println("I can't go on anymore");
+                isWall = true;                
+            }else if (yPos == grid.getWidth()&& direction=="down"){
+                isWall = true;               
             }else if (yPos == 0 && xPos == 0 && (direction == "up" || direction == "left")){
-                isWall = true;
-                System.out.println("I can't go on anymore");
-            }else if (yPos == grid.getHeight() && xPos == 0 && (direction == "down" || direction == "left")){
-                isWall = true;
-                System.out.println("I can't go on anymore");
-            }else if (yPos == 0 && xPos == grid.getWidth() && (direction == "up" || direction == "right")){
-                isWall = true;
-                System.out.println("I can't go on anymore");
-            }else if (yPos == grid.getHeight() && xPos == grid.getWidth() && (direction == "down" || direction == "right")){
-                isWall = true;
-                System.out.println("I can't go on anymore");
+                isWall = true;               
+            }else if (yPos == grid.getWidth() && xPos == 0 && (direction == "down" || direction == "left")){
+                isWall = true;               
+            }else if (yPos == 0 && xPos == grid.getHeight() && (direction == "up" || direction == "right")){
+                isWall = true;                
+            }else if (yPos == grid.getWidth() && xPos == grid.getHeight() && (direction == "down" || direction == "right")){
+                isWall = true;               
             }
 
-            if (direction == "up"){
+            if (direction.equals("up")){
                 if(grid.isWhite(xPos,yPos)){
                     grid.setBlack(xPos,yPos);
                     setDirection("right");
@@ -69,19 +64,21 @@ public class Ant {
                     grid.setWhite(xPos,yPos);
                     setDirection("left");
                     xPos--;
+                    grid.printGrid();
                 }
-            }else if (direction == "right"){
+            }else if (direction.equals("right")){
                 if(grid.isWhite(xPos,yPos)){
                     grid.setBlack(xPos,yPos);
                     setDirection("down");
-                    yPos--;
+                    yPos++;
                     grid.printGrid();
                 }else{
                     grid.setWhite(xPos,yPos);
                     setDirection("up");
-                    yPos++;
+                    yPos--;
+                    grid.printGrid();
                 } 
-            }else if (direction == "down"){
+            }else if (direction.equals("down")){
                 if(grid.isWhite(xPos,yPos)){
                     grid.setBlack(xPos,yPos);
                     setDirection("left");
@@ -91,19 +88,22 @@ public class Ant {
                     grid.setWhite(xPos,yPos);
                     setDirection("right");
                     xPos++;
+                    grid.printGrid();
                 }
-            }else if (direction == "left"){
+            }else if (direction.equals("left")){
                 if(grid.isWhite(xPos,yPos)){
                     grid.setBlack(xPos,yPos);
                     setDirection("up");
-                    yPos++;
+                    yPos--;
                     grid.printGrid();
                 }else{
                     grid.setWhite(xPos,yPos);
                     setDirection("down");
-                    yPos--;
+                    yPos++;
+                    grid.printGrid();
                 }
             }
+            moves = moves -1;
         }
 
     }
