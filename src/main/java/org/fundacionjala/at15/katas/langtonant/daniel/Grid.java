@@ -15,12 +15,12 @@ public class Grid {
     }
 
     /**
-     * 
+     * Fill the Grid with "1" 
      */
     public void fillGrid(){
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                grid[i][j] = 1;                 // Fill the Grid with '1' (all white)
+                grid[i][j] = 1;                
             }
         }
     }
@@ -40,8 +40,6 @@ public class Grid {
     public int getSquare(int x, int y){
         return grid[x][y];
     }
-
-    
 
     public void changeSquare(int x, int y){
         if(grid[x][y] == 1)

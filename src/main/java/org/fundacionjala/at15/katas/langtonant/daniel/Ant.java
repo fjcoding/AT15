@@ -14,14 +14,12 @@ public class Ant{
         this.direction = direction;
         finished = false;           // the game is ready
     }
-
     // 0 -> negro   (left)
     // 1 -> blanco (right)
     public void nextStep(){
         switch (direction) {
             case "up":
-                //System.out.println("UP");
-                if(grid.getSquare(posX, posY) == 1){            // is White?
+                if(grid.getSquare(posX, posY) == 1){    
                     if(isValidNextPosition(posX, posY+1, "right")){
                         grid.changeSquare(posX, posY);
                         posY += 1;
@@ -92,7 +90,7 @@ public class Ant{
                     break;
             
                 }
-        }
+         }
             
     }
 
