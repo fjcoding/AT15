@@ -21,14 +21,14 @@ public class Ant {
         switch (direction) {
             case "up":
                 if (grid.getSquare(posX, posY) == 1) { // Is white?
-                    if (isValidNextPosition(posX, posY + 1, "right")) {
+                    if (isValidNextPosition(posX, posY + 1, "left or right")) {
                         grid.changeSquare(posX, posY);
                         posY++;
                         this.direction = "right";
                     } else
                         finished = true;
                 } else {
-                    if (isValidNextPosition(posX, posY - 1, "left")) {
+                    if (isValidNextPosition(posX, posY - 1, "left or right")) {
                         grid.changeSquare(posX, posY);
                         posY--;
                         this.direction = "left";
@@ -38,14 +38,14 @@ public class Ant {
                 break;
             case "right":
                 if (grid.getSquare(posX, posY) == 1) {
-                    if (isValidNextPosition(posX + 1, posY, "down")) {
+                    if (isValidNextPosition(posX + 1, posY, "up or down")) {
                         grid.changeSquare(posX, posY);
                         posX++;
                         direction = "down";
                     } else
                         finished = true;
                 } else {
-                    if (isValidNextPosition(posX - 1, posY, "up")) {
+                    if (isValidNextPosition(posX - 1, posY, "up or down")) {
                         grid.changeSquare(posX, posY);
                         posX--;
                         direction = "up";
@@ -55,14 +55,14 @@ public class Ant {
                 break;
             case "left":
                 if (grid.getSquare(posX, posY) == 1) {
-                    if (isValidNextPosition(posX - 1, posY, "up")) {
+                    if (isValidNextPosition(posX - 1, posY, "up or down")) {
                         grid.changeSquare(posX, posY);
                         posX--;
                         direction = "up";
                     } else
                         finished = true;
                 } else {
-                    if (isValidNextPosition(posX + 1, posY, "down")) {
+                    if (isValidNextPosition(posX + 1, posY, "up or down")) {
                         grid.changeSquare(posX, posY);
                         posX++;
                         direction = "down";
@@ -72,14 +72,14 @@ public class Ant {
                 break;
             case "down":
                 if (grid.getSquare(posX, posY) == 1) {
-                    if (isValidNextPosition(posX, posY - 1, "left")) {
+                    if (isValidNextPosition(posX, posY - 1, "left or right")) {
                         grid.changeSquare(posX, posY);
                         posY--;
                         direction = "left";
                     } else
                         finished = true;
                 } else {
-                    if (isValidNextPosition(posX, posY + 1, "right")) {
+                    if (isValidNextPosition(posX, posY + 1, "left or right")) {
                         grid.changeSquare(posX, posY);
                         posY++;
                         direction = "right";
@@ -93,20 +93,12 @@ public class Ant {
     public boolean isValidNextPosition(int x, int y, String dir) {
         boolean flag = false;
         switch (dir) {
-            case "up":
-                if (x > 0)
+            case "up or down":
+                if ((0 <= x) && (x < grid.getRows()))
                     flag = true;
                 break;
-            case "left":
-                if (y > 0)
-                    flag = true;
-                break;
-            case "right":
-                if (y < grid.getColumns() - 1)
-                    flag = true;
-                break;
-            case "down":
-                if (x < grid.getRows() - 1)
+            case "left or right":
+                if ((0 <= y) && (y < grid.getColumns()))
                     flag = true;
                 break;
         }

@@ -42,10 +42,10 @@ public class Grid {
     }
 
     public int getRows() { // returns number of rows
-        return grid.length;
+        return rows;
     }
 
     public int getColumns() { // returns number of columns
-        return grid[0].length;
+        return columns;
     }
 }
