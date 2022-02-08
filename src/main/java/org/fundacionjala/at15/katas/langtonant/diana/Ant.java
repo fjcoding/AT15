@@ -15,13 +15,12 @@ public class Ant {
         finished = false; // the game is ready
     }
 
-    // 0 -> negro (left)
-    // 1 -> blanco (right)
+    // 0 -> black
+    // 1 -> white
     public void nextStep() {
         switch (direction) {
             case "up":
-                // System.out.println("UP");
-                if (grid.getSquare(posX, posY) == 1) { // es blanco?
+                if (grid.getSquare(posX, posY) == 1) { // Is white?
                     if (isValidNextPosition(posX, posY + 1, "right")) {
                         grid.changeSquare(posX, posY);
                         posY++;
@@ -38,7 +37,6 @@ public class Ant {
                 }
                 break;
             case "right":
-                // System.out.println("entro RIGHT");
                 if (grid.getSquare(posX, posY) == 1) {
                     if (isValidNextPosition(posX + 1, posY, "down")) {
                         grid.changeSquare(posX, posY);
@@ -55,7 +53,6 @@ public class Ant {
                         finished = true;
                 }
                 break;
-
             case "left":
                 if (grid.getSquare(posX, posY) == 1) {
                     if (isValidNextPosition(posX - 1, posY, "up")) {
@@ -73,7 +70,6 @@ public class Ant {
                         finished = true;
                 }
                 break;
-
             case "down":
                 if (grid.getSquare(posX, posY) == 1) {
                     if (isValidNextPosition(posX, posY - 1, "left")) {
@@ -90,31 +86,25 @@ public class Ant {
                     } else
                         finished = true;
                     break;
-
                 }
         }
-
     }
 
     public boolean isValidNextPosition(int x, int y, String dir) {
         boolean flag = false;
-
         switch (dir) {
             case "up":
                 if (x > 0)
                     flag = true;
                 break;
-
             case "left":
                 if (y > 0)
                     flag = true;
                 break;
-
             case "right":
                 if (y < grid.getColumns() - 1)
                     flag = true;
                 break;
-
             case "down":
                 if (x < grid.getRows() - 1)
                     flag = true;
@@ -134,6 +124,6 @@ public class Ant {
             System.out.println();
             grid.printGrid();
         }
-        System.out.println("The game is over...");
+        System.out.println("The game is over..."); // the game end
     }
 }
