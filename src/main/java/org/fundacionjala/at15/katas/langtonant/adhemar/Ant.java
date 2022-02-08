@@ -12,17 +12,12 @@ public class Ant {
 
     public void start(int steps, Grid grid) {
         for (int i = 0; i < steps; i++) {
-            boolean currentColor = grid.getCurrentColor(row, column);
-            //Change color
-            grid.changeColor(row, column, !currentColor);
-            //turn
+            boolean currentColor = grid.getCurrentColor(this.row, this.column);
+
+            grid.changeColor(this.row, this.column, !currentColor);
+
             this.turn(currentColor);
-
-            //check border
-
-            //move
             this.move(grid);
-
         }
     }
 
@@ -40,6 +35,7 @@ public class Ant {
                 this.direction = this.direction + 1;
             }
         }
+        // System.out.println("direction: " + this.direction);
     }
 
     public void move(Grid grid) {
@@ -75,6 +71,6 @@ public class Ant {
             default:
                 System.out.println("There is a problem with ant's position");
         }
-        System.out.println("row: " + this.row + ", column: " + this.column);
+        // System.out.println("row: " + this.row + "column: " + this.column);
     }
 }
