@@ -13,7 +13,7 @@ public class rentRequest {
         this.nameTravel=nameTravel;
      
     }
-    
+
     public int getStartTime (){
 
         return startTime;
@@ -26,7 +26,7 @@ public class rentRequest {
         
         return price;
     }
-    public String nameTravel(){
+    public String getNameTravel(){
      
         return nameTravel;
     }
