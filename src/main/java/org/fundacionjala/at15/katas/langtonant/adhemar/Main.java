@@ -11,6 +11,9 @@ public class Main {
         int steps = 20;
 
         //Create a grid
+        boolean color = true; //false: white, true: black
+        Grid test = new Grid(rows, columns, color);
+        test.printGrid();
         //Move the ant
         //Show grid status
 
