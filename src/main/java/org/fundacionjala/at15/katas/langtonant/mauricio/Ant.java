@@ -15,8 +15,8 @@ public class Ant{
         finished = false;           // the game is ready
     }
 
-    // 0 -> negro   (left)
-    // 1 -> blanco (right) If eats 1 goes rigtg
+    // 0 -> negro If eats 0 goes left
+    // 1 -> blanco If eats 1 goes right
     public void nextStep(){
         switch (direction) {
             case "up":

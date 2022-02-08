@@ -1,7 +1,7 @@
 package org.fundacionjala.at15.katas.langtonant.mauricio;
 
 public class Grid {
-    // Define the variables
+    // We define the attributes
     int[][] grid;
     int rows;
     int columns;
@@ -13,22 +13,23 @@ public class Grid {
         fillGrid();
     }
 
-    public int getRows(){
+    public int getRows() {
         return rows;
     }
-    public int getColumns(){
+
+    public int getColumns() {
         return columns;
     }
 
-    public int getSquare(int x, int y){
+    public int getSquare(int x, int y) {
         return grid[x][y];
     }
-    
-    public void changeSquare(int x, int y){
-        if(grid[x][y] ==1)
-            grid[x][y] =0;
+
+    public void changeSquare(int x, int y) {
+        if (grid[x][y] == 1)
+            grid[x][y] = 0;
         else
-            grid[x][y] =1;
+            grid[x][y] = 1;
     }
 
     public void fillGrid() {
@@ -40,19 +41,11 @@ public class Grid {
     }
 
     public void printGrid() {
-
         for (int i = 0; i < rows; i++) {
-
             for (int j = 0; j < columns; j++) {
-
                 System.out.print(grid[i][j] + "  ");
-
             }
-
             System.out.println();
-
         }
-
     }
-
 }
