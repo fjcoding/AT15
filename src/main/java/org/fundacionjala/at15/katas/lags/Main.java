@@ -30,7 +30,10 @@ public class Main {
 						fin=rent[i].getPrice();
 						ind=i;
 					}
-				}      
+				}
+                if (fin!=0) {
+                    System.out.println("vuelo: "+rent[ind].getNameTravel()+" ganancia: "+fin);  
+                }        
     }
 
 }
