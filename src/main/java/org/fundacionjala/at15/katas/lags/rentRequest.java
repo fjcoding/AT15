@@ -10,12 +10,27 @@ public class rentRequest {
         this.startTime=startTime;
         this.travelDuration=travelDuration;
         this.price=price;
-        this nameTravel=nameTravel;
-
-        
-
-
-
+        this.nameTravel=nameTravel;
+     
     }
+    
+    public int getStartTime (){
 
+        return startTime;
+    }
+    public int getTravelDuration(){
+
+        return travelDuration;
+    }
+    public int getPrice(){
+        
+        return price;
+    }
+    public String nameTravel(){
+     
+        return nameTravel;
+    }
+    
 }
+
+
