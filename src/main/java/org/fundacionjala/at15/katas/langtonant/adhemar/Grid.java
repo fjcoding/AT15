@@ -22,6 +22,10 @@ public class Grid {
         }
     }
 
+    public boolean getCurrentColor(int row, int column) {
+        return this.matrix[row][column];
+    }
+
     public void printGrid() {
         for (int i = 0; i < this.rows; i++) {
             for (int j = 0; j < this.columns; j++) {
@@ -29,5 +33,6 @@ public class Grid {
             }
             System.out.println();
         }
+        System.out.println();
     }
 }

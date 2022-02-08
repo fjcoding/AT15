@@ -7,15 +7,19 @@ public class Main {
         int rows = 4;
         int columns = 4;
 
-        int[] initialPosition = { 1, 1};
-        int steps = 20;
+        int[] initialPosition = {1, 1};
+        int steps = 1;
 
         //Create a grid
         boolean color = true; //false: white, true: black
-        Grid test = new Grid(rows, columns, color);
-        test.printGrid();
-        //Move the ant
-        //Show grid status
+        Grid grid = new Grid(rows, columns, color);
+        grid.printGrid();
 
+        //Move the ant
+        Ant ant = new Ant(initialPosition[0], initialPosition[1]);
+        ant.move(steps);
+
+        //Show grid status
+        grid.printGrid();
     }
 }
