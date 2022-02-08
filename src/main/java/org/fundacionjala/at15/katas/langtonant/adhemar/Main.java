@@ -7,7 +7,7 @@ public class Main {
         int rows = 4;
         int columns = 4;
 
-        int[] initialPosition = {1, 1};
+        int[] initialPosition = {3, 1};
         int steps = 1;
 
         //Create a grid
@@ -17,7 +17,7 @@ public class Main {
 
         //Move the ant
         Ant ant = new Ant(initialPosition[0], initialPosition[1]);
-        ant.move(steps, grid);
+        ant.start(steps, grid);
 
         //Show grid status
         grid.printGrid();
