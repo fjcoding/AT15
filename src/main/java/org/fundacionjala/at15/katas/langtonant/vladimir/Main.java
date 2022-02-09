@@ -46,11 +46,8 @@ break;
 default:
 break;
 }
-}
-else if (mat[posCol][posRow] == "B")
-{
-switch (dir)
-{
+} else if (mat[posCol][posRow] == "B") {
+switch (dir) {
 case "U":
 dir = "L";
 mat[posCol][posRow] = "W";
@@ -75,22 +72,22 @@ default:
 break;
 }
 }
-print(COLS,ROWS);
+print(COLS, ROWS);
 }
 }
-	private static void print(int x, int y)
+private static void print(int x, int y)
+	{
+		for (int i = 0; i < x; i++)
 		{
-			for (int i = 0; i < x; i++)
+			for (int j = 0; j < y; j++)
 			{
-				for (int j = 0; j < y; j++)
-				{
-					System.out.print(mat[i][j] + " ");
-				}
-				System.out.println();
+				System.out.print(mat[i][j] + " ");
 			}
-			System.out.println("---------------------------------------");
 			System.out.println();
-
 		}
+		System.out.println("---------------------------------------");
+		System.out.println();
+
+	}
 }
 
