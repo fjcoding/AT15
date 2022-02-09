@@ -13,7 +13,7 @@ public class Grid {
     }
 
     public void createMatrix(boolean color) {
-        if( color ) {
+        if(color) {
             for (int i = 0; i < this.rows; i++) {
                 for (int j = 0; j < this.columns; j++) {
                     this.matrix[i][j] = true;

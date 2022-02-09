@@ -35,34 +35,33 @@ public class Ant {
                 this.direction = this.direction + 1;
             }
         }
-        // System.out.println("direction: " + this.direction);
     }
 
     public void move(Grid grid) {
         switch (this.direction) {
             case 1:
-                if ( this.row - 1 == -1) {
+                if (this.row - 1 == -1) {
                     this.row = 0;
                 } else {
                     this.row = this.row - 1;
                 }
                 break;
             case 2:
-                if ( this.column + 1 == grid.columns) {
+                if (this.column + 1 == grid.columns) {
                     this.column = grid.columns - 1;
                 } else {
                     this.column = this.column + 1;
                 }
                 break;
             case 3:
-                if ( this.row + 1 == grid.rows) {
+                if (this.row + 1 == grid.rows) {
                     this.row = grid.rows - 1;
                 } else {
                     this.row = this.row + 1;
                 }
                 break;
             case 4:
-                if ( this.column - 1 == -1) {
+                if (this.column - 1 == -1) {
                     this.column = 0;
                 } else {
                     this.column = this.column - 1;
@@ -71,6 +70,5 @@ public class Ant {
             default:
                 System.out.println("There is a problem with ant's position");
         }
-        // System.out.println("row: " + this.row + "column: " + this.column);
     }
 }
