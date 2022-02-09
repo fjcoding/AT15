@@ -3,13 +3,19 @@ package org.fundacionjala.at15.katas.langtonant.sergio;
 public class Main {
 
     public static void main(String[] args) {
-       // System.out.println("Hello World");
-       Grid grid = new Grid(5,7);
        
-       Ant ant = new Ant(3,4,"up",3,grid);
+       int xPos = 3;
+       int yPos = 4;
+       String direction = "up";
+       int columns = 5;
+       int rows = 7;
+       int moves = 3;       
+       
+       Grid grid = new Grid(columns, rows);
+       Ant ant = new Ant(xPos, yPos, direction, moves, grid);          
        ant.run();
 
-       //System.out.println("Final Position: ");
-       //grid.printGrid();
+       System.out.println("Final Position: ");
+
     }
 }

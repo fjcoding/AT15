@@ -3,47 +3,47 @@ package org.fundacionjala.at15.katas.langtonant.sergio;
 public class Grid {
     //atributos
     private boolean [][] grid;
-    private int height;
-    private int width;
+    private int columns;
+    private int rows;
 
     //constructor
-    public Grid(int height, int width){
-        this.height = height;
-        this.width = width;
-        grid = new boolean [height][width];
+    public Grid(int columns, int rows){
+        this.columns = columns;
+        this.rows = rows;
+        grid = new boolean [columns][rows];
     }
 
     //metodos 
     //getters
 
-    public int getHeight(){
-        return height;
+    public int getColumns(){
+        return columns;
     }
-    public int getWidth(){
-        return width;
+    public int getRows(){
+        return rows;
     }
     public boolean[][] getGrid(){
         return grid;        
     }
-    public boolean isWhite(int h,int w){
-        return grid[h][w];
+    public boolean isWhite(int currentColumn,int currentRow){
+        return grid[currentColumn][currentRow];
     }
     //setters
 
-    public void setWhite(int h, int w){
-        if(h<height && w<width){
-            this.grid[h][w]=true;
+    public void setWhite(int currentColumn, int currentRow){
+        if(currentColumn < columns && currentRow < rows){
+            this.grid[currentColumn][currentRow]=true;
         }        
     }
-    public void setBlack(int h, int w){
-        if(h<height && w<width){
-            this.grid[h][w]=false;
+    public void setBlack(int currentColumn, int currentRow){
+        if(currentColumn < columns && currentRow < rows){
+            this.grid[currentColumn][currentRow]=false;
         }
     }
     public void printGrid(){
-        for(int h=0;h<height;h++){
-            for (int w=0;w<width;w++){
-                if (isWhite(h,w)){
+        for(int j=0;j<rows;j++){
+            for (int i=0;i<columns;i++){
+                if (isWhite (i, j)){
                     System.out.print(" ");
                 }else {
                     System.out.print("x");
