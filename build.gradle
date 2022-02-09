@@ -5,6 +5,17 @@ repositories {
     mavenCentral()
 }
 
+checkstyle {
+    toolVersion '8.34'
+    configFile file('config/checkstyle/checkstyle.xml')
+    checkstyleMain.source = "src/main/"
+    checkstyleMain.excludes = ["**/src/test/**"]
+}
+
+checkstyleMain {
+    source = 'src/main/java'
+}
+
 task runLangtonAnt (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.adrian.Main'
     classpath = sourceSets.main.runtimeClasspath
