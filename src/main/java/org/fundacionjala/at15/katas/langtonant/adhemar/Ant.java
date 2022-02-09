@@ -1,17 +1,29 @@
 package org.fundacionjala.at15.katas.langtonant.adhemar;
 
 public class Ant {
-    int row;
-    int column;
-    int direction = 1; //Up: 1, rigth: 2, down: 3, left: 4
+    private int row;
+    private int column;
+    private int direction = 1; //Up: 1, rigth: 2, down: 3, left: 4
 
     public Ant(int row, int column) {
         this.row = row;
         this.column = column;
     }
 
+    public int getRow() {
+        return this.row;
+    }
+
+    public int getColumn() {
+        return this.column;
+    }
+
+    public int getDirection() {
+        return this.direction;
+    }
+
     public void start(int steps, Grid grid) {
-        for (int i = 0; i < steps; i++) {
+        for (int index = 0; index < steps; index++) {
             boolean currentColor = grid.getCurrentColor(this.row, this.column);
 
             grid.changeColor(this.row, this.column, !currentColor);
@@ -23,7 +35,7 @@ public class Ant {
 
     public void turn(boolean color) {
         if (color) {
-            if( this.direction - 1 == 0) {
+            if ( this.direction - 1 == 0) {
                 this.direction = 4;
             } else {
                 this.direction = this.direction - 1;
@@ -47,15 +59,15 @@ public class Ant {
                 }
                 break;
             case 2:
-                if (this.column + 1 == grid.columns) {
-                    this.column = grid.columns - 1;
+                if (this.column + 1 == grid.getColumns()) {
+                    this.column = grid.getColumns() - 1;
                 } else {
                     this.column = this.column + 1;
                 }
                 break;
             case 3:
-                if (this.row + 1 == grid.rows) {
-                    this.row = grid.rows - 1;
+                if (this.row + 1 == grid.getRows()) {
+                    this.row = grid.getRows() - 1;
                 } else {
                     this.row = this.row + 1;
                 }
