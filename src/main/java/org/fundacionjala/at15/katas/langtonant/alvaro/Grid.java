@@ -8,15 +8,15 @@ public class Grid {
     private final int black = 8;
     public Grid(int sizeX, int  sizeY) {
         grid = new int[sizeX][sizeY];
-        this.sizeY = sizeY; // y
-        this.sizeX = sizeX; //x
+        this.sizeY = sizeY;
+        this.sizeX = sizeX;
 
     }
     public void createGrid() {
 
         for (int indx = 0; indx < sizeX; indx++) {
             for (int indy = 0; indy < sizeY; indy++) {
-                grid[indx][indy] = 0; //llenamos blanco
+                grid[indx][indy] = 0; //create white matrix
              }
         }
     }
@@ -30,7 +30,6 @@ public class Grid {
         }
     }
     public int getPos(int x, int y) {
-        //System.out.println("prueba"+grid[x][y]);
         return grid[x][y];
     }
     public void changetoWhite(int x, int y) {

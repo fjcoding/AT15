@@ -6,7 +6,7 @@ public class Main {
         final int height = 6;
         final int width = 6;
         final int numberRuns = 3;
-        Grid grid = new Grid(height, width); //6 filas, 7 columnas
+        Grid grid = new Grid(height, width);
         Ant ant = new Ant(2, 2, grid, 'u');
         ant.run(numberRuns);
     }

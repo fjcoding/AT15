@@ -5,7 +5,6 @@ public class Ant {
     private int posY;
     private Grid grid;
     private char direction;
-    //private boolean finished;
 
     public Ant(int posX, int posY, Grid grid, char direction) {
         this.posX = posX;
@@ -16,24 +15,24 @@ public class Ant {
 
     }
     public void nextStep() {
-        if (direction == 'u') { //up arriba
-                if (grid.getPos(posX, posY) == 0) { //si esta en blanco
-                    grid.changetoBlack(posX, posY); //pongo una x(negro)
+        if (direction == 'u') { //up
+                if (grid.getPos(posX, posY) == 0) { //if it is white
+                    grid.changetoBlack(posX, posY); //put X (black)
                     posY++;
                     direction = 'r';
-                } else { //si esta negro le cambio por blanco
-                    grid.changetoWhite(posX, posY); //pongo una O si esta en negro
+                } else { //If it's black, I'll change it to white
+                    grid.changetoWhite(posX, posY); //put 0 (white)
                     direction = 'l';
                     posY--;
                 }
 
         } else if (direction == 'd') { //down
-            if (grid.getPos(posX, posY) == 0) { //si esta en blanco
-                grid.changetoBlack(posX, posY); //pongo una x(negro)
+            if (grid.getPos(posX, posY) == 0) {
+                grid.changetoBlack(posX, posY);
                 posY--;
                 direction = 'l';
-            } else { //si esta negro le cambio por blanco
-                grid.changetoWhite(posX, posY); //pongo una O si esta en negro
+            } else {
+                grid.changetoWhite(posX, posY);
                 direction = 'r';
                 posY++;
             }
@@ -47,7 +46,7 @@ public class Ant {
                 direction = 'u';
                 posX--;
             }
-        } else if (direction == 'l') { //left izquierda
+        } else if (direction == 'l') { //left
             if (grid.getPos(posX, posY) == 0) {
                 grid.changetoBlack(posX, posY);
                 posX--;
@@ -59,12 +58,12 @@ public class Ant {
             }
         }
     }
-    public void run(int saltos) {
+    public void run(int jumps) {
         grid.printGrid();
-        for (int index = 0; index <= saltos; index++) {
+        for (int index = 0; index <= jumps; index++) {
             nextStep();
             System.out.println();
-            System.out.println("Numero de Corridas" + index);
+            System.out.println("number of runs" + index);
             grid.printGrid();
         }
     }
