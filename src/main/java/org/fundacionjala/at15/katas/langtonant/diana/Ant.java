@@ -102,12 +102,14 @@ public class Ant {
         boolean flag = false;
         switch (dir) {
             case "up or down":
-                if ((0 <= x) && (x < grid.getRows()))
+                if ((0 <= x) && (x < grid.getRows())) {
                     flag = true;
+                }
                 break;
             case "left or right":
-                if ((0 <= y) && (y < grid.getColumns()))
+                if ((0 <= y) && (y < grid.getColumns())) {
                     flag = true;
+                }
                 break;
         }
         return flag;
