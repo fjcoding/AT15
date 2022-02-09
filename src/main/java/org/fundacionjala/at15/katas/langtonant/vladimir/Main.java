@@ -75,8 +75,7 @@ break;
 print(COLS, ROWS);
 }
 }
-private static void print(int x, int y)
-{
+private static void print(int x, int y) {
 for (int col = 0; col < x; col++) {
 for (int row = 0; row < y; row++) {
 System.out.print(mat[col][row] + " ");
