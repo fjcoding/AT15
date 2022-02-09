@@ -7,126 +7,113 @@ public class Ant {
     private int moves;
     private boolean wall;
     private Grid grid;
-    
 
-    public Ant(int xPos, int yPos, String direction, int moves, Grid grid){
+    public Ant(int xPos, int yPos, String direction, int moves, Grid grid) {
         this.xPos = xPos;
         this.yPos = yPos;
         this.direction = direction;
         this.moves = moves;
         this.grid = grid;
     }
-    public int getXPos(){
+    public int getXPos() {
         return xPos;
     }
-    public int getYPos(){
+    public int getYPos() {
         return yPos;
     }
-    public String getDirection(){
+    public String getDirection() {
         return direction;
     }
-    
-    public void setXPos(int xPos){
-        this.xPos = xPos;
+    public void setXPos(int xPosNew) {
+        this.xPos = xPosNew;
     }
-    public void setYPos(int yPos){
-        this.yPos = yPos;
+    public void setYPos(int yPosNew) {
+        this.yPos = yPosNew;
     }
-    public void setDirection(String direction){
-        this.direction = direction;
+    public void setDirection(String directionNew) {
+        this.direction = directionNew;
     }
-    public void wall (int currentXPos, int currentYPos, String currentDirection){
+    public void wall(int currentXPos, int currentYPos, String currentDirection) {
 
-        if (xPos == 0 && direction == "left"){
-            this.wall = true;                               
-        }else if (xPos == grid.getColumns() && direction == "right"){
-            this.wall = true;                
-        }else if (yPos == 0 && direction == "up"){
-            this.wall = true;                
-        }else if (yPos == grid.getRows()&& direction=="down"){
-            this.wall = true;               
-        }else if (yPos == 0 && xPos == 0 && (direction == "up" || direction == "left")){
-            this.wall = true;               
-        }else if (yPos == grid.getRows() && xPos == 0 && (direction == "down" || direction == "left")){
-            this.wall = true;               
-        }else if (yPos == 0 && xPos == grid.getColumns() && (direction == "up" || direction == "right")){
-            this.wall = true;                
-        }else if (yPos == grid.getRows() && xPos == grid.getColumns() && (direction == "down" || direction == "right")){
-            this.wall = true;              
+        if (xPos == 0 && direction == "left") {
+            this.wall = true;
+        } else if (xPos == grid.getColumns() && direction == "right") {
+            this.wall = true;
+        } else if (yPos == 0 && direction == "up") {
+            this.wall = true;
+        } else if (yPos == grid.getRows() && direction == "down") {
+            this.wall = true;
+        } else if (yPos == 0 && xPos == 0 && (direction == "up" || direction == "left")) {
+            this.wall = true;
+        } else if (yPos == grid.getRows() && xPos == 0 && (direction == "down" || direction == "left")) {
+            this.wall = true;
+        } else if (yPos == 0 && xPos == grid.getColumns() && (direction == "up" || direction == "right")) {
+            this.wall = true;
+        } else if (yPos == grid.getRows() && xPos == grid.getColumns() && (direction == "down" || direction == "right")) {
+            this.wall = true;
         }
     }
-    
-    public void antMovemenet (String currentDirection){
-        switch (currentDirection){
-            case "up": if (grid.isWhite(xPos, yPos)){
-                       grid.setBlack(xPos, yPos);
-                       setDirection("right");
-                       xPos++;
-                       grid.printGrid();
-                       }
-                       else{
-                           grid.setWhite(xPos, yPos);
-                           setDirection("left");
-                           xPos--;
-                           grid.printGrid();
-                       }
-                       break;
-            case "right": if (grid.isWhite(xPos, yPos)){
-                        grid.setBlack(xPos, yPos);
-                        setDirection("down");
-                        yPos++;
-                        grid.printGrid();
-                        }
-                        else{
-                            grid.setWhite(xPos, yPos);
-                            setDirection("up");
-                            yPos--;
-                            grid.printGrid();
-                        }
-                        break;
-            case "down": if (grid.isWhite(xPos, yPos)){
-                        grid.setBlack(xPos, yPos);
-                        setDirection("left");
-                        xPos--;
-                        grid.printGrid();
-                        }
-                        else{
-                            grid.setWhite(xPos, yPos);
-                            setDirection("right");
-                            xPos++;
-                            grid.printGrid();
-                        }
-                        break;
-            case "left": if (grid.isWhite(xPos, yPos)){
-                        grid.setBlack(xPos, yPos);
-                        setDirection("up");
-                        yPos--;
-                        grid.printGrid();
-                        }
-                        else{
-                            grid.setWhite(xPos, yPos);
-                            setDirection("down");
-                            yPos++;
-                            grid.printGrid();
-                        }
-                        break;
-        }
 
+    private void changeDirection(String currentDirection) {
+        if (grid.isWhite(xPos, yPos) && currentDirection.equals("up")) {
+              setDirection("right");
+        } else if (grid.isWhite(xPos, yPos) && currentDirection.equals("right")) {
+            setDirection("down");
+        } else if (grid.isWhite(xPos, yPos) && currentDirection.equals("down")) {
+            setDirection("left");
+        } else if (grid.isWhite(xPos, yPos) && currentDirection.equals("left")) {
+            setDirection("up");
+        } else if (!grid.isWhite(xPos, yPos) && currentDirection.equals("up")) {
+            setDirection("left");
+        } else if (!grid.isWhite(xPos, yPos) && currentDirection.equals("right")) {
+            setDirection("up");
+        } else if (!grid.isWhite(xPos, yPos) && currentDirection.equals("down")) {
+            setDirection("right");
+        } else if (!grid.isWhite(xPos, yPos) && currentDirection.equals("left")) {
+            setDirection("down");
+        }
     }
 
-    public void run(){ 
-        
+    private void changeColor() {
+        if (grid.isWhite(xPos, yPos)) {
+            grid.setBlack(xPos, yPos);
+        } else {
+            grid.setWhite(xPos, yPos);
+        }
+    }
+
+    private void newPosition(String currentDirection) {
+        if (currentDirection.equals("up")) {
+            yPos--;
+      } else if (currentDirection.equals("right")) {
+          xPos++;
+      } else if (currentDirection.equals("left")) {
+        xPos--;
+      } else if (currentDirection.equals("down")) {
+        yPos++;
+      }
+    }
+
+    public void antMovemenet(String currentDirection) {
+        changeColor();
+        changeDirection(currentDirection);
+        newPosition(currentDirection);
+        grid.printGrid();
+    }
+
+    public void run() {
+
         wall(xPos, yPos, direction);
-        
-        while (xPos >= 0 && yPos >= 0 && xPos < grid.getColumns() && yPos < grid.getRows()&& wall != true && moves !=0){
-            System.out.println("x:"+xPos+"\ny:"+yPos+"\ndirection: "+direction+"\ncolor: "+grid.isWhite(xPos, yPos));
+        if (wall) {
+            System.out.println("The Ant can't go on");
+        } else {
+                while (xPos >= 0 && yPos >= 0 && xPos < grid.getColumns() && yPos < grid.getRows() && moves != 0) {
+                System.out.println("x:" + xPos + "\ny:" + yPos + "\ndirection: " + direction + "\ncolor: " + grid.isWhite(xPos, yPos));
 
-            antMovemenet(direction);                  
+                antMovemenet(direction);
 
-            moves = moves -1;
+                moves = moves - 1;
+            }
         }
-
     }
-
-    
 }
