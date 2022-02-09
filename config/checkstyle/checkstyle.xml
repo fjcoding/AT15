@@ -99,7 +99,9 @@
     <!-- See https://checkstyle.org/config_naming.html -->
     <module name="ConstantName"/>
     <module name="LocalFinalVariableName"/>
-    <module name="LocalVariableName"/>
+    <module name="LocalVariableName">
+      <property name="format" value="^[a-z][_a-zA-Z0-9]{2,}$"/>
+    </module>
     <module name="MemberName"/>
     <module name="MethodName"/>
     <module name="PackageName"/>
