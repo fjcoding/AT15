@@ -43,6 +43,8 @@ switch (dir) {
 		mat[posCol][posRow] = "B";
 		posCol += 1;
 		break;
+	default:
+		break;
 }
 }
 else if (mat[posCol][posRow] == "B")
@@ -68,6 +70,8 @@ switch (dir)
 		dir = "U";
 		mat[posCol][posRow] = "W";
 		posCol -= 1;
+		break;
+	default:
 		break;
 }
 }
