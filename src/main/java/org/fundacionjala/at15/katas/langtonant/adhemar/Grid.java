@@ -3,7 +3,7 @@ package org.fundacionjala.at15.katas.langtonant.adhemar;
 public class Grid {
     private int rows;
     private int columns;
-    private boolean matrix[][];
+    private boolean[][] matrix;
 
     public Grid(int rows, int columns, boolean color) {
         this.rows = rows;
@@ -22,9 +22,9 @@ public class Grid {
 
     public void createMatrix(boolean color) {
         if (color) {
-            for (int i = 0; i < this.rows; i++) {
-                for (int j = 0; j < this.columns; j++) {
-                    this.matrix[i][j] = true;
+            for (int indexRow = 0; indexRow < this.rows; indexRow++) {
+                for (int indexCol = 0; indexCol < this.columns; indexCol++) {
+                    this.matrix[indexRow][indexCol] = true;
                 }
             }
         }

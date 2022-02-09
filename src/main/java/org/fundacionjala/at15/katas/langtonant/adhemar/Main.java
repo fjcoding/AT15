@@ -4,17 +4,18 @@ public class Main {
     public static void main(String[] args) {
         //Inputs
         //Grid's size
-        int rows = 11;
-        int columns = 11;
+        final int rows = 11;
+        final int columns = 11;
 
         //Initial ant's position
-        int initialRow = 10; //From 0 to n
-        int initialColumn = 8; //From 0 to n
-        
-        int steps = 100;
+        final int initialRow = 5; //From 0 to n
+        final int initialColumn = 4; //From 0 to n
+        final int steps = 10;
 
-        //Create a grid
-        boolean color = false; //false: white, true: black
+        //Grid initial color
+        final boolean color = false; //false: white, true: black
+
+        //Create grid
         Grid grid = new Grid(rows, columns, color);
 
         //Move the ant
@@ -22,6 +23,7 @@ public class Main {
         ant.start(steps, grid);
 
         //Show grid status
+        System.out.println("Grid status after " + steps + " steps taken by he ant:");
         grid.printGrid();
     }
 }
