@@ -7,10 +7,10 @@ private static String[][] mat;
 	public static void main(String[] args) {
 			System.out.println("This is Langton's Ant main class, you can do yout implementation here :)");
 			//Scanner scanner=new Scanner(System.in);
-			int x = 11;
+			int cols = 11;
 			int y = 11;
-			mat = new String[x][y];
-			for (int i = 0; i < x; i++)
+			mat = new String[cols][y];
+			for (int i = 0; i < cols; i++)
 			{
 					for (int j = 0; j < y; j++)
 					{
@@ -75,7 +75,7 @@ private static String[][] mat;
 							break;
 					}
 				}
-				print(x, y);
+				print(cols, y);
 			}
 	}
 	private static void print(int x, int y)
