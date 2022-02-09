@@ -35,5 +35,21 @@ public class Grid {
             System.out.println();
         }
     }
+    public int getPos(int x, int y)
+    {
+        return grid[x][y];
+    }
+    public void changePos(int x, int y)
+    {
+        grid[x][y]='X';
+    }
+    public int getSizex()
+    {
+        return sizeX;
+    }
+    public int getSizey()
+    {
+        return sizeY;
+    }
 
 }
