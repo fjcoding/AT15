@@ -8,10 +8,8 @@ private static final int COLS = 11;
 private static final int ROWS = 11;
 public static void main(String[] args) {
 mat = new String[COLS][ROWS];
-for (int cols = 0; cols < COLS; cols++)
-{
-		for (int j = 0; j <ROWS; j++)
-		{
+for (int cols = 0; cols < COLS; cols++) {
+		for (int j = 0; j <ROWS; j++) {
 			mat[cols][j] = "W";
 		}
 }
