@@ -100,8 +100,8 @@
     <module name="ConstantName"/>
     <module name="LocalFinalVariableName"/>
     <module name="LocalVariableName">
-      <!-- <property name="format" value="^[a-z][_a-zA-Z0-9]{2,}$"/> -->
-      <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+      <property name="format" value="^[a-z][_a-zA-Z0-9]{2,}$"/>
+      <!-- <property name="format" value="^[a-z][a-zA-Z0-9]*$"/> -->
     </module>
     <module name="MemberName"/>
     <module name="MethodName"/>

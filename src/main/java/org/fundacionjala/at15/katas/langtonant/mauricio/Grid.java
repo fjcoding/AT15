@@ -34,17 +34,17 @@ public class Grid {
     }
 
     public void fillGrid() {
-        for (int i = 1; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                grid[i][j] = 0;
+        for (int vari = 1; vari < rows; vari++) {
+            for (int varj = 0; varj < columns; varj++) {
+                grid[vari][varj] = 0;
             }
         }
     }
 
     public void printGrid() {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                System.out.print(grid[i][j] + "  ");
+        for (int vari = 0; vari < rows; vari++) {
+            for (int varj = 0; varj < columns; varj++) {
+                System.out.print(grid[vari][varj] + "  ");
             }
             System.out.println();
         }

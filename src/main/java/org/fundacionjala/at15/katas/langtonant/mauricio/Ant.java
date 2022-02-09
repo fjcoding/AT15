@@ -19,7 +19,6 @@ public class Ant {
     public void nextStep() {
         switch (direction) {
             case "up":
-                // System.out.println("UP");
                 if (grid.getSquare(posX, posY) == 1) {
                     if (isValidNextPosition(posX, posY + 1, "right")) {
                         grid.changeSquare(posX, posY); // Change square to 1 or 0
