@@ -2,15 +2,15 @@ package org.fundacionjala.at15.katas.langtonant.mauricio;
 
 public class Grid {
     // We define the attributes
-    int[][] grid;
-    int rows;
-    int columns;
+    private int[][] grid;
+    private int rows;
+    private int columns;
 
     public Grid(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
         grid = new int[rows][columns];
-        fillGrid();
+
     }
 
     public int getRows() {
@@ -26,14 +26,15 @@ public class Grid {
     }
 
     public void changeSquare(int x, int y) {
-        if (grid[x][y] == 1)
+        if (grid[x][y] == 1) {
             grid[x][y] = 0;
-        else
+        } else {
             grid[x][y] = 1;
+        }
     }
 
     public void fillGrid() {
-        for (int i = 0; i < rows; i++) {
+        for (int i = 1; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 grid[i][j] = 0;
             }
