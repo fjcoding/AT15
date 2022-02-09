@@ -21,59 +21,57 @@ mat[cols][rows] = "W";
 }
 String dir = "U";
 for (int countRep = 0; countRep < rep; countRep++) {
-	if (mat[posCol][posRow] == "W")
-	{
-		switch (dir)
-		{
-			case "U":
-				dir = "R";
-				mat[posCol][posRow] = "B";
-				posRow += 1;
-				break;
-			case "D":
-				dir = "L";
-				mat[posCol][posRow] = "B";
-				posRow -= 1;
-				break;
-			case "L":
-				dir = "U";
-				mat[posCol][posRow] = "B";
-				posCol -= 1;
-				break;
-			case "R":
-				dir = "D";
-				mat[posCol][posRow] = "B";
-				posCol += 1;
-				break;
-		}
-	}
-	else if (mat[posCol][posRow] == "B")
-	{
-		switch (dir)
-		{
-			case "U":
-				dir = "L";
-				mat[posCol][posRow] = "W";
-				posRow -= 1;
-				break;
-			case "D":
-				dir = "R";
-				mat[posCol][posRow] = "W";
-				posRow += 1;
-				break;
-			case "L":
-				dir = "D";
-				mat[posCol][posRow] = "W";
-				posCol += 1;
-				break;
-			case "R":
-				dir = "U";
-				mat[posCol][posRow] = "W";
-				posCol -= 1;
-				break;
-		}
-	}
-	print(COLS,ROWS);
+if (mat[posCol][posRow] == "W") {
+switch (dir) {
+	case "U":
+		dir = "R";
+		mat[posCol][posRow] = "B";
+		posRow += 1;
+		break;
+	case "D":
+		dir = "L";
+		mat[posCol][posRow] = "B";
+		posRow -= 1;
+		break;
+	case "L":
+		dir = "U";
+		mat[posCol][posRow] = "B";
+		posCol -= 1;
+		break;
+	case "R":
+		dir = "D";
+		mat[posCol][posRow] = "B";
+		posCol += 1;
+		break;
+}
+}
+else if (mat[posCol][posRow] == "B")
+{
+switch (dir)
+{
+	case "U":
+		dir = "L";
+		mat[posCol][posRow] = "W";
+		posRow -= 1;
+		break;
+	case "D":
+		dir = "R";
+		mat[posCol][posRow] = "W";
+		posRow += 1;
+		break;
+	case "L":
+		dir = "D";
+		mat[posCol][posRow] = "W";
+		posCol += 1;
+		break;
+	case "R":
+		dir = "U";
+		mat[posCol][posRow] = "W";
+		posCol -= 1;
+		break;
+}
+}
+print(COLS,ROWS);
 }
 }
 	private static void print(int x, int y)
