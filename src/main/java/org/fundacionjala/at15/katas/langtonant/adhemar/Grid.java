@@ -39,11 +39,14 @@ public class Grid {
     }
 
     public void printGrid() {
+        String square;
         for (int indexRow = 0; indexRow < this.rows; indexRow++) {
+            System.out.print("|");
             for (int indexCol = 0; indexCol < this.columns; indexCol++) {
-                System.out.print(this.matrix[indexRow][indexCol] + " ");
+                square = this.matrix[indexRow][indexCol] ? "X " : "_ ";
+                System.out.print(square);
             }
-            System.out.println();
+            System.out.println("|");
         }
         System.out.println();
     }

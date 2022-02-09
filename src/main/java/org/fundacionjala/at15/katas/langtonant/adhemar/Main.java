@@ -10,7 +10,7 @@ public class Main {
         //Initial ant's position
         final int initialRow = 5; //From 0 to n
         final int initialColumn = 4; //From 0 to n
-        final int steps = 10;
+        final int steps = 100;
 
         //Grid initial color
         final boolean color = false; //false: white, true: black
