@@ -5,10 +5,14 @@ public class Main {
         System.out.println("This is Langton's Ant main class, you can do yout implementation here :)");
         System.out.println();
 
-        Board tabler = new Board(30, 30);//size of the board
-        Ant ant = new Ant(15, 15, 0, tabler);//Ant object with initial position in x and y, also a direction, and the table where it will move
+        final int boardSizeY = 30;
+        final int boardSizeX = 30;
+        final int antPosY = 15;
+        final int antPosX = 15;
+        final int steps = 100;
+        Board tabler = new Board(boardSizeY, boardSizeX); //size of the board
+        Ant ant = new Ant(antPosY, antPosX, 0, tabler); //Ant object with initial position in x and y, a direction, and the table where it will move
 
-        ant.draw(100);//draw(n); where 'n' is the steps taken by the "ant"
+        ant.draw(steps); //draw(n); where 'n' is the steps taken by the "ant"
     }
-
 }
