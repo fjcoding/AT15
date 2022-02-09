@@ -113,6 +113,8 @@ public class Ant {
                     flag = true;
                 }
                 break;
+            default:
+                flag = false;
         }
         return flag;
     }
