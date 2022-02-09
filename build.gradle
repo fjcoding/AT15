@@ -16,12 +16,17 @@ checkstyleMain {
     source = 'src/main/java'
 }
 
-task runLangtonAnt (dependsOn: 'classes', type: JavaExec) {
+task runLangtonAntAdrian (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.adrian.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task adrianExample (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.adrian.MainAdrian'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task runLangtonAntAdhemar (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.langtonant.adhemar.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
