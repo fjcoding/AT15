@@ -7,7 +7,10 @@ public class Main {
         int rows = 11;
         int columns = 11;
 
-        int[] initialPosition = {5, 5};
+        //Initial ant's position
+        int initialRow = 10; //From 0 to n
+        int initialColumn = 8; //From 0 to n
+        
         int steps = 100;
 
         //Create a grid
@@ -15,7 +18,7 @@ public class Main {
         Grid grid = new Grid(rows, columns, color);
 
         //Move the ant
-        Ant ant = new Ant(initialPosition[0], initialPosition[1]);
+        Ant ant = new Ant(initialRow, initialColumn);
         ant.start(steps, grid);
 
         //Show grid status
