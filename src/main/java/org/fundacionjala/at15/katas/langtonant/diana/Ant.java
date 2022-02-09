@@ -25,15 +25,17 @@ public class Ant {
                         grid.changeSquare(posX, posY);
                         posY++;
                         this.direction = "right";
-                    } else
+                    } else {
                         finished = true;
+                    }
                 } else {
                     if (isValidNextPosition(posX, posY - 1, "left or right")) {
                         grid.changeSquare(posX, posY);
                         posY--;
                         this.direction = "left";
-                    } else
+                    } else {
                         finished = true;
+                    }
                 }
                 break;
             case "right":
@@ -42,15 +44,17 @@ public class Ant {
                         grid.changeSquare(posX, posY);
                         posX++;
                         direction = "down";
-                    } else
+                    } else {
                         finished = true;
+                    }
                 } else {
                     if (isValidNextPosition(posX - 1, posY, "up or down")) {
                         grid.changeSquare(posX, posY);
                         posX--;
                         direction = "up";
-                    } else
+                    } else {
                         finished = true;
+                    }
                 }
                 break;
             case "left":
@@ -59,15 +63,17 @@ public class Ant {
                         grid.changeSquare(posX, posY);
                         posX--;
                         direction = "up";
-                    } else
+                    } else {
                         finished = true;
+                    }
                 } else {
                     if (isValidNextPosition(posX + 1, posY, "up or down")) {
                         grid.changeSquare(posX, posY);
                         posX++;
                         direction = "down";
-                    } else
+                    } else {
                         finished = true;
+                    }
                 }
                 break;
             case "down":
@@ -76,15 +82,17 @@ public class Ant {
                         grid.changeSquare(posX, posY);
                         posY--;
                         direction = "left";
-                    } else
+                    } else {
                         finished = true;
+                    }
                 } else {
                     if (isValidNextPosition(posX, posY + 1, "left or right")) {
                         grid.changeSquare(posX, posY);
                         posY++;
                         direction = "right";
-                    } else
+                    } else {
                         finished = true;
+                    }
                     break;
                 }
         }
