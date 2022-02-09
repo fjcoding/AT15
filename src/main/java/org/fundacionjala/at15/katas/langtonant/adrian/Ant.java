@@ -1,22 +1,22 @@
 package org.fundacionjala.at15.katas.langtonant.adrian;
 
 public class Ant {
-    private int valueinx;
-    private int valueiny;
+    private int valueInX;
+    private int valueInY;
     private int state;
     private final int up = 0;
     private final int right = 1;
     private final int down = 2;
     private final int left = 3;
     private int direction;
-    private Board tablero;
+    private Board grid;
 
-    public Ant(int valueinx, int valueiny, int direction, Board tablero) {
-        this.valueinx = valueinx;
-        this.valueiny = valueiny;
+    public Ant(int valueInX, int valueInY, int direction, Board grid) {
+        this.valueInX = valueInX;
+        this.valueInY = valueInY;
         this.direction = direction;
-        this.tablero = tablero;
-        state = tablero.getPosTablero(valueiny, valueinx);
+        this.grid = grid;
+        state = grid.getPosGrid(valueInY, valueInX);
     }
 
     public void turnRight() {
@@ -34,49 +34,49 @@ public class Ant {
     public void moveForward() {
         switch (direction) {
                 case up:
-                state = tablero.getPosTablero(valueiny - 1, valueinx);
-                valueiny = valueiny - 1;
+                state = grid.getPosGrid(valueInY - 1, valueInX);
+                valueInY = valueInY - 1;
                 break;
                 case right:
-                state = tablero.getPosTablero(valueiny, valueinx + 1);
-                valueinx = valueinx + 1;
+                state = grid.getPosGrid(valueInY, valueInX + 1);
+                valueInX = valueInX + 1;
                 break;
                 case down:
-                state = tablero.getPosTablero(valueiny + 1, valueinx);
-                valueiny = valueiny + 1;
+                state = grid.getPosGrid(valueInY + 1, valueInX);
+                valueInY = valueInY + 1;
                 break;
                 case left:
-                state = tablero.getPosTablero(valueiny, valueinx - 1);
-                valueinx = valueinx - 1;
+                state = grid.getPosGrid(valueInY, valueInX - 1);
+                valueInX = valueInX - 1;
                 break;
                 default:
                 System.out.println("Error while moving forward");
             }
 
-            if (valueinx > tablero.getWidth() - 1) {
-                valueinx = 0;
-            } else if (valueinx < 0) {
-                valueinx = tablero.getWidth() - 1;
+            if (valueInX > grid.getWidth() - 1) {
+                valueInX = 0;
+            } else if (valueInX < 0) {
+                valueInX = grid.getWidth() - 1;
             }
-            if (valueiny > tablero.getHeight() - 1) {
-                valueiny = 0;
-            } else if (valueiny < 0) {
-                valueiny = tablero.getHeight() - 1;
+            if (valueInY > grid.getHeight() - 1) {
+                valueInY = 0;
+            } else if (valueInY < 0) {
+                valueInY = grid.getHeight() - 1;
             }
     }
     public void draw(int n) {
         while (n > 0) {
             if (state == 0) {
                 turnRight();
-                tablero.setPos1(valueiny, valueinx);
+                grid.setPos1(valueInY, valueInX);
                 moveForward();
             } else if (state == 1) {
                 turnLeft();
-                tablero.setPos0(valueiny, valueinx);
+                grid.setPos0(valueInY, valueInX);
                 moveForward();
             }
             n--;
         }
-        tablero.print();
+        grid.print();
     }
 }

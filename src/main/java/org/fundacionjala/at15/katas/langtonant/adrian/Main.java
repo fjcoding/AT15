@@ -10,8 +10,8 @@ public class Main {
         final int antPosY = 15;
         final int antPosX = 15;
         final int steps = 100;
-        Board tabler = new Board(boardSizeY, boardSizeX); //size of the board
-        Ant ant = new Ant(antPosY, antPosX, 0, tabler); //Ant object with initial position in x and y, a direction, and the table where it will move
+        Board grid = new Board(boardSizeY, boardSizeX); //size of the board
+        Ant ant = new Ant(antPosY, antPosX, 0, grid); //Ant object with initial position in x and y, a direction, and the board where it will move
 
         ant.draw(steps); //draw(n); where 'n' is the steps taken by the "ant"
     }

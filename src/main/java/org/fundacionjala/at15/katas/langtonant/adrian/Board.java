@@ -24,10 +24,10 @@ public class Board {
         }
     }
 
-    public int[][] getTablero() {
+    public int[][] getGrid() {
         return grid;
     }
-    public int getPosTablero(int y, int x) {
+    public int getPosGrid(int y, int x) {
         return grid[y][x];
     }
     public int getHeight() {
