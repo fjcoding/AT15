@@ -123,7 +123,7 @@ public class Ant {
         grid.printGrid();
         System.out.println();
         while (n > 0) {
-            if (finished == false) {
+            if (!finished) {
                 nextStep();
                 n--;
             }
