@@ -95,6 +95,8 @@ public class Ant {
                     }
                     break;
                 }
+            default:
+                finished = false;
         }
     }
 

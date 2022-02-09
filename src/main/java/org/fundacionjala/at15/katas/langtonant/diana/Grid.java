@@ -14,17 +14,17 @@ public class Grid {
     }
 
     public void fillGrid() { // Fill the matrix with 1
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                grid[i][j] = 1; // Fill the Grid with '1' (white)
+        for (int indexRows = 0; indexRows < rows; indexRows++) {
+            for (int indexColumns = 0; indexColumns < columns; indexColumns++) {
+                grid[indexRows][indexColumns] = 1; // Fill the Grid with '1' (white)
             }
         }
     }
 
     public void printGrid() { // Print the matrix
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                System.out.print(grid[i][j] + "  ");
+        for (int indexRows = 0; indexRows < rows; indexRows++) {
+            for (int indexColumns = 0; indexColumns < columns; indexColumns++) {
+                System.out.print(grid[indexRows][indexColumns] + "  ");
             }
             System.out.println();
         }
@@ -35,10 +35,11 @@ public class Grid {
     }
 
     public void changeSquare(int x, int y) { // Get the value or the matrix
-        if (grid[x][y] == 1)
+        if (grid[x][y] == 1) {
             grid[x][y] = 0;
-        else
+        } else {
             grid[x][y] = 1;
+        }
     }
 
     public int getRows() { // returns number of rows
