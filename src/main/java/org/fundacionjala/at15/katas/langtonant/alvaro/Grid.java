@@ -18,38 +18,33 @@ public class Grid {
 
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
-                grid[x][y]='O'; //llenamos blanco
+                grid[x][y]=0; //llenamos blanco
              }
         }
     }  
     public void printGrid() {
         for (int x = 0; x < sizeX; x++) {
-            for (int y = 0; y < sizeY; y++) {
-                 
-                
+            for (int y = 0; y < sizeY; y++) 
+            {
+
                 System.out.print(grid[x][y]);
                 System.out.print(" ");
-
-                
             }
             System.out.println();
         }
     }
     public int getPos(int x, int y)
     {
+        //System.out.println("prueba"+grid[x][y]);
         return grid[x][y];
     }
-    public void changePos(int x, int y)
+    public void changetoWhite(int x, int y) // cambia de blanco a negro
     {
-        grid[x][y]='X';
+        grid[x][y]=0;
     }
-    public int getSizex()
+    public void changetoBlack(int x, int y) //
     {
-        return sizeX;
-    }
-    public int getSizey()
-    {
-        return sizeY;
+        grid[x][y]=8;
     }
 
 }
