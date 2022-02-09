@@ -35,13 +35,13 @@ public class Ant {
 
     public void turn(boolean color) {
         if (color) {
-            if ( this.direction - 1 == 0) {
+            if (this.direction - 1 == 0) {
                 this.direction = 4;
             } else {
                 this.direction = this.direction - 1;
             }
         } else {
-            if( this.direction + 1 == 5) {
+            if(this.direction + 1 == 5) {
                 this.direction = 1;
             } else {
                 this.direction = this.direction + 1;
