@@ -1,7 +1,4 @@
 package org.fundacionjala.at15.katas.langtonant.vladimir;
-
-import java.util.*;
-
 public class Main {
 private static String[][] mat;
 private static final int COLS = 11;
