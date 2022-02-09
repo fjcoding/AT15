@@ -9,9 +9,9 @@ private static final int ROWS = 11;
 public static void main(String[] args) {
 mat = new String[COLS][ROWS];
 for (int cols = 0; cols < COLS; cols++) {
-		for (int j = 0; j <ROWS; j++) {
-			mat[cols][j] = "W";
-		}
+for (int rows = 0; rows < ROWS; rows++) {
+mat[cols][rows] = "W";
+}
 }
 int posx = 5;
 int posy = 5;
