@@ -76,18 +76,15 @@ print(COLS, ROWS);
 }
 }
 private static void print(int x, int y)
-	{
-		for (int i = 0; i < x; i++)
-		{
-			for (int j = 0; j < y; j++)
-			{
-				System.out.print(mat[i][j] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println("---------------------------------------");
-		System.out.println();
-
-	}
+{
+for (int col = 0; col < x; col++) {
+for (int row = 0; row < y; row++) {
+System.out.print(mat[col][row] + " ");
+}
+System.out.println();
+}
+System.out.println("---------------------------------------");
+System.out.println();
+}
 }
 
