@@ -4,13 +4,13 @@ import java.util.*;
 
 public class Main {
 private static String[][] mat;
-private static final int COLS=11;
+private static final int COLS = 11;
+private static final int ROWS = 11;
 public static void main(String[] args) {
-int y = 11;
-mat = new String[COLS][y];
+mat = new String[COLS][ROWS];
 for (int i = 0; i < COLS; i++)
 {
-		for (int j = 0; j < y; j++)
+		for (int j = 0; j <ROWS; j++)
 		{
 			mat[i][j] = "W";
 		}
@@ -73,7 +73,7 @@ for (int i = 0; i < rep; i++)
 				break;
 		}
 	}
-	print(COLS, y);
+	print(COLS,ROWS);
 }
 }
 	private static void print(int x, int y)
