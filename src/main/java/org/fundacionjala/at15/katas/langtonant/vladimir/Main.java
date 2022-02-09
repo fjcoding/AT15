@@ -20,8 +20,7 @@ mat[cols][rows] = "W";
 }
 }
 String dir = "U";
-for (int i = 0; i < rep; i++)
-{
+for (int countRep = 0; countRep < rep; countRep++) {
 	if (mat[posCol][posRow] == "W")
 	{
 		switch (dir)
