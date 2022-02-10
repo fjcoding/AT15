@@ -4,13 +4,13 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("This is Gonzalo's Kata Langtonant exercise");
         String pos = "up";
-        int nomRandomSteps = 11;
-        int numRandomPos = 10;
+        final int nomRandomSteps = 11;
+        final int numRandomPos = 10;
         int steps = (int) (Math.random() * nomRandomSteps);
         int initialPosX = (int) (Math.random() * numRandomPos);
         int initialPosY = (int) (Math.random() * numRandomPos);
-        int wideGrid = 10;
-        int highGrid = 10;
+        final int wideGrid = 10;
+        final int highGrid = 10;
         System.out.println("The grid is: " + wideGrid + "*" + highGrid + ":");
         System.out.println("this is the numbers of steps: " + steps + ",this is the X position: "
         + initialPosX + ",this is the Y position: " + initialPosY + ":");
