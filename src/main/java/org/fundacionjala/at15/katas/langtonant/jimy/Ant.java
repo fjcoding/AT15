@@ -1,139 +1,144 @@
 package org.fundacionjala.at15.katas.langtonant.jimy;
-
-public class Ant{
+public class Ant {
     private int posX;
     private int posY;
-    private Grid grid;
+    private Board board;
     private String direction;
     private boolean finished;
 
-    public Ant(int x, int y, Grid grid, String direction){
+    public Ant(int x, int y, Board board, String direction) {
         posX = x;
         posY = y;
-        this.grid = grid;
+        this.board = board;
         this.direction = direction;
-        finished = false;           // the game is ready
+        finished = false;
     }
 
-    // 0 -> negro   (left)
-    // 1 -> blanco (right)
-    public void nextStep(){
+    // 0 -> black square   (left)
+    // 1 -> white square (right)
+    public void nextStep() {
         switch (direction) {
             case "up":
-                //System.out.println("UP");
-                if(grid.getSquare(posX, posY) == 1){            // is White?
-                    if(isValidNextPosition(posX, posY+1, "right")){
-                        grid.changeSquare(posX, posY);
+                if (board.getPosition(posX, posY) == 1) {
+                    if (isInBoard(posX, posY + 1, "right")) {
+                        board.changeStatePosition(posX, posY);
                         posY += 1;
                         this.direction = "right";
-                    }else
+                    } else {
                         finished = true;
-                }else{
-                    if(isValidNextPosition(posX, posY-1, "left")){
-                        grid.changeSquare(posX, posY);
+                    }
+                } else {
+                    if (isInBoard(posX, posY - 1, "left")) {
+                        board.getPosition(posX, posY);
                         posY -= 1;
                         this.direction = "left";
-                    }else  
+                    } else {
                         finished = true;
+                    }
                 }
                 break;
             case "right":
-                //System.out.println("entro RIGHT");
-                if(grid.getSquare(posX, posY) == 1){
-                    if(isValidNextPosition(posX+1, posY, "down")){
-                        grid.changeSquare(posX, posY);
+                if (board.getPosition(posX, posY) == 1) {
+                    if (isInBoard(posX + 1, posY, "down")) {
+                        board.changeStatePosition(posX, posY);
                         posX++;
                         direction = "down";
-                    }else
+                    } else {
                         finished = true;
-                }else{
-                    if(isValidNextPosition(posX-1, posY, "up")){
-                        grid.changeSquare(posX, posY);
+                    }
+                } else {
+                    if (isInBoard(posX - 1, posY, "up")) {
+                        board.changeStatePosition(posX, posY);
                         posX--;
                         direction = "up";
-                    }else
+                    } else {
                         finished = true;
+                    }
                 }
                 break;
-
             case "left":
-                if(grid.getSquare(posX, posY) == 1){
-                    if(isValidNextPosition(posX-1, posY, "up")){
-                        grid.changeSquare(posX, posY);
+                if (board.getPosition(posX, posY) == 1) {
+                    if (isInBoard(posX - 1, posY, "up")) {
+                        board.changeStatePosition(posX, posY);
                         posX--;
                         direction = "up";
-                    }else
+                    } else {
                         finished = true;
-                }else{
-                    if(isValidNextPosition(posX+1, posY, "down")){
-                        grid.changeSquare(posX, posY);
+                    }
+                } else {
+                    if (isInBoard(posX + 1, posY, "down")) {
+                        board.getPosition(posX, posY);
                         posX++;
                         direction = "down";
-                    }else
+                    } else {
                         finished = true;
+                    }
                 }
                 break;
-
             case "down":
-                if(grid.getSquare(posX, posY) == 1){
-                    if(isValidNextPosition(posX, posY-1, "left")){
-                        grid.changeSquare(posX, posY);
+                if (board.getPosition(posX, posY) == 1) {
+                    if (isInBoard(posX, posY - 1, "left")) {
+                        board.changeStatePosition(posX, posY);
                         posY--;
                         direction = "left";
-                    }else
+                    } else {
                         finished = true;
-                }else{
-                    if(isValidNextPosition(posX, posY+1, "right")){
-                        grid.changeSquare(posX, posY);
+                    }
+                } else {
+                    if (isInBoard(posX, posY + 1, "right")) {
+                        board.changeStatePosition(posX, posY);
                         posY++;
                         direction = "right";
-                    }else
+                    } else {
                         finished = true;
-                    break;
-            
+                    }
                 }
+                break;
+            default:
+                break;
         }
-            
     }
 
-    public boolean isValidNextPosition(int x, int y, String dir){
+    public boolean isInBoard(int x, int y, String dir) {
         boolean flag = false;
-        
         switch (dir) {
             case "up":
-                if(x > 0)
+                if (x > 0) {
                     flag = true;
+                }
                 break;
-
             case "left":
-                if(y > 0)
+                if (y > 0) {
                     flag = true;
+                }
                 break;
-
             case "right":
-                if(y < grid.getColumns()-1)
+                if (y < board.getColumns() - 1) {
                     flag = true;
-                    break;
-
+                }
+                break;
             case "down":
-                if(x < grid.getRows()-1)
+                if (x < board.getRows() - 1) {
                     flag = true;
-                    break;
+                }
+                break;
+            default:
+                break;
         }
         return flag;
     }
 
-    public void game(int n){
-        grid.printGrid();
+    public void playGame(int n) {
+        board.printBoard();
         System.out.println();
-        while(n > 0){
-            if(finished == false){
+        while (n > 0) {
+            if (!finished) {
                 nextStep();
                 n--;
             }
             System.out.println();
-            grid.printGrid();
+            board.printBoard();
         }
-        System.out.println("The game is over...");
+        System.out.println("Game Over");
     }
 }
