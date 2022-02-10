@@ -3,9 +3,9 @@ package org.fundacionjala.at15.katas.langtonant.agustin;
 public class Grid {
 
     // variables
-    boolean [][] grid; // bi-dimensional boolean array. ! Non initialized boolean (primitive) value is false !
-    int height;
-    int width;
+    private final boolean[][] grid; // bi-dimensional boolean array. ! Non initialized boolean (primitive) value is false !
+    private final int height;
+    private final int width;
 
     // constructor
     public Grid(int height, int width) {
@@ -13,8 +13,6 @@ public class Grid {
         this.width = width;
         grid = new boolean[height][width];
     }
-
-    // Methods
 
     // getters
 
@@ -26,24 +24,28 @@ public class Grid {
         return width;
     }
 
-    public boolean isWhite(int h, int w) {
-        return grid[h][w];
+    public boolean isWhite(int heightParam, int widthParam) {
+        return grid[heightParam][widthParam];
     }
 
     // setters
 
-    protected void setWhite(int h, int w) {
-        if (h < height && w < width) grid[h][w] = true;
+    protected void setWhite(int hei, int wid) {
+        if (hei < height && wid < width) {
+            grid[hei][wid] = true;
+        }
     }
 
-    protected void setBlack(int h, int w) {
-        if (h < height && w < width) grid[h][w] = true;
+    protected void setBlack(int hei, int wid) {
+        if (hei < height && wid < width) {
+            grid[hei][wid] = true;
+        }
     }
 
     public void printGrid() {
-        for (int h = 0; h < height-1; h++) {
-            for (int w = 0; w < width-1; w++) {
-                if (isWhite(h,w)) {
+        for (int hei = 0; hei < height - 1; hei++) {
+            for (int wid = 0; wid < width - 1; wid++) {
+                if (isWhite(hei, wid)) {
                     System.out.print("[ ]");
                 } else {
                     System.out.print("[x]");

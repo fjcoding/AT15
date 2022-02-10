@@ -3,12 +3,11 @@ package org.fundacionjala.at15.katas.langtonant.agustin;
 public class Ant {
 
     // variables
-    int xPos;
-    int yPos;
-    // direction
-    String direction;
-    Grid grid;
-    int steps;
+    private int xPos;
+    private int yPos;
+    private String direction;
+    private final Grid grid;
+    private int steps;
 
     public Ant(int xPos, int yPos, String direction, Grid grid, int steps) {
         // constructor
@@ -19,17 +18,36 @@ public class Ant {
         this.steps = steps;
     }
 
+    public int getxPos() {
+        return xPos;
+    }
+
+    public int getyPos() {
+        return yPos;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public Grid getGrid() {
+        return grid;
+    }
+
+    public int getSteps() {
+        return steps;
+    }
 
     // Setters
 
-    public void setDirection(String direction) {
-        this.direction = direction;
+    public void setDirection(String directionParam) {
+        this.direction = directionParam;
     }
 
     public void printCoordinates() {
 
-        System.out.println("x: " + xPos + ", " + "y: " + yPos + ", " +
-                "Facing: " + direction + ", " + "Color: " + (grid.isWhite(xPos, yPos) ? "BLACK" : "WHITE"));
+        System.out.println("x: " + xPos + ", " + "y: " + yPos + ", " + "Facing: " + direction
+                + ", " + "Color: " + (grid.isWhite(xPos, yPos) ? "BLACK" : "WHITE"));
     }
 
     public void moveNorth() {
@@ -72,41 +90,42 @@ public class Ant {
 
                 case "NORTH":
                     if (grid.isWhite(xPos, yPos)) {
-                        grid.setBlack(xPos,yPos);
+                        grid.setBlack(xPos, yPos);
                         moveWest();
                     } else {
-                        grid.setWhite(xPos,yPos);
+                        grid.setWhite(xPos, yPos);
                         moveEast();
                     }
                     break;
 
                 case "WEST":
-                    if(grid.isWhite(xPos, yPos)) {
-                        grid.setBlack(xPos,yPos);
+                    if (grid.isWhite(xPos, yPos)) {
+                        grid.setBlack(xPos, yPos);
                         moveSouth();
                     } else {
-                        grid.setWhite(xPos,yPos);
+                        grid.setWhite(xPos, yPos);
                         moveNorth();
                     }
                     break;
 
                 case "SOUTH":
-                    if(grid.isWhite(xPos,yPos)) {
-                        grid.setBlack(xPos,yPos);
+                    if (grid.isWhite(xPos, yPos)) {
+                        grid.setBlack(xPos, yPos);
                         moveEast();
                     } else {
-                        grid.setWhite(xPos,yPos);
+                        grid.setWhite(xPos, yPos);
                         moveWest();
                     }
                     break;
                 case "EAST":
-                    if(grid.isWhite(xPos,yPos)) {
-                        grid.setBlack(xPos,yPos);
+                    if (grid.isWhite(xPos, yPos)) {
+                        grid.setBlack(xPos, yPos);
                         moveNorth();
                     } else {
-                        grid.setBlack(xPos,yPos);
+                        grid.setBlack(xPos, yPos);
                         moveSouth();
                     }
+                default: break;
             }
         }
     }
