@@ -41,7 +41,6 @@ public class Ant {
                 }
                 break;
             case "right":
-                //System.out.println("entro RIGHT");
                 if (grid.getSquare(posX, posY) == 1) {
                     if (isValidNextPosition(posX + 1, posY, "down")) {
                         grid.changeSquare(posX, posY);
