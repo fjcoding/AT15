@@ -1,8 +1,20 @@
+apply plugin: 'jacoco'
 apply plugin: 'java'
 apply plugin: 'checkstyle'
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+}
+
+test {
+    testLogging {
+        events "failed"
+        exceptionFormat "full"
+    }
 }
 
 checkstyle {
@@ -16,12 +28,33 @@ checkstyleMain {
     source = 'src/main/java'
 }
 
-task runLangtonAnt (dependsOn: 'check', type: JavaExec) {
-    main = 'org.fundacionjala.at15.katas.langtonant.Main'
+checkstyleTest {
+    source = 'src/main/java'
+}
+
+check.dependsOn jacocoTestReport
+
+test.finalizedBy("checkstyleMain")
+test.finalizedBy("jacocoTestReport")
+
+task runLangtonAntAdrian (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.langtonant.adrian.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
 
+<<<<<<< HEAD
 task runLangtonAntSergio (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.sergio.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
+=======
+task adrianExample (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.langtonant.adrian.MainAdrian'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task runLangtonAntAdhemar (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.langtonant.adhemar.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
+>>>>>>> dev/langtonant
