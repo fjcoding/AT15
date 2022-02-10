@@ -23,8 +23,8 @@ public class Main {
         int steps = amountSteps;
         int counter = 0;
         grid.loadGrid();
-        int valueBlack = 0;
-        int valueWhite = 1;
+        int valueBlack = 'X';
+        int valueWhite = ' ';
         while (counter < steps) {
             if (orient == "up" && grid.getPosition(posX, posY) == valueBlack) {
                 loadFunctionOfGrid(posX, posY, grid);
