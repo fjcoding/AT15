@@ -12,8 +12,7 @@ public class Main {
         final int wideGrid = 10;
         final int highGrid = 10;
         System.out.println("The grid is: " + wideGrid + "*" + highGrid + ":");
-        System.out.println("this is the numbers of steps: " + steps + ",this is the X position: "
-        + initialPosX + ",this is the Y position: " + initialPosY + ":");
+        System.out.println("this is the numbers of steps: " + steps + ",this is the X position: " + initialPosX + ",this is the Y position: " + initialPosY + ":");
         move(steps, pos, initialPosX, initialPosY, wideGrid, highGrid);
     }
     static void move(int amountSteps, String orientation, int posX, int posY, int wide, int high) {
