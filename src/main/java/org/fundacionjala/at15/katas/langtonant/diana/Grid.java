@@ -3,20 +3,20 @@ package org.fundacionjala.at15.katas.langtonant.diana;
 public class Grid {
     private int rows;
     private int columns;
-    private int[][] grid;
+    private int[][] matrix;
 
     public Grid(int rows, int columns) {
 
         this.rows = rows;
         this.columns = columns;
-        grid = new int[rows][columns];
+        matrix = new int[rows][columns];
         fillGrid();
     }
 
     public void fillGrid() { // Fill the matrix with 1
         for (int indexRows = 0; indexRows < rows; indexRows++) {
             for (int indexColumns = 0; indexColumns < columns; indexColumns++) {
-                grid[indexRows][indexColumns] = 1; // Fill the Grid with '1' (white)
+                matrix[indexRows][indexColumns] = 1;
             }
         }
     }
@@ -24,21 +24,21 @@ public class Grid {
     public void printGrid() { // Print the matrix
         for (int indexRows = 0; indexRows < rows; indexRows++) {
             for (int indexColumns = 0; indexColumns < columns; indexColumns++) {
-                System.out.print(grid[indexRows][indexColumns] + "  ");
+                System.out.print(matrix[indexRows][indexColumns] + " ");
             }
             System.out.println();
         }
     }
 
     public int getSquare(int x, int y) { // Get the position in the matrix
-        return grid[x][y];
+        return matrix[x][y];
     }
 
     public void changeSquare(int x, int y) { // Get the value or the matrix
-        if (grid[x][y] == 1) {
-            grid[x][y] = 0;
+        if (matrix[x][y] == 1) {
+            matrix[x][y] = 0;
         } else {
-            grid[x][y] = 1;
+            matrix[x][y] = 1;
         }
     }
 

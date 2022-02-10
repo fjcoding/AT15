@@ -6,6 +6,7 @@ public class Ant {
     private Grid grid;
     private String direction;
     private boolean finished;
+    private boolean flag = false;
 
     public Ant(int x, int y, Grid grid, String direction) {
         posX = x;
@@ -21,7 +22,7 @@ public class Ant {
         switch (direction) {
             case "up":
                 if (grid.getSquare(posX, posY) == 1) { // Is white?
-                    if (isValidNextPosition(posX, posY + 1, "left or right")) {
+                    if (isInMatrix(posX, posY + 1, "left or right")) {
                         grid.changeSquare(posX, posY);
                         posY++;
                         this.direction = "right";
@@ -29,7 +30,7 @@ public class Ant {
                         finished = true;
                     }
                 } else {
-                    if (isValidNextPosition(posX, posY - 1, "left or right")) {
+                    if (isInMatrix(posX, posY - 1, "left or right")) {
                         grid.changeSquare(posX, posY);
                         posY--;
                         this.direction = "left";
@@ -40,7 +41,7 @@ public class Ant {
                 break;
             case "right":
                 if (grid.getSquare(posX, posY) == 1) {
-                    if (isValidNextPosition(posX + 1, posY, "up or down")) {
+                    if (isInMatrix(posX + 1, posY, "up or down")) {
                         grid.changeSquare(posX, posY);
                         posX++;
                         direction = "down";
@@ -48,7 +49,7 @@ public class Ant {
                         finished = true;
                     }
                 } else {
-                    if (isValidNextPosition(posX - 1, posY, "up or down")) {
+                    if (isInMatrix(posX - 1, posY, "up or down")) {
                         grid.changeSquare(posX, posY);
                         posX--;
                         direction = "up";
@@ -59,7 +60,7 @@ public class Ant {
                 break;
             case "left":
                 if (grid.getSquare(posX, posY) == 1) {
-                    if (isValidNextPosition(posX - 1, posY, "up or down")) {
+                    if (isInMatrix(posX - 1, posY, "up or down")) {
                         grid.changeSquare(posX, posY);
                         posX--;
                         direction = "up";
@@ -67,7 +68,7 @@ public class Ant {
                         finished = true;
                     }
                 } else {
-                    if (isValidNextPosition(posX + 1, posY, "up or down")) {
+                    if (isInMatrix(posX + 1, posY, "up or down")) {
                         grid.changeSquare(posX, posY);
                         posX++;
                         direction = "down";
@@ -78,7 +79,7 @@ public class Ant {
                 break;
             case "down":
                 if (grid.getSquare(posX, posY) == 1) {
-                    if (isValidNextPosition(posX, posY - 1, "left or right")) {
+                    if (isInMatrix(posX, posY - 1, "left or right")) {
                         grid.changeSquare(posX, posY);
                         posY--;
                         direction = "left";
@@ -86,7 +87,7 @@ public class Ant {
                         finished = true;
                     }
                 } else {
-                    if (isValidNextPosition(posX, posY + 1, "left or right")) {
+                    if (isInMatrix(posX, posY + 1, "left or right")) {
                         grid.changeSquare(posX, posY);
                         posY++;
                         direction = "right";
@@ -100,8 +101,7 @@ public class Ant {
         }
     }
 
-    public boolean isValidNextPosition(int x, int y, String dir) {
-        boolean flag = false;
+    public boolean isInMatrix(int x, int y, String dir) {
         switch (dir) {
             case "up or down":
                 if ((0 <= x) && (x < grid.getRows())) {
@@ -119,17 +119,17 @@ public class Ant {
         return flag;
     }
 
-    public void game(int n) {
+    public void run(int steps) {
         grid.printGrid();
         System.out.println();
-        while (n > 0) {
+        while (steps > 0) {
             if (!finished) {
                 nextStep();
-                n--;
+                steps--;
             }
             System.out.println();
             grid.printGrid();
         }
-        System.out.println("The game is over..."); // the game end
+        System.out.println("Completed game");
     }
 }
