@@ -33,36 +33,36 @@ public class Ant {
     }
     public void moveForward() {
         switch (direction) {
-                case up:
+            case up:
                 state = grid.getPosGrid(valueInY - 1, valueInX);
                 valueInY = valueInY - 1;
                 break;
-                case right:
+            case right:
                 state = grid.getPosGrid(valueInY, valueInX + 1);
                 valueInX = valueInX + 1;
                 break;
-                case down:
+            case down:
                 state = grid.getPosGrid(valueInY + 1, valueInX);
                 valueInY = valueInY + 1;
                 break;
-                case left:
+            case left:
                 state = grid.getPosGrid(valueInY, valueInX - 1);
                 valueInX = valueInX - 1;
                 break;
-                default:
+            default:
                 System.out.println("Error while moving forward");
-            }
+        }
 
-            if (valueInX > grid.getWidth() - 1) {
-                valueInX = 0;
-            } else if (valueInX < 0) {
-                valueInX = grid.getWidth() - 1;
-            }
-            if (valueInY > grid.getHeight() - 1) {
-                valueInY = 0;
-            } else if (valueInY < 0) {
-                valueInY = grid.getHeight() - 1;
-            }
+        if (valueInX > grid.getWidth() - 1) {
+            valueInX = 0;
+        } else if (valueInX < 0) {
+            valueInX = grid.getWidth() - 1;
+        }
+        if (valueInY > grid.getHeight() - 1) {
+            valueInY = 0;
+        } else if (valueInY < 0) {
+            valueInY = grid.getHeight() - 1;
+        }
     }
     public void draw(int n) {
         while (n > 0) {
