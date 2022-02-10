@@ -32,5 +32,16 @@ bin/
 
 # Ignore Gradle build output directory
 build
+<<<<<<< HEAD
 
 
+<<<<<<< HEAD
+=======
+# My ignore
+
+bin/
+=======
+>>>>>>> 422971c6d331ca2a4467d9807c8480c11f2d0c8b
+vscode/
+
+>>>>>>> dev/langtonant
