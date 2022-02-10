@@ -1,24 +1,18 @@
 package org.fundacionjala.at15.katas.langtonant.gonzalo;
 
 public class Ant {
-    
-    public Ant(){
+    public Ant() {
     }
-    
-    public String lookingUp(){      
+    public String lookingUp() {
         return "up";
     }
-    
-    public String lookingDown(){
+    public String lookingDown() {
         return "down";
     }
-    
-    public String lookingLeft(){       
+    public String lookingLeft() {
         return "left";
     }
-    
-    public String lookingRight(){        
+    public String lookingRight() {
         return "right";
     }
-      
 }
