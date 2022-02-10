@@ -47,6 +47,10 @@ task adrianExample (dependsOn: 'classes', type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
+task runLangtonAntMauricio (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.langtonant.mauricio.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
 task runLangtonAntAdhemar (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.adhemar.Main'
     classpath = sourceSets.main.runtimeClasspath
