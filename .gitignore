@@ -34,8 +34,3 @@ bin/
 build
 
 
-# My ignore
-
-bin/
-vscode/
-
