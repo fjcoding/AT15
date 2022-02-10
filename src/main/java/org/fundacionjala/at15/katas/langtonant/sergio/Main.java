@@ -9,10 +9,10 @@ public class Main {
     private static final int MOVES = 3;
     public static void main(String[] args) {
 
-       Grid grid = new Grid(COLUMNS, ROWS);
-       Ant ant = new Ant(X_POS, Y_POS, DIRECTION, MOVES, grid);
-       ant.run();
+        Grid grid = new Grid(COLUMNS, ROWS);
+        Ant ant = new Ant(X_POS, Y_POS, DIRECTION, MOVES, grid);
+        ant.run();
 
-       System.out.println("Final Position");
+        System.out.println("Final Position");
     }
 }

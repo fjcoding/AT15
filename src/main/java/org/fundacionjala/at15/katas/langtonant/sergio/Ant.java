@@ -56,7 +56,7 @@ public class Ant {
 
     private void changeDirection(String currentDirection) {
         if (grid.isWhite(xPos, yPos) && currentDirection.equals("up")) {
-              setDirection("right");
+            setDirection("right");
         } else if (grid.isWhite(xPos, yPos) && currentDirection.equals("right")) {
             setDirection("down");
         } else if (grid.isWhite(xPos, yPos) && currentDirection.equals("down")) {
@@ -85,13 +85,13 @@ public class Ant {
     private void newPosition(String currentDirection) {
         if (currentDirection.equals("up")) {
             yPos--;
-      } else if (currentDirection.equals("right")) {
-          xPos++;
-      } else if (currentDirection.equals("left")) {
-        xPos--;
-      } else if (currentDirection.equals("down")) {
-        yPos++;
-      }
+        } else if (currentDirection.equals("right")) {
+            xPos++;
+        } else if (currentDirection.equals("left")) {
+            xPos--;
+        } else if (currentDirection.equals("down")) {
+            yPos++;
+        }
     }
 
     public void antMovemenet(String currentDirection) {
@@ -107,7 +107,7 @@ public class Ant {
         if (wall) {
             System.out.println("The Ant can't go on");
         } else {
-                while (xPos >= 0 && yPos >= 0 && xPos < grid.getColumns() && yPos < grid.getRows() && moves != 0) {
+            while (xPos >= 0 && yPos >= 0 && xPos < grid.getColumns() && yPos < grid.getRows() && moves != 0) {
                 System.out.println("x:" + xPos + "\ny:" + yPos + "\ndirection: " + direction + "\ncolor: " + grid.isWhite(xPos, yPos));
 
                 antMovemenet(direction);
