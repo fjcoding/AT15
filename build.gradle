@@ -49,17 +49,10 @@ task adrianExample(dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.adrian.MainAdrian'
     classpath = sourceSets.main.runtimeClasspath
 }
-
 task runLangtonAntDiana (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.diana.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
-
-task adrianExample (dependsOn: 'classes', type: JavaExec) {
-    main = 'org.fundacionjala.at15.katas.langtonant.adrian.MainAdrian'
-    classpath = sourceSets.main.runtimeClasspath
-}
-
 task runLangtonAntMauricio (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.mauricio.Main'
     classpath = sourceSets.main.runtimeClasspath
@@ -68,7 +61,6 @@ task runLangtonAntAdhemar (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.adhemar.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
-
 task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.agustin.Main'
     classpath = sourceSets.main.runtimeClasspath
