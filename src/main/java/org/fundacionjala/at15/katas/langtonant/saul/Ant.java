@@ -130,13 +130,13 @@ public class Ant {
                 if (y < grid.getColumns() - 1) {
                     flag = true;
                 }
-                    break;
+                break;
 
             case "down":
                 if (x < grid.getRows() - 1) {
                     flag = true;
                 }
-                    break;
+                break;
 
             default:
                 break;
