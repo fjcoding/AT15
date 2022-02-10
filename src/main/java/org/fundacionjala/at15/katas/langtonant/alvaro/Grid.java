@@ -17,7 +17,7 @@ public class Grid {
         for (int indx = 0; indx < sizeX; indx++) {
             for (int indy = 0; indy < sizeY; indy++) {
                 grid[indx][indy] = 0; //create white matrix
-             }
+            }
         }
     }
     public void printGrid() {

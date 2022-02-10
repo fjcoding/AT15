@@ -16,15 +16,15 @@ public class Ant {
     }
     public void nextStep() {
         if (direction == 'u') { //up
-                if (grid.getPos(posX, posY) == 0) { //if it is white
-                    grid.changetoBlack(posX, posY); //put X (black)
-                    posY++;
-                    direction = 'r';
-                } else { //If it's black, I'll change it to white
-                    grid.changetoWhite(posX, posY); //put 0 (white)
-                    direction = 'l';
-                    posY--;
-                }
+            if (grid.getPos(posX, posY) == 0) { //if it is white
+                grid.changetoBlack(posX, posY); //put X (black)
+                posY++;
+                direction = 'r';
+            } else { //If it's black, I'll change it to white
+                grid.changetoWhite(posX, posY); //put 0 (white)
+                direction = 'l';
+                posY--;
+            }
 
         } else if (direction == 'd') { //down
             if (grid.getPos(posX, posY) == 0) {
