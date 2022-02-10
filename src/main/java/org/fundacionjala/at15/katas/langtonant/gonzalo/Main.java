@@ -21,8 +21,8 @@ public class Main {
         int steps=amountSteps;
         int counter=0;
         grid.loadGrid();
-        char valueBlack='█';
-        char valueWhite='░';
+        int valueBlack=0;
+        int valueWhite=1;
         while(counter<steps){
             if(orient=="up"&&grid.getPosition(posX, posY)==valueBlack){   
                 loadFunctionOfGrid(posX, posY, grid);
