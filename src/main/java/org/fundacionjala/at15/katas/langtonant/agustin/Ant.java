@@ -1,114 +1,112 @@
 package org.fundacionjala.at15.katas.langtonant.agustin;
 
 public class Ant {
-    // TODO: Make Ant Class with constructor and methods
 
     // variables
     int xPos;
     int yPos;
     // direction
     String direction;
-    Grid g;
-    boolean isFinished;
+    Grid grid;
+    int steps;
 
-    public Ant(int xPos, int yPos, String direction, Grid g) {
+    public Ant(int xPos, int yPos, String direction, Grid grid, int steps) {
         // constructor
         this.xPos = xPos;
         this.yPos = yPos;
         this.direction = direction;
-        this.g = g;
+        this.grid = grid;
+        this.steps = steps;
     }
 
-    // Getter coordinates
-
-
-    public int getXPos() {
-        return xPos;
-    }
-
-    public int getYPos() {
-        return yPos;
-    }
 
     // Setters
-
-    public void setXPos(int xPos) {
-        this.xPos = xPos;
-    }
-
-    public void setYPos(int yPos) {
-        this.yPos = yPos;
-    }
 
     public void setDirection(String direction) {
         this.direction = direction;
     }
 
+    public void printCoordinates() {
+
+        System.out.println("x: " + xPos + ", " + "y: " + yPos + ", " +
+                "Facing: " + direction + ", " + "Color: " + (grid.isWhite(xPos, yPos) ? "BLACK" : "WHITE"));
+    }
+
+    public void moveNorth() {
+        setDirection("NORTH");
+        yPos++;
+        grid.printGrid();
+        steps--;
+        printCoordinates();
+    }
+
+    public void moveSouth() {
+        setDirection("SOUTH");
+        yPos--;
+        grid.printGrid();
+        steps--;
+        printCoordinates();
+    }
+
+    public void moveEast() {
+        setDirection("EAST");
+        xPos++;
+        grid.printGrid();
+        steps--;
+        printCoordinates();
+    }
+
+    public void moveWest() {
+        setDirection("WEST");
+        xPos--;
+        grid.printGrid();
+        steps--;
+        printCoordinates();
+    }
+
     public void run() {
-        //TODO: while(!isFinished) determine direction, change tile color
 
-        while (xPos >= 0 && yPos >= 0 && xPos < g.getWidth() && yPos < g.getHeight() && !isFinished) {
-            System.out.println("x: " + xPos + ", " + "y: " + yPos + ", " + "Facing: " + direction + ", " + "Color: " + g.isWhite(xPos, yPos));
-            if (xPos == 0) {
-                isFinished = true;
-            } else if (xPos == g.getWidth()) {
-                isFinished = true;
-            } else if (yPos == 0) {
-                isFinished = true;
-            } else if (yPos == g.getHeight()) {
-                isFinished = true;
-            }
+        while (xPos >= 0 && yPos >= 0 && xPos < grid.getWidth() && yPos < grid.getHeight() && steps > 0) {
 
-            // direction
+            switch (direction) {
 
-            if (direction.equals("NORTH")) {
-                if (g.isWhite(xPos, yPos)) {
-                    g.setBlack(xPos,yPos);
-                    setDirection("WEST");
-                    xPos--; //move west
-                    g.printGrid();
-                } else {
-                    g.setWhite(xPos,yPos);
-                    setDirection("EAST");
-                    xPos++; // move east
-                    g.printGrid();
-                }
-            } else if (direction.equals("WEST")) {
-                if(g.isWhite(xPos, yPos)) {
-                    g.setBlack(xPos,yPos);
-                    setDirection("SOUTH");
-                    yPos--;
-                    g.printGrid();
-                } else {
-                    g.setWhite(xPos,yPos);
-                    setDirection("NORTH");
-                    yPos++;
-                    g.printGrid();
-                }
-            } else if (direction.equals("SOUTH")) {
-                if(g.isWhite(xPos,yPos)) {
-                    g.setBlack(xPos,yPos);
-                    setDirection("EAST");
-                    xPos++;
-                    g.printGrid();
-                } else {
-                    g.setWhite(xPos,yPos);
-                    setDirection("WEST");
-                    xPos--;
-                    g.printGrid();
-                }
-            } else if (direction.equals("EAST")) {
-                if(g.isWhite(xPos,yPos)) {
-                    g.setBlack(xPos,yPos);
-                    setDirection("NORTH");
-                    yPos++;
-                    g.printGrid();
-                } else {
-                    g.setBlack(xPos,yPos);
-                    setDirection("SOUTH");
-                    yPos--;
-                    g.printGrid();
-                }
+                case "NORTH":
+                    if (grid.isWhite(xPos, yPos)) {
+                        grid.setBlack(xPos,yPos);
+                        moveWest();
+                    } else {
+                        grid.setWhite(xPos,yPos);
+                        moveEast();
+                    }
+                    break;
+
+                case "WEST":
+                    if(grid.isWhite(xPos, yPos)) {
+                        grid.setBlack(xPos,yPos);
+                        moveSouth();
+                    } else {
+                        grid.setWhite(xPos,yPos);
+                        moveNorth();
+                    }
+                    break;
+
+                case "SOUTH":
+                    if(grid.isWhite(xPos,yPos)) {
+                        grid.setBlack(xPos,yPos);
+                        moveEast();
+                    } else {
+                        grid.setWhite(xPos,yPos);
+                        moveWest();
+                    }
+                    break;
+                case "EAST":
+                    if(grid.isWhite(xPos,yPos)) {
+                        grid.setBlack(xPos,yPos);
+                        moveNorth();
+                    } else {
+                        grid.setBlack(xPos,yPos);
+                        moveSouth();
+                    }
             }
         }
     }

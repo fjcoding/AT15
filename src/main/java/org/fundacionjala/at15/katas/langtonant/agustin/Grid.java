@@ -1,7 +1,6 @@
 package org.fundacionjala.at15.katas.langtonant.agustin;
 
 public class Grid {
-    // TODO: Make Grid Class with constructor and methods
 
     // variables
     boolean [][] grid; // bi-dimensional boolean array. ! Non initialized boolean (primitive) value is false !
@@ -18,10 +17,6 @@ public class Grid {
     // Methods
 
     // getters
-
-    public boolean[][] getGrid() {
-        return grid;
-    }
 
     public int getHeight() {
         return height;
@@ -58,5 +53,4 @@ public class Grid {
         }
     }
 
-    // TODO: Make a matrix design for the tiles
 }
