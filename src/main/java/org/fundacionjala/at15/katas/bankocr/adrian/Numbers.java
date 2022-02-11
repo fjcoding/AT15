@@ -68,26 +68,25 @@ public class Numbers {
     }
 
     public Boolean checksum() {
-        int dd9 = Integer.parseInt(whatNumber(matrix[0][1], matrix[1][0], matrix[1][1], matrix[1][2], matrix[2][0], matrix[2][1], matrix[2][2]));
-        int dd8 = Integer.parseInt(whatNumber(matrix[0][fours], matrix[1][threes], matrix[1][fours], matrix[1][fives], matrix[2][threes],
-            matrix[2][fours], matrix[2][fives]));
-        int dd7 = Integer.parseInt(whatNumber(matrix[0][sevens], matrix[1][sixs], matrix[1][sevens], matrix[1][eight], matrix[2][sixs],
-            matrix[2][sevens], matrix[2][eight]));
-        int dd6 = Integer.parseInt(whatNumber(matrix[0][ten], matrix[1][nine], matrix[1][ten], matrix[1][eleven], matrix[2][nine],
-            matrix[2][ten], matrix[2][eleven]));
-        int dd5 = Integer.parseInt(whatNumber(matrix[0][thirteen], matrix[1][twelve], matrix[1][thirteen], matrix[1][fourteen], matrix[2][twelve],
-            matrix[2][thirteen], matrix[2][fourteen]));
-        int dd4 = Integer.parseInt(whatNumber(matrix[0][sixteen], matrix[1][fifteen], matrix[1][sixteen], matrix[1][seventeen], matrix[2][fifteen],
-            matrix[2][sixteen], matrix[2][seventeen]));
-        int dd3 = Integer.parseInt(whatNumber(matrix[0][nineteen], matrix[1][eightteen], matrix[1][nineteen], matrix[1][twenty],
-            matrix[2][eightteen], matrix[2][nineteen], matrix[2][twenty]));
-        int dd2 = Integer.parseInt(whatNumber(matrix[0][twentytwo], matrix[1][twentyone], matrix[1][twentytwo], matrix[1][twentythree],
-            matrix[2][twentyone], matrix[2][twentytwo], matrix[2][twentythree]));
-        int dd1 = Integer.parseInt(whatNumber(matrix[0][twentyfive], matrix[1][twentyfour], matrix[1][twentyfive], matrix[1][twentysix],
-            matrix[2][twentyfour], matrix[2][twentyfive], matrix[2][twentysix]));
-        return ((dd1 + 2 * dd2 + threes * dd3 + fours * dd4 + fives * dd5 + sixs * dd6 + sevens * dd7 + eight * dd8 + nine * dd9) % eleven == 0);
+        boolean check = false;
+        if (ill()) {
+            check = false;
+        } else {
+            int dd9 = Integer.parseInt(number()[0]);
+            int dd8 = Integer.parseInt(number()[1]);
+            int dd7 = Integer.parseInt(number()[2]);
+            int dd6 = Integer.parseInt(number()[threes]);
+            int dd5 = Integer.parseInt(number()[fours]);
+            int dd4 = Integer.parseInt(number()[fives]);
+            int dd3 = Integer.parseInt(number()[sixs]);
+            int dd2 = Integer.parseInt(number()[sevens]);
+            int dd1 = Integer.parseInt(number()[eight]);
+            if ((dd1 + 2 * dd2 + threes * dd3 + fours * dd4 + fives * dd5 + sixs * dd6 + sevens * dd7 + eight * dd8 + nine * dd9) % eleven == 0) {
+                check = true;
+            }
+        }
+        return check;
     }
-
     public boolean ill() {
         boolean bool = false;
         for (int ind = 0; ind < nine; ind++) {
