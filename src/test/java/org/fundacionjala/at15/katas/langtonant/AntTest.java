@@ -13,4 +13,38 @@ public class AntTest {
         assertEquals(Ant.Direction.WEST, theAnt.getDirection());
         assertEquals(SquareColor.WHITE, theAnt.getSquareColor());
     }
+
+    @Test
+    public void itShouldTurnDirectionRightWhenSquareColorIsWhite() {
+        Ant theAnt = new Ant(Ant.Direction.WEST, SquareColor.WHITE);
+
+        theAnt.turnDirection();
+        assertEquals(Ant.Direction.NORTH, theAnt.getDirection());
+
+        theAnt.turnDirection();
+        assertEquals(Ant.Direction.EAST, theAnt.getDirection());
+
+        theAnt.turnDirection();
+        assertEquals(Ant.Direction.SOUTH, theAnt.getDirection());
+
+        theAnt.turnDirection();
+        assertEquals(Ant.Direction.WEST, theAnt.getDirection());
+    }
+
+    @Test
+    public void itShouldTurnDirectionLeftWhenSquareColorIsBlack() {
+        Ant theAnt = new Ant(Ant.Direction.WEST, SquareColor.BLACK);
+
+        theAnt.turnDirection();
+        assertEquals(Ant.Direction.SOUTH, theAnt.getDirection());
+
+        theAnt.turnDirection();
+        assertEquals(Ant.Direction.EAST, theAnt.getDirection());
+
+        theAnt.turnDirection();
+        assertEquals(Ant.Direction.NORTH, theAnt.getDirection());
+
+        theAnt.turnDirection();
+        assertEquals(Ant.Direction.WEST, theAnt.getDirection());
+    }
 }
