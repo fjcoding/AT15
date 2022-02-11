@@ -11,20 +11,6 @@ public class AccesoDatosImpl {
             var entrada = new BufferedReader(new FileReader(archivo));
             String linea=null;
             int cont=0;
-            /*int ini=0,fin=3;
-            for (int i = 0; i < 9; i++) {
-                cont=0;
-                linea= entrada.readLine();
-                while (linea!=null) {
-                    subNumber[cont]=linea.substring(ini, fin);
-                    linea= entrada.readLine();
-                    cont++;
-                }
-                var numero=new NumberReaded(subNumber);
-                numeros[i]=numero;
-                ini=ini+3;
-                fin=fin+3;
-            }        */
             cont=0;
                 linea= entrada.readLine();
                 while (linea!=null) {
@@ -33,9 +19,6 @@ public class AccesoDatosImpl {
                     cont++;
                 }
             entrada.close();
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-            throw new LecturaDatosEx("Excepcion al listar numeros: "+ ex.getMessage());
         } catch (IOException ex) {
             throw new LecturaDatosEx("Excepcion al listar numeros: "+ ex.getMessage());
         }
