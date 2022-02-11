@@ -97,7 +97,7 @@ public class Spliter {
     public String digitoCompleto(){
         theSplit();
         String number = "";
-        for (int i=0;i<24;i=i+3){
+        for (int i=0;i<=24;i=i+3){
             number = number + loneDigit(matrixDigit(i)) ;
 
         }
