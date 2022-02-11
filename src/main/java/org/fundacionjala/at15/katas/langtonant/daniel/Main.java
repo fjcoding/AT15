@@ -1,13 +1,21 @@
-package org.fundacionjala.at15.katas.daniel.langtonant;
+package org.fundacionjala.at15.katas.langtonant.daniel;
+
+import java.util.Scanner;
 
 public class Main {
     
     public static void main(String[] args) {
 
-        Grid grid = new Grid(6, 6);
-        Ant ant = new Ant(2, 2, grid, "up");
+        System.out.println("Enter the size rows and columns");
+        Scanner read = new Scanner(System.in);
+            int rows = read.nextInt();
+            int colums = read.nextInt();
 
-        //grid.printGrid();
-        ant.game(3);
+            Grid grid = new Grid(rows, colums);
+            Ant ant = new Ant(2, 2, grid, "up");
+
+            // grid.printGrid();
+            ant.game(3);
+        
     }
 }
