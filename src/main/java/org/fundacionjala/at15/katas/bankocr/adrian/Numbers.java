@@ -107,7 +107,7 @@ public class Numbers {
             System.out.print(" ERR");
         }
     }
-    public void case4() {
+    /*public void case4() {
         boolean checkSum = false;
         int[] numberComplete = new int[nine];
         for (int ind = 0; ind < nine; ind++) {
@@ -123,7 +123,7 @@ public class Numbers {
                 case 1:
                     numberComplete[0] = sevens;
                     break;
-                case 3:
+                case threes:
                     numberComplete[0] = nine;
                     break;
                 default:
@@ -139,7 +139,7 @@ public class Numbers {
         for (int ind = 0; ind < nine; ind++) {
             System.out.print(numberComplete[ind]);
         }
-    }
+    }*/
 
     public String whatNumber(String one, String two, String three, String four, String five, String six, String seven) {
         if (one.equals("_") && two.equals("|") && three.equals(" ") && four.equals("|") && five.equals("|") && six.equals("_") && seven.equals("|")) {

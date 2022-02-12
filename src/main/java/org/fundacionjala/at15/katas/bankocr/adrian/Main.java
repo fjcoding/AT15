@@ -30,6 +30,6 @@ public class Main {
             error.printStackTrace();
         }
         matrix.case3();
-        matrix.case4();
+        //matrix.case4();
     }
 }
