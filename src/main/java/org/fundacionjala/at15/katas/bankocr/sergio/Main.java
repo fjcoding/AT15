@@ -7,7 +7,7 @@ public class Main {
         String lineTre = "  ||_  _|  | _||_|  ||_| _|";
 
         Spliter test = new Spliter(lineOne,lineTwo,lineTre);
-        System.out.println(test.digitoCompleto());
+        System.out.println(test.completeDigit());
     }
 
 }

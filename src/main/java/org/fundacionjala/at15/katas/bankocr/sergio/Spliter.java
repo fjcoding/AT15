@@ -14,6 +14,18 @@ public class Spliter {
         this.lineThree = line3Code;
     }
 
+    public String[] getLineOneArray(){
+        return lineOneArray;
+    }
+
+    public String[] getLineTwoArray(){
+        return lineTwoArray;
+    }
+
+    public String[] getLineThreeArray(){
+        return lineThreeArray;
+    }
+
     public void theSplit(){
         lineOneArray = lineOne.split("(?!^)");
         lineTwoArray = lineTwo.split("(?!^)");
@@ -42,7 +54,7 @@ public class Spliter {
         return resp;
     }
 
-    public String loneDigit(String [][] digit){
+    private String loneDigit(String [][] digit){
         String numberDef;
         if(digit[0][0].equals(" ") && digit[0][1].equals(" ") && digit[0][2].equals(" ")
                 && digit[1][0].equals(" ") && digit[1][1].equals(" ") && digit[1][2].equals("|")
@@ -94,7 +106,7 @@ public class Spliter {
         }
         return numberDef;
     }
-    public String digitoCompleto(){
+    public String completeDigit(){
         theSplit();
         String number = "";
         for (int i=0;i<=24;i=i+3){
