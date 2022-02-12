@@ -107,6 +107,39 @@ public class Numbers {
             System.out.print(" ERR");
         }
     }
+    public void case4() {
+        boolean checkSum = false;
+        int[] numberComplete = new int[nine];
+        for (int ind = 0; ind < nine; ind++) {
+            numberComplete[ind] = Integer.parseInt(number()[ind]);
+        }
+        if ((numberComplete[eight] + 2 * numberComplete[sevens] + threes * numberComplete[sixs] + fours * numberComplete[fives]
+            + fives * numberComplete[fours] + sixs * numberComplete[threes] + sevens * numberComplete[2] + eight * numberComplete[1]
+            + nine * numberComplete[0]) % eleven == 0) {
+            checkSum = true;
+        }
+        while (!checkSum) {
+            switch (numberComplete[0]) {
+                case 1:
+                    numberComplete[0] = sevens;
+                    break;
+                case 3:
+                    numberComplete[0] = nine;
+                    break;
+                default:
+                    checkSum = true;
+            }
+            if ((numberComplete[eight] + 2 * numberComplete[sevens] + threes * numberComplete[sixs] + fours * numberComplete[fives]
+                + fives * numberComplete[fours] + sixs * numberComplete[threes] + sevens * numberComplete[2] + eight * numberComplete[1]
+                + nine * numberComplete[0]) % eleven == 0) {
+                checkSum = true;
+            }
+        }
+        System.out.println();
+        for (int ind = 0; ind < nine; ind++) {
+            System.out.print(numberComplete[ind]);
+        }
+    }
 
     public String whatNumber(String one, String two, String three, String four, String five, String six, String seven) {
         if (one.equals("_") && two.equals("|") && three.equals(" ") && four.equals("|") && five.equals("|") && six.equals("_") && seven.equals("|")) {

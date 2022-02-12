@@ -29,7 +29,7 @@ public class Main {
             System.out.println("An error occurred");
             error.printStackTrace();
         }
-        //matrix.print();
         matrix.case3();
+        matrix.case4();
     }
 }
