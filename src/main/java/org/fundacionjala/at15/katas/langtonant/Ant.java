@@ -4,12 +4,12 @@ public class Ant extends Square {
 
     private Direction direction;
 
-    public Ant(Direction direction, SquareColor color) {
+    public Ant(Direction direction, Square.Color color) {
         super(new Position(0, 0), color);
         this.direction = direction;
     }
 
-    public Ant(Direction direction, SquareColor color, Position position) {
+    public Ant(Direction direction, Square.Color color, Position position) {
         super(position, color);
         this.direction = direction;
     }
@@ -18,14 +18,14 @@ public class Ant extends Square {
         return direction;
     }
 
-    public void takeStep(SquareColor newColor) {
+    public void takeStep(Square.Color newColor) {
         turnDirection();
         moveForward();
         this.color = newColor;
     }
 
     public void turnDirection() {
-        if (this.color == SquareColor.WHITE) {
+        if (this.color == Square.Color.WHITE) {
             if (direction == Direction.WEST) {
                 direction = Direction.NORTH;
             } else if (direction == Direction.NORTH) {
@@ -35,7 +35,7 @@ public class Ant extends Square {
             } else if (direction == Direction.SOUTH) {
                 direction = Direction.WEST;
             }
-        } else if (this.color == SquareColor.BLACK) {
+        } else if (this.color == Square.Color.BLACK) {
             if (direction == Direction.WEST) {
                 direction = Direction.SOUTH;
             } else if (direction == Direction.SOUTH) {

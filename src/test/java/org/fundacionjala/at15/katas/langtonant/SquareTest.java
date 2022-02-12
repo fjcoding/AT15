@@ -9,8 +9,8 @@ public class SquareTest {
     @Test
     public void itShouldHaveAPositionAndAColor() {
         Position pos = new Position(0, 0);
-        Square theSquare = new Square(pos, SquareColor.WHITE);
+        Square theSquare = new Square(pos, Square.Color.WHITE);
         assertEquals(new Position(0, 0), theSquare.getPosition());
-        assertEquals(SquareColor.WHITE, theSquare.getColor());
+        assertEquals(Square.Color.WHITE, theSquare.getColor());
     }
 }

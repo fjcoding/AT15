@@ -3,9 +3,13 @@ package org.fundacionjala.at15.katas.langtonant;
 public class Square {
 
     protected Position position;
-    protected SquareColor color;
+    protected Color color;
 
-    public Square(Position position, SquareColor color) {
+    public enum Color {
+        WHITE, BLACK
+    }
+
+    public Square(Position position, Color color) {
         this.position = position;
         this.color = color;
     }
@@ -14,7 +18,7 @@ public class Square {
         return this.position;
     }
 
-    public SquareColor getColor() {
+    public Color getColor() {
         return this.color;
     }
 }
