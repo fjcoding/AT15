@@ -47,4 +47,31 @@ public class AntTest {
         theAnt.turnDirection();
         assertEquals(Direction.WEST, theAnt.getDirection());
     }
+
+    @Test
+    public void itShouldMoveForwardDependingOnTheCurrentDirection() {
+        Position initAntPos = new Position(5, 5);
+        Ant theAnt = new Ant(Direction.WEST, SquareColor.BLACK, initAntPos);
+        theAnt.moveForward();
+        Position expectedForwardPos = new Position(4, 5);
+        assertEquals(expectedForwardPos, theAnt.getPosition());
+
+        initAntPos = new Position(5, 5);
+        theAnt = new Ant(Direction.NORTH, SquareColor.BLACK, initAntPos);
+        theAnt.moveForward();
+        expectedForwardPos = new Position(5, 6);
+        assertEquals(expectedForwardPos, theAnt.getPosition());
+
+        initAntPos = new Position(5, 5);
+        theAnt = new Ant(Direction.EAST, SquareColor.BLACK, initAntPos);
+        theAnt.moveForward();
+        expectedForwardPos = new Position(6, 5);
+        assertEquals(expectedForwardPos, theAnt.getPosition());
+
+        initAntPos = new Position(5, 5);
+        theAnt = new Ant(Direction.SOUTH, SquareColor.BLACK, initAntPos);
+        theAnt.moveForward();
+        expectedForwardPos = new Position(5, 4);
+        assertEquals(expectedForwardPos, theAnt.getPosition());
+    }
 }

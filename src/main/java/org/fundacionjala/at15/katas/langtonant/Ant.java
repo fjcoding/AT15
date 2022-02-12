@@ -4,10 +4,18 @@ public class Ant {
 
     private Direction direction;
     private SquareColor squareColor;
+    private Position position;
 
     public Ant(Direction direction, SquareColor squareColor) {
         this.direction = direction;
         this.squareColor = squareColor;
+        this.position = new Position(0, 0);
+    }
+
+    public Ant(Direction direction, SquareColor squareColor, Position position) {
+        this.direction = direction;
+        this.squareColor = squareColor;
+        this.position = position;
     }
 
     public Direction getDirection() {
@@ -16,6 +24,10 @@ public class Ant {
 
     public SquareColor getSquareColor() {
         return squareColor;
+    }
+
+    public Position getPosition() {
+        return position;
     }
 
     public void turnDirection() {
@@ -40,5 +52,11 @@ public class Ant {
                 direction = Direction.WEST;
             }
         }
+    }
+
+    public void moveForward() {
+        int newXPos = this.position.getX() + this.direction.getXForward();
+        int newYPos = this.position.getY() + this.direction.getYForward();
+        this.position = new Position(newXPos, newYPos);
     }
 }
