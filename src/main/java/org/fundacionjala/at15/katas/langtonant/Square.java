@@ -21,4 +21,8 @@ public class Square {
     public Color getColor() {
         return this.color;
     }
+
+    public void switchColor() {
+        this.color = this.color == Color.BLACK ? Color.WHITE : Color.BLACK;
+    }
 }

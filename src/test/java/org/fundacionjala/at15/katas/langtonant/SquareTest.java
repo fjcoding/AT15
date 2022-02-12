@@ -13,4 +13,16 @@ public class SquareTest {
         assertEquals(new Position(0, 0), theSquare.getPosition());
         assertEquals(Square.Color.WHITE, theSquare.getColor());
     }
+
+    @Test
+    public void itShouldBeAbleToChangeItsColor() {
+        Position pos = new Position(0, 0);
+        Square theSquare = new Square(pos, Square.Color.WHITE);
+
+        theSquare.switchColor();
+        assertEquals(Square.Color.BLACK, theSquare.getColor());
+
+        theSquare.switchColor();
+        assertEquals(Square.Color.WHITE, theSquare.getColor());
+    }
 }
