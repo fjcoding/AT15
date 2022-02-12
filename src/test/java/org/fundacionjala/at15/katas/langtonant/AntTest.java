@@ -8,43 +8,43 @@ public class AntTest {
 
     @Test
     public void itShouldHaveADirectionAndASquareColor() {
-        Ant theAnt = new Ant(Ant.Direction.WEST, SquareColor.WHITE);
+        Ant theAnt = new Ant(Direction.WEST, SquareColor.WHITE);
 
-        assertEquals(Ant.Direction.WEST, theAnt.getDirection());
+        assertEquals(Direction.WEST, theAnt.getDirection());
         assertEquals(SquareColor.WHITE, theAnt.getSquareColor());
     }
 
     @Test
     public void itShouldTurnDirectionRightWhenSquareColorIsWhite() {
-        Ant theAnt = new Ant(Ant.Direction.WEST, SquareColor.WHITE);
+        Ant theAnt = new Ant(Direction.WEST, SquareColor.WHITE);
 
         theAnt.turnDirection();
-        assertEquals(Ant.Direction.NORTH, theAnt.getDirection());
+        assertEquals(Direction.NORTH, theAnt.getDirection());
 
         theAnt.turnDirection();
-        assertEquals(Ant.Direction.EAST, theAnt.getDirection());
+        assertEquals(Direction.EAST, theAnt.getDirection());
 
         theAnt.turnDirection();
-        assertEquals(Ant.Direction.SOUTH, theAnt.getDirection());
+        assertEquals(Direction.SOUTH, theAnt.getDirection());
 
         theAnt.turnDirection();
-        assertEquals(Ant.Direction.WEST, theAnt.getDirection());
+        assertEquals(Direction.WEST, theAnt.getDirection());
     }
 
     @Test
     public void itShouldTurnDirectionLeftWhenSquareColorIsBlack() {
-        Ant theAnt = new Ant(Ant.Direction.WEST, SquareColor.BLACK);
+        Ant theAnt = new Ant(Direction.WEST, SquareColor.BLACK);
 
         theAnt.turnDirection();
-        assertEquals(Ant.Direction.SOUTH, theAnt.getDirection());
+        assertEquals(Direction.SOUTH, theAnt.getDirection());
 
         theAnt.turnDirection();
-        assertEquals(Ant.Direction.EAST, theAnt.getDirection());
+        assertEquals(Direction.EAST, theAnt.getDirection());
 
         theAnt.turnDirection();
-        assertEquals(Ant.Direction.NORTH, theAnt.getDirection());
+        assertEquals(Direction.NORTH, theAnt.getDirection());
 
         theAnt.turnDirection();
-        assertEquals(Ant.Direction.WEST, theAnt.getDirection());
+        assertEquals(Direction.WEST, theAnt.getDirection());
     }
 }

@@ -5,10 +5,6 @@ public class Ant {
     private Direction direction;
     private SquareColor squareColor;
 
-    enum Direction {
-        WEST, NORTH, EAST, SOUTH
-    }
-
     public Ant(Direction direction, SquareColor squareColor) {
         this.direction = direction;
         this.squareColor = squareColor;
