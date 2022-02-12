@@ -30,6 +30,12 @@ public class Ant {
         return position;
     }
 
+    public void takeStep(SquareColor newSquareColor) {
+        turnDirection();
+        moveForward();
+        this.squareColor = newSquareColor;
+    }
+
     public void turnDirection() {
         if (squareColor == SquareColor.WHITE) {
             if (direction == Direction.WEST) {

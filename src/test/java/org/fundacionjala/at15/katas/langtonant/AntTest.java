@@ -74,4 +74,39 @@ public class AntTest {
         expectedForwardPos = new Position(5, 4);
         assertEquals(expectedForwardPos, theAnt.getPosition());
     }
+
+    @Test
+    public void itShouldTakeStepWhereReceivesNewSquareColorAndMoveForward() {
+        Position initAntPos = new Position(5, 5);
+        Ant theAnt = new Ant(Direction.WEST, SquareColor.WHITE, initAntPos);
+        theAnt.takeStep(SquareColor.WHITE);
+        Position expectedForwardPos = new Position(5, 6);
+        assertEquals(expectedForwardPos, theAnt.getPosition());
+        assertEquals(SquareColor.WHITE, theAnt.getSquareColor());
+        assertEquals(Direction.NORTH, theAnt.getDirection());
+
+        theAnt.takeStep(SquareColor.WHITE);
+        expectedForwardPos = new Position(6, 6);
+        assertEquals(expectedForwardPos, theAnt.getPosition());
+        assertEquals(SquareColor.WHITE, theAnt.getSquareColor());
+        assertEquals(Direction.EAST, theAnt.getDirection());
+
+        theAnt.takeStep(SquareColor.WHITE);
+        expectedForwardPos = new Position(6, 5);
+        assertEquals(expectedForwardPos, theAnt.getPosition());
+        assertEquals(SquareColor.WHITE, theAnt.getSquareColor());
+        assertEquals(Direction.SOUTH, theAnt.getDirection());
+
+        theAnt.takeStep(SquareColor.BLACK);
+        expectedForwardPos = new Position(5, 5);
+        assertEquals(expectedForwardPos, theAnt.getPosition());
+        assertEquals(SquareColor.BLACK, theAnt.getSquareColor());
+        assertEquals(Direction.WEST, theAnt.getDirection());
+
+        theAnt.takeStep(SquareColor.WHITE);
+        expectedForwardPos = new Position(5, 4);
+        assertEquals(expectedForwardPos, theAnt.getPosition());
+        assertEquals(SquareColor.WHITE, theAnt.getSquareColor());
+        assertEquals(Direction.SOUTH, theAnt.getDirection());
+    }
 }
