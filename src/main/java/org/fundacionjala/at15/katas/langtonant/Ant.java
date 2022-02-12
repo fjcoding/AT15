@@ -1,43 +1,31 @@
 package org.fundacionjala.at15.katas.langtonant;
 
-public class Ant {
+public class Ant extends Square {
 
     private Direction direction;
-    private SquareColor squareColor;
-    private Position position;
 
-    public Ant(Direction direction, SquareColor squareColor) {
+    public Ant(Direction direction, SquareColor color) {
+        super(new Position(0, 0), color);
         this.direction = direction;
-        this.squareColor = squareColor;
-        this.position = new Position(0, 0);
     }
 
-    public Ant(Direction direction, SquareColor squareColor, Position position) {
+    public Ant(Direction direction, SquareColor color, Position position) {
+        super(position, color);
         this.direction = direction;
-        this.squareColor = squareColor;
-        this.position = position;
     }
 
     public Direction getDirection() {
         return direction;
     }
 
-    public SquareColor getSquareColor() {
-        return squareColor;
-    }
-
-    public Position getPosition() {
-        return position;
-    }
-
-    public void takeStep(SquareColor newSquareColor) {
+    public void takeStep(SquareColor newColor) {
         turnDirection();
         moveForward();
-        this.squareColor = newSquareColor;
+        this.color = newColor;
     }
 
     public void turnDirection() {
-        if (squareColor == SquareColor.WHITE) {
+        if (this.color == SquareColor.WHITE) {
             if (direction == Direction.WEST) {
                 direction = Direction.NORTH;
             } else if (direction == Direction.NORTH) {
@@ -47,7 +35,7 @@ public class Ant {
             } else if (direction == Direction.SOUTH) {
                 direction = Direction.WEST;
             }
-        } else if (squareColor == SquareColor.BLACK) {
+        } else if (this.color == SquareColor.BLACK) {
             if (direction == Direction.WEST) {
                 direction = Direction.SOUTH;
             } else if (direction == Direction.SOUTH) {

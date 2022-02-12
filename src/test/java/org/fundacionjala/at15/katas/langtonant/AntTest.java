@@ -11,7 +11,7 @@ public class AntTest {
         Ant theAnt = new Ant(Direction.WEST, SquareColor.WHITE);
 
         assertEquals(Direction.WEST, theAnt.getDirection());
-        assertEquals(SquareColor.WHITE, theAnt.getSquareColor());
+        assertEquals(SquareColor.WHITE, theAnt.getColor());
     }
 
     @Test
@@ -82,31 +82,31 @@ public class AntTest {
         theAnt.takeStep(SquareColor.WHITE);
         Position expectedForwardPos = new Position(5, 6);
         assertEquals(expectedForwardPos, theAnt.getPosition());
-        assertEquals(SquareColor.WHITE, theAnt.getSquareColor());
+        assertEquals(SquareColor.WHITE, theAnt.getColor());
         assertEquals(Direction.NORTH, theAnt.getDirection());
 
         theAnt.takeStep(SquareColor.WHITE);
         expectedForwardPos = new Position(6, 6);
         assertEquals(expectedForwardPos, theAnt.getPosition());
-        assertEquals(SquareColor.WHITE, theAnt.getSquareColor());
+        assertEquals(SquareColor.WHITE, theAnt.getColor());
         assertEquals(Direction.EAST, theAnt.getDirection());
 
         theAnt.takeStep(SquareColor.WHITE);
         expectedForwardPos = new Position(6, 5);
         assertEquals(expectedForwardPos, theAnt.getPosition());
-        assertEquals(SquareColor.WHITE, theAnt.getSquareColor());
+        assertEquals(SquareColor.WHITE, theAnt.getColor());
         assertEquals(Direction.SOUTH, theAnt.getDirection());
 
         theAnt.takeStep(SquareColor.BLACK);
         expectedForwardPos = new Position(5, 5);
         assertEquals(expectedForwardPos, theAnt.getPosition());
-        assertEquals(SquareColor.BLACK, theAnt.getSquareColor());
+        assertEquals(SquareColor.BLACK, theAnt.getColor());
         assertEquals(Direction.WEST, theAnt.getDirection());
 
         theAnt.takeStep(SquareColor.WHITE);
         expectedForwardPos = new Position(5, 4);
         assertEquals(expectedForwardPos, theAnt.getPosition());
-        assertEquals(SquareColor.WHITE, theAnt.getSquareColor());
+        assertEquals(SquareColor.WHITE, theAnt.getColor());
         assertEquals(Direction.SOUTH, theAnt.getDirection());
     }
 }
