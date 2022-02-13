@@ -34,14 +34,6 @@ public class GridTest {
     }
 
     @Test
-    public void itShouldBeAbleToFindAnt() {
-        Grid theGrid = new Grid();
-        Square theAntSquare = theGrid.getAnt();
-        assertNotNull(theAntSquare);
-        assertTrue(theAntSquare instanceof Ant);
-    }
-
-    @Test
     public void itShouldBeAbleToMoveTheAnt() {
         Grid theGrid = new Grid();
         theGrid.moveAnt();
