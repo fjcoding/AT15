@@ -7,10 +7,10 @@ import org.fundacionjala.at15.katas.bankocr.vladimir.excepciones.LecturaDatosEx;
 public class AccesoDatosImpl {
     public static final int TAM = 3;
     public String[] listar(String nombreRecurso) throws LecturaDatosEx {
-        var archivo = new File(nombreRecurso);
+        File archivo = new File(nombreRecurso);
         String[] subLine = new String[TAM];
         try {
-            var entrada = new BufferedReader(new FileReader(archivo));
+            BufferedReader entrada = new BufferedReader(new FileReader(archivo));
             String linea = null;
             int cont = 0;
             cont = 0;

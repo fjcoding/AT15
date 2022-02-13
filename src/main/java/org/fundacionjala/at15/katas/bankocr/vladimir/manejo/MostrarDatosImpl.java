@@ -36,7 +36,7 @@ public class MostrarDatosImpl {
 
     public void listarNumeros() {
         try {
-            var numeros = this.datos.listar(nombreRecurso);
+            String [] numeros = this.datos.listar(nombreRecurso);
             for (int ind = 0; ind < TAM; ind++) {
                 System.out.println(numeros[ind]);
             }
@@ -49,7 +49,7 @@ public class MostrarDatosImpl {
     public String[] convertirOcr(int ent) {
         String[] subNum = new String[TAM];
         try {
-            var numeros = this.datos.listar(nombreRecurso);
+            String [] numeros = this.datos.listar(nombreRecurso);
             switch (ent) {
                 case CASE9:
                     for (int ind = 0; ind < TAM; ind++) {

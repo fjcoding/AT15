@@ -10,8 +10,8 @@ public class Main {
     private static final int CASE3 = 3;
     private static final int CASE4 = 4;
     public static void main(String[] args) {
-        var opcion = -1;
-        var scanner = new Scanner(System.in);
+        int opcion = -1;
+        Scanner scanner = new Scanner(System.in);
         MostrarDatosImpl muestra = new MostrarDatosImpl();
 
         while (opcion != 0) {
