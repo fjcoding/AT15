@@ -25,4 +25,14 @@ public class SquareTest {
         theSquare.switchColor();
         assertEquals(Square.Color.WHITE, theSquare.getColor());
     }
+
+    @Test
+    public void itShoulBeAbleToPrintASymbolDependingOnColor() {
+        Position irrelevantPos = new Position(0, 0);
+        Square whiteSquare = new Square(irrelevantPos, Square.Color.WHITE);
+        Square blackSquare = new Square(irrelevantPos, Square.Color.BLACK);
+
+        assertEquals("[ ]", whiteSquare.print());
+        assertEquals("[X]", blackSquare.print());
+    }
 }

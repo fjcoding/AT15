@@ -59,4 +59,9 @@ public class Ant extends Square {
         }
         return newDirection;
     }
+
+    @Override
+    public String print() {
+        return this.color == Color.BLACK ? "[a]" : "[A]";
+    }
 }

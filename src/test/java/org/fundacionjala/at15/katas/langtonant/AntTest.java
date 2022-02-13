@@ -103,4 +103,14 @@ public class AntTest {
         assertEquals(Square.Color.WHITE, theAnt.getColor());
         assertEquals(Direction.SOUTH, theAnt.getDirection());
     }
+
+    @Test
+    public void itShoulBeAbleToPrintAntSymbolDependingOnColor() {
+        Position irrelevantPos = new Position(0, 0);
+        Ant theAntInWhiteSquare = new Ant(Direction.WEST, Square.Color.WHITE, irrelevantPos);
+        Ant theAntInBlackSquare = new Ant(Direction.WEST, Square.Color.BLACK, irrelevantPos);
+
+        assertEquals("[A]", theAntInWhiteSquare.print());
+        assertEquals("[a]", theAntInBlackSquare.print());
+    }
 }

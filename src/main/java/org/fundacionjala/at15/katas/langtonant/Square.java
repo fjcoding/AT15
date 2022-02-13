@@ -25,4 +25,8 @@ public class Square {
     public void switchColor() {
         this.color = this.color == Color.BLACK ? Color.WHITE : Color.BLACK;
     }
+
+    public String print() {
+        return this.color == Color.BLACK ? "[X]" : "[ ]";
+    }
 }
