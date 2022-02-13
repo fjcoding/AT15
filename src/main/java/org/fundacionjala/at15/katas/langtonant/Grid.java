@@ -9,6 +9,8 @@ public class Grid {
 
     private Square[][] squares;
     private Ant theAnt;
+    private int rows;
+    private int columns;
 
     public Grid() {
         createGrid(DEFAULT_ROWS_COUNT, DEFAULT_COLUMNS_COUNT, DEFAULT_ANT_X_POS, DEFAULT_ANT_Y_POS);
@@ -18,7 +20,9 @@ public class Grid {
         return squares;
     }
 
-    private void createGrid(int rows, int columns, int antX, int antY) {
+    private void createGrid(int theRows, int theColumns, int antX, int antY) {
+        this.rows = theRows;
+        this.columns = theColumns;
         this.squares = new Square[columns][rows];
         for (int xIndex = 0; xIndex < columns; xIndex++) {
             for (int yIndex = 0; yIndex < rows; yIndex++) {
@@ -51,5 +55,21 @@ public class Grid {
 
         squares[antPrevSquarePosX][antPrevSquarePosY] = antPrevSquare;
         squares[antNextSquarePosX][antNextSquarePosY] = theAnt;
+    }
+
+    /**
+     * Builds a "printable" string that can be displayed to show grid contents/status
+     *
+     * The print rotates 90
+     */
+    public String print() {
+        String result = "";
+        for (int yIndex = rows - 1; yIndex >= 0; yIndex--) {
+            for (int xIndex = 0; xIndex < columns; xIndex++) {
+                result += squares[xIndex][yIndex].print();
+            }
+            result += "\n";
+        }
+        return result;
     }
 }
