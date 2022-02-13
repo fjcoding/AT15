@@ -1,9 +1,7 @@
 package org.fundacionjala.at15.katas.bankocr;
 
 public class NumbersMachine {
-
-    static int numberIs;
-    
+    /*static int numberIs;
     public static int numbersMachine(String[] compare) {
         final String[] number0 = new String[] { " _ ", "| |", "|_|" };
         final String[] number1 = new String[] { "   ", "  |", "  |" };
@@ -37,5 +35,5 @@ public class NumbersMachine {
             numberIs=9;
         }
         return numberIs;
-    }
+    }*/
 }
