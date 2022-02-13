@@ -28,6 +28,18 @@ checkstyleMain {
     source = 'src/main/java'
 }
 
+<<<<<<< HEAD
+=======
+task runLangtonAntJimy (dependsOn: 'check', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.langtonant.jimy.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
+task runLangtonAntalvaro (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.langtonant.alvaro.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+}
+>>>>>>> e996004 (Added test and functions)
 checkstyleTest {
     source = 'src/main/java'
 }
