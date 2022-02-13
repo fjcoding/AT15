@@ -28,6 +28,7 @@ public class Numbers {
     private final int twentyfour = 24;
     private final int twentyfive = 25;
     private final int twentysix = 26;
+    private final int twentyseven = 27;
 
     public Numbers(int rows, int columns) {
         this.rows = rows;
@@ -107,39 +108,36 @@ public class Numbers {
             System.out.print(" ERR");
         }
     }
-    /*public void case4() {
-        boolean checkSum = false;
-        int[] numberComplete = new int[nine];
-        for (int ind = 0; ind < nine; ind++) {
-            numberComplete[ind] = Integer.parseInt(number()[ind]);
-        }
-        if ((numberComplete[eight] + 2 * numberComplete[sevens] + threes * numberComplete[sixs] + fours * numberComplete[fives]
-            + fives * numberComplete[fours] + sixs * numberComplete[threes] + sevens * numberComplete[2] + eight * numberComplete[1]
-            + nine * numberComplete[0]) % eleven == 0) {
-            checkSum = true;
-        }
-        while (!checkSum) {
-            switch (numberComplete[0]) {
-                case 1:
-                    numberComplete[0] = sevens;
-                    break;
-                case threes:
-                    numberComplete[0] = nine;
-                    break;
-                default:
-                    checkSum = true;
-            }
-            if ((numberComplete[eight] + 2 * numberComplete[sevens] + threes * numberComplete[sixs] + fours * numberComplete[fives]
-                + fives * numberComplete[fours] + sixs * numberComplete[threes] + sevens * numberComplete[2] + eight * numberComplete[1]
-                + nine * numberComplete[0]) % eleven == 0) {
-                checkSum = true;
+    public void case4() {
+        final String[][] possibility = new String[threes][twentyseven];
+        for (int ind = 0; ind < threes; ind++) {
+            for (int jnd = 0; jnd < twentyseven; jnd++) {
+                possibility[ind][jnd] = matrix[ind][jnd];
             }
         }
-        System.out.println();
-        for (int ind = 0; ind < nine; ind++) {
-            System.out.print(numberComplete[ind]);
+        for (int ind = 0; ind < threes; ind++) {
+            for (int jnd = 0; jnd < twentyseven; jnd++) {
+                matrix[ind][jnd] = replaceAtPosition(matrix[ind][jnd]);
+                if (checksum()) {
+                    print();
+                    matrix[ind][jnd] = possibility[ind][jnd];
+                    break;
+                } else {
+                    matrix[ind][jnd] = possibility[ind][jnd];
+                }
+            }
         }
-    }*/
+    }
+
+    public String replaceAtPosition(String character) {
+        String result = "";
+        if (character.equals("_") || character.equals("|")) {
+            result = " ";
+            return result;
+        } else {
+            return character;
+        }
+    }
 
     public String whatNumber(String one, String two, String three, String four, String five, String six, String seven) {
         if (one.equals("_") && two.equals("|") && three.equals(" ") && four.equals("|") && five.equals("|") && six.equals("_") && seven.equals("|")) {
