@@ -196,7 +196,6 @@ public class MostrarDatosImpl {
         String shortnum1 = "";
         String shortnum2 = "";
         System.out.print(esCta() + " => ");
-        int count = 0;
         for (int ind = 0; ind < CASE9; ind++) {
             if (ind == 0) {
                 if (convesion().substring(ind, ind + 1).equals("1")) {
