@@ -15,64 +15,55 @@ public class AntTest {
     }
 
     @Test
-    public void itShouldTurnDirectionRightWhenSquareColorIsWhite() {
+    public void itShouldFindNextStepDirectionWhenSquareColorIsWhite() {
         Ant theAnt = new Ant(Direction.WEST, Square.Color.WHITE);
+        assertEquals(Direction.NORTH, theAnt.findNextStepDirection());
 
-        theAnt.turnDirection();
-        assertEquals(Direction.NORTH, theAnt.getDirection());
+        theAnt = new Ant(Direction.NORTH, Square.Color.WHITE);
+        assertEquals(Direction.EAST, theAnt.findNextStepDirection());
 
-        theAnt.turnDirection();
-        assertEquals(Direction.EAST, theAnt.getDirection());
+        theAnt = new Ant(Direction.EAST, Square.Color.WHITE);
+        assertEquals(Direction.SOUTH, theAnt.findNextStepDirection());
 
-        theAnt.turnDirection();
-        assertEquals(Direction.SOUTH, theAnt.getDirection());
-
-        theAnt.turnDirection();
-        assertEquals(Direction.WEST, theAnt.getDirection());
+        theAnt = new Ant(Direction.SOUTH, Square.Color.WHITE);
+        assertEquals(Direction.WEST, theAnt.findNextStepDirection());
     }
 
     @Test
-    public void itShouldTurnDirectionLeftWhenSquareColorIsBlack() {
+    public void itShouldFindNextStepDirectionWhenSquareColorIsBlack() {
         Ant theAnt = new Ant(Direction.WEST, Square.Color.BLACK);
+        assertEquals(Direction.SOUTH, theAnt.findNextStepDirection());
 
-        theAnt.turnDirection();
-        assertEquals(Direction.SOUTH, theAnt.getDirection());
+        theAnt = new Ant(Direction.SOUTH, Square.Color.BLACK);
+        assertEquals(Direction.EAST, theAnt.findNextStepDirection());
 
-        theAnt.turnDirection();
-        assertEquals(Direction.EAST, theAnt.getDirection());
+        theAnt = new Ant(Direction.EAST, Square.Color.BLACK);
+        assertEquals(Direction.NORTH, theAnt.findNextStepDirection());
 
-        theAnt.turnDirection();
-        assertEquals(Direction.NORTH, theAnt.getDirection());
-
-        theAnt.turnDirection();
-        assertEquals(Direction.WEST, theAnt.getDirection());
+        theAnt = new Ant(Direction.NORTH, Square.Color.BLACK);
+        assertEquals(Direction.WEST, theAnt.findNextStepDirection());
     }
 
     @Test
-    public void itShouldMoveForwardDependingOnTheCurrentDirection() {
+    public void itShouldFindNextStepPositionDependingOnTheGivenDirection() {
         Position initAntPos = new Position(5, 5);
         Ant theAnt = new Ant(Direction.WEST, Square.Color.BLACK, initAntPos);
-        theAnt.moveForward();
-        Position expectedForwardPos = new Position(4, 5);
-        assertEquals(expectedForwardPos, theAnt.getPosition());
 
-        initAntPos = new Position(5, 5);
-        theAnt = new Ant(Direction.NORTH, Square.Color.BLACK, initAntPos);
-        theAnt.moveForward();
-        expectedForwardPos = new Position(5, 6);
-        assertEquals(expectedForwardPos, theAnt.getPosition());
+        Position nextStepPos = theAnt.findNextStepPosition(Direction.NORTH);
+        Position expectedPos = new Position(5, 6);
+        assertEquals(expectedPos, nextStepPos);
 
-        initAntPos = new Position(5, 5);
-        theAnt = new Ant(Direction.EAST, Square.Color.BLACK, initAntPos);
-        theAnt.moveForward();
-        expectedForwardPos = new Position(6, 5);
-        assertEquals(expectedForwardPos, theAnt.getPosition());
+        nextStepPos = theAnt.findNextStepPosition(Direction.SOUTH);
+        expectedPos = new Position(5, 4);
+        assertEquals(expectedPos, nextStepPos);
 
-        initAntPos = new Position(5, 5);
-        theAnt = new Ant(Direction.SOUTH, Square.Color.BLACK, initAntPos);
-        theAnt.moveForward();
-        expectedForwardPos = new Position(5, 4);
-        assertEquals(expectedForwardPos, theAnt.getPosition());
+        nextStepPos = theAnt.findNextStepPosition(Direction.WEST);
+        expectedPos = new Position(4, 5);
+        assertEquals(expectedPos, nextStepPos);
+
+        nextStepPos = theAnt.findNextStepPosition(Direction.EAST);
+        expectedPos = new Position(6, 5);
+        assertEquals(expectedPos, nextStepPos);
     }
 
     @Test

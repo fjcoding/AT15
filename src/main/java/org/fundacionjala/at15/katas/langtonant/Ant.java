@@ -19,38 +19,43 @@ public class Ant extends Square {
     }
 
     public void takeStep(Square.Color newColor) {
-        turnDirection();
-        moveForward();
+        Direction newDirection = findNextStepDirection();
+        Position newPosition = findNextStepPosition(newDirection);
+
+        this.direction = newDirection;
+        this.position = newPosition;
         this.color = newColor;
     }
 
-    public void turnDirection() {
+    public Direction findNextStepDirection() {
+        Direction newDirection = null;
         if (this.color == Square.Color.WHITE) {
-            if (direction == Direction.WEST) {
-                direction = Direction.NORTH;
-            } else if (direction == Direction.NORTH) {
-                direction = Direction.EAST;
-            } else if (direction == Direction.EAST) {
-                direction = Direction.SOUTH;
-            } else if (direction == Direction.SOUTH) {
-                direction = Direction.WEST;
+            if (this.direction == Direction.WEST) {
+                newDirection = Direction.NORTH;
+            } else if (this.direction == Direction.NORTH) {
+                newDirection = Direction.EAST;
+            } else if (this.direction == Direction.EAST) {
+                newDirection = Direction.SOUTH;
+            } else if (this.direction == Direction.SOUTH) {
+                newDirection = Direction.WEST;
             }
         } else if (this.color == Square.Color.BLACK) {
-            if (direction == Direction.WEST) {
-                direction = Direction.SOUTH;
-            } else if (direction == Direction.SOUTH) {
-                direction = Direction.EAST;
-            } else if (direction == Direction.EAST) {
-                direction = Direction.NORTH;
-            } else if (direction == Direction.NORTH) {
-                direction = Direction.WEST;
+            if (this.direction == Direction.WEST) {
+                newDirection = Direction.SOUTH;
+            } else if (this.direction == Direction.SOUTH) {
+                newDirection = Direction.EAST;
+            } else if (this.direction == Direction.EAST) {
+                newDirection = Direction.NORTH;
+            } else if (this.direction == Direction.NORTH) {
+                newDirection = Direction.WEST;
             }
         }
+        return newDirection;
     }
 
-    public void moveForward() {
-        int newXPos = this.position.getX() + this.direction.getXForward();
-        int newYPos = this.position.getY() + this.direction.getYForward();
-        this.position = new Position(newXPos, newYPos);
+    public Position findNextStepPosition(Direction nextStepDirection) {
+        int nextStepPosX = this.position.getX() + nextStepDirection.getXForward();
+        int nextStepPosY = this.position.getY() + nextStepDirection.getYForward();
+        return new Position(nextStepPosX, nextStepPosY);
     }
 }
