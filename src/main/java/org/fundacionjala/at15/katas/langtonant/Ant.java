@@ -20,11 +20,18 @@ public class Ant extends Square {
 
     public void takeStep(Square.Color newColor) {
         Direction newDirection = findNextStepDirection();
-        Position newPosition = findNextStepPosition(newDirection);
+        Position newPosition = findNextStepPosition();
 
         this.direction = newDirection;
         this.position = newPosition;
         this.color = newColor;
+    }
+
+    public Position findNextStepPosition() {
+        Direction newDirection = findNextStepDirection();
+        int nextStepPosX = this.position.getX() + newDirection.getXForward();
+        int nextStepPosY = this.position.getY() + newDirection.getYForward();
+        return new Position(nextStepPosX, nextStepPosY);
     }
 
     public Direction findNextStepDirection() {
@@ -51,11 +58,5 @@ public class Ant extends Square {
             }
         }
         return newDirection;
-    }
-
-    public Position findNextStepPosition(Direction nextStepDirection) {
-        int nextStepPosX = this.position.getX() + nextStepDirection.getXForward();
-        int nextStepPosY = this.position.getY() + nextStepDirection.getYForward();
-        return new Position(nextStepPosX, nextStepPosY);
     }
 }

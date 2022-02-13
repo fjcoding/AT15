@@ -45,24 +45,27 @@ public class AntTest {
     }
 
     @Test
-    public void itShouldFindNextStepPositionDependingOnTheGivenDirection() {
+    public void itShouldFindNextStepPositionDependingOnCurrentDirectionAndSquareColor() {
         Position initAntPos = new Position(5, 5);
-        Ant theAnt = new Ant(Direction.WEST, Square.Color.BLACK, initAntPos);
+        Ant theAnt = new Ant(Direction.WEST, Square.Color.WHITE, initAntPos);
 
-        Position nextStepPos = theAnt.findNextStepPosition(Direction.NORTH);
+        Position nextStepPos = theAnt.findNextStepPosition();
         Position expectedPos = new Position(5, 6);
         assertEquals(expectedPos, nextStepPos);
 
-        nextStepPos = theAnt.findNextStepPosition(Direction.SOUTH);
-        expectedPos = new Position(5, 4);
-        assertEquals(expectedPos, nextStepPos);
-
-        nextStepPos = theAnt.findNextStepPosition(Direction.WEST);
-        expectedPos = new Position(4, 5);
-        assertEquals(expectedPos, nextStepPos);
-
-        nextStepPos = theAnt.findNextStepPosition(Direction.EAST);
+        theAnt = new Ant(Direction.NORTH, Square.Color.WHITE, initAntPos);
+        nextStepPos = theAnt.findNextStepPosition();
         expectedPos = new Position(6, 5);
+        assertEquals(expectedPos, nextStepPos);
+
+        theAnt = new Ant(Direction.SOUTH, Square.Color.BLACK, initAntPos);
+        nextStepPos = theAnt.findNextStepPosition();
+        expectedPos = new Position(6, 5);
+        assertEquals(expectedPos, nextStepPos);
+
+        theAnt = new Ant(Direction.EAST, Square.Color.BLACK, initAntPos);
+        nextStepPos = theAnt.findNextStepPosition();
+        expectedPos = new Position(5, 6);
         assertEquals(expectedPos, nextStepPos);
     }
 
