@@ -4,7 +4,7 @@ public class Numbers {
 
     private final String digit;
 
-    public static final String ZERO = " _ \n" + "| |\n" + "|_|\n" + "   \n";
+    private static final String ZERO = " _ \n" + "| |\n" + "|_|\n" + "   \n";
     public static final String ONE = "   \n" + "  |\n" + "  |\n" + "   \n";
     public static final String TWO = " _ \n" + " _|\n" + "|_ \n" + "   \n";
     public static final String THREE = " _ \n" + " _|\n" + " _|\n" + "   \n";

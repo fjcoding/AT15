@@ -1,4 +1,4 @@
-package org.fundacionjala.at15.katas.bankocr.agustin;
+package org.fundacionjala.at15.katas.bankocr;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -50,8 +50,5 @@ public class BankocrTest {
 
         assertTrue( file1.exists() );
         assertTrue( file2.isFile() );
-
-
-
     }
 }
