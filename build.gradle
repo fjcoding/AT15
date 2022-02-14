@@ -75,7 +75,7 @@ task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
-task runBanckorcDiana(dependsOn: 'check', type: JavaExec) {
-    main = 'org.fundacionjala.at15.katas.bankorc.diana.Main'
+task runBanckocrDiana(dependsOn: 'check', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.bankocr.diana.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
