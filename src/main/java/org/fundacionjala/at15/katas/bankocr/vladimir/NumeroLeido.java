@@ -1,4 +1,4 @@
-package org.fundacionjala.at15.katas.bankocr.vladimir.objeto;
+package org.fundacionjala.at15.katas.bankocr.vladimir;
 
 public class NumeroLeido {
     private static String[] cero = new String[] {

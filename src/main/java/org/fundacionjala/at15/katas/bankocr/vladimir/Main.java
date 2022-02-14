@@ -1,7 +1,6 @@
-package org.fundacionjala.at15.katas.bankocr.vladimir.presentacion;
+package org.fundacionjala.at15.katas.bankocr.vladimir;
 
 import java.util.Scanner;
-import org.fundacionjala.at15.katas.bankocr.vladimir.manejo.*;
 
 public class Main {
     private static final int CASE0 = 0;
@@ -16,20 +15,20 @@ public class Main {
 
         while (opcion != 0) {
             System.out.println("Elige una opcion: \n"
-                    + "1. Probar si es cuenta\n"
-                    + "2. Mostrar OCR\n"
+                    + "1. Mostrar OCR\n"
+                    + "2. Probar si es cuenta\n"
                     + "3. Corregir ERR\n"
                     + "4. Corregir ILL\n"
                     + "0. Salir");
             opcion = Integer.parseInt(scanner.nextLine());
             switch (opcion) {
                 case CASE1:
-                    System.out.println(muestra.esCta());
-                    break;
-                case CASE2:
                     for (int ind = 0; ind < muestra.listarNumeros().length; ind++) {
                         System.out.println(muestra.listarNumeros()[ind]);
                     }
+                    break;
+                case CASE2:
+                    System.out.println(muestra.esCta());
                     break;
                 case CASE3:
                     muestra.err();
@@ -38,7 +37,7 @@ public class Main {
                     muestra.ill();
                     break;
                 case CASE0:
-                    System.out.println("Hasta pronto");
+                    System.out.println("Terminado");
                     break;
                 default:
                     throw new AssertionError();

@@ -1,7 +1,6 @@
 package org.fundacionjala.at15.katas.bankocr.vladimir;
 import static org.junit.Assert.*;
 
-import org.fundacionjala.at15.katas.bankocr.vladimir.objeto.NumeroLeido;
 import org.junit.Test;
 
 public class NumeroLeidoTest {

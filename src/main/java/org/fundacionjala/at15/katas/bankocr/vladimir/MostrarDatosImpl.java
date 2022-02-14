@@ -1,8 +1,5 @@
-package org.fundacionjala.at15.katas.bankocr.vladimir.manejo;
+package org.fundacionjala.at15.katas.bankocr.vladimir;
 
-import org.fundacionjala.at15.katas.bankocr.vladimir.objeto.*;
-import org.fundacionjala.at15.katas.bankocr.vladimir.excepciones.*;
-import org.fundacionjala.at15.katas.bankocr.vladimir.datos.*;
 import java.util.Arrays;
 
 public class MostrarDatosImpl {
@@ -38,7 +35,7 @@ public class MostrarDatosImpl {
         String[] numeros = new String[CASE3];
         try {
             numeros = this.datos.listar(nombreRecurso);
-        } catch (LecturaDatosEx e) {
+        } catch (AccesoDatosEx e) {
             e.printStackTrace();
         }
         return numeros;

@@ -1,12 +1,10 @@
-package org.fundacionjala.at15.katas.bankocr.vladimir.datos;
+package org.fundacionjala.at15.katas.bankocr.vladimir;
 
 import java.io.*;
 
-import org.fundacionjala.at15.katas.bankocr.vladimir.excepciones.LecturaDatosEx;
-
 public class AccesoDatosImpl {
     public static final int TAM = 3;
-    public String[] listar(String nombreRecurso) throws LecturaDatosEx {
+    public String[] listar(String nombreRecurso) throws AccesoDatosEx {
         File archivo = new File(nombreRecurso);
         String[] subLine = new String[TAM];
         try {
@@ -22,7 +20,7 @@ public class AccesoDatosImpl {
             }
             entrada.close();
         } catch (IOException ex) {
-            throw new LecturaDatosEx("Excepcion al listar numeros: " + ex.getMessage());
+            throw new AccesoDatosEx("Excepcion al listar numeros: " + ex.getMessage());
         }
         return subLine;
     }

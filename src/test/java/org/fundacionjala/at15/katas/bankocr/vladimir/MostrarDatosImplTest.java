@@ -3,14 +3,11 @@ package org.fundacionjala.at15.katas.bankocr.vladimir;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
-import org.fundacionjala.at15.katas.bankocr.vladimir.datos.AccesoDatosImpl;
-import org.fundacionjala.at15.katas.bankocr.vladimir.excepciones.LecturaDatosEx;
-import org.fundacionjala.at15.katas.bankocr.vladimir.manejo.MostrarDatosImpl;
 import org.junit.Test;
 
 public class MostrarDatosImplTest {
     @Test
-    public void itshouldSaveTheTxtLinePerLineInAnArrayTest() throws LecturaDatosEx {
+    public void itshouldSaveTheTxtLinePerLineInAnArrayTest() throws AccesoDatosEx {
         AccesoDatosImpl accesoDatos = new AccesoDatosImpl();
         String[] txtReadedAd = accesoDatos.listar("src/main/java/org/fundacionjala/at15/katas/bankocr/vladimir/OCR.txt");
         MostrarDatosImpl mostrarDatos = new MostrarDatosImpl();

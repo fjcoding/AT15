@@ -76,7 +76,7 @@ task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
 }
 
 task runBankocrVladimir (dependsOn: 'classes', type: JavaExec) {
-    main = 'org.fundacionjala.at15.katas.bankocr.vladimir.presentacion.Main'
+    main = 'org.fundacionjala.at15.katas.bankocr.vladimir.Main'
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
 }

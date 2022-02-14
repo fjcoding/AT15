@@ -2,8 +2,6 @@ package org.fundacionjala.at15.katas.bankocr.vladimir;
 
 import static org.junit.Assert.assertEquals;
 
-import org.fundacionjala.at15.katas.bankocr.vladimir.datos.AccesoDatosImpl;
-import org.fundacionjala.at15.katas.bankocr.vladimir.excepciones.LecturaDatosEx;
 import org.junit.Test;
 
 public class AccesoDatosImplTest {
@@ -11,7 +9,7 @@ public class AccesoDatosImplTest {
     private static final int IND1 = 1;
     private static final int IND2 = 2;
     @Test
-    public void itshouldSaveTheTxtLinePerLineTest() throws LecturaDatosEx {
+    public void itshouldSaveTheTxtLinePerLineTest() throws AccesoDatosEx {
         String lineOne = "    _  _  _  _  _  _     _ ";
         String lineTwo = "|_||_|| || ||_   |  |  ||_ ";
         String lineThree = "  | _||_||_||_|  |  |  | _|";
