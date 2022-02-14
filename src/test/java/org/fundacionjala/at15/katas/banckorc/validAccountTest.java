@@ -35,6 +35,6 @@ public class validAccountTest {
     public void itShouldBeIntegers() {
         boolean valid = true;
         ValidAccount vAccount = new ValidAccount("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
-        assertEquals(valid, vAccount.getValidation());
+        assertEquals(valid, vAccount.isItInteger());
     }
 }

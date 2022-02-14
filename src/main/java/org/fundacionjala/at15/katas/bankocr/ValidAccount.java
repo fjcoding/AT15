@@ -7,6 +7,7 @@ public class ValidAccount {
 
     private List<String> accountlist;
     private boolean validation = true;
+    private boolean isInteger;
 
     public ValidAccount(String path) {
         //accountlist = path;
@@ -25,7 +26,27 @@ public class ValidAccount {
     }
 
     public boolean isItInteger() {
-        boolean isInteger = true;
+        //compare with the obtained accounts
+        String accountComparison = "34588286";
+        final int digits = 10;
+        char[] readyToCompare = accountComparison.toCharArray();
+        char auxChar;
+        String auxStr;
+        int counter = 1;
+        for (int iterator1 = 0; iterator1 < readyToCompare.length; iterator1++) {
+            auxChar = readyToCompare[iterator1];
+            auxStr = Character.toString(auxChar);
+            for (int iterator2 = 0; iterator2 < digits; iterator2++) {
+                if (Integer.parseInt(auxStr) == iterator2) {
+                    counter++;
+                }
+            }
+            if (counter != digits - 1) {
+                isInteger = false;
+            } else {
+                isInteger = true;
+            }
+        }
         return isInteger;
     }
 
