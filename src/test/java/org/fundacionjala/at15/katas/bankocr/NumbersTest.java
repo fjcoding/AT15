@@ -75,4 +75,11 @@ public class NumbersTest {
         Numbers numbToDecode = new Numbers(digit);
         assertEquals("9", numbToDecode.getNumber());
     }
+
+    @Test
+    public void  itShouldBeIllegible() {
+        String digit = " _ \n" + "|_|\n" + " _|\n" + "   \n";
+        Numbers numbToDecode = new Numbers(digit);
+        assertEquals("?", numbToDecode.getNumber());
+    }
 }
