@@ -1,5 +1,7 @@
 package org.fundacionjala.at15.katas.bankocr.diana;
 
+import java.util.ArrayList;
+
 public class Display {
     static final int ROWS = 4;
     static final int COLUMNS = 3;
@@ -18,9 +20,12 @@ public class Display {
     static final int SEVEN = 7;
     static final int EIGHT = 8;
     static final int NINE = 9;
+    static final int TEN = 10;
+    static final int ELEVEN = 11;
     private int numberInput; // number of de fle.txt
     private String[][] matrixNumber = new String[ROWS][COLUMNS];
     private Object[] arrayOfMatrixes = new Object[ARRAY];
+    private int numberResult = 0;
 
     public Display(int numberInput) {
         this.numberInput = numberInput;
@@ -31,6 +36,7 @@ public class Display {
         for (int indexInput = 0; indexInput < numberInputString.length(); indexInput++) {
             String number = String.valueOf(numberInputString.charAt(indexInput));
             int position = indexInput;
+            System.out.println(number);
 
             switch (number) {
                 case "0":
@@ -68,7 +74,7 @@ public class Display {
         }
     }
 
-    private String[][] numberZero(String[][] matrixNumbers) { // create number zero on a matrix 4x3
+    public String[][] numberZero(String[][] matrixNumbers) { // create number zero on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -84,7 +90,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberOne(String[][] matrixNumbers) { // create number one on a matrix 4x3
+    public String[][] numberOne(String[][] matrixNumbers) { // create number one on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = " ";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -100,7 +106,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberTwo(String[][] matrixNumbers) { // create number two on a matrix 4x3
+    public String[][] numberTwo(String[][] matrixNumbers) { // create number two on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -116,7 +122,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberThree(String[][] matrixNumbers) { // create number three on a matrix 4x3
+    public String[][] numberThree(String[][] matrixNumbers) { // create number three on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -132,7 +138,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberFour(String[][] matrixNumbers) { // create number four on a matrix 4x3
+    public String[][] numberFour(String[][] matrixNumbers) { // create number four on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = " ";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -148,7 +154,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberFive(String[][] matrixNumbers) { // create number five on a matrix 4x3
+    public String[][] numberFive(String[][] matrixNumbers) { // create number five on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -164,7 +170,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberSix(String[][] matrixNumbers) { // create number six on a matrix 4x3
+    public String[][] numberSix(String[][] matrixNumbers) { // create number six on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -180,7 +186,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberSeven(String[][] matrixNumbers) { // create number seven on a matrix 4x3
+    public String[][] numberSeven(String[][] matrixNumbers) { // create number seven on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -196,7 +202,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberEight(String[][] matrixNumbers) { // create number eight on a matrix 4x3
+    public String[][] numberEight(String[][] matrixNumbers) { // create number eight on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -212,7 +218,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberNine(String[][] matrixNumbers) { // create number nine on a matrix 4x3
+    public String[][] numberNine(String[][] matrixNumbers) { // create number nine on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -240,7 +246,7 @@ public class Display {
         }
     }
 
-    private boolean determinateIfMatrixIsZero(String[][] matrixToCheck) {
+    public boolean determinateIfMatrixIsZero(String[][] matrixToCheck) {
         return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == "|") && (matrixToCheck[1][1] == " ") && (matrixToCheck[1][2] == "|")
                 && (matrixToCheck[2][0] == "|") && (matrixToCheck[2][1] == "_") && (matrixToCheck[2][2] == "|")
@@ -248,7 +254,7 @@ public class Display {
                 && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
-    private boolean determinateIfMatrixIsOne(String[][] matrixToCheck) {
+    public boolean determinateIfMatrixIsOne(String[][] matrixToCheck) {
         return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == " ") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == " ")
                 && (matrixToCheck[1][1] == " ") && (matrixToCheck[1][2] == "|")
@@ -257,7 +263,7 @@ public class Display {
                 && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
-    private boolean determinateIfMatrixIsTwo(String[][] matrixToCheck) {
+    public boolean determinateIfMatrixIsTwo(String[][] matrixToCheck) {
         return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == " ")
                 && (matrixToCheck[1][1] == "_") && (matrixToCheck[1][2] == "|")
@@ -266,7 +272,7 @@ public class Display {
                 && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
-    private boolean determinateIfMatrixIsThree(String[][] matrixToCheck) {
+    public boolean determinateIfMatrixIsThree(String[][] matrixToCheck) {
         return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == " ") && (matrixToCheck[1][1] == "_") && (matrixToCheck[1][2] == "|")
                 && (matrixToCheck[2][0] == " ") && (matrixToCheck[2][1] == "_") && (matrixToCheck[2][2] == "|")
@@ -274,7 +280,7 @@ public class Display {
                 && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
-    private boolean determinateIfMatrixIsFour(String[][] matrixToCheck) {
+    public boolean determinateIfMatrixIsFour(String[][] matrixToCheck) {
         return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == " ") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == "|") && (matrixToCheck[1][1] == "_") && (matrixToCheck[1][2] == "|")
                 && (matrixToCheck[2][0] == " ") && (matrixToCheck[2][1] == " ") && (matrixToCheck[2][2] == "|")
@@ -282,7 +288,7 @@ public class Display {
                 && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
-    private boolean determinateIfMatrixIsFive(String[][] matrixToCheck) {
+    public boolean determinateIfMatrixIsFive(String[][] matrixToCheck) {
         return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == "|") && (matrixToCheck[1][1] == "_") && (matrixToCheck[1][2] == " ")
                 && (matrixToCheck[2][0] == " ") && (matrixToCheck[2][1] == "_") && (matrixToCheck[2][2] == "|")
@@ -290,7 +296,7 @@ public class Display {
                 && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
-    private boolean determinateIfMatrixIsSix(String[][] matrixToCheck) {
+    public boolean determinateIfMatrixIsSix(String[][] matrixToCheck) {
         return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == "|") && (matrixToCheck[1][1] == "_") && (matrixToCheck[1][2] == " ")
                 && (matrixToCheck[2][0] == "|") && (matrixToCheck[2][1] == "_") && (matrixToCheck[2][2] == "|")
@@ -298,7 +304,7 @@ public class Display {
                 && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
-    private boolean determinateIfMatrixIsSeven(String[][] matrixToCheck) {
+    public boolean determinateIfMatrixIsSeven(String[][] matrixToCheck) {
         return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == " ") && (matrixToCheck[1][1] == " ") && (matrixToCheck[1][2] == "|")
                 && (matrixToCheck[2][0] == " ") && (matrixToCheck[2][1] == " ") && (matrixToCheck[2][2] == "|")
@@ -306,7 +312,7 @@ public class Display {
                 && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
-    private boolean determinateIfMatrixIsEight(String[][] matrixToCheck) {
+    public boolean determinateIfMatrixIsEight(String[][] matrixToCheck) {
         return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == "|") && (matrixToCheck[1][1] == "_") && (matrixToCheck[1][2] == "|")
                 && (matrixToCheck[2][0] == "|") && (matrixToCheck[2][1] == "_") && (matrixToCheck[2][2] == "|")
@@ -314,7 +320,7 @@ public class Display {
                 && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
-    private int getNumber(String[][] matrix) {
+    public int getNumber(String[][] matrix) {
         if (determinateIfMatrixIsZero(matrix)) {
             return ZERO;
         }
@@ -347,13 +353,42 @@ public class Display {
     }
 
     public void convertLcdToNumber() {
-        String finalResult = " ";
+        String finalResult = "";
         for (int position = 0; position < arrayOfMatrixes.length; position++) {
 
             int result = getNumber((String[][]) arrayOfMatrixes[position]);
             finalResult = finalResult + String.valueOf(result);
+            numberResult = Integer.valueOf(finalResult);
         }
-        System.out.print("THE ACCOUNT NUMBER IS: " + finalResult);
+        System.out.print("THE LCD NUMBER IS: " + finalResult);
+        System.out.println(" ");
     }
 
+    public void validationAccountNumber() {
+        int constant = TEN;
+        int auxNumber;
+        int auxVar;
+        int numberAccount = numberResult;
+        int currentNumber = numberAccount;
+        int validation = 0;
+        ArrayList<Integer> arrayOfNumbers = new ArrayList<Integer>();
+
+        for (int ind = 0; ind < NINE; ind++) {
+            if (numberAccount >= TEN) {
+                auxNumber = currentNumber / constant;
+                auxVar = currentNumber - (auxNumber * constant);
+                arrayOfNumbers.add(auxVar);
+                currentNumber = auxNumber;
+            }
+        }
+        for (int indexArray = 0; indexArray < arrayOfNumbers.size(); indexArray++) {
+            validation = validation + ((indexArray + 1) * arrayOfNumbers.get(indexArray));
+        }
+        if (validation % ELEVEN == 0) {
+            System.out.println("The number account is valid.");
+        } else {
+            System.out.println("The number account is NOT valid.");
+        }
+
+    }
 }

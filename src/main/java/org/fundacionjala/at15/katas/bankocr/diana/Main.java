@@ -15,5 +15,7 @@ public class Main {
         numberInput.printLcd();
         numberInput.convertLcdToNumber();
 
+        numberInput.validationAccountNumber();
+
     }
 }
