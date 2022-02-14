@@ -67,15 +67,15 @@ public class NumeroLeidoTest {
             " _|"
         };
 
-        assertEquals(cero, NumeroLeido.getCero());
-        assertEquals(uno, NumeroLeido.getUno());
-        assertEquals(dos, NumeroLeido.getDos());
-        assertEquals(tres, NumeroLeido.getTres());
-        assertEquals(cuatro, NumeroLeido.getCuatro());
-        assertEquals(cinco, NumeroLeido.getCinco());
-        assertEquals(seis, NumeroLeido.getSeis());
-        assertEquals(siete, NumeroLeido.getSiete());
-        assertEquals(ocho, NumeroLeido.getOcho());
-        assertEquals(nueve, NumeroLeido.getNueve());
+        assertArrayEquals(cero, NumeroLeido.getCero());
+        assertArrayEquals(uno, NumeroLeido.getUno());
+        assertArrayEquals(dos, NumeroLeido.getDos());
+        assertArrayEquals(tres, NumeroLeido.getTres());
+        assertArrayEquals(cuatro, NumeroLeido.getCuatro());
+        assertArrayEquals(cinco, NumeroLeido.getCinco());
+        assertArrayEquals(seis, NumeroLeido.getSeis());
+        assertArrayEquals(siete, NumeroLeido.getSiete());
+        assertArrayEquals(ocho, NumeroLeido.getOcho());
+        assertArrayEquals(nueve, NumeroLeido.getNueve());
     }
 }
