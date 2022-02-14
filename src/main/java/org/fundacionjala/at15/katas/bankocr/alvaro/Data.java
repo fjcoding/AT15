@@ -1,15 +1,27 @@
 package org.fundacionjala.at15.katas.bankocr.alvaro;
 
 import java.util.Arrays;
-import java.util.Scanner;
+
 
 public class Data {
-    private static final int rows = 3;
-    private static final int columns = 27;
-    private static char[][] mat = new char[rows][columns];
-    private static Scanner scan = new Scanner(System.in);
-    public static String readData() {
-        String stringText = scan.nextLine();
+    private static final int ROWS = 3;
+    private static final int COLUMNS = 27;
+    private static final int ONE = 1;
+    private static final int TWO = 2;
+    private static final int THREE = 3;
+    private static final int FOUR = 4;
+    private static final int FIVE = 5;
+    private static final int SIX = 6;
+    private static final int SEVEN = 7;
+    private static final int EIGTH = 8;
+    private static final int NINE = 9;
+    private static final int ZERO = 0;
+    private static final int NUMBERNOVALID = 10;
+    private static final int CHECKSUM = 11;
+    private static final int LONGITUDARRAYNUMBERS = 8;
+    private static char[][] mat = new char[ROWS][COLUMNS];
+    public static String readData(String[] data, int index) {
+        String stringText = data[index];
         return stringText;
     }
     public boolean addToMatrix(String string, int index) {
@@ -17,12 +29,12 @@ public class Data {
         boolean cond = true;
         char[] line = string.toCharArray();
 
-        for (int ind = 0; ind < columns; ind++) {
+        for (int ind = 0; ind < COLUMNS; ind++) {
             mat[index][ind] = line[ind];
             counter++;
 
         }
-        if (counter == columns) {
+        if (counter == COLUMNS) {
             return cond;
         } else {
             return !cond;
@@ -30,10 +42,10 @@ public class Data {
     }
     public static char[][] extractnumberin3x3matrix(int index) {
         int newindex = index;
-        int row = 3;
-        char[][] mat3x3 = new char[3][3];
-        for (int ind = 0; ind < row; ind++) {
-            for (int indj = 0; indj < row; indj++) {
+        //int row = 3;
+        char[][] mat3x3 = new char[ROWS][ROWS];
+        for (int ind = 0; ind < ROWS; ind++) {
+            for (int indj = 0; indj < ROWS; indj++) {
                 mat3x3[ind][indj] = mat[ind][newindex];
                 newindex++;
             }
@@ -44,36 +56,36 @@ public class Data {
     public static int comparenumbers(char[][]matrix) {
 
         if (comparewithnumberone(matrix)) {
-            return 1;
+            return ONE;
         } else if (comparewithnumbertwo(matrix)) {
-            return 2;
+            return TWO;
         } else if (comparewithnumberthree(matrix)) {
 
-            return 3;
+            return THREE;
         } else if (comparewithnumberfour(matrix)) {
 
-            return 4;
+            return FOUR;
         } else if (comparewithnumberfive(matrix)) {
 
-            return 5;
+            return FIVE;
         } else if (comparewithnumbersix(matrix)) {
 
-            return 6;
+            return SIX;
         } else if (comparewithnumberseven(matrix)) {
 
-            return 7;
+            return SEVEN;
         } else if (comparewithnumbereigth(matrix)) {
 
-            return 8;
+            return EIGTH;
         } else if (comparewithnumbernine(matrix)) {
 
-            return 9;
+            return NINE;
         } else if (comparewithnumberzero(matrix)) {
 
-            return 0;
+            return ZERO;
         }
 
-        return (Integer) null;
+        return NUMBERNOVALID;
 
     }
     public static boolean comparewithnumberzero(char[][]matrix) {
@@ -174,23 +186,22 @@ public class Data {
             System.out.print(numbers[ind]);
             counter++;
         }
-        if (counter == numbers.length) {
+        if (counter - 1 == LONGITUDARRAYNUMBERS) {
             return !cond;
         } else {
             return cond;
         }
     }
-    public static boolean checkifitisavalidaccount(int []nros) {
+    public static boolean checkifitisavalidaccount(int[]nros) {
         int mul = 1;
         int aux = 0;
-        int condition = 11;
+
         boolean cond = false;
-        for (int ind= 8; ind >= 0; ind--)
-        {
+        for (int ind = LONGITUDARRAYNUMBERS; ind >= 0; ind--) {
             aux = aux + nros[ind] * mul;
             mul++;
         }
-        if (aux % condition == 0) {
+        if (aux % CHECKSUM == 0) {
             System.out.println("Es numero valido");
             return !cond;
 
