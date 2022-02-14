@@ -33,6 +33,8 @@ public class UserCases extends Numbers {
             int dd1 = Integer.parseInt(number()[eight]);
             if ((dd1 + 2 * dd2 + threes * dd3 + fours * dd4 + fives * dd5 + sixs * dd6 + sevens * dd7 + eight * dd8 + nine * dd9) % eleven == 0) {
                 check = true;
+            } else {
+                check = false;
             }
         }
         return check;
@@ -46,19 +48,23 @@ public class UserCases extends Numbers {
         }
         return bool;
     }
-    public void case3() {
+    public String case3() {
+        String result = "";
         if (checksum()) {
-            print();
+            result = print();
+            System.out.print(result);
         } else if (ill()) {
-            print();
-            System.out.print(" ILL");
+            result = print() + " ILL";
+            System.out.print(result);
         } else {
-            print();
-            System.out.print(" ERR");
+            result = print() + " ERR";
+            System.out.print(result);
         }
+        return result;
     }
 
-    public void case4() {
+    public String case4() {
+        String result = "";
         final String[][] backupMatrix = new String[threes][twentyseven];
         for (int ind = 0; ind < threes; ind++) {
             for (int jnd = 0; jnd < twentyseven; jnd++) {
@@ -69,13 +75,15 @@ public class UserCases extends Numbers {
             for (int jnd = 0; jnd < twentyseven; jnd++) {
                 getStrings()[ind][jnd] = replaceCharAtPosition(getStrings()[ind][jnd]);
                 if (checksum()) {
-                    print();
+                    result = print();
+                    System.out.print(result);
                     getStrings()[ind][jnd] = backupMatrix[ind][jnd];
                 } else {
                     getStrings()[ind][jnd] = backupMatrix[ind][jnd];
                 }
             }
         }
+        return result;
     }
 
     public String replaceCharAtPosition(String character) {

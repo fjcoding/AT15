@@ -40,11 +40,13 @@ public class Numbers {
         return matrix;
     }
 
-    public void print() {
+    public String print() {
         System.out.println();
+        String result = "";
         for (int ind = 0; ind < nine; ind++) {
-            System.out.print(number()[ind]);
+            result = result + number()[ind];
         }
+        return result;
     }
     public String[] number() {
         String[] number = new String[nine];
