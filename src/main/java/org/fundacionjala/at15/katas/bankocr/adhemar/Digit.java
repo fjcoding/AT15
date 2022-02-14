@@ -21,4 +21,31 @@ public class Digit {
     public String getContent() {
         return this.content;
     }
+
+    public String getNumber() {
+        switch (this.content) {
+            case PATTERN_0:
+                return "0";
+            case PATTERN_1:
+                return "1";
+            case PATTERN_2:
+                return "2";
+            case PATTERN_3:
+                return "3";
+            case PATTERN_4:
+                return "4";
+            case PATTERN_5:
+                return "5";
+            case PATTERN_6:
+                return "6";
+            case PATTERN_7:
+                return "7";
+            case PATTERN_8:
+                return "8";
+            case PATTERN_9:
+                return "9";
+            default:
+                return "?";
+        }
+    }
 }
