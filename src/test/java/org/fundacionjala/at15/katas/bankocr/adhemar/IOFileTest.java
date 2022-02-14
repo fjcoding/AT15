@@ -13,10 +13,23 @@ public class IOFileTest {
     }
 
     @Test
-    public void itShouldReadAFile() {
+    public void itShouldReadAOneLineFile() {
         IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test1.txt");
         theFile.readFile();
 
-        assertEquals("Hello", theFile.getStringContent());
+        assertEquals("Hello\n", theFile.getStringContent());
+    }
+
+    @Test
+    public void itShouldReadMultiLinesFiles() {
+        IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test2.txt");
+        theFile.readFile();
+        String multiLineFile =
+        "    _  _     _  _  _  _  _ \n" +
+        "  | _| _||_||_ |_   ||_||_|\n" +
+        "  ||_  _|  | _||_|  ||_| _|\n" +
+        "                           \n";
+
+        assertEquals(multiLineFile, theFile.getStringContent());
     }
 }

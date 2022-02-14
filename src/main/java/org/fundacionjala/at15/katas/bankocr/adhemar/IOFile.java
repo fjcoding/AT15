@@ -12,6 +12,7 @@ public class IOFile {
 
     IOFile(String path) {
         this.path = path;
+        this.stringContent = "";
     }
 
     public String getPath() {
@@ -26,7 +27,11 @@ public class IOFile {
         File inputFile = new File(this.path);
         try {
             BufferedReader input = new BufferedReader(new FileReader(inputFile));
-            stringContent = input.readLine();
+            String line = input.readLine();
+            while (line != null) {
+                this.stringContent += line + "\n";
+                line = input.readLine();
+            }
             input.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace(System.out);
