@@ -47,4 +47,12 @@ public class IOFileTest {
 
         assertFalse(theFile2.verifyFile());
     }
+
+    @Test
+    public void itShouldSplitEntriesOfTheFile() {
+        IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test3.txt");
+        theFile.readFile();
+
+        assertEquals( 3, theFile.getEntries().length);
+    }
 }

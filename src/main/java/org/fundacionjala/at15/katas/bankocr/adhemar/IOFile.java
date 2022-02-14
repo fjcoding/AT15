@@ -46,4 +46,22 @@ public class IOFile {
     public boolean verifyFile() {
         return this.stringContent.split("\n").length % LINES_ENTRY == 0 && this.stringContent.length() % CHARACTES_LINE == 0;
     }
+
+    public String[] getEntries() {
+        String[] lines = this.stringContent.split("\n");
+        int count = 0;
+        String[] entries = new String[this.stringContent.split("\n").length / LINES_ENTRY];
+        for (int index = 0; index < entries.length; index++) {
+            entries[index] = "";
+        }
+
+        for (int index = 0; index < lines.length; index++) {
+            if ((index + 1) % LINES_ENTRY != 0) {
+                entries[count] += lines[index];
+            } else {
+                count++;
+            }
+        }
+        return entries;
+    }
 }
