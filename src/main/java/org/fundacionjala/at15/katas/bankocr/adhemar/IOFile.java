@@ -10,6 +10,9 @@ public class IOFile {
     private String path;
     private String stringContent;
 
+    private static final int LINES_ENTRY = 4;
+    private static final int CHARACTES_LINE = 28;
+
     IOFile(String path) {
         this.path = path;
         this.stringContent = "";
@@ -38,5 +41,9 @@ public class IOFile {
         } catch (IOException e) {
             e.printStackTrace(System.out);
         }
+    }
+
+    public boolean verifyFile() {
+        return this.stringContent.split("\n").length % LINES_ENTRY == 0 && this.stringContent.length() % CHARACTES_LINE == 0;
     }
 }
