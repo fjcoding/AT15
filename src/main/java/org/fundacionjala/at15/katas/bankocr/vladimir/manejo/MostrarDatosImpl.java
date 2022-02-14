@@ -34,16 +34,14 @@ public class MostrarDatosImpl {
         this.datos = new AccesoDatosImpl();
     }
 
-    public void listarNumeros() {
+    public String[] listarNumeros() {
+        String[] numeros = new String[CASE3];
         try {
-            String[] numeros = this.datos.listar(nombreRecurso);
-            for (int ind = 0; ind < TAM; ind++) {
-                System.out.println(numeros[ind]);
-            }
-        } catch (AccesoDatosEx ex) {
-            System.out.println("Error de acceso datos");
-            ex.printStackTrace(System.out);
+            numeros = this.datos.listar(nombreRecurso);
+        } catch (LecturaDatosEx e) {
+            e.printStackTrace();
         }
+        return numeros;
     }
 
     public String[] convertirOcr(int ent) {
@@ -99,11 +97,6 @@ public class MostrarDatosImpl {
                 default:
                     throw new AssertionError();
             }
-            /*
-             * for (int ind = 0; ind < 3; ind++) {
-             * System.out.println(subNum[ind]);
-             * }
-             */
         } catch (AccesoDatosEx ex) {
             System.out.println("Error de acceso datos");
             ex.printStackTrace(System.out);

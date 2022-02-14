@@ -12,9 +12,9 @@ public class AccesoDatosImplTest {
     private static final int IND2 = 2;
     @Test
     public void itshouldSaveTheTxtLinePerLineTest() throws LecturaDatosEx {
-        String lineOne = " _  _  _  _  _  _  _  _  _ ";
-        String lineTwo = "|_||_||_||_||_||_||_||_||_|";
-        String lineThree = "|_||_||_||_||_||_||_||_||_|";
+        String lineOne = "    _  _  _  _  _  _     _ ";
+        String lineTwo = "|_||_|| || ||_   |  |  ||_ ";
+        String lineThree = "  | _||_||_||_|  |  |  | _|";
         AccesoDatosImpl accesoDatos = new AccesoDatosImpl();
         String[] txtReaded = accesoDatos.listar("src/main/java/org/fundacionjala/at15/katas/bankocr/vladimir/OCR.txt");
         assertEquals(lineOne, txtReaded[IND0]);

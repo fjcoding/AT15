@@ -27,7 +27,9 @@ public class Main {
                     System.out.println(muestra.esCta());
                     break;
                 case CASE2:
-                    muestra.listarNumeros();
+                    for (int ind = 0; ind < muestra.listarNumeros().length; ind++) {
+                        System.out.println(muestra.listarNumeros()[ind]);
+                    }
                     break;
                 case CASE3:
                     muestra.err();
