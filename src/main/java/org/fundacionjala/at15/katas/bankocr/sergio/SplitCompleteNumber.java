@@ -4,16 +4,15 @@ public class SplitCompleteNumber {
     private CompleteNumber completeNumber;
     private String[] completeNumberSplited;
 
-    public SplitCompleteNumber(CompleteNumber currentCompleteNumber){
+    public SplitCompleteNumber(CompleteNumber currentCompleteNumber) {
         this.completeNumber = currentCompleteNumber;
     }
 
-    public String[] getCompleteNumberSplited(){
+    public String[] getCompleteNumberSplited() {
         return this.completeNumberSplited;
     }
 
-    public void theSplitCode(){
+    public void theSplitCode() {
         this.completeNumberSplited = this.completeNumber.completeDigit().split("(?!^)");
     }
-
 }

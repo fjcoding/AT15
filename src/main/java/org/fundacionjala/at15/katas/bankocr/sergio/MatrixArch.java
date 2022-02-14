@@ -2,29 +2,25 @@ package org.fundacionjala.at15.katas.bankocr.sergio;
 
 public class MatrixArch {
     private Splitter splitA;
-    private String lineOneArrayM[];
-    private String lineTwoArrayM[];
-    private String lineThreeArrayM[];
+    private String[] lineOneArrayM;
+    private String[] lineTwoArrayM;
+    private String[] lineThreeArrayM;
+    private static final int MATRIX_SIZE = 3;
 
-    public MatrixArch(Splitter currentSplitA){
+    public MatrixArch(Splitter currentSplitA) {
         this.splitA = currentSplitA;
         splitA.theSplit();
         this.lineOneArrayM = splitA.getLineOneArray();
         this.lineTwoArrayM = splitA.getLineTwoArray();
         this.lineThreeArrayM = splitA.getLineThreeArray();
     }
-    // public MatrixArch(String[] lineOneArray, String[] lineTwoArray, String[] lineThreeArray){
-    //     this.lineOneArrayM = lineOneArray;
-    //     this.lineTwoArrayM = lineTwoArray;
-    //     this.lineThreeArrayM = lineThreeArray;
-    // }
 
-    public String [][] matrixDigit(int start){
+    public String[][] matrixDigit(int start) {
 
-        String [][] resp = new String[3][3];
+        String[][] resp = new String[MATRIX_SIZE][MATRIX_SIZE];
         int pos1 = start;
-        int pos2 = start +1;
-        int pos3 = start +2;
+        int pos2 = start + 1;
+        int pos3 = start + 2;
 
         resp[0][0] = lineOneArrayM[pos1];
         resp[0][1] = lineOneArrayM[pos2];

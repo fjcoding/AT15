@@ -1,17 +1,19 @@
 package org.fundacionjala.at15.katas.bankocr.sergio;
 
 public class CompleteNumber {
-    NumberDef numberDefF;
+    private static final int LAST_DIGIT = 24;
+    private static final int JUMP = 3;
+    private NumberDef numberDefF;
 
-    public CompleteNumber(NumberDef finNumberDef){
+    public CompleteNumber(NumberDef finNumberDef) {
         this.numberDefF = finNumberDef;
     }
 
 
-     public String completeDigit(){
+    public String completeDigit() {
         String number = "";
-        for (int i=0;i<=24;i=i+3){
-            number = number + numberDefF.loneDigit(i);
+        for (int ind = 0; ind <= LAST_DIGIT; ind = ind + JUMP) {
+            number = number + numberDefF.loneDigit(ind);
         }
         return number;
     }
