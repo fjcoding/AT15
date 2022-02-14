@@ -7,7 +7,9 @@ repositories {
 }
 
 dependencies {
+    implementation 'junit:junit:4.13.1'
     testImplementation 'junit:junit:4.12'
+    implementation 'commons-io:commons-io:2.11.0'
 }
 
 test {
@@ -72,5 +74,10 @@ task runLangtonAntAdhemar (dependsOn: 'classes', type: JavaExec) {
 
 task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.agustin.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.bankocr.agustin.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
