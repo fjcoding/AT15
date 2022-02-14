@@ -4,6 +4,7 @@ public class Numbers {
     private String[][] matrix;
     private int rows;
     private int columns;
+    //numbers that I use as coordinates of the matrix
     private final int threes = 3;
     private final int fours = 4;
     private final int fives = 5;
@@ -28,7 +29,6 @@ public class Numbers {
     private final int twentyfour = 24;
     private final int twentyfive = 25;
     private final int twentysix = 26;
-    private final int twentyseven = 27;
 
     public Numbers(int rows, int columns) {
         this.rows = rows;
@@ -66,77 +66,6 @@ public class Numbers {
         number[eight] = whatNumber(matrix[0][twentyfive], matrix[1][twentyfour], matrix[1][twentyfive], matrix[1][twentysix],
             matrix[2][twentyfour], matrix[2][twentyfive], matrix[2][twentysix]);
         return number;
-    }
-
-    public Boolean checksum() {
-        boolean check = false;
-        if (ill()) {
-            check = false;
-        } else {
-            int dd9 = Integer.parseInt(number()[0]);
-            int dd8 = Integer.parseInt(number()[1]);
-            int dd7 = Integer.parseInt(number()[2]);
-            int dd6 = Integer.parseInt(number()[threes]);
-            int dd5 = Integer.parseInt(number()[fours]);
-            int dd4 = Integer.parseInt(number()[fives]);
-            int dd3 = Integer.parseInt(number()[sixs]);
-            int dd2 = Integer.parseInt(number()[sevens]);
-            int dd1 = Integer.parseInt(number()[eight]);
-            if ((dd1 + 2 * dd2 + threes * dd3 + fours * dd4 + fives * dd5 + sixs * dd6 + sevens * dd7 + eight * dd8 + nine * dd9) % eleven == 0) {
-                check = true;
-            }
-        }
-        return check;
-    }
-    public boolean ill() {
-        boolean bool = false;
-        for (int ind = 0; ind < nine; ind++) {
-            if (number()[ind].equals("?")) {
-                bool = true;
-            }
-        }
-        return bool;
-    }
-    public void case3() {
-        if (checksum()) {
-            print();
-        } else if (ill()) {
-            print();
-            System.out.print(" ILL");
-        } else {
-            print();
-            System.out.print(" ERR");
-        }
-    }
-    public void case4() {
-        final String[][] possibility = new String[threes][twentyseven];
-        for (int ind = 0; ind < threes; ind++) {
-            for (int jnd = 0; jnd < twentyseven; jnd++) {
-                possibility[ind][jnd] = matrix[ind][jnd];
-            }
-        }
-        for (int ind = 0; ind < threes; ind++) {
-            for (int jnd = 0; jnd < twentyseven; jnd++) {
-                matrix[ind][jnd] = replaceAtPosition(matrix[ind][jnd]);
-                if (checksum()) {
-                    print();
-                    matrix[ind][jnd] = possibility[ind][jnd];
-                    break;
-                } else {
-                    matrix[ind][jnd] = possibility[ind][jnd];
-                }
-            }
-        }
-    }
-
-    public String replaceAtPosition(String character) {
-        String result = "";
-        if (character.equals("_") || character.equals("|")) {
-            result = " ";
-            return result;
-        } else {
-            return character;
-        }
     }
 
     public String whatNumber(String one, String two, String three, String four, String five, String six, String seven) {
