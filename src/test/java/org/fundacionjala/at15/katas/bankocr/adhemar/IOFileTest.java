@@ -11,4 +11,12 @@ public class IOFileTest {
 
         assertEquals("files\testFile.txt", theFile.getPath());
     }
+
+    @Test
+    public void itShouldReadAFile() {
+        IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test1.txt");
+        theFile.readFile();
+
+        assertEquals("Hello", theFile.getStringContent());
+    }
 }
