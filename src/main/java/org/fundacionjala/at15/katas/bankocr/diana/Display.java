@@ -24,7 +24,6 @@ public class Display {
 
     public Display(int numberInput) {
         this.numberInput = numberInput;
-
     }
 
     public void processNumberInput() { // Read de file.txt and data processing
@@ -69,7 +68,7 @@ public class Display {
         }
     }
 
-    private String[][] numberZero(String[][] matrixNumber) { // create number zero on a matrix 4x3
+    private String[][] numberZero(String[][] matrixNumbers) { // create number zero on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -85,7 +84,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberOne(String[][] matrixNumber) { // create number one on a matrix 4x3
+    private String[][] numberOne(String[][] matrixNumbers) { // create number one on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = " ";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -101,7 +100,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberTwo(String[][] matrixNumber) { // create number two on a matrix 4x3
+    private String[][] numberTwo(String[][] matrixNumbers) { // create number two on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -117,7 +116,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberThree(String[][] matrixNumber) { // create number three on a matrix 4x3
+    private String[][] numberThree(String[][] matrixNumbers) { // create number three on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -133,7 +132,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberFour(String[][] matrixNumber) { // create number four on a matrix 4x3
+    private String[][] numberFour(String[][] matrixNumbers) { // create number four on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = " ";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -149,7 +148,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberFive(String[][] matrixNumber) { // create number five on a matrix 4x3
+    private String[][] numberFive(String[][] matrixNumbers) { // create number five on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -165,7 +164,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberSix(String[][] matrixNumber) { // create number six on a matrix 4x3
+    private String[][] numberSix(String[][] matrixNumbers) { // create number six on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -181,7 +180,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberSeven(String[][] matrixNumber) { // create number seven on a matrix 4x3
+    private String[][] numberSeven(String[][] matrixNumbers) { // create number seven on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -197,7 +196,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberEight(String[][] matrixNumber) { // create number eight on a matrix 4x3
+    private String[][] numberEight(String[][] matrixNumbers) { // create number eight on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -213,7 +212,7 @@ public class Display {
         return matrixNumber;
     }
 
-    private String[][] numberNine(String[][] matrixNumber) { // create number nine on a matrix 4x3
+    private String[][] numberNine(String[][] matrixNumbers) { // create number nine on a matrix 4x3
         matrixNumber[INDEX_ZERO][INDEX_ZERO] = " ";
         matrixNumber[INDEX_ZERO][INDEX_ONE] = "_";
         matrixNumber[INDEX_ZERO][INDEX_TWO] = " ";
@@ -242,141 +241,105 @@ public class Display {
     }
 
     private boolean determinateIfMatrixIsZero(String[][] matrixToCheck) {
-        if ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
+        return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == "|") && (matrixToCheck[1][1] == " ") && (matrixToCheck[1][2] == "|")
                 && (matrixToCheck[2][0] == "|") && (matrixToCheck[2][1] == "_") && (matrixToCheck[2][2] == "|")
                 && (matrixToCheck[INDEX_THREE][0] == " ") && (matrixToCheck[INDEX_THREE][1] == " ")
-                && (matrixToCheck[INDEX_THREE][2] == " ")) {
-            return true;
-        } else {
-            return false;
-        }
+                && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
     private boolean determinateIfMatrixIsOne(String[][] matrixToCheck) {
-        if ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == " ") && (matrixToCheck[0][2] == " ")
+        return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == " ") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == " ")
                 && (matrixToCheck[1][1] == " ") && (matrixToCheck[1][2] == "|")
                 && (matrixToCheck[2][0] == " ") && (matrixToCheck[2][1] == " ") && (matrixToCheck[2][2] == "|")
                 && (matrixToCheck[INDEX_THREE][0] == " ") && (matrixToCheck[INDEX_THREE][1] == " ")
-                && (matrixToCheck[INDEX_THREE][2] == " ")) {
-            return true;
-        } else {
-            return false;
-        }
+                && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
     private boolean determinateIfMatrixIsTwo(String[][] matrixToCheck) {
-        if ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
+        return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == " ")
                 && (matrixToCheck[1][1] == "_") && (matrixToCheck[1][2] == "|")
                 && (matrixToCheck[2][0] == "|") && (matrixToCheck[2][1] == "_") && (matrixToCheck[2][2] == " ")
                 && (matrixToCheck[INDEX_THREE][0] == " ") && (matrixToCheck[INDEX_THREE][1] == " ")
-                && (matrixToCheck[INDEX_THREE][2] == " ")) {
-            return true;
-        } else {
-            return false;
-        }
+                && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
     private boolean determinateIfMatrixIsThree(String[][] matrixToCheck) {
-        if ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
+        return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == " ") && (matrixToCheck[1][1] == "_") && (matrixToCheck[1][2] == "|")
                 && (matrixToCheck[2][0] == " ") && (matrixToCheck[2][1] == "_") && (matrixToCheck[2][2] == "|")
                 && (matrixToCheck[INDEX_THREE][0] == " ") && (matrixToCheck[INDEX_THREE][1] == " ")
-                && (matrixToCheck[INDEX_THREE][2] == " ")) {
-            return true;
-        } else {
-            return false;
-        }
+                && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
     private boolean determinateIfMatrixIsFour(String[][] matrixToCheck) {
-        if ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == " ") && (matrixToCheck[0][2] == " ")
+        return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == " ") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == "|") && (matrixToCheck[1][1] == "_") && (matrixToCheck[1][2] == "|")
                 && (matrixToCheck[2][0] == " ") && (matrixToCheck[2][1] == " ") && (matrixToCheck[2][2] == "|")
                 && (matrixToCheck[INDEX_THREE][0] == " ") && (matrixToCheck[INDEX_THREE][1] == " ")
-                && (matrixToCheck[INDEX_THREE][2] == " ")) {
-            return true;
-        } else {
-            return false;
-        }
+                && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
     private boolean determinateIfMatrixIsFive(String[][] matrixToCheck) {
-        if ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
+        return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == "|") && (matrixToCheck[1][1] == "_") && (matrixToCheck[1][2] == " ")
                 && (matrixToCheck[2][0] == " ") && (matrixToCheck[2][1] == "_") && (matrixToCheck[2][2] == "|")
                 && (matrixToCheck[INDEX_THREE][0] == " ") && (matrixToCheck[INDEX_THREE][1] == " ")
-                && (matrixToCheck[INDEX_THREE][2] == " ")) {
-            return true;
-        } else {
-            return false;
-        }
+                && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
     private boolean determinateIfMatrixIsSix(String[][] matrixToCheck) {
-        if ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
+        return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == "|") && (matrixToCheck[1][1] == "_") && (matrixToCheck[1][2] == " ")
                 && (matrixToCheck[2][0] == "|") && (matrixToCheck[2][1] == "_") && (matrixToCheck[2][2] == "|")
                 && (matrixToCheck[INDEX_THREE][0] == " ") && (matrixToCheck[INDEX_THREE][1] == " ")
-                && (matrixToCheck[INDEX_THREE][2] == " ")) {
-            return true;
-        } else {
-            return false;
-        }
+                && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
     private boolean determinateIfMatrixIsSeven(String[][] matrixToCheck) {
-        if ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
+        return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == " ") && (matrixToCheck[1][1] == " ") && (matrixToCheck[1][2] == "|")
                 && (matrixToCheck[2][0] == " ") && (matrixToCheck[2][1] == " ") && (matrixToCheck[2][2] == "|")
                 && (matrixToCheck[INDEX_THREE][0] == " ") && (matrixToCheck[INDEX_THREE][1] == " ")
-                && (matrixToCheck[INDEX_THREE][2] == " ")) {
-            return true;
-        } else {
-            return false;
-        }
+                && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
     private boolean determinateIfMatrixIsEight(String[][] matrixToCheck) {
-        if ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
+        return ((matrixToCheck[0][0] == " ") && (matrixToCheck[0][1] == "_") && (matrixToCheck[0][2] == " ")
                 && (matrixToCheck[1][0] == "|") && (matrixToCheck[1][1] == "_") && (matrixToCheck[1][2] == "|")
                 && (matrixToCheck[2][0] == "|") && (matrixToCheck[2][1] == "_") && (matrixToCheck[2][2] == "|")
                 && (matrixToCheck[INDEX_THREE][0] == " ") && (matrixToCheck[INDEX_THREE][1] == " ")
-                && (matrixToCheck[INDEX_THREE][2] == " ")) {
-            return true;
-        } else {
-            return false;
-        }
+                && (matrixToCheck[INDEX_THREE][2] == " "));
     }
 
     private int getNumber(String[][] matrix) {
-        if (determinateIfMatrixIsZero(matrix) == true) {
+        if (determinateIfMatrixIsZero(matrix)) {
             return ZERO;
         }
-        if (determinateIfMatrixIsOne(matrix) == true) {
+        if (determinateIfMatrixIsOne(matrix)) {
             return ONE;
         }
-        if (determinateIfMatrixIsTwo(matrix) == true) {
+        if (determinateIfMatrixIsTwo(matrix)) {
             return TWO;
         }
-        if (determinateIfMatrixIsThree(matrix) == true) {
+        if (determinateIfMatrixIsThree(matrix)) {
             return THREE;
         }
-        if (determinateIfMatrixIsFour(matrix) == true) {
+        if (determinateIfMatrixIsFour(matrix)) {
             return FOUR;
         }
-        if (determinateIfMatrixIsFive(matrix) == true) {
+        if (determinateIfMatrixIsFive(matrix)) {
             return FIVE;
         }
-        if (determinateIfMatrixIsSix(matrix) == true) {
+        if (determinateIfMatrixIsSix(matrix)) {
             return SIX;
         }
-        if (determinateIfMatrixIsSeven(matrix) == true) {
+        if (determinateIfMatrixIsSeven(matrix)) {
             return SEVEN;
         }
-        if (determinateIfMatrixIsEight(matrix) == true) {
+        if (determinateIfMatrixIsEight(matrix)) {
             return EIGHT;
         } else {
             return NINE;
