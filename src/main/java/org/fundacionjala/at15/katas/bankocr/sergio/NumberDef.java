@@ -65,6 +65,12 @@ public class NumberDef {
                 && this.matrix.matrixDigit(start)[2][0].equals(" ") && this.matrix.matrixDigit(start)[2][1].equals("_")
                 && this.matrix.matrixDigit(start)[2][2].equals("|")) {
             numberDef = "9";
+        } else if (this.matrix.matrixDigit(start)[0][0].equals(" ") && this.matrix.matrixDigit(start)[0][1].equals("_")
+                && this.matrix.matrixDigit(start)[0][2].equals(" ") && this.matrix.matrixDigit(start)[1][0].equals("|")
+                && this.matrix.matrixDigit(start)[1][1].equals(" ") && this.matrix.matrixDigit(start)[1][2].equals("|")
+                && this.matrix.matrixDigit(start)[2][0].equals("|") && this.matrix.matrixDigit(start)[2][1].equals("_")
+                && this.matrix.matrixDigit(start)[2][2].equals("|")) {
+            numberDef = "0";
         } else {
             numberDef = "?";
         }
