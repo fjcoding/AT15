@@ -9,3 +9,12 @@ https://www.andoverpatio.co.uk/21/space-invaders/
 - As a player, I'd like to be able to have aliens in the space, so that I can shoot them and win points in the game
 - As a player, I'd like to have aliens that shoot in the space, so game is more difficult to win
 - As a player, I'd like to have the ability to die when the spaceship is shoot and loose a life, so game is more difficult to win
+
+# Team
+
+- Adhemar
+- Adrian
+- Agustin
+- Alvaro
+- Diana
+- Gonzalo
