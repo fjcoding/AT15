@@ -5,10 +5,7 @@ import java.io.*;
 
 public class ReaderMachine {
 
-    private static final int LINES = 4;
-    private static final int CHAR_LONG = 28;
     private static String content;
-    private String stringContent;
 
     public void readFile(String path, String inputFile) throws FileNotFoundException {
 
@@ -26,7 +23,7 @@ public class ReaderMachine {
         }
     }
 
-    public static boolean checkSum(String stringContent) {
+    public static boolean checkSum() {
         return true;
     }
 }

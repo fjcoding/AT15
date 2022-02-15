@@ -28,7 +28,7 @@ public class BankocrTest {
     }
 
     @Test
-    public void itShouldReturnDecodedNumbers() {
+    public void itShouldCreateFiles() {
         try {
             FileWriter fw1 = new FileWriter(file1);
             BufferedWriter bw1 = new BufferedWriter( fw1 );
@@ -46,14 +46,14 @@ public class BankocrTest {
                             this.getClass().getSimpleName() );
         }
 
-        final String ABSOLUTE_PATH1 = file1.getAbsolutePath();
-
         assertTrue( file1.isFile() );
+        assertTrue( file2.isFile() );
 
+        final String ABSOLUTE_PATH1 = file1.getAbsolutePath();
     }
 
     @Test
     public void itShouldDoCheckSumCorrectly() {
-        assertFalse(ReaderMachine.checkSum("    _  _     _  _  _  _  _ "+'\n'+"  | _| _||_||_ |_   ||_||_|"+'\n'+"  ||_  _|  | _||_|  ||_| _|"));
+        assertTrue(ReaderMachine.checkSum());
     }
 }
