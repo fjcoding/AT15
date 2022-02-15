@@ -17,8 +17,7 @@ public class DigitTest {
         String content =
         " _ \n" +
         "| |\n" +
-        "|_|\n" +
-        "   \n";
+        "|_|\n";
         Digit thegDigit = new Digit(content);
 
         assertEquals("0", thegDigit.getNumber());
@@ -29,8 +28,7 @@ public class DigitTest {
         String content =
         "   \n" +
         "  |\n" +
-        "  |\n" +
-        "   \n";
+        "  |\n";
         Digit thegDigit = new Digit(content);
 
         assertEquals("1", thegDigit.getNumber());
@@ -41,8 +39,7 @@ public class DigitTest {
         String content =
         " _ \n" +
         " _|\n" +
-        "|_ \n" +
-        "   \n";
+        "|_ \n";
         Digit thegDigit = new Digit(content);
 
         assertEquals("2", thegDigit.getNumber());
@@ -53,8 +50,7 @@ public class DigitTest {
         String content =
         " _ \n" +
         " _|\n" +
-        " _|\n" +
-        "   \n";
+        " _|\n";
         Digit thegDigit = new Digit(content);
 
         assertEquals("3", thegDigit.getNumber());
@@ -65,8 +61,7 @@ public class DigitTest {
         String content =
         "   \n" +
         "|_|\n" +
-        "  |\n" +
-        "   \n";
+        "  |\n";
         Digit thegDigit = new Digit(content);
 
         assertEquals("4", thegDigit.getNumber());
@@ -77,8 +72,7 @@ public class DigitTest {
         String content =
         " _ \n" +
         "|_ \n" +
-        " _|\n" +
-        "   \n";
+        " _|\n";
         Digit thegDigit = new Digit(content);
 
         assertEquals("5", thegDigit.getNumber());
@@ -89,8 +83,7 @@ public class DigitTest {
         String content =
         " _ \n" +
         "|_ \n" +
-        "|_|\n" +
-        "   \n";
+        "|_|\n";
         Digit thegDigit = new Digit(content);
 
         assertEquals("6", thegDigit.getNumber());
@@ -101,8 +94,7 @@ public class DigitTest {
         String content =
         " _ \n" +
         "  |\n" +
-        "  |\n" +
-        "   \n";
+        "  |\n";
         Digit thegDigit = new Digit(content);
 
         assertEquals("7", thegDigit.getNumber());
@@ -113,8 +105,7 @@ public class DigitTest {
         String content =
         " _ \n" +
         "|_|\n" +
-        "|_|\n" +
-        "   \n";
+        "|_|\n";
         Digit thegDigit = new Digit(content);
 
         assertEquals("8", thegDigit.getNumber());
@@ -125,8 +116,7 @@ public class DigitTest {
         String content =
         " _ \n" +
         "|_|\n" +
-        " _|\n" +
-        "   \n";
+        " _|\n";
         Digit thegDigit = new Digit(content);
 
         assertEquals("9", thegDigit.getNumber());
@@ -137,8 +127,7 @@ public class DigitTest {
         String content =
         " _ \n" +
         "|||\n" +
-        "|||\n" +
-        "   \n";
+        "|||\n";
         Digit thegDigit = new Digit(content);
 
         assertEquals("?", thegDigit.getNumber());

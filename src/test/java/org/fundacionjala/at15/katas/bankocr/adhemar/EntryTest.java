@@ -15,15 +15,6 @@ public class EntryTest {
     }
 
     @Test
-    public void itShouldHaveDigitPatternsArrayEmpty() {
-        IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\ThreeEntryFile.txt");
-        String[] Entries = theFile.getEntries();
-        Entry theEntry = new Entry(Entries[0]);
-
-        assertEquals("", theEntry.getDigitPatterns()[0]);
-    }
-
-    @Test
     public void itShouldGetIndividualDigitPatterns() {
         IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\ThreeEntryFile.txt");
         String[] Entries = theFile.getEntries();
@@ -32,7 +23,6 @@ public class EntryTest {
             " _ \n" +
             "| |\n" +
             "|_|\n";
-        theEntry1.splitDigitPatterns();
 
         assertEquals(pattern1, theEntry1.getDigitPatterns()[8]);
 
@@ -41,7 +31,6 @@ public class EntryTest {
             " _ \n" +
             "|_ \n" +
             " _|\n";
-        theEntry2.splitDigitPatterns();
 
         assertEquals(pattern2, theEntry2.getDigitPatterns()[4]);
 
@@ -50,8 +39,24 @@ public class EntryTest {
             "   \n" +
             "  |\n" +
             "  |\n";
-        theEntry3.splitDigitPatterns();
 
         assertEquals(pattern3, theEntry3.getDigitPatterns()[0]);
+    }
+
+    @Test
+    public void itShouldCalculateNumberAccount() {
+        IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\ThreeEntryFile.txt");
+        String[] Entries = theFile.getEntries();
+        Entry theEntry1 = new Entry(Entries[0]);
+
+        assertEquals("123456789", theEntry1.getAccountNumber());
+
+        Entry theEntry2 = new Entry(Entries[1]);
+
+        assertEquals("000000000", theEntry2.getAccountNumber());
+
+        Entry theEntry3 = new Entry(Entries[2]);
+
+        assertEquals("111111111", theEntry3.getAccountNumber());
     }
 }
