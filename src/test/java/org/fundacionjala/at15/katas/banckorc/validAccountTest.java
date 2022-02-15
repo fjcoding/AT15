@@ -24,9 +24,9 @@ public class validAccountTest {
         exp.add("345882865");
         exp.add("000000051");
         //changed for the test
-        exp.add("490067715");
+        exp.add("49006771x");
         //changed for the test
-        exp.add("123456789");
+        exp.add("12345678x");
         ValidAccount vAccount = new ValidAccount("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
         assertEquals(exp, vAccount.getAccountsToValidate());
     }
@@ -35,6 +35,26 @@ public class validAccountTest {
     public void itShouldBeIntegers() {
         boolean valid = true;
         ValidAccount vAccount = new ValidAccount("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
-        assertEquals(valid, vAccount.isItInteger());
+        assertEquals(valid, vAccount.isItInteger(""));
     }
+
+    @Test
+    public void shouldGetTheValidAccounts() {
+        List<String> exp = new ArrayList<>();
+        exp.add("345882865");
+        exp.add("000000051");
+        ValidAccount vAccount = new ValidAccount("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
+        assertEquals(exp, vAccount.getValidAccounts());
+    }
+
+    @Test
+    public void shouldGetTheIvalidAccounts() {
+        List<String> exp = new ArrayList<>();
+        exp.add("49006771x");
+        exp.add("12345678x");
+        ValidAccount vAccount = new ValidAccount("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
+        assertEquals(exp, vAccount.getInvalidAccounts());
+    }
+
+    
 }

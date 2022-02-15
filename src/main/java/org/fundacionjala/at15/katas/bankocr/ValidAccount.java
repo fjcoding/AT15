@@ -7,7 +7,6 @@ public class ValidAccount {
 
     private List<String> accountlist;
     private boolean validation = true;
-    private boolean isInteger;
 
     public ValidAccount(String path) {
         //accountlist = path;
@@ -16,41 +15,49 @@ public class ValidAccount {
         accountlist.add("345882865");
         accountlist.add("000000051");
         //changed for the test
-        accountlist.add("490067715");
+        accountlist.add("49006771x");
         //changed for the test
-        accountlist.add("123456789");
+        accountlist.add("12345678x");
+    }
+
+    public List<String> getAccountsToValidate() {
+        return accountlist;
     }
 
     public boolean getValidation() {
         return validation;
     }
 
-    public boolean isItInteger() {
-        //compare with the obtained accounts
-        String accountComparison = "34588286";
-        final int digits = 10;
+    public boolean isItInteger(String account) {
+        boolean isInt = true;
+        String accountComparison = account;
         char[] readyToCompare = accountComparison.toCharArray();
-        char auxChar;
-        String auxStr;
-        int counter = 1;
-        for (int iterator1 = 0; iterator1 < readyToCompare.length; iterator1++) {
-            auxChar = readyToCompare[iterator1];
-            auxStr = Character.toString(auxChar);
-            for (int iterator2 = 0; iterator2 < digits; iterator2++) {
-                if (Integer.parseInt(auxStr) == iterator2) {
-                    counter++;
-                }
-            }
-            if (counter != digits - 1) {
-                isInteger = false;
-            } else {
-                isInteger = true;
+        for (int iterator = 0; iterator < readyToCompare.length; iterator++) {
+            if (!Character.isDigit(accountComparison.charAt(iterator))) {
+                isInt = false;
+                break;
             }
         }
-        return isInteger;
+        return isInt;
     }
 
-    public List<String> getAccountsToValidate() {
-        return accountlist;
+    public List<String> getValidAccounts() {
+        List<String> accountInt = new ArrayList<>();
+        for (String nAccount : getAccountsToValidate()) {
+            if (isItInteger(nAccount)) {
+                accountInt.add(nAccount);
+            }
+        }
+        return accountInt;
+    }
+
+    public List<String> getInvalidAccounts() {
+        List<String> accountFailed = new ArrayList<>();
+        for (String nAccount : getAccountsToValidate()) {
+            if (!(isItInteger(nAccount))) {
+                accountFailed.add(nAccount);
+            }
+        }
+        return accountFailed;
     }
 }
