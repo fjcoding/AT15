@@ -14,7 +14,7 @@ public class Digit {
 
     private String content;
 
-    Digit(String content) {
+    public Digit(String content) {
         this.content = content;
     }
 

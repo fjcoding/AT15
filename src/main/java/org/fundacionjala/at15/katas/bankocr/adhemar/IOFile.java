@@ -13,7 +13,7 @@ public class IOFile {
     private static final int LINES_ENTRY = 4;
     private static final int CHARACTES_LINE = 28;
 
-    IOFile(String path) {
+    public IOFile(String path) {
         this.path = path;
         this.stringContent = "";
     }
