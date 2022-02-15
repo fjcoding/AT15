@@ -50,4 +50,20 @@ public class IOFileTest {
 
         assertEquals( 3, theFile.getEntries().length);
     }
+
+    @Test
+    public void itShouldGetAccountNumbersFile() {
+        IOFile theFile1 = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\ThreeEntryFile.txt");
+        String AccountNumbers1 =
+        "123456789\n" +
+        "000000000\n" +
+        "111111111\n";
+
+        assertEquals(AccountNumbers1, theFile1.getAccountNumbers());
+
+        IOFile theFile2 = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\OneEntryFile.txt");
+        String AccountNumbers2 = "123456789\n";
+
+        assertEquals(AccountNumbers2, theFile2.getAccountNumbers());
+    }
 }
