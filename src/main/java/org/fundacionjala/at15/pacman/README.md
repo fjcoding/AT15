@@ -20,3 +20,11 @@ Incomplete list of things the game needs:
 - animate pacman eating (mouth opens and closes)
 
 Demo: https://g.co/kgs/G8eUP1
+
+# Team
+- Jimy
+- Mauricio
+- Saul
+- Sergio
+- Vladimir
+- Daniel
