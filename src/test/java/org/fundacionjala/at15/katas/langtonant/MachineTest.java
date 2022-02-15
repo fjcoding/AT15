@@ -53,9 +53,15 @@ public class MachineTest {
                                 "|_||_|| || ||_   |  |  | _ \n" +
                                 "  | _||_||_||_|  |  |  | _|";
 
+        String numberScanned3 = "    _  _     _  _  _  _  _ \n"+
+                                "  | _| _||_||_ |_   ||_||_|\n"+
+                                "  ||_  _|  | _||_|  ||_||_|";
+
         Machine theMachine1 = new Machine(numberScanned1);
         assertEquals("000000051", theMachine1.generateReport());
         Machine theMachine2 = new Machine(numberScanned2);
         assertEquals("49006771? ILL", theMachine2.generateReport());
+        Machine theMachine3 = new Machine(numberScanned3);
+        assertEquals("123456788 ERR", theMachine3.generateReport());
     }
 }

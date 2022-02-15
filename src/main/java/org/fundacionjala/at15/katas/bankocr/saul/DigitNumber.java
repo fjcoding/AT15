@@ -6,61 +6,61 @@ public class DigitNumber {
     private int number;
     private String[] segments;
 
-    private final String[] ZERO = new String[] {
+    private final String[] zero = new String[] {
         " _ ",
         "| |",
         "|_|"
     };
 
-    private final String[] ONE = new String[] {
+    private final String[] one = new String[] {
         "   ",
         "  |",
         "  |"
     };
 
-    private final String[] TWO = new String[] {
+    private final String[] two = new String[] {
         " _ ",
         " _|",
         "|_ "
     };
 
-    private final String[] THREE = new String[] {
+    private final String[] three = new String[] {
         " _ ",
         " _|",
         " _|"
     };
 
-    private final String[] FOUR = new String[] {
+    private final String[] four = new String[] {
         "   ",
         "|_|",
         "  |"
     };
 
-    private final String[] FIVE = new String[] {
+    private final String[] five = new String[] {
         " _ ",
         "|_ ",
         " _|"
     };
 
-    private final String[] SIX = new String[] {
+    private final String[] six = new String[] {
         " _ ",
         "|_ ",
         "|_|"
     };
 
-    private final String[] SEVEN = new String[] {
+    private final String[] seven = new String[] {
         " _ ",
         "  |",
         "  |"
     };
 
-    private final String[] EIGHT = new String[] {
+    private final String[] eight = new String[] {
         " _ ",
         "|_|",
         "|_|"
     };
 
-    private final String[] NINE = new String[] {
+    private final String[] nine = new String[] {
         " _ ",
         "|_|",
         " _|"
@@ -68,60 +68,11 @@ public class DigitNumber {
 
     public DigitNumber(int number) {
         this.number = number;
-        makeSegments(number);
     }
 
     public DigitNumber(String digitScanned) {
         this.number = segmentToNumber(digitScanned);
         this.segments = toSegment(digitScanned);
-    }
-
-    public void makeSegments(int theNumber) {
-
-        switch (theNumber) {
-            case 0:
-                segments = ZERO;
-                break;
-
-            case 1:
-                segments = ONE;
-                break;
-
-            case 2:
-                segments = TWO;
-                break;
-
-            case 3:
-                segments = THREE;
-                break;
-
-            case 4:
-                segments = FOUR;
-                break;
-
-            case 5:
-                segments = FIVE;
-                break;
-
-            case 6:
-                segments = SIX;
-                break;
-
-            case 7:
-                segments = SEVEN;
-                break;
-
-            case 8:
-                segments = EIGHT;
-                break;
-
-            case 9:
-                segments = NINE;
-                break;
-
-            default:
-                break;
-        }
     }
 
     public void printSegments() {
@@ -132,29 +83,36 @@ public class DigitNumber {
     }
 
     public int segmentToNumber(String inputString) {
-        String theSegmentNumber[] = toSegment(inputString);
+        String[] theSegmentNumber = toSegment(inputString);
         int result;
+        final int third = 3;
+        final int fourth = 4;
+        final int fifth = 5;
+        final int sixth = 6;
+        final int seventh = 7;
+        final int eighth = 8;
+        final int ninth = 9;
 
-        if (Arrays.equals(theSegmentNumber, ZERO)) {
+        if (Arrays.equals(theSegmentNumber, zero)) {
             result = 0;
-        } else if (Arrays.equals(theSegmentNumber, ONE)) {
+        } else if (Arrays.equals(theSegmentNumber, one)) {
             result = 1;
-        } else if (Arrays.equals(theSegmentNumber, TWO)) {
+        } else if (Arrays.equals(theSegmentNumber, two)) {
             result = 2;
-        } else if (Arrays.equals(theSegmentNumber, THREE)) {
-            result = 3;
-        } else if (Arrays.equals(theSegmentNumber, FOUR)) {
-            result = 4;
-        } else if (Arrays.equals(theSegmentNumber, FIVE)) {
-            result = 5;
-        } else if (Arrays.equals(theSegmentNumber, SIX)) {
-            result = 6;
-        } else if (Arrays.equals(theSegmentNumber, SEVEN)) {
-            result = 7;
-        } else if (Arrays.equals(theSegmentNumber, EIGHT)) {
-            result = 8;
-        } else if (Arrays.equals(theSegmentNumber, NINE)) {
-            result = 9;
+        } else if (Arrays.equals(theSegmentNumber, three)) {
+            result = third;
+        } else if (Arrays.equals(theSegmentNumber, four)) {
+            result = fourth;
+        } else if (Arrays.equals(theSegmentNumber, five)) {
+            result = fifth;
+        } else if (Arrays.equals(theSegmentNumber, six)) {
+            result = sixth;
+        } else if (Arrays.equals(theSegmentNumber, seven)) {
+            result = seventh;
+        } else if (Arrays.equals(theSegmentNumber, eight)) {
+            result = eighth;
+        } else if (Arrays.equals(theSegmentNumber, nine)) {
+            result = ninth;
         } else {
             result = -1;
         }
@@ -163,7 +121,7 @@ public class DigitNumber {
 
     public String[] toSegment(String numberScanned) {
         final int third = 3;
-        String theSegmentNumber[] = new String[third];
+        String[] theSegmentNumber = new String[third];
         String inputLine = "";
         int indexJ = 0;
         for (int indexI = 0; indexI < numberScanned.length(); indexI++) {
