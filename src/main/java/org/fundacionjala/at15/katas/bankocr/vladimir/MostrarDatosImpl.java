@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class MostrarDatosImpl {
     private final AccesoDatosImpl datos;
-    private final String nombreRecurso = "src/main/java/org/fundacionjala/at15/katas/bankocr/vladimir/OCR.txt";
+    private String nombreRecurso = "src/main/java/org/fundacionjala/at15/katas/bankocr/vladimir/OCR.txt";
     private static final int TAM = 3;
     private static final int CASE0 = 0;
     private static final int CASE1 = 1;
@@ -29,6 +29,10 @@ public class MostrarDatosImpl {
 
     public MostrarDatosImpl() {
         this.datos = new AccesoDatosImpl();
+    }
+
+    public void setNombreRecurso(String recurso) {
+        this.nombreRecurso = recurso;
     }
 
     public String[] listarNumeros() {
@@ -179,9 +183,9 @@ public class MostrarDatosImpl {
         if (checkSum(shortnum) % MOD11 == 0) {
             return shortnum + " ";
         } else if (checkSum(shortnum1) % MOD11 == 0) {
-            return shortnum + " ";
+            return shortnum1 + " ";
         } else if (checkSum(shortnum2) % MOD11 == 0) {
-            return shortnum + " ";
+            return shortnum2 + " ";
         } else {
             return "";
         }
