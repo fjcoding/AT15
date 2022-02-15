@@ -73,7 +73,31 @@ public class UserCases extends Numbers {
         }
         for (int ind = 0; ind < threes; ind++) {
             for (int jnd = 0; jnd < twentyseven; jnd++) {
-                getStrings()[ind][jnd] = replaceCharAtPosition(getStrings()[ind][jnd]);
+                getStrings()[ind][jnd] = replaceCharWithSpace(getStrings()[ind][jnd]);
+                if (checksum()) {
+                    result = print();
+                    System.out.print(result);
+                    getStrings()[ind][jnd] = backupMatrix[ind][jnd];
+                } else {
+                    getStrings()[ind][jnd] = backupMatrix[ind][jnd];
+                }
+            }
+        }
+        for (int ind = 0; ind < threes; ind++) {
+            for (int jnd = 0; jnd < twentyseven; jnd++) {
+                getStrings()[ind][jnd] = replaceSpaceWithUnderscore(getStrings()[ind][jnd]);
+                if (checksum()) {
+                    result = print();
+                    System.out.print(result);
+                    getStrings()[ind][jnd] = backupMatrix[ind][jnd];
+                } else {
+                    getStrings()[ind][jnd] = backupMatrix[ind][jnd];
+                }
+            }
+        }
+        for (int ind = 0; ind < threes; ind++) {
+            for (int jnd = 0; jnd < twentyseven; jnd++) {
+                getStrings()[ind][jnd] = replaceSpaceWithPipe(getStrings()[ind][jnd]);
                 if (checksum()) {
                     result = print();
                     System.out.print(result);
@@ -86,10 +110,28 @@ public class UserCases extends Numbers {
         return result;
     }
 
-    public String replaceCharAtPosition(String character) {
+    public String replaceCharWithSpace(String character) {
         String result = "";
         if (character.equals("_") || character.equals("|")) {
             result = " ";
+            return result;
+        } else {
+            return character;
+        }
+    }
+    public String replaceSpaceWithUnderscore(String character) {
+        String result = "";
+        if (character.equals(" ")) {
+            result = "_";
+            return result;
+        } else {
+            return character;
+        }
+    }
+    public String replaceSpaceWithPipe(String character) {
+        String result = "";
+        if (character.equals(" ")) {
+            result = "|";
             return result;
         } else {
             return character;
