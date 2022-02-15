@@ -78,7 +78,7 @@ public class NumbersTest {
 
     @Test
     public void  itShouldBeIllegible() {
-        String digit = " _ \n" + "|_|\n" + " _|\n" + "   \n";
+        String digit = " _ \n" + "  |\n" + " _|\n" + "   \n";
         Numbers numbToDecode = new Numbers(digit);
         assertEquals("?", numbToDecode.getNumber());
     }
