@@ -32,6 +32,20 @@ checkstyleTest {
     source = 'src/main/java'
 }
 
+test {
+     filter {
+        includeTestsMatching "org.fundacionjala.at15.spaceinvaders.*"
+     }
+ }
+
+jacocoTestReport {
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['org/fundacionjala/at15/katas/**'])
+        }))
+    }
+}
+
 check.dependsOn jacocoTestReport
 
 test.finalizedBy("checkstyleMain")
@@ -49,7 +63,7 @@ task runLangtonAntVladimir (dependsOn: 'classes', type: JavaExec) {
 task runLangtonAntSaul (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.saul.Main'
     classpath = sourceSets.main.runtimeClasspath
-} 
+}
 
 task runLangtonAntDiana (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.diana.Main'
