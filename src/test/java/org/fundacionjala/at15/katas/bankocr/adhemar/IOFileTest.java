@@ -9,9 +9,9 @@ import org.junit.Test;
 public class IOFileTest {
     @Test
     public void itShouldHaveAPath() {
-        IOFile theFile = new IOFile("files\testFile.txt");
+        IOFile theFile = new IOFile("files\\testFile.txt");
 
-        assertEquals("files\testFile.txt", theFile.getPath());
+        assertEquals("files\\testFile.txt", theFile.getPath());
     }
 
     @Test
