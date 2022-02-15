@@ -16,6 +16,7 @@ public class IOFile {
     public IOFile(String path) {
         this.path = path;
         this.stringContent = "";
+        this.readFile();
     }
 
     public String getPath() {

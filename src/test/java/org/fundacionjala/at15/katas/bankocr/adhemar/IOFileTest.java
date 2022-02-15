@@ -17,7 +17,6 @@ public class IOFileTest {
     @Test
     public void itShouldReadAOneLineFile() {
         IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test1.txt");
-        theFile.readFile();
 
         assertEquals("Hello\n", theFile.getStringContent());
     }
@@ -25,7 +24,6 @@ public class IOFileTest {
     @Test
     public void itShouldReadMultiLinesFiles() {
         IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test2.txt");
-        theFile.readFile();
         String multiLineFile =
         "    _  _     _  _  _  _  _ \n" +
         "  | _| _||_||_ |_   ||_||_|\n" +
@@ -38,12 +36,10 @@ public class IOFileTest {
     @Test
     public void itShouldVerifyCorrectNumberOfLinesAndCharacteresInTheFile() {
         IOFile theFile1 = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test3.txt");
-        theFile1.readFile();
 
         assertTrue(theFile1.verifyFile());
 
         IOFile theFile2 = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test4.txt");
-        theFile2.readFile();
 
         assertFalse(theFile2.verifyFile());
     }
@@ -51,7 +47,6 @@ public class IOFileTest {
     @Test
     public void itShouldSplitEntriesOfTheFile() {
         IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test3.txt");
-        theFile.readFile();
 
         assertEquals( 3, theFile.getEntries().length);
     }

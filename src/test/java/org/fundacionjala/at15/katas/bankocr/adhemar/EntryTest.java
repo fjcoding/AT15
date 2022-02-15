@@ -8,7 +8,6 @@ public class EntryTest {
     @Test
     public void itShouldHaveAnOrigin() {
         IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test3.txt");
-        theFile.readFile();
         String[] Entries = theFile.getEntries();
         Entry theEntry = new Entry(Entries[0]);
 
@@ -18,7 +17,6 @@ public class EntryTest {
     @Test
     public void itShouldHaveDigitPatternsArrayEmpty() {
         IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test3.txt");
-        theFile.readFile();
         String[] Entries = theFile.getEntries();
         Entry theEntry = new Entry(Entries[0]);
 
@@ -28,7 +26,6 @@ public class EntryTest {
     @Test
     public void itShouldGetIndividualDigitPatterns() {
         IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test3.txt");
-        theFile.readFile();
         String[] Entries = theFile.getEntries();
         Entry theEntry1 = new Entry(Entries[1]);
         String pattern1 =
