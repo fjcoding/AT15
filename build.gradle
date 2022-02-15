@@ -34,7 +34,7 @@ checkstyleTest {
 
 test {
      filter {
-        includeTestsMatching "org.fundacionjala.at15.pacman*"
+        includeTestsMatching "org.fundacionjala.at15.pacman.*"
      }
  }
 
