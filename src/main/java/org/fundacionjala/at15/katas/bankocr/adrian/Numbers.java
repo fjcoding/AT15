@@ -71,37 +71,39 @@ public class Numbers {
     }
 
     public String whatNumber(String one, String two, String three, String four, String five, String six, String seven) {
-        if (one.equals("_") && two.equals("|") && three.equals(" ") && four.equals("|") && five.equals("|") && six.equals("_") && seven.equals("|")) {
-            return "0";
-        } else if (one.equals(" ") && two.equals(" ") && three.equals(" ") && four.equals("|") && five.equals(" ") && six.equals(" ")
-            && seven.equals("|")) {
-            return "1";
-        } else if (one.equals("_") && two.equals(" ") && three.equals("_") && four.equals("|") && five.equals("|") && six.equals("_")
-            && seven.equals(" ")) {
-            return "2";
-        } else if (one.equals("_") && two.equals(" ") && three.equals("_") && four.equals("|") && five.equals(" ") && six.equals("_")
-            && seven.equals("|")) {
-            return "3";
-        } else if (one.equals(" ") && two.equals("|") && three.equals("_") && four.equals("|") && five.equals(" ") && six.equals(" ")
-            && seven.equals("|")) {
-            return "4";
-        } else if (one.equals("_") && two.equals("|") && three.equals("_") && four.equals(" ") && five.equals(" ") && six.equals("_")
-            && seven.equals("|")) {
-            return "5";
-        } else if (one.equals("_") && two.equals("|") && three.equals("_") && four.equals(" ") && five.equals("|") && six.equals("_")
-            && seven.equals("|")) {
-            return "6";
-        } else if (one.equals("_") && two.equals(" ") && three.equals(" ") && four.equals("|") && five.equals(" ") && six.equals(" ")
-            && seven.equals("|")) {
-            return "7";
-        } else if (one.equals("_") && two.equals("|") && three.equals("_") && four.equals("|") && five.equals("|") && six.equals("_")
-            && seven.equals("|")) {
-            return "8";
-        } else if (one.equals("_") && two.equals("|") && three.equals("_") && four.equals("|") && five.equals(" ") && six.equals("_")
-            && seven.equals("|")) {
-            return "9";
-        } else {
-            return "?";
+        String number = "";
+        String result = "?";
+        number = one + two + three + four + five + six + seven;
+        if (number.equals("_| ||_|")) {
+            result = "0";
         }
+        if (number.equals("   |  |")) {
+            result = "1";
+        }
+        if (number.equals("_ _||_ ")) {
+            result = "2";
+        }
+        if (number .equals("_ _| _|")) {
+            result = "3";
+        }
+        if (number.equals(" |_|  |")) {
+            result = "4";
+        }
+        if (number.equals("_|_  _|")) {
+            result = "5";
+        }
+        if (number.equals("_|_ |_|")) {
+            result = "6";
+        }
+        if (number.equals("_  |  |")) {
+            result = "7";
+        }
+        if (number.equals("_|_||_|")) {
+            result = "8";
+        }
+        if (number.equals("_|_| _|")) {
+            result = "9";
+        }
+        return result;
     }
 }
