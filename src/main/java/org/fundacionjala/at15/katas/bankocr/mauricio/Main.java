@@ -13,6 +13,7 @@ public class Main {
         String[][] auxCells = digits.getCells();
         String[] arrOfStr;
         int rows = 0;
+        int validation;
 
         try {
             Scanner input = new Scanner(
@@ -32,7 +33,11 @@ public class Main {
         }
         digits.printCells(); // User 1
         System.out.println();
-        digits.isAccountValid(); // User 2
-
+        validation = digits.isAccountValid();
+        if (validation == 1) {
+            System.out.println("The account number is valid!");
+        } else {
+            System.out.println("The account number is not valid!");
+        }
     }
 }

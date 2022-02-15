@@ -89,18 +89,19 @@ public class Digits {
 
         if (validation2 % eleven == 0) {
             return 1;
-
         } else {
             return 0;
         }
     }
 
-    public void isAccountValid() {
+    public int isAccountValid() {
         int checking = checkSum();
         if (checking == 1) {
-            System.out.println("The account number is valid! ");
+            return 1;
+            // System.out.println("The account number is valid!");
         } else {
-            System.out.println("The account number is not valid!");
+            return 0;
+            // System.out.println("The account number is not valid!");
         }
     }
 
