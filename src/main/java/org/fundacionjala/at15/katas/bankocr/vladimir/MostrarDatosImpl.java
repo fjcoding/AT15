@@ -157,149 +157,154 @@ public class MostrarDatosImpl {
         }
     }
 
-    public void verifMod(String shortnum) {
+    public String verifMod(String shortnum) {
         if (checkSum(shortnum) % MOD11 == 0) {
-            System.out.print(shortnum + " ");
+            return shortnum + " ";
+        } else {
+            return "";
         }
     }
 
-    public void verifModForTwo(String shortnum, String shortnum1) {
+    public String verifModForTwo(String shortnum, String shortnum1) {
         if (checkSum(shortnum) % MOD11 == 0) {
-            System.out.print(shortnum + " ");
+            return shortnum + " ";
         } else if (checkSum(shortnum1) % MOD11 == 0) {
-            System.out.print(shortnum1 + " ");
+            return shortnum1 + " ";
+        } else {
+            return "";
         }
     }
 
-    public void verifModForThree(String shortnum, String shortnum1, String shortnum2) {
+    public String verifModForThree(String shortnum, String shortnum1, String shortnum2) {
         if (checkSum(shortnum) % MOD11 == 0) {
-            System.out.print(shortnum + " ");
+            return shortnum + " ";
         } else if (checkSum(shortnum1) % MOD11 == 0) {
-            System.out.print(shortnum1 + " ");
+            return shortnum + " ";
         } else if (checkSum(shortnum2) % MOD11 == 0) {
-            System.out.print(shortnum2 + " ");
+            return shortnum + " ";
+        } else {
+            return "";
         }
     }
 
-    public void err() {
+    public String err() {
         String shortnum = "";
         String shortnum1 = "";
         String shortnum2 = "";
-        System.out.print(esCta() + " => ");
+        String amb = esCta() + " => ";
+        //System.out.print(esCta() + " => ");
         for (int ind = 0; ind < CASE9; ind++) {
             if (ind == 0) {
                 if (convesion().substring(ind, ind + 1).equals("1")) {
                     shortnum = "7" + convesion().substring(1);
-                    verifMod(shortnum);
+                    amb = amb + verifMod(shortnum);
                 } else if (convesion().substring(ind, ind + 1).equals("7")) {
                     shortnum = "1" + convesion().substring(1);
-                    verifMod(shortnum);
+                    amb = amb + verifMod(shortnum);
                 } else if (convesion().substring(ind, ind + 1).equals("0")) {
                     shortnum = "8" + convesion().substring(1);
-                    verifMod(shortnum);
+                    amb = amb + verifMod(shortnum);
                 } else if (convesion().substring(ind, ind + 1).equals("3")) {
                     shortnum = "9" + convesion().substring(1);
-                    verifMod(shortnum);
+                    amb = amb + verifMod(shortnum);
                 } else if (convesion().substring(ind, ind + 1).equals("5")) {
                     shortnum = "9" + convesion().substring(1);
                     shortnum1 = "6" + convesion().substring(1);
-                    verifModForTwo(shortnum, shortnum1);
+                    amb = amb + verifModForTwo(shortnum, shortnum1);
                 } else if (convesion().substring(ind, ind + 1).equals("6")) {
                     shortnum = "8" + convesion().substring(1);
                     shortnum1 = "5" + convesion().substring(1);
-                    verifModForTwo(shortnum, shortnum1);
+                    amb = amb + verifModForTwo(shortnum, shortnum1);
                 } else if (convesion().substring(ind, ind + 1).equals("8")) {
                     shortnum = "0" + convesion().substring(1);
                     shortnum1 = "6" + convesion().substring(1);
                     shortnum2 = "9" + convesion().substring(1);
-                    verifModForThree(shortnum, shortnum1, shortnum2);
+                    amb = amb + verifModForThree(shortnum, shortnum1, shortnum2);
                 } else if (convesion().substring(ind, ind + 1).equals("9")) {
                     shortnum = "3" + convesion().substring(1);
                     shortnum1 = "5" + convesion().substring(1);
                     shortnum2 = "8" + convesion().substring(1);
-                    verifModForThree(shortnum, shortnum1, shortnum2);
+                    amb = amb + verifModForThree(shortnum, shortnum1, shortnum2);
                 }
             } else if (ind == CASE8) {
                 if (convesion().substring(ind).equals("1")) {
                     shortnum = convesion().substring(0, CASE8) + "7";
-                    verifMod(shortnum);
+                    amb = amb + verifMod(shortnum);
                 } else if (convesion().substring(ind).equals("7")) {
                     shortnum = convesion().substring(0, CASE8) + "1";
-                    verifMod(shortnum);
+                    amb = amb + verifMod(shortnum);
                 } else if (convesion().substring(ind).equals("0")) {
                     shortnum = convesion().substring(0, CASE8) + "8";
-                    verifMod(shortnum);
+                    amb = amb + verifMod(shortnum);
                 } else if (convesion().substring(ind).equals("3")) {
                     shortnum = convesion().substring(0, CASE8) + "9";
-                    verifMod(shortnum);
+                    amb = amb + verifMod(shortnum);
                 } else if (convesion().substring(ind).equals("5")) {
                     shortnum = convesion().substring(0, CASE8) + "9";
                     shortnum1 = convesion().substring(0, CASE8) + "6";
-                    verifModForTwo(shortnum, shortnum1);
+                    amb = amb + verifModForTwo(shortnum, shortnum1);
                 } else if (convesion().substring(ind).equals("6")) {
                     shortnum = convesion().substring(0, CASE8) + "8";
                     shortnum1 = convesion().substring(0, CASE8) + "5";
-                    verifModForTwo(shortnum, shortnum1);
+                    amb = amb + verifModForTwo(shortnum, shortnum1);
                 } else if (convesion().substring(ind).equals("8")) {
                     shortnum = convesion().substring(0, CASE8) + "0";
                     shortnum1 = convesion().substring(0, CASE8) + "6";
                     shortnum2 = convesion().substring(0, CASE8) + "9";
-                    verifModForThree(shortnum, shortnum1, shortnum2);
+                    amb = amb + verifModForThree(shortnum, shortnum1, shortnum2);
                 } else if (convesion().substring(ind).equals("9")) {
                     shortnum = convesion().substring(0, CASE8) + "3";
                     shortnum1 = convesion().substring(0, CASE8) + "5";
                     shortnum2 = convesion().substring(0, CASE8) + "8";
-                    verifModForThree(shortnum, shortnum1, shortnum2);
+                    amb = amb + verifModForThree(shortnum, shortnum1, shortnum2);
                 }
             } else {
                 if (convesion().substring(ind, ind + 1).equals("1")) {
                     shortnum = convesion().substring(0, ind) + "7" + convesion().substring(ind + 1);
-                    verifMod(shortnum);
+                    amb = amb + verifMod(shortnum);
                 } else if (convesion().substring(ind, ind + 1).equals("7")) {
                     shortnum = convesion().substring(0, ind) + "1" + convesion().substring(ind + 1);
-                    verifMod(shortnum);
+                    amb = amb + verifMod(shortnum);
                 } else if (convesion().substring(ind, ind + 1).equals("0")) {
                     shortnum = convesion().substring(0, ind) + "8" + convesion().substring(ind + 1);
-                    verifMod(shortnum);
+                    amb = amb + verifMod(shortnum);
                 } else if (convesion().substring(ind, ind + 1).equals("3")) {
                     shortnum = convesion().substring(0, ind) + "9" + convesion().substring(ind + 1);
-                    verifMod(shortnum);
+                    amb = amb + verifMod(shortnum);
                 } else if (convesion().substring(ind, ind + 1).equals("5")) {
                     shortnum = convesion().substring(0, ind) + "9" + convesion().substring(ind + 1);
                     shortnum1 = convesion().substring(0, ind) + "6" + convesion().substring(ind + 1);
-                    verifModForTwo(shortnum, shortnum1);
+                    amb = amb + verifModForTwo(shortnum, shortnum1);
                 } else if (convesion().substring(ind, ind + 1).equals("6")) {
                     shortnum = convesion().substring(0, ind) + "8" + convesion().substring(ind + 1);
                     shortnum1 = convesion().substring(0, ind) + "5" + convesion().substring(ind + 1);
-                    verifModForTwo(shortnum, shortnum1);
+                    amb = amb + verifModForTwo(shortnum, shortnum1);
                 } else if (convesion().substring(ind, ind + 1).equals("8")) {
                     shortnum = convesion().substring(0, ind) + "0" + convesion().substring(ind + 1);
                     shortnum1 = convesion().substring(0, ind) + "6" + convesion().substring(ind + 1);
                     shortnum2 = convesion().substring(0, ind) + "9" + convesion().substring(ind + 1);
-                    verifModForThree(shortnum, shortnum1, shortnum2);
+                    amb = amb + verifModForThree(shortnum, shortnum1, shortnum2);
                 } else if (convesion().substring(ind, ind + 1).equals("9")) {
                     shortnum = convesion().substring(0, ind) + "3" + convesion().substring(ind + 1);
                     shortnum1 = convesion().substring(0, ind) + "5" + convesion().substring(ind + 1);
                     shortnum2 = convesion().substring(0, ind) + "8" + convesion().substring(ind + 1);
-                    verifModForThree(shortnum, shortnum1, shortnum2);
+                    amb = amb + verifModForThree(shortnum, shortnum1, shortnum2);
                 }
             }
         }
-        System.out.println();
+        return amb;
     }
 
-    public void ill() {
-        String shortnum = "";
+    public String ill() {
         String test = "";
-        System.out.print(esCta() + " => Opciones: ");
+        String illCorrection = esCta() + " => ";
         for (int ind = 0; ind < CASE9; ind++) {
             if (ind == 0) {
                 if (convesion().substring(ind, ind + 1).equals("?")) {
                     for (int indj = 0; indj <= CASE9; indj++) {
                         test = indj + convesion().substring(1);
                         if (checkSum(test) % MOD11 == 0) {
-                            shortnum = test;
-                            System.out.print(shortnum + " ");
+                            illCorrection = illCorrection + test + " ";
                         }
                     }
                 }
@@ -308,8 +313,7 @@ public class MostrarDatosImpl {
                     for (int indj = 0; indj <= CASE9; indj++) {
                         test = convesion().substring(0, CASE8) + indj;
                         if (checkSum(test) % MOD11 == 0) {
-                            shortnum = convesion().substring(0, CASE8) + indj;
-                            System.out.print(shortnum + " ");
+                            illCorrection = illCorrection + test + " ";
                         }
                     }
                 }
@@ -318,13 +322,12 @@ public class MostrarDatosImpl {
                     for (int indj = 0; indj <= CASE9; indj++) {
                         test = convesion().substring(0, ind) + indj + convesion().substring(ind + 1);
                         if (checkSum(test) % MOD11 == 0) {
-                            shortnum = test;
-                            System.out.print(shortnum + " ");
+                            illCorrection = illCorrection + test + " ";
                         }
                     }
                 }
             }
         }
-        System.out.println();
+        return illCorrection;
     }
 }

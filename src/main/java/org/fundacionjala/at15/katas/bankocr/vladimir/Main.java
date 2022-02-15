@@ -31,10 +31,10 @@ public class Main {
                     System.out.println(muestra.esCta());
                     break;
                 case CASE3:
-                    muestra.err();
+                    System.out.println(muestra.err());
                     break;
                 case CASE4:
-                    muestra.ill();
+                    System.out.println(muestra.ill());
                     break;
                 case CASE0:
                     System.out.println("Terminado");
