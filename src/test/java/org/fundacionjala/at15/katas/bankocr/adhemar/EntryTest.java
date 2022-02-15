@@ -30,13 +30,31 @@ public class EntryTest {
         IOFile theFile = new IOFile("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\adhemar\\files\\test3.txt");
         theFile.readFile();
         String[] Entries = theFile.getEntries();
-        Entry theEntry = new Entry(Entries[1]);
-        String pattern =
+        Entry theEntry1 = new Entry(Entries[1]);
+        String pattern1 =
             " _ \n" +
             "| |\n" +
             "|_|\n";
-        theEntry.splitDigitPatterns();
+        theEntry1.splitDigitPatterns();
 
-        assertEquals(pattern, theEntry.getDigitPatterns()[0]);
+        assertEquals(pattern1, theEntry1.getDigitPatterns()[8]);
+
+        Entry theEntry2 = new Entry(Entries[0]);
+        String pattern2 =
+            " _ \n" +
+            "|_ \n" +
+            " _|\n";
+        theEntry2.splitDigitPatterns();
+
+        assertEquals(pattern2, theEntry2.getDigitPatterns()[4]);
+
+        Entry theEntry3 = new Entry(Entries[2]);
+        String pattern3 =
+            "   \n" +
+            "  |\n" +
+            "  |\n";
+        theEntry3.splitDigitPatterns();
+
+        assertEquals(pattern3, theEntry3.getDigitPatterns()[0]);
     }
 }

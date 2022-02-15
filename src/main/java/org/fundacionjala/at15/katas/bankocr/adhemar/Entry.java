@@ -28,10 +28,10 @@ public class Entry {
         for (int index1 = 0; index1 < chars.length; index1++) {
             this.digitPatterns[index2] += String.valueOf(chars[index1]);
             if ((index1 + 1) % CHARS_DIGIT == 0) {
+                this.digitPatterns[index2] += "\n";
                 if (index2 + 1 == DIGITS_LINE) {
                     index2 = 0;
                 } else {
-                    this.digitPatterns[index2] += "\n";
                     index2++;
                 }
             }
