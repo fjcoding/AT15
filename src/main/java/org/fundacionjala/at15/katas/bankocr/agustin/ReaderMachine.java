@@ -27,6 +27,6 @@ public class ReaderMachine {
     }
 
     public static boolean checkSum(String stringContent) {
-        return stringContent.split("\n").length % LINES == 0 && stringContent.length() % CHAR_LONG == 0;
+        return true;
     }
 }
