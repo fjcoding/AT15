@@ -56,5 +56,10 @@ public class validAccountTest {
         assertEquals(exp, vAccount.getInvalidAccounts());
     }
 
-    
+    @Test
+    public void checkShouldBeZero() {
+        boolean check = false;
+        ValidAccount vAccount = new ValidAccount("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
+        assertEquals(check, vAccount.getAccountVerification());
+    }
 }

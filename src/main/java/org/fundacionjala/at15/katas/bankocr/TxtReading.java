@@ -1,5 +1,4 @@
 package org.fundacionjala.at15.katas.bankocr;
-
 import java.util.ArrayList;
 import java.util.List;
 

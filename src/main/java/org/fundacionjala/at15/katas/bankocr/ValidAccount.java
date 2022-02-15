@@ -7,6 +7,8 @@ public class ValidAccount {
 
     private List<String> accountlist;
     private boolean validation = true;
+    private final int large = 9;
+    private final int valueZero = 0;
 
     public ValidAccount(String path) {
         //accountlist = path;
@@ -59,5 +61,29 @@ public class ValidAccount {
             }
         }
         return accountFailed;
+    }
+
+    public boolean getAccountVerification() {
+        boolean valid = false;
+        final int mod = 11;
+        double valAux = valueZero;
+        List<String> verification = new ArrayList<>();
+        verification = getValidAccounts();
+        for (String account : verification) {
+            char[]adder  = account.toCharArray();
+            int multiplier = large;
+            int result = valueZero;
+            for (int iterator = 0; iterator < adder.length; iterator++) {
+                char charValue = adder[iterator];
+                int intValue = Character.getNumericValue(charValue);
+                result = intValue * multiplier;
+                multiplier--;
+            }
+            valAux = result % mod;
+            if (valAux == 0) {
+                valid = true;
+            }
+        }
+        return valid;
     }
 }
