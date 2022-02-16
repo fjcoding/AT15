@@ -10,13 +10,12 @@ public class BulletTest {
     public void itshouldhavePosXPosYSpeed() {
         int posX = 10;
         int posY = 10;
-        int speed = 5;
         boolean fired = false;
-        Bullet bullet = new Bullet(posX, posY, speed, fired);
+        Bullet bullet = new Bullet(posX, posY, fired);
         assertEquals(posX, bullet.getPosx());
         assertEquals(posY, bullet.getPosy());
-        assertEquals(speed, bullet.getSpeed());
-        assertEquals(expected, actual);
+        
+
 
     }
 }

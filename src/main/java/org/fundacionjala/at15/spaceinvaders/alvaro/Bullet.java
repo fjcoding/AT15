@@ -6,13 +6,12 @@ public class Bullet {
     private static final int HEIGHT = 5;
     private int posx = 0;
     private int posy = 0;
-    private int speed = 15;
+    private static final int SPEED = 15;
     private boolean fired = false;
 
-    public Bullet(int posx, int posy, int speed, boolean fired) {
+    public Bullet(int posx, int posy, boolean fired) {
         this.posx = posx;
         this.posy = posy;
-        this.speed = speed;
         this.fired = fired;
     }
     public int getPosx() {
@@ -27,16 +26,10 @@ public class Bullet {
     public void setPosy(int posY) {
         this.posy = posY;
     }
-    public int getSpeed() {
-        return speed;
-    }
-    public void setSpeed(int Speed) {
-        this.speed = Speed;
-    }
-    public void fire(int Posx, int Posy) {
+    public void fire(int posX, int posY) {
         this.fired = true;
-        this.posx = Posx;
-        this.posy = Posy;
+        this.posx = posX;
+        this.posy = posY;
     }
     public void destroyed() {
         this.fired = false;
