@@ -1,13 +1,15 @@
 package org.fundacionjala.at15.katas.bankocr.adhemar;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 public class EntryTest {
     @Test
     public void itShouldHaveAnOrigin() {
-        IOFile theFile = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/ThreeEntryFile.txt");
+        IOFile theFile = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/MainEntryFile.txt");
         String[] Entries = theFile.getEntries();
         Entry theEntry = new Entry(Entries[0]);
 
@@ -16,7 +18,7 @@ public class EntryTest {
 
     @Test
     public void itShouldGetIndividualDigitPatterns() {
-        IOFile theFile = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/ThreeEntryFile.txt");
+        IOFile theFile = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/MainEntryFile.txt");
         String[] Entries = theFile.getEntries();
         Entry theEntry1 = new Entry(Entries[1]);
         String pattern1 =
@@ -45,7 +47,7 @@ public class EntryTest {
 
     @Test
     public void itShouldCalculateNumberAccount() {
-        IOFile theFile = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/ThreeEntryFile.txt");
+        IOFile theFile = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/MainEntryFile.txt");
         String[] Entries = theFile.getEntries();
         Entry theEntry1 = new Entry(Entries[0]);
 
@@ -58,5 +60,18 @@ public class EntryTest {
         Entry theEntry3 = new Entry(Entries[2]);
 
         assertEquals("111111111", theEntry3.getAccountNumber());
+    }
+
+    @Test
+    public void itShouldHaveAnStatus() {
+        IOFile theFile = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/MainEntryFile.txt");
+        String[] Entries = theFile.getEntries();
+        Entry theEntry1 = new Entry(Entries[11]);
+
+        assertTrue(theEntry1.getStatus());
+
+        Entry theEntry2 = new Entry(Entries[2]);
+
+        assertFalse(theEntry2.getStatus());
     }
 }

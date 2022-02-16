@@ -29,7 +29,7 @@ public class IOFileTest {
 
     @Test
     public void itShouldVerifyCorrectNumberOfLinesAndCharacteresInTheFile() {
-        IOFile theFile1 = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/ThreeEntryFile.txt");
+        IOFile theFile1 = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/MainEntryFile.txt");
 
         assertTrue(theFile1.verifyFile());
 
@@ -40,18 +40,29 @@ public class IOFileTest {
 
     @Test
     public void itShouldSplitEntriesOfTheFile() {
-        IOFile theFile = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/ThreeEntryFile.txt");
+        IOFile theFile = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/MainEntryFile.txt");
 
-        assertEquals( 3, theFile.getEntries().length);
+        assertEquals( 14, theFile.getEntries().length);
     }
 
     @Test
     public void itShouldGetAccountNumbersFile() {
-        IOFile theFile1 = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/ThreeEntryFile.txt");
+        IOFile theFile1 = new IOFile("src/main/java/org/fundacionjala/at15/katas/bankocr/adhemar/files/MainEntryFile.txt");
         String AccountNumbers1 =
         "123456789\n" +
         "000000000\n" +
-        "111111111\n";
+        "111111111\n" +
+        "222222222\n" +
+        "333333333\n" +
+        "444444444\n" +
+        "555555555\n" +
+        "666666666\n" +
+        "777777777\n" +
+        "888888888\n" +
+        "999999999\n" +
+        "000000051\n" +
+        "49006771?\n" +
+        "1234?678?\n";
 
         assertEquals(AccountNumbers1, theFile1.getAccountNumbers());
 

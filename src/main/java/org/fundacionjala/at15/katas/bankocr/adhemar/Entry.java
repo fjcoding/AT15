@@ -4,8 +4,10 @@ public class Entry {
     private String origin;
     private String[] digitPatterns;
     private String accountNumber;
+    private boolean status;
     private static final int DIGITS_LINE = 9;
     private static final int CHARS_DIGIT = 3;
+    private static final int CHECKSUM_VALIDATOR = 11;
 
     public Entry(String origin) {
         this.origin = origin;
@@ -16,6 +18,7 @@ public class Entry {
         this.accountNumber = "";
         this.splitDigitPatterns();
         this.calculateAccountNumber();
+        this.calculateStatus();
     }
 
     public String getOrigin() {
@@ -28,6 +31,10 @@ public class Entry {
 
     public String getAccountNumber() {
         return this.accountNumber;
+    }
+
+    public boolean getStatus() {
+        return this.status;
     }
 
     public void splitDigitPatterns() {
@@ -50,5 +57,14 @@ public class Entry {
         for (int index = 0; index < DIGITS_LINE; index++) {
             this.accountNumber += new Digit(this.digitPatterns[index]).getNumber();
         }
+    }
+
+    public void calculateStatus() {
+        char[] digits = this.accountNumber.toCharArray();
+        int checkSum = 0;
+        for (int index = 1; index <= digits.length; index++) {
+            checkSum += Character.getNumericValue(digits[digits.length - index]) * index;
+        }
+        this.status = (checkSum % CHECKSUM_VALIDATOR == 0);
     }
 }
