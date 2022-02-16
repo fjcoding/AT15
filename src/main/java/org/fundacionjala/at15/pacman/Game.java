@@ -1,10 +1,10 @@
 package org.fundacionjala.at15.pacman;
 
 public class Game {
-    Pacman pacman;
+    private Pacman pacman;
     //Ghost ghost;
-    Board board;
-    int score;
+    private Board board;
+    private int score;
 
     public Game() {
         this.board = new Board();
