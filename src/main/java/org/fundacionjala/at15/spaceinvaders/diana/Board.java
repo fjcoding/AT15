@@ -10,9 +10,6 @@ public class Board extends JPanel {
     private Dimension boardDimension;
     private int boardWidth = 800;
     private int boardHeight = 800;
-    private int marginMax = 800;
-    private int marginMin = 0;
-    private int position = 400;
 
     public Board() {
         inicializateBoard();
