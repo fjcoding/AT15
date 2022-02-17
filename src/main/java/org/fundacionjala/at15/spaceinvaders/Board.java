@@ -8,15 +8,13 @@ import java.awt.Dimension;
 
 public class Board extends JPanel {
     private Dimension boardDimension;
-    static final int boardWidth = 500;
-    static final int boardHeight = 400;
 
     public Board() {
         inicializateBoard();
     }
 
     public void inicializateBoard() {
-        boardDimension = new DimensionUIResource(boardWidth, boardHeight);
+        boardDimension = new DimensionUIResource(Commons.BOARD_WIDTH,  Commons.BOARD_HEIGHT);
         setFocusable(true);
     }
 

@@ -2,8 +2,8 @@ package org.fundacionjala.at15.spaceinvaders;
 
 public interface Commons {
 
-    int BOARD_WIDTH = 358;
-    int BOARD_HEIGHT = 350;
+    int BOARD_WIDTH = 800;
+    int BOARD_HEIGHT = 600;
     int BORDER_RIGHT = 30;
     int BORDER_LEFT = 5;
     int GROUND = 290;
