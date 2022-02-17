@@ -11,7 +11,6 @@ public class AccesoDatosImpl {
             BufferedReader entrada = new BufferedReader(new FileReader(archivo));
             String linea = null;
             int cont = 0;
-            cont = 0;
             linea = entrada.readLine();
             while (linea != null) {
                 subLine[cont] = linea;
