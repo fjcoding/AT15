@@ -6,7 +6,6 @@ import java.util.List;
 public class ValidAccount {
 
     private List<String> accountlist;
-    private boolean validation = true;
     private final int large = 9;
     private final int valueZero = 0;
 
@@ -27,6 +26,10 @@ public class ValidAccount {
     }
 
     public boolean getValidation() {
+        boolean validation = true;
+        if (getAccountVerification()) {
+            validation = false;
+        }
         return validation;
     }
 
