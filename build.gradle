@@ -82,3 +82,8 @@ task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.agustin.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
+
+task runBankSergio(dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.bankocr.sergio.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
