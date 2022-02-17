@@ -48,7 +48,7 @@ public class Ship extends JComponent {
         setFocusable(true);
     }
 
-    private float moveUptoLimit(float value, float min, float max) {
+    public float moveUptoLimit(float value, float min, float max) {
         if (value > max) {
             return max;
         }
@@ -57,7 +57,7 @@ public class Ship extends JComponent {
         }
         return value;
     }
-    private void movement(float deltaT) {
+    public void movement(float deltaT) {
         velocityX = 0;
         if (left) {
             velocityX = VELOCITYLEFT;
@@ -110,12 +110,18 @@ public class Ship extends JComponent {
     public void setPosY(float parameter) {
         this.posY = parameter;
     }
+    public void setLeft(boolean parameter) {
+        this.left = parameter;
+    }
+    public void setRight(boolean parameter) {
+        this.right = parameter;
+    }
 
     public static void main(String[] args) throws Exception {
         int life = 1;
         final float xpos = 250;
         final float ypos = 385;
-        JFrame jframe = new JFrame("PingBall");
+        JFrame jframe = new JFrame("Space Invaders");
         jframe.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     System.exit(0);
