@@ -28,8 +28,6 @@ checkstyleMain {
     source = 'src/main/java'
 }
 
-<<<<<<< HEAD
-=======
 task runLangtonAntJimy (dependsOn: 'check', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.jimy.Main'
     classpath = sourceSets.main.runtimeClasspath
@@ -39,7 +37,6 @@ task runLangtonAntalvaro (dependsOn: 'classes', type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
 }
->>>>>>> e996004 (Added test and functions)
 checkstyleTest {
     source = 'src/main/java'
 }
@@ -61,7 +58,7 @@ task runLangtonAntVladimir (dependsOn: 'classes', type: JavaExec) {
 task runLangtonAntSaul (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.saul.Main'
     classpath = sourceSets.main.runtimeClasspath
-} 
+}
 
 task runLangtonAntDiana (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.diana.Main'
