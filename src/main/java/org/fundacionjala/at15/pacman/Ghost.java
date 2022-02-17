@@ -17,6 +17,14 @@ public class Ghost {
         return yPos;
     }
 
+    public void setXPos(int posX) {
+        this.xPos = posX;
+    }
+
+    public void setYPos(int posY) {
+        this.yPos = posY;
+    }
+
     public void movementUp() {
         yPos = yPos - 1;
     }
