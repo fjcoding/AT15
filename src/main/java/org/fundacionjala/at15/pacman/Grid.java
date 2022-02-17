@@ -17,6 +17,7 @@ public class Grid {
     private final int ghostY2 = 8;
     private final int ghostX3 = 8;
     private final int ghostY3 = 2;
+    private final int limitRandom = 5;
     private PacMan pacman = new PacMan(pacmanX, pacmanY, true);
     private Ghost ghost1 = new Ghost(ghostX1, ghostY1);
     private Ghost ghost2 = new Ghost(ghostX2, ghostY2);
@@ -85,10 +86,10 @@ public class Grid {
 
     public String[][] ghostMove(String[][] matriz, Ghost ghost) {
         String[][] moveMat = matriz;
-        int random =   (int) Math.floor(Math.random()*(5-1)+1);
+        int random =   (int) Math.floor(Math.random() * (limitRandom - 1) + 1);
         switch (random) {
             case caseUp:
-                if (ghost.getXPos()== 0) {
+                if (ghost.getXPos() == 0) {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 } else {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[*]";
