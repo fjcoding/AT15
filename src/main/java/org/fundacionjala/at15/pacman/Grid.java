@@ -18,6 +18,7 @@ public class Grid {
     private final int ghostX3 = 8;
     private final int ghostY3 = 2;
     private final int limitRandom = 5;
+
     private PacMan pacman = new PacMan(pacmanX, pacmanY, true);
     private Ghost ghost1 = new Ghost(ghostX1, ghostY1);
     private Ghost ghost2 = new Ghost(ghostX2, ghostY2);
@@ -38,9 +39,11 @@ public class Grid {
     }
 
     public String[][] movimientoPacman(int entrada, String[][] matriz) {
+
         matriz = ghostMove(matriz, ghost1);
         matriz = ghostMove(matriz, ghost2);
         matriz = ghostMove(matriz, ghost3);
+
         switch (entrada) {
             case caseUp:
                 if (pacman.getPosx() == 0) {
@@ -81,6 +84,7 @@ public class Grid {
             default:
                 matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
         }
+
         return matriz;
     }
 
@@ -128,6 +132,18 @@ public class Grid {
                 moveMat[pacman.getPosx()][pacman.getPosy()] = "[G]";
         }
         return moveMat;
+    }
+
+    public void pacmanScore(String[][] matriz) {
+        int score = 0;
+        for (int col = 0; col < matriz.length; col++) {
+            for (int row = 0; row < matriz.length; row++) {
+                if(matriz[col][row] =="[ ]"){
+                    score++;
+                }
+            }
+        }
+        System.out.println("The Score is: "+score);
     }
 
     public void print(String[][] matriz) {

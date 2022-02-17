@@ -17,6 +17,7 @@ public class Main {
             entrada = Integer.parseInt(scanner.nextLine());
             matriz = grid.movimientoPacman(entrada, matriz);
             grid.print(matriz);
+            grid.pacmanScore(matriz);
         }
     }
 }
