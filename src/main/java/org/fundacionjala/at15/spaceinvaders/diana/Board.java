@@ -12,6 +12,7 @@ public class Board extends JPanel {
     private int boardHeight = 800;
     private int marginMax = 800;
     private int marginMin = 0;
+    private int position = 400;
 
     public Board() {
         inicializateBoard();
@@ -29,11 +30,10 @@ public class Board extends JPanel {
 
     public int movementRange(int marginMax, int marginMin, int position) {
         if (position > marginMax) {
-            position=marginMax;
+            position = marginMax;
         }
         if (position < marginMin) {
-                position=marginMin;
-            }
+            position = marginMin;
         }
     }
 }
