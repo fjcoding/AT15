@@ -90,7 +90,7 @@ public class Grid {
 
     public String[][] ghostMove(String[][] matriz, Ghost ghost) {
         String[][] moveMat = matriz;
-        int random =   (int) Math.floor(Math.random() * (limitRandom - 1) + 1);
+        int random = (int) Math.floor(Math.random() * (limitRandom - 1) + 1);
         switch (random) {
             case caseUp:
                 if (ghost.getXPos() == 0) {
@@ -138,12 +138,12 @@ public class Grid {
         int score = 0;
         for (int col = 0; col < matriz.length; col++) {
             for (int row = 0; row < matriz.length; row++) {
-                if(matriz[col][row] =="[ ]"){
+                if (matriz[col][row] == "[ ]") {
                     score++;
                 }
             }
         }
-        System.out.println("The Score is: "+score);
+        System.out.println("The Score is: " + score);
     }
 
     public void print(String[][] matriz) {
