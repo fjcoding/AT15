@@ -26,30 +26,45 @@ public class Grid {
     public String[][] movimientoPacman(int entrada, String[][] matriz) {
         switch (entrada) {
             case caseUp:
-                matriz[pacman.getPosx()][pacman.getPosy()] = "[ ]";
-                pacman.setPosx(pacman.getPosx() - 1);
-                matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
+                if (pacman.getPosx()==0) {
+                    matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
+                } else {
+                    matriz[pacman.getPosx()][pacman.getPosy()] = "[ ]";
+                    pacman.setPosx(pacman.getPosx() - 1);
+                    matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
+                }
                 break;
             case caseDown:
-                matriz[pacman.getPosx()][pacman.getPosy()] = "[ ]";
-                pacman.setPosx(pacman.getPosx() + 1);
-                matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
+                if(pacman.getPosx()==10){
+                    matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
+                }else{
+                    matriz[pacman.getPosx()][pacman.getPosy()] = "[ ]";
+                    pacman.setPosx(pacman.getPosx() + 1);
+                    matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
+                }
                 break;
             case caseLeft:
-                matriz[pacman.getPosx()][pacman.getPosy()] = "[ ]";
-                pacman.setPosy(pacman.getPosy() - 1);
-                matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
+                if(pacman.getPosy()==0){
+                    matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
+                }else{
+                    matriz[pacman.getPosx()][pacman.getPosy()] = "[ ]";
+                    pacman.setPosy(pacman.getPosy() - 1);
+                    matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
+                }
                 break;
             case caseRight:
-                matriz[pacman.getPosx()][pacman.getPosy()] = "[ ]";
-                pacman.setPosy(pacman.getPosy() + 1);
-                matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
+                if(pacman.getPosy() == 10){
+                    matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
+                }else{
+                    matriz[pacman.getPosx()][pacman.getPosy()] = "[ ]";
+                    pacman.setPosy(pacman.getPosy() + 1);
+                    matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
+                }
                 break;
             default:
                 matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
         }
         return matriz;
-
     }
 
     public void print(String[][] matriz) {
