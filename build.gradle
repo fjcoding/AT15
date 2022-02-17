@@ -73,6 +73,10 @@ task runLangtonAntAdhemar (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.adhemar.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
+task runBankOcrAdhemar (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.bankocr.adhemar.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
 
 task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.agustin.Main'
