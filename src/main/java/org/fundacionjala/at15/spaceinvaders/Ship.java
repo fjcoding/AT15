@@ -57,7 +57,6 @@ public class Ship extends JComponent {
         }
         return value;
     }
-
     private void movement(float deltaT) {
         velocityX = 0;
         if (left) {
@@ -75,7 +74,7 @@ public class Ship extends JComponent {
         graphic.setColor(Color.GREEN);
         graphic.fillOval(Math.round(posX), Math.round(posY), DIAMETER, DIAMETER);
     }
-    private void draw() throws Exception {
+    private void render() throws Exception {
         SwingUtilities.invokeAndWait(new Runnable() {
                 public void run() {
                     paintImmediately(0, 0, WIDTH, HEIGHT);
@@ -89,7 +88,7 @@ public class Ship extends JComponent {
             float deltaT = (newTime - oldTime) / TIMEINTERNVAL;
             oldTime = newTime;
             movement(deltaT);
-            draw();
+            render();
         }
     }
 
