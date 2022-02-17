@@ -25,14 +25,14 @@ public class Ship extends JComponent {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         addKeyListener(new KeyAdapter() {
                 public void keyPressed(KeyEvent e) {
-                    actualiza(e.getKeyCode(), true);
+                    updatekeyPressed(e.getKeyCode(), true);
                 }
 
                 public void keyReleased(KeyEvent e) {
-                    actualiza(e.getKeyCode(), false);
+                    updatekeyPressed(e.getKeyCode(), false);
                 }
 
-                private void actualiza(int keyCode, boolean pressed) {
+                private void updatekeyPressed(int keyCode, boolean pressed) {
                     switch (keyCode) {
                         case KeyEvent.VK_LEFT:
                             left = pressed;
