@@ -1,4 +1,4 @@
-package org.fundacionjala.at15.spaceinvaders.alvaro;
+package org.fundacionjala.at15.spaceinvaders;
 
 public class Bullet {
 
