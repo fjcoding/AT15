@@ -7,12 +7,12 @@ import org.junit.Test;
 public class InvaderTest {
     @Test
     public void itShouldHaveAPosition() {
-        int posX = 20;
-        int posY = 20;
+        float posX = 20;
+        float posY = 20;
         
         Invader theInvader = new Invader(posX, posY);
 
-        assertEquals(posX, theInvader.getPosX());
-        assertEquals(posY, theInvader.getPosY());
+        assertEquals(posX, theInvader.getPosX(), 0);
+        assertEquals(posY, theInvader.getPosY(), 0);
     }
 }

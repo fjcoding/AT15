@@ -1,19 +1,19 @@
 package org.fundacionjala.at15.spaceinvaders;
 
 public class Invader {
-    private int posX;
-    private int posY;
+    private float posX;
+    private float posY;
 
-    public Invader(int posX, int posY) {
+    public Invader(float posX, float posY) {
         this.posX = posX;
         this.posY = posY;
     }
 
-    public int getPosX() {
+    public float getPosX() {
         return this.posX;
     }
 
-    public int getPosY() {
+    public float getPosY() {
         return this.posY;
     }
 }
