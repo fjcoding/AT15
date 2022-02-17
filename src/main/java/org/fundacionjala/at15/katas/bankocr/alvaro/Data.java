@@ -40,7 +40,7 @@ public class Data {
             return !cond;
         }
     }
-    public static char[][] extractnumberin3x3matrix(int index) {
+    public static char[][] extractNumberIn3x3Matrix(int index) {
         int newindex = index;
         //int row = 3;
         char[][] mat3x3 = new char[ROWS][ROWS];
@@ -53,34 +53,34 @@ public class Data {
         }
         return mat3x3;
     }
-    public static int comparenumbers(char[][]matrix) {
+    public static int compareNumbers(char[][]matrix) {
 
-        if (comparewithnumberone(matrix)) {
+        if (compareWithNumberOne(matrix)) {
             return ONE;
-        } else if (comparewithnumbertwo(matrix)) {
+        } else if (compareWithNumberTwo(matrix)) {
             return TWO;
-        } else if (comparewithnumberthree(matrix)) {
+        } else if (compareWithNumberThree(matrix)) {
 
             return THREE;
-        } else if (comparewithnumberfour(matrix)) {
+        } else if (compareWithNumberFour(matrix)) {
 
             return FOUR;
-        } else if (comparewithnumberfive(matrix)) {
+        } else if (compareWithNumberFive(matrix)) {
 
             return FIVE;
-        } else if (comparewithnumbersix(matrix)) {
+        } else if (compareWithNumberSix(matrix)) {
 
             return SIX;
-        } else if (comparewithnumberseven(matrix)) {
+        } else if (compareWithNumberSeven(matrix)) {
 
             return SEVEN;
-        } else if (comparewithnumbereigth(matrix)) {
+        } else if (compareWithNumberEigth(matrix)) {
 
             return EIGTH;
-        } else if (comparewithnumbernine(matrix)) {
+        } else if (compareWithNumberNine(matrix)) {
 
             return NINE;
-        } else if (comparewithnumberzero(matrix)) {
+        } else if (compareWithNumberZero(matrix)) {
 
             return ZERO;
         }
@@ -88,7 +88,7 @@ public class Data {
         return NUMBERNOVALID;
 
     }
-    public static boolean comparewithnumberzero(char[][]matrix) {
+    public static boolean compareWithNumberZero(char[][]matrix) {
         char[][] zero = {{' ', '_', ' '}, {'|', ' ', '|'}, {'|', '_', '|'}};
         boolean cond = false;
         if (Arrays.deepEquals(matrix, zero)) {
@@ -98,7 +98,7 @@ public class Data {
         }
 
     }
-    public static boolean comparewithnumberone(char[][]matrix) {
+    public static boolean compareWithNumberOne(char[][]matrix) {
         char[][] one = {{' ', ' ', ' '}, {'|', ' ', ' '}, {'|', ' ', ' '}};
         boolean cond = false;
         if (Arrays.deepEquals(matrix, one)) {
@@ -107,7 +107,7 @@ public class Data {
             return cond;
         }
     }
-    public static boolean comparewithnumbertwo(char[][]matrix) {
+    public static boolean compareWithNumberTwo(char[][]matrix) {
         char[][] two = {{' ', '_', ' '}, {' ', '_', '|'}, {'|', '_', ' '}};
         boolean cond = false;
         if (Arrays.deepEquals(matrix, two)) {
@@ -116,7 +116,7 @@ public class Data {
             return cond;
         }
     }
-    public static boolean comparewithnumberthree(char[][]matrix) {
+    public static boolean compareWithNumberThree(char[][]matrix) {
         char[][] three = {{' ', '_', ' '}, {' ', '_', '|'}, {' ', '_', '|'}};
         boolean cond = false;
         if (Arrays.deepEquals(matrix, three)) {
@@ -125,7 +125,7 @@ public class Data {
             return cond;
         }
     }
-    public static boolean comparewithnumberfour(char[][]matrix) {
+    public static boolean compareWithNumberFour(char[][]matrix) {
         char[][] four = {{' ', ' ', ' '}, {'|', '_', '|'}, {' ', ' ', '|'}};
         boolean cond = false;
         if (Arrays.deepEquals(matrix, four)) {
@@ -134,7 +134,7 @@ public class Data {
             return cond;
         }
     }
-    public static boolean comparewithnumberfive(char[][]matrix) {
+    public static boolean compareWithNumberFive(char[][]matrix) {
         char[][] five = {{' ', '_', ' '}, {'|', '_', ' '}, {' ', '_', '|'}};
         boolean cond = false;
         if (Arrays.deepEquals(matrix, five)) {
@@ -143,7 +143,7 @@ public class Data {
             return cond;
         }
     }
-    public static boolean comparewithnumbersix(char[][]matrix) {
+    public static boolean compareWithNumberSix(char[][]matrix) {
         char[][] six = {{' ', '_', ' '}, {'|', '_', ' '}, {'|', '_', '|'}};
         boolean cond = false;
         if (Arrays.deepEquals(matrix, six)) {
@@ -152,7 +152,7 @@ public class Data {
             return cond;
         }
     }
-    public static boolean comparewithnumberseven(char[][]matrix) {
+    public static boolean compareWithNumberSeven(char[][]matrix) {
         char[][] seven = {{' ', '_', ' '}, {' ', ' ', '|'}, {' ', ' ', '|'}};
         boolean cond = false;
         if (Arrays.deepEquals(matrix, seven)) {
@@ -161,7 +161,7 @@ public class Data {
             return cond;
         }
     }
-    public static boolean comparewithnumbereigth(char[][]matrix) {
+    public static boolean compareWithNumberEigth(char[][]matrix) {
         char[][] eigth = {{' ', '_', ' '}, {'|', '_', '|'}, {'|', '_', '|'}};
         boolean cond = false;
         if (Arrays.deepEquals(matrix, eigth)) {
@@ -170,7 +170,7 @@ public class Data {
             return cond;
         }
     }
-    public static boolean comparewithnumbernine(char[][]matrix) {
+    public static boolean compareWithNumberNine(char[][]matrix) {
         char[][] nine = {{' ', '_', ' '}, {'|', '_', '|'}, {' ', '_', '|'}};
         boolean cond = false;
         if (Arrays.deepEquals(matrix, nine)) {
@@ -179,7 +179,7 @@ public class Data {
             return cond;
         }
     }
-    public static boolean shownumbers(int[] numbers) {
+    public static boolean showNumbers(int[] numbers) {
         int counter = 0;
         boolean cond = false;
         for (int ind = 0; ind < numbers.length; ind++) {
@@ -192,7 +192,7 @@ public class Data {
             return cond;
         }
     }
-    public static boolean checkifitisavalidaccount(int[]nros) {
+    public static boolean checkIfitIsaValidAccount(int[]nros) {
         int mul = 1;
         int aux = 0;
 

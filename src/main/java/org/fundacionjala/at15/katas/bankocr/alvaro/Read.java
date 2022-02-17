@@ -30,13 +30,13 @@ public class Read {
     public void mainOperator() {
         for (int ind = 0; ind < longitudNumber; ind++) {
 
-            mat3x3 = Data.extractnumberin3x3matrix(index);
+            mat3x3 = Data.extractNumberIn3x3Matrix(index);
             index = index + jumpTonextnumber;
-            numberobtained = Data.comparenumbers(mat3x3);
+            numberobtained = Data.compareNumbers(mat3x3);
             matnros[ind] = numberobtained;
         }
 
-        Data.shownumbers(matnros);
-        Data.checkifitisavalidaccount(matnros);
+        Data.showNumbers(matnros);
+        Data.checkIfitIsaValidAccount(matnros);
     }
 }
