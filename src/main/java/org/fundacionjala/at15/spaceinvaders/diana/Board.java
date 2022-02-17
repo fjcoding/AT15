@@ -19,21 +19,11 @@ public class Board extends JPanel {
     }
 
     public void inicializateBoard() {
-        addKeyListener(new classAgustin());// keylistener class name (Agus)
         boardDimension = new DimensionUIResource(boardWidth, boardHeight);
         setFocusable(true);
     }
 
     public void drawBoard() {
         setBackground(Color.DARK_GRAY);
-    }
-
-    public int movementRange(int marginMax, int marginMin, int position) {
-        if (position > marginMax) {
-            position = marginMax;
-        }
-        if (position < marginMin) {
-            position = marginMin;
-        }
     }
 }
