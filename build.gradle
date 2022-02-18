@@ -90,6 +90,6 @@ task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
 }
 
 task runShip (dependsOn: 'classes', type: JavaExec) {
-    main = 'org.fundacionjala.at15.spaceinvaders.Ship'
+    main = 'org.fundacionjala.at15.spaceinvaders.Main'
     classpath = sourceSets.main.runtimeClasspath
 }

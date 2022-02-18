@@ -8,21 +8,17 @@ public class Ship extends JComponent {
     private int life;
     private float posX;
     private float posY;
-    private static final int WIDTH = 500;
-    private static final int HEIGHT = 400;
-    private static final int DIAMETER = 15;
     private static final int VELOCITYRIGHT = 300;
     private static final int VELOCITYLEFT = -300;
-    private static final float TIMEINTERNVAL = 1000000000f;
     private float velocityX;
     private boolean left;
     private boolean right;
 
-    public Ship(int life, float posX, float posY) {
+    public Ship(int life) {
         this.life = life;
-        this.posX = posX;
-        this.posY = posY;
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        this.posX = Commons.START_X;
+        this.posY = Commons.START_Y;
+        setPreferredSize(new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT));
         addKeyListener(new KeyAdapter() {
                 public void keyPressed(KeyEvent e) {
                     updateKeyPressed(e.getKeyCode(), true);
@@ -48,6 +44,17 @@ public class Ship extends JComponent {
         setFocusable(true);
     }
 
+    public void movement(float deltaT) {
+        velocityX = 0;
+        if (left) {
+            velocityX = VELOCITYLEFT;
+        }
+        if (right) {
+            velocityX = VELOCITYRIGHT;
+        }
+        posX = moveUptoLimit(posX + velocityX * deltaT, 0, Commons.BOARD_WIDTH - Commons.DIAMETER);
+    }
+
     private float moveUptoLimit(float value, float min, float max) {
         if (value > max) {
             return max;
@@ -57,39 +64,22 @@ public class Ship extends JComponent {
         }
         return value;
     }
-    private void movement(float deltaT) {
-        velocityX = 0;
-        if (left) {
-            velocityX = VELOCITYLEFT;
-        }
-        if (right) {
-            velocityX = VELOCITYRIGHT;
-        }
-        posX = moveUptoLimit(posX + velocityX * deltaT, 0, WIDTH - DIAMETER);
+
+    public void render() throws Exception {
+        SwingUtilities.invokeAndWait(new Runnable() {
+                public void run() {
+                    paintImmediately(0, 0, Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
+                }
+            });
     }
 
     public void paint(Graphics graphic) {
         graphic.setColor(Color.BLACK);
-        graphic.fillRect(0, 0, WIDTH, HEIGHT);
+        graphic.fillRect(0, 0, Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
+        graphic.setColor(Color.RED);
+        graphic.fillRect(Commons.ALIEN_INIT_X, Commons.ALIEN_INIT_Y, Commons.ALIEN_WIDTH, Commons.ALIEN_HEIGHT);
         graphic.setColor(Color.GREEN);
-        graphic.fillOval(Math.round(posX), Math.round(posY), DIAMETER, DIAMETER);
-    }
-    private void render() throws Exception {
-        SwingUtilities.invokeAndWait(new Runnable() {
-                public void run() {
-                    paintImmediately(0, 0, WIDTH, HEIGHT);
-                }
-            });
-    }
-    public void mainCycle() throws Exception {
-        long oldTime = System.nanoTime();
-        while (true) {
-            long newTime = System.nanoTime();
-            float deltaT = (newTime - oldTime) / TIMEINTERNVAL;
-            oldTime = newTime;
-            movement(deltaT);
-            render();
-        }
+        graphic.fillOval(Math.round(posX), Math.round(posY), Commons.DIAMETER, Commons.DIAMETER);
     }
 
     public int getLife() {
@@ -110,6 +100,7 @@ public class Ship extends JComponent {
     public void setPosY(float parameter) {
         this.posY = parameter;
     }
+<<<<<<< HEAD
 
     public static void main(String[] args) throws Exception {
         int life = 1;
@@ -128,4 +119,6 @@ public class Ship extends JComponent {
         jframe.setVisible(true);
         ship.mainCycle();
     }
+=======
+>>>>>>> origin/dev/spaceinvaders
 }
