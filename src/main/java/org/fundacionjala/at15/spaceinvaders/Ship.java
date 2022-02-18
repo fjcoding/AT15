@@ -24,27 +24,27 @@ public class Ship extends JComponent {
         this.posY = posY;
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         addKeyListener(new KeyAdapter() {
-                public void keyPressed(KeyEvent e) {
-                    updatekeyPressed(e.getKeyCode(), true);
-                }
+            public void keyPressed(KeyEvent e) {
+                updatekeyPressed(e.getKeyCode(), true);
+            }
 
-                public void keyReleased(KeyEvent e) {
-                    updatekeyPressed(e.getKeyCode(), false);
-                }
+            public void keyReleased(KeyEvent e) {
+                updatekeyPressed(e.getKeyCode(), false);
+            }
 
-                private void updatekeyPressed(int keyCode, boolean pressed) {
-                    switch (keyCode) {
-                        case KeyEvent.VK_LEFT:
-                            left = pressed;
-                            break;
-                        case KeyEvent.VK_RIGHT:
-                            right = pressed;
-                            break;
-                        default:
-                            System.err.println("Is not right or left");
-                    }
+            private void updatekeyPressed(int keyCode, boolean pressed) {
+                switch (keyCode) {
+                    case KeyEvent.VK_LEFT:
+                        left = pressed;
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        right = pressed;
+                        break;
+                    default:
+                        System.err.println("Is not right or left");
                 }
-            });
+            }
+        });
         setFocusable(true);
     }
 
@@ -57,6 +57,7 @@ public class Ship extends JComponent {
         }
         return value;
     }
+
     private void movement(float deltaT) {
         velocityX = 0;
         if (left) {
@@ -74,13 +75,15 @@ public class Ship extends JComponent {
         graphic.setColor(Color.GREEN);
         graphic.fillOval(Math.round(posX), Math.round(posY), DIAMETER, DIAMETER);
     }
+
     private void render() throws Exception {
         SwingUtilities.invokeAndWait(new Runnable() {
-                public void run() {
-                    paintImmediately(0, 0, WIDTH, HEIGHT);
-                }
-            });
+            public void run() {
+                paintImmediately(0, 0, WIDTH, HEIGHT);
+            }
+        });
     }
+
     public void mainCycle() throws Exception {
         long oldTime = System.nanoTime();
         while (true) {
@@ -95,18 +98,23 @@ public class Ship extends JComponent {
     public int getLife() {
         return life;
     }
+
     public void setLife(int parameter) {
         this.life = parameter;
     }
+
     public float getPosX() {
         return posX;
     }
+
     public void setPosX(float parameter) {
         this.posX = parameter;
     }
+
     public float getPosY() {
         return posY;
     }
+
     public void setPosY(float parameter) {
         this.posY = parameter;
     }
@@ -117,10 +125,10 @@ public class Ship extends JComponent {
         final float ypos = 385;
         JFrame jframe = new JFrame("PingBall");
         jframe.addWindowListener(new WindowAdapter() {
-                public void windowClosing(WindowEvent e) {
-                    System.exit(0);
-                }
-            });
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
         jframe.setResizable(false);
         Ship ship = new Ship(life, xpos, ypos);
         jframe.getContentPane().add(ship);
