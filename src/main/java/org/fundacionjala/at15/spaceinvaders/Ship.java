@@ -8,6 +8,12 @@ public class Ship extends JComponent {
     private int life;
     private float posX;
     private float posY;
+    private static final int WIDTH = 500;
+    private static final int HEIGHT = 400;
+    private static final int DIAMETER = 15;
+    private static final int VELOCITYRIGHT = 300;
+    private static final int VELOCITYLEFT = -300;
+    private static final float TIMEINTERNVAL = 1000000000f;
     private float velocityX;
     private boolean left;
     private boolean right;
@@ -54,19 +60,19 @@ public class Ship extends JComponent {
     private void movement(float deltaT) {
         velocityX = 0;
         if (left) {
-            velocityX = Commons.VELOCITYLEFT;
+            velocityX = VELOCITYLEFT;
         }
         if (right) {
-            velocityX = Commons.VELOCITYRIGHT;
+            velocityX = VELOCITYRIGHT;
         }
-        posX = moveUptoLimit(posX + velocityX * deltaT, 0, WIDTH - Commons.DIAMETER);
+        posX = moveUptoLimit(posX + velocityX * deltaT, 0, WIDTH - DIAMETER);
     }
 
     public void paint(Graphics graphic) {
         graphic.setColor(Color.BLACK);
         graphic.fillRect(0, 0, WIDTH, HEIGHT);
         graphic.setColor(Color.GREEN);
-        graphic.fillOval(Math.round(posX), Math.round(posY), Commons.DIAMETER, Commons.DIAMETER);
+        graphic.fillOval(Math.round(posX), Math.round(posY), DIAMETER, DIAMETER);
     }
     private void render() throws Exception {
         SwingUtilities.invokeAndWait(new Runnable() {
@@ -79,7 +85,7 @@ public class Ship extends JComponent {
         long oldTime = System.nanoTime();
         while (true) {
             long newTime = System.nanoTime();
-            float deltaT = (newTime - oldTime) / Commons.TIMEINTERNVAL;
+            float deltaT = (newTime - oldTime) / TIMEINTERNVAL;
             oldTime = newTime;
             movement(deltaT);
             render();
