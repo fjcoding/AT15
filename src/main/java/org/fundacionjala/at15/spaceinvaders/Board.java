@@ -8,22 +8,13 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 
 public class Board extends JPanel {
     private Dimension boardDimension;
-<<<<<<< HEAD
-
-
-=======
->>>>>>> origin/dev/spaceinvaders
 
     public Board() {
         inicializateBoard();
     }
 
     public void inicializateBoard() {
-<<<<<<< HEAD
         boardDimension = new DimensionUIResource(BOARD_WIDTH, BOARD_HEIGHT);
-=======
-        boardDimension = new DimensionUIResource(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
->>>>>>> origin/dev/spaceinvaders
         setFocusable(true);
     }
 

@@ -1,9 +1,8 @@
 package org.fundacionjala.at15.spaceinvaders;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 
 public class Bullet {
 
-    private static final int WIDTH = 1;
-    private static final int HEIGHT = 5;
     private int posx = 0;
     private int posy = 0;
     private static final int SPEED = 15;

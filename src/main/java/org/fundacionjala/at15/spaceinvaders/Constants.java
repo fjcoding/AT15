@@ -23,4 +23,9 @@ public final class Constants {
         static final int ALIEN_INIT_X = 150;
         static final int ALIEN_INIT_Y = 5;
     }
+
+    public final class Bullet {
+        static final int BULLET_WIDTH = 1;
+        static final int BULLET_HEIGHT = 5;
+    }
 }

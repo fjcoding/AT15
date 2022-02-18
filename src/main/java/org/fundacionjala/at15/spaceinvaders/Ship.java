@@ -100,25 +100,5 @@ public class Ship extends JComponent {
     public void setPosY(float parameter) {
         this.posY = parameter;
     }
-<<<<<<< HEAD
 
-    public static void main(String[] args) throws Exception {
-        int life = 1;
-        final float xpos = 250;
-        final float ypos = 385;
-        JFrame jframe = new JFrame("Space Invaders");
-        jframe.addWindowListener(new WindowAdapter() {
-                public void windowClosing(WindowEvent e) {
-                    System.exit(0);
-                }
-            });
-        jframe.setResizable(false);
-        Ship ship = new Ship(life, xpos, ypos);
-        jframe.getContentPane().add(ship);
-        jframe.pack();
-        jframe.setVisible(true);
-        ship.mainCycle();
-    }
-=======
->>>>>>> origin/dev/spaceinvaders
 }
