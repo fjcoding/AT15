@@ -28,6 +28,15 @@ checkstyleMain {
     source = 'src/main/java'
 }
 
+task runLangtonAntJimy (dependsOn: 'check', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.langtonant.jimy.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
+task runLangtonAntalvaro (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.bankocr.alvaro.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+}
 checkstyleTest {
     source = 'src/main/java'
 }
