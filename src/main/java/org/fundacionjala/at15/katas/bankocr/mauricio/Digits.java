@@ -105,9 +105,12 @@ public class Digits {
         }
     }
 
-    public void printCells() {
+    public String printCells() {
+        String result = "";
         for (int vari = 0; vari < nine; vari++) {
-            System.out.print(getDigits()[vari]);
+            result += getDigits()[vari];
         }
+        return result;
     }
+
 }

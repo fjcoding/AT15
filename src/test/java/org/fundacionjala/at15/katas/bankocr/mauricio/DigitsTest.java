@@ -26,6 +26,24 @@ public class DigitsTest {
         assertEquals(cells2, digits.getCells());
     }
 
+
+    @Test
+    public void numberZeroCreation() {
+        Digits digits = new Digits(3, 27);
+        String[][] cells = digits.getCells();
+        cells[0][1] = "_";
+        cells[1][0] = "|";
+        cells[1][1] = " ";
+        cells[1][2] = "|";
+        cells[2][0] = "|";
+        cells[2][1] = "_";
+        cells[2][2] = "|";
+
+        String auxNumber = "0";
+        assertEquals(auxNumber, digits.guessDigit(cells[0][1], cells[1][0], cells[1][1], cells[1][2], cells[2][0],
+                cells[2][1], cells[2][2]));
+    }
+
     @Test
     public void numberOneCreation() {
         Digits digits = new Digits(3, 27);
@@ -110,7 +128,7 @@ public class DigitsTest {
         assertEquals(auxNumber, digits.guessDigit(cells[0][1], cells[1][0], cells[1][1], cells[1][2], cells[2][0],
                 cells[2][1], cells[2][2]));
     }
-
+    @Test
     public void numberSixCreation() {
         Digits digits = new Digits(3, 27);
         String[][] cells = digits.getCells();
@@ -126,7 +144,7 @@ public class DigitsTest {
         assertEquals(auxNumber, digits.guessDigit(cells[0][1], cells[1][0], cells[1][1], cells[1][2], cells[2][0],
                 cells[2][1], cells[2][2]));
     }
-
+    @Test
     public void numberSevenCreation() {
         Digits digits = new Digits(3, 27);
         String[][] cells = digits.getCells();
@@ -142,7 +160,7 @@ public class DigitsTest {
         assertEquals(auxNumber, digits.guessDigit(cells[0][1], cells[1][0], cells[1][1], cells[1][2], cells[2][0],
                 cells[2][1], cells[2][2]));
     }
-
+    @Test
     public void numberEightCreation() {
         Digits digits = new Digits(3, 27);
         String[][] cells = digits.getCells();
@@ -158,7 +176,7 @@ public class DigitsTest {
         assertEquals(auxNumber, digits.guessDigit(cells[0][1], cells[1][0], cells[1][1], cells[1][2], cells[2][0],
                 cells[2][1], cells[2][2]));
     }
-
+    @Test
     public void numberNineCreation() {
         Digits digits = new Digits(3, 27);
         String[][] cells = digits.getCells();
@@ -174,7 +192,23 @@ public class DigitsTest {
         assertEquals(auxNumber, digits.guessDigit(cells[0][1], cells[1][0], cells[1][1], cells[1][2], cells[2][0],
                 cells[2][1], cells[2][2]));
     }
+    @Test
+    public void incompleteNumber() {
+        Digits digits = new Digits(3, 27);
+        String[][] cells = digits.getCells();
+        cells[0][1] = "_";
+        cells[1][0] = "_";
+        cells[1][1] = "_";
+        cells[1][2] = "_";
+        cells[2][0] = "_";
+        cells[2][1] = "_";
+        cells[2][2] = "_";
 
+        String auxNumber = "?";
+        assertEquals(auxNumber, digits.guessDigit(cells[0][1], cells[1][0], cells[1][1], cells[1][2], cells[2][0],
+                cells[2][1], cells[2][2]));
+    }
+    @Test
     public void digitsValidation() {
 
         Digits digits = new Digits(ROWS, COLUMNS);
@@ -183,7 +217,7 @@ public class DigitsTest {
         int rows = 0;
         try {
             Scanner input = new Scanner(
-                    new File("src/main/java/org/fundacionjala/at15/katas/bankocr/mauricio/Number3.txt"));
+                    new File("src/main/java/org/fundacionjala/at15/katas/bankocr/mauricio/Numbers.txt"));
             while (input.hasNextLine()) {
                 String line = input.nextLine();
                 System.out.println(line);
@@ -199,9 +233,8 @@ public class DigitsTest {
         }
         int validation = digits.isAccountValid();
         String numbers = "123456789";
-
         assertEquals(1, validation);
-        // assertEquals(numbers, digits.printCells());
+        assertEquals(numbers, digits.printCells());
         // assertEquals(numbers, digits.printCells());
     }
 }
