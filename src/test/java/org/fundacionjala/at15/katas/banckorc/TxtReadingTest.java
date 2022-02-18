@@ -22,7 +22,7 @@ public class TxtReadingTest {
         exp.add("888888888");
         exp.add("999999999");
         exp.add("123456789");
-        TxtReading reading = new TxtReading("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\numbers.txt");
+        TxtReading reading = new TxtReading("D:src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\numbers.txt");
         assertEquals(exp, reading.getConverd());
     }
 }

@@ -13,7 +13,7 @@ public class validAccountTest {
     @Test
     public void itShouldBeValidAccount() {
         boolean valid = true;
-        ValidAccount vAccount = new ValidAccount("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
+        ValidAccount vAccount = new ValidAccount("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
         assertEquals(valid, vAccount.getValidation());
     }
 
@@ -21,7 +21,7 @@ public class validAccountTest {
     public void shouldBeAccountsToValidate() {
         boolean validate = true;
         boolean emptyList = false;
-        ValidAccount vAccount = new ValidAccount("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
+        ValidAccount vAccount = new ValidAccount("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
         if (vAccount.getAccountsToValidate() != null) {
             emptyList = true;
         }
@@ -31,7 +31,7 @@ public class validAccountTest {
     @Test
     public void itShouldBeIntegers() {
         boolean valid = true;
-        ValidAccount vAccount = new ValidAccount("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
+        ValidAccount vAccount = new ValidAccount("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
         assertEquals(valid, vAccount.isItInteger(""));
     }
 
@@ -39,7 +39,7 @@ public class validAccountTest {
     public void shouldGetTheValidAccounts() {
         boolean validAccount = true;
         boolean valisList = false;
-        ValidAccount vAccount = new ValidAccount("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
+        ValidAccount vAccount = new ValidAccount("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
         if (vAccount.getValidAccounts() != null) {
             valisList = true;
         }
@@ -50,7 +50,7 @@ public class validAccountTest {
     public void shouldGetTheIvalidAccounts() {
         boolean invalidAccount = true;
         boolean invalisList = false;
-        ValidAccount vAccount = new ValidAccount("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
+        ValidAccount vAccount = new ValidAccount("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
         if (vAccount.getInvalidAccounts() != null) {
             invalisList = true;
         }
@@ -60,7 +60,7 @@ public class validAccountTest {
     @Test
     public void checkShouldBeZero() {
         boolean check = false;
-        ValidAccount vAccount = new ValidAccount("D:\\workspace\\coding\\AT15\\src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
+        ValidAccount vAccount = new ValidAccount("src\\main\\java\\org\\fundacionjala\\at15\\katas\\bankocr\\txtFile\\validAccount.txt");
         assertEquals(check, vAccount.getAccountVerification());
     }
 }
