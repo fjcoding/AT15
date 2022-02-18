@@ -3,14 +3,13 @@ package org.fundacionjala.at15.spaceinvaders;
 import javax.swing.JPanel;
 import javax.swing.plaf.DimensionUIResource;
 import java.awt.Color;
-
 import java.awt.Dimension;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 
 public class Board extends JPanel {
     private Dimension boardDimension;
 
-    static final int BOARD_WIDTH = 800;
-    static final int BOARD_HEIGHT = 600;
+
 
     public Board() {
         inicializateBoard();
