@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class MatrixTest {
-    Display testNumber = new Display(123456789);
+    Lcd testNumber = new Lcd();
 
     @Test
     public void IsMatrixReturningZero() {

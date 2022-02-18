@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class CompareMatrixText {
-    Display testNumber = new Display(123456789);
+    Parse testNumber = new Parse();
 
     @Test
     public void IsMatrixGeneratingAZero() {

@@ -9,12 +9,13 @@ public class Main {
         Scanner read = new Scanner(System.in);
         System.out.println("Enter the serial number:");
         int serialNumber = read.nextInt();
+        read.close();
 
-        Display numberInput = new Display(serialNumber);
-        numberInput.processNumberInput();
-        numberInput.printLcd();
-        numberInput.convertLcdToNumber();
-
+        Parse numberInput = new Parse();
+        Lcd lcd = new Lcd();
+        Object[] lcdScreen = lcd.processNumberInput(serialNumber);
+        lcd.printLcd(lcdScreen);
+        numberInput.convertLcdToNumber(lcdScreen);
         numberInput.validationAccountNumber();
 
     }
