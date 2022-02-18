@@ -129,6 +129,19 @@ public class Grid {
         }
         return moveMat;
     }
+    public boolean pacIsDead(String[][] matriz) {
+        boolean pacmanLife;
+        if (matriz[pacman.getPosx()][pacman.getPosy()] == matriz[ghost1.getXPos()][ghost1.getXPos()]) {
+            pacmanLife = true;
+        } else if (matriz[pacman.getPosx()][pacman.getPosy()] == matriz[ghost2.getXPos()][ghost2.getXPos()]) {
+            pacmanLife = true;
+        } else if (matriz[pacman.getPosx()][pacman.getPosy()] == matriz[ghost3.getXPos()][ghost3.getXPos()]) {
+            pacmanLife = true;
+        } else {
+            pacmanLife = false;
+        }
+        return pacmanLife;
+    }
 
     public void print(String[][] matriz) {
         for (int col = 0; col < matriz.length; col++) {
