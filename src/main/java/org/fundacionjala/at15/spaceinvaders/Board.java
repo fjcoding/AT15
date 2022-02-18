@@ -14,7 +14,7 @@ public class Board extends JPanel {
     }
 
     public void inicializateBoard() {
-        boardDimension = new DimensionUIResource(Commons.BOARD_WIDTH,  Commons.BOARD_HEIGHT);
+        boardDimension = new DimensionUIResource(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
         setFocusable(true);
     }
 

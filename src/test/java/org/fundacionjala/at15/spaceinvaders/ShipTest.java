@@ -8,13 +8,11 @@ public class ShipTest {
 
     @Test
     public void itShouldHaveAPositionAndLife() {
-        float positionX = 20;
-        float positionY = 20;
         int life = 1;
-        Ship theShip = new Ship(life, positionX, positionY);
+        Ship theShip = new Ship(life);
 
         assertEquals(life, theShip.getLife());
-        assertEquals(positionX, theShip.getPosX(), 0);
-        assertEquals(positionY, theShip.getPosY(), 0);
+        assertEquals(Commons.START_X, theShip.getPosX(), 0);
+        assertEquals(Commons.START_Y, theShip.getPosY(), 0);
     }
 }
