@@ -21,14 +21,14 @@ public class Ship extends JComponent {
         setPreferredSize(new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT));
         addKeyListener(new KeyAdapter() {
                 public void keyPressed(KeyEvent e) {
-                    updatekeyPressed(e.getKeyCode(), true);
+                    updateKeyPressed(e.getKeyCode(), true);
                 }
 
                 public void keyReleased(KeyEvent e) {
-                    updatekeyPressed(e.getKeyCode(), false);
+                    updateKeyPressed(e.getKeyCode(), false);
                 }
 
-                private void updatekeyPressed(int keyCode, boolean pressed) {
+                private void updateKeyPressed(int keyCode, boolean pressed) {
                     switch (keyCode) {
                         case KeyEvent.VK_LEFT:
                             left = pressed;
@@ -37,7 +37,7 @@ public class Ship extends JComponent {
                             right = pressed;
                             break;
                         default:
-                            System.err.println("Is not right or left");
+                            break;
                     }
                 }
             });
@@ -100,4 +100,5 @@ public class Ship extends JComponent {
     public void setPosY(float parameter) {
         this.posY = parameter;
     }
+
 }
