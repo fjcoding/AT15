@@ -17,4 +17,11 @@ public interface Commons {
     int PLAYER_HEIGHT = 10;
     int START_X = 270;
     int START_Y = 280;
+
+    int WIDTH = 500;
+    int HEIGHT = 400;
+    int DIAMETER = 15;
+    int VELOCITYRIGHT = 300;
+    int VELOCITYLEFT = -300;
+    float TIMEINTERNVAL = 1000000000f;
 }

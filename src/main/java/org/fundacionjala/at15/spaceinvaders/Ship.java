@@ -8,12 +8,6 @@ public class Ship extends JComponent {
     private int life;
     private float posX;
     private float posY;
-    private static final int WIDTH = 500;
-    private static final int HEIGHT = 400;
-    private static final int DIAMETER = 15;
-    private static final int VELOCITYRIGHT = 300;
-    private static final int VELOCITYLEFT = -300;
-    private static final float TIMEINTERNVAL = 1000000000f;
     private float velocityX;
     private boolean left;
     private boolean right;
@@ -25,14 +19,14 @@ public class Ship extends JComponent {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         addKeyListener(new KeyAdapter() {
                 public void keyPressed(KeyEvent e) {
-                    updatekeyPressed(e.getKeyCode(), true);
+                    updateKeyPressed(e.getKeyCode(), true);
                 }
 
                 public void keyReleased(KeyEvent e) {
-                    updatekeyPressed(e.getKeyCode(), false);
+                    updateKeyPressed(e.getKeyCode(), false);
                 }
 
-                private void updatekeyPressed(int keyCode, boolean pressed) {
+                private void updateKeyPressed(int keyCode, boolean pressed) {
                     switch (keyCode) {
                         case KeyEvent.VK_LEFT:
                             left = pressed;
@@ -41,7 +35,7 @@ public class Ship extends JComponent {
                             right = pressed;
                             break;
                         default:
-                            System.err.println("Is not right or left");
+                            break;
                     }
                 }
             });
@@ -60,19 +54,19 @@ public class Ship extends JComponent {
     private void movement(float deltaT) {
         velocityX = 0;
         if (left) {
-            velocityX = VELOCITYLEFT;
+            velocityX = Commons.VELOCITYLEFT;
         }
         if (right) {
-            velocityX = VELOCITYRIGHT;
+            velocityX = Commons.VELOCITYRIGHT;
         }
-        posX = moveUptoLimit(posX + velocityX * deltaT, 0, WIDTH - DIAMETER);
+        posX = moveUptoLimit(posX + velocityX * deltaT, 0, WIDTH - Commons.DIAMETER);
     }
 
     public void paint(Graphics graphic) {
         graphic.setColor(Color.BLACK);
         graphic.fillRect(0, 0, WIDTH, HEIGHT);
         graphic.setColor(Color.GREEN);
-        graphic.fillOval(Math.round(posX), Math.round(posY), DIAMETER, DIAMETER);
+        graphic.fillOval(Math.round(posX), Math.round(posY), Commons.DIAMETER, Commons.DIAMETER);
     }
     private void render() throws Exception {
         SwingUtilities.invokeAndWait(new Runnable() {
@@ -85,7 +79,7 @@ public class Ship extends JComponent {
         long oldTime = System.nanoTime();
         while (true) {
             long newTime = System.nanoTime();
-            float deltaT = (newTime - oldTime) / TIMEINTERNVAL;
+            float deltaT = (newTime - oldTime) / Commons.TIMEINTERNVAL;
             oldTime = newTime;
             movement(deltaT);
             render();
@@ -115,7 +109,7 @@ public class Ship extends JComponent {
         int life = 1;
         final float xpos = 250;
         final float ypos = 385;
-        JFrame jframe = new JFrame("PingBall");
+        JFrame jframe = new JFrame("Space Invaders");
         jframe.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     System.exit(0);
