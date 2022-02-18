@@ -37,6 +37,10 @@ check.dependsOn jacocoTestReport
 test.finalizedBy("checkstyleMain")
 test.finalizedBy("jacocoTestReport")
 
+task runBankocrAdrian (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.bankocr.adrian.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
 task runLangtonAntAdrian (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.adrian.Main'
     classpath = sourceSets.main.runtimeClasspath
@@ -69,6 +73,10 @@ task runLangtonAntAdhemar (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.adhemar.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
+task runBankOcrAdhemar (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.bankocr.adhemar.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
 
 task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.agustin.Main'
@@ -77,5 +85,7 @@ task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
 
 task runBankOcrMauricio (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.bankocr.mauricio.Main'
+task runBankSergio(dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.bankocr.sergio.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
