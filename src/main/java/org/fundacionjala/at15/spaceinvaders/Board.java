@@ -5,12 +5,14 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
+
 public class Board extends JPanel {
     private List<Alien> aliens;
 
     public Board() {
         aliens = new ArrayList<>();
-        createAliens(Commons.ALIEN_ROWS, Commons.ALIEN_COLUMNS);
+        createAliens(ALIEN_ROWS, ALIEN_COLUMNS);
     }
 
     public List<Alien> getAliens() {
@@ -30,10 +32,8 @@ public class Board extends JPanel {
         for (int yIndex = 0; yIndex < rows; yIndex++) {
             for (int xIndex = 0; xIndex < columns; xIndex++) {
                 Alien alien = new Alien(
-                    Commons.ALIEN_INIT_X + Commons.ALIEN_SEPARATION * xIndex,
-                    Commons.ALIEN_INIT_Y + Commons.ALIEN_SEPARATION * yIndex,
-                    Commons.ALIEN_WIDTH,
-                    Commons.ALIEN_HEIGHT);
+                    ALIEN_INIT_X + ALIEN_SEPARATION * xIndex,
+                    ALIEN_INIT_Y + ALIEN_SEPARATION * yIndex, ALIEN_WIDTH, ALIEN_HEIGHT);
                 this.aliens.add(alien);
             }
         }

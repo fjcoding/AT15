@@ -1,4 +1,5 @@
 package org.fundacionjala.at15.spaceinvaders;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 
 import javax.swing.JFrame;
 
@@ -7,7 +8,7 @@ public class Container extends JFrame {
         add(new Board());
         setTitle("Space Invaders");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
+        setSize(BOARD_WIDTH, BOARD_HEIGHT);
         setLocationRelativeTo(null);
         setResizable(false);
         setFocusable(true);
