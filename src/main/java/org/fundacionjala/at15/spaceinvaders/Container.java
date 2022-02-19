@@ -7,11 +7,12 @@ public class Container extends JFrame {
     public Container() {
         add(new Board());
         setTitle("Space Invaders");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(BOARD_WIDTH, BOARD_HEIGHT);
         setLocationRelativeTo(null);
-        setResizable(false);
         setFocusable(true);
         setVisible(true);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

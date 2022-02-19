@@ -1,7 +1,26 @@
 package org.fundacionjala.at15.spaceinvaders;
 
-public class Main {
+import javax.swing.JFrame;
+
+import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
+
+public class Main extends JFrame {
     public static void main(String[] args) {
-        new Container();
+        JFrame myWindow = new JFrame("Space Invaders");
+        Board game = new Board();
+        myWindow.add(game);
+        myWindow.setSize(BOARD_WIDTH, BOARD_HEIGHT);
+        myWindow.setVisible(true);
+        myWindow.setResizable(false);
+        myWindow.setLocationRelativeTo(null);
+        myWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        while (true) {
+            try {
+                Thread.sleep(SLEEP);
+            } catch (InterruptedException ex) {
+                System.out.println(ex.toString());
+                game.repaint();
+            }
+        }
     }
 }
