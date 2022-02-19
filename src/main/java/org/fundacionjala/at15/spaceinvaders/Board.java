@@ -54,9 +54,9 @@ public class Board extends JPanel {
         //Font score = new Font("Arial" ,Font.BOLD, 25) ;
         //g.setFont (score);
         ship.paint(g);
-        if (gun.disparado()) {
+        if (gun.shooted()) {
             gun.paint(g);
-            gun.mover();
+            gun.move();
         }
         g.dispose();
         repaint();

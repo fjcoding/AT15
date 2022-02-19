@@ -31,11 +31,11 @@ public class Gun {
         return new Ellipse2D.Double(posx + 10, posy + 30, 80, 50);
     }
     */
-    public boolean disparado() {
+    public boolean shooted() {
 
-        return bullet.devolverstatusbala();
+        return bullet.bulletStatus();
     }
-    public void mover() {
+    public void move() {
 
         bullet.move();
     }

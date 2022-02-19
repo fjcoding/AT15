@@ -42,7 +42,7 @@ public class Bullet {
             }
         }
     }
-    public boolean devolverstatusbala() {
+    public boolean bulletStatus() {
         return fired;
     }
 }
