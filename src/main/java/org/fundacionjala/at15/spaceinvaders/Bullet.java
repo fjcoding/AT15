@@ -30,6 +30,7 @@ public class Bullet {
         this.posx = posX;
         this.posy = posY;
     }
+
     public void destroyed() {
         this.fired = false;
     }

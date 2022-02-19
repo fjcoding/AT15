@@ -1,20 +1,17 @@
 package org.fundacionjala.at15.spaceinvaders;
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
+<<<<<<< HEAD
 import org.fundacionjala.at15.spaceinvaders.Constants.*;
+=======
+import java.awt.*;
+>>>>>>> dev/spaceinvaders
 
-public class Ship extends JComponent {
-    private int life;
-    private float posX;
-    private float posY;
-    private static final int VELOCITYRIGHT = 300;
-    private static final int VELOCITYLEFT = -300;
-    private float velocityX;
-    private boolean left;
-    private boolean right;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 
+<<<<<<< HEAD
     public Ship(int life, float posX, float posY) {
         this.life = life;
         this.posX = posX;
@@ -24,11 +21,17 @@ public class Ship extends JComponent {
                 public void keyPressed(KeyEvent e) {
                     updateKeyPressed(e.getKeyCode(), true);
                 }
+=======
+public class Ship {
+    private int posX = START_X;
+    private int posY = START_Y;
+>>>>>>> dev/spaceinvaders
 
-                public void keyReleased(KeyEvent e) {
-                    updateKeyPressed(e.getKeyCode(), false);
-                }
+    public void paint(Graphics graphic) {
+        //ImageIcon ship = new ImageIcon(getClass().getResource("src/main/resources/spaceinvaders/ship.png"));
+        //graphic.drawImage(ship.getImage(), posX, posY, PLAYER_WIDTH, PLAYER_HEIGHT, null);
 
+<<<<<<< HEAD
                 public void updateKeyPressed(int keyCode, boolean pressed) {
                     switch (keyCode) {
                         case KeyEvent.VK_LEFT:
@@ -43,28 +46,39 @@ public class Ship extends JComponent {
                 }
             });
         setFocusable(true);
+=======
+        graphic.setColor(Color.GREEN);
+        graphic.fillOval(Math.round(posX), Math.round(posY), DIAMETER, DIAMETER);
+>>>>>>> dev/spaceinvaders
     }
 
-    public void movement(float deltaT) {
-        velocityX = 0;
-        if (left) {
-            velocityX = VELOCITYLEFT;
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            if (posX > 0) {
+                posX = moveUptoLimit(posX - VELOCITY_X, 0, BOARD_WIDTH - 2 * DIAMETER);
+            }
         }
-        if (right) {
-            velocityX = VELOCITYRIGHT;
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            if (posX < BOARD_WIDTH) {
+                posX = moveUptoLimit(posX + VELOCITY_X, 0, BOARD_WIDTH - 2 * DIAMETER);
+            }
         }
-        posX = moveUptoLimit(posX + velocityX * deltaT, 0, Commons.BOARD_WIDTH - Commons.DIAMETER);
     }
 
+<<<<<<< HEAD
     public float moveUptoLimit(float value, float min, float max) {
+=======
+    public int moveUptoLimit(int value, int min, int max) {
+>>>>>>> dev/spaceinvaders
         if (value > max) {
             return max;
         }
-        if (value < min) {
+        if (value < 0) {
             return min;
         }
         return value;
     }
+<<<<<<< HEAD
     public void paint(Graphics graphic) {
         graphic.setColor(Color.BLACK);
         graphic.fillRect(0, 0, Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
@@ -89,15 +103,29 @@ public class Ship extends JComponent {
         this.life = parameter;
     }
     public float getPosX() {
+=======
+
+    /*public Ellipse2D getBoundsBicho(){
+        return new Ellipse2D.Double(posX + 10, posY + 30, 80, 50) ;
+    }
+
+    public boolean llegaFinal() {
+        Rectangle cuadrado=new Rectangle (520, 520, 110, 110) ;
+        Area cuadradoArea=new Area(cuadrado) ;
+        return cuadradoArea.contains(getBoundsBicho().getBounds()) ;
+    }*/
+
+    public int getPosX() {
+>>>>>>> dev/spaceinvaders
         return posX;
     }
-    public void setPosX(float parameter) {
+    public void setPosX(int parameter) {
         this.posX = parameter;
     }
-    public float getPosY() {
+    public int getPosY() {
         return posY;
     }
-    public void setPosY(float parameter) {
+    public void setPosY(int parameter) {
         this.posY = parameter;
     }
     public void setLeft(boolean parameter) {

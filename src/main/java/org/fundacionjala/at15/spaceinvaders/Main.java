@@ -1,21 +1,27 @@
 package org.fundacionjala.at15.spaceinvaders;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
-public class Main {
-    public static void main(String[] args) throws Exception {
-        int shipLife = 1;
-        final float posX = 250;
-        final float posY = 385;
-        JFrame jframe = new JFrame("Space Invaders");
-        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jframe.setResizable(false);
-        Ship ship = new Ship(shipLife, posX, posY);
-        jframe.getContentPane().add(ship);
-        jframe.pack();
-        jframe.setVisible(true);
-        Game game = new Game(ship);
-        game.mainCycle();
+import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
+
+public class Main extends JFrame {
+    public static void main(String[] args) {
+        JFrame myWindow = new JFrame("Space Invaders");
+        Board game = new Board();
+        myWindow.add(game);
+        myWindow.setSize(BOARD_WIDTH, BOARD_HEIGHT);
+        myWindow.setVisible(true);
+        myWindow.setResizable(false);
+        myWindow.setLocationRelativeTo(null);
+        myWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        while (true) {
+            try {
+                Thread.sleep(SLEEP);
+            } catch (InterruptedException ex) {
+                System.out.println(ex.toString());
+                game.repaint();
+            }
+        }
     }
 
 }
