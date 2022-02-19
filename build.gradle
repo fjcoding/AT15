@@ -89,7 +89,7 @@ task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
-task runShip (dependsOn: 'classes', type: JavaExec) {
+task runSpaceInvaders (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.spaceinvaders.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
