@@ -39,7 +39,6 @@ public class Gun {
 
         bullet.move();
     }
-    
 
 }
 
