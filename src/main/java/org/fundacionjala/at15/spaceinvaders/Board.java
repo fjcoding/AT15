@@ -7,6 +7,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Block.*;
@@ -15,7 +16,7 @@ public class Board extends JPanel {
     private List<Alien> aliens;
     private Ship ship = new Ship();
     private Gun gun = new Gun(ship);
-
+    private Block block = new Block(ASTEROID_LIFE);
 
     public Board() {
         aliens = new ArrayList<>();
@@ -59,7 +60,7 @@ public class Board extends JPanel {
         setBackground(Color.BLACK);
         // Font score = new Font("Arial" ,Font.BOLD, 25) ;
         // g.setFont (score);
-        
+        block.paint(g);
         ship.paint(g);
         if (gun.shooted()) {
             gun.paint(g);
