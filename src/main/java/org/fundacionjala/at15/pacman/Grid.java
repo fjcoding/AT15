@@ -22,6 +22,8 @@ public class Grid {
     private Ghost ghost1 = new Ghost(ghostX1, ghostY1);
     private Ghost ghost2 = new Ghost(ghostX2, ghostY2);
     private Ghost ghost3 = new Ghost(ghostX3, ghostY3);
+    private String oldValue = "[*]";
+
 
     public String[][] crearGrid() {
         mat = new String[colsX][rowsY];
@@ -92,44 +94,48 @@ public class Grid {
                 if (ghost.getXPos() == 0) {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 } else {
-                    moveMat[ghost.getXPos()][ghost.getYPos()] = "[*]";
+                    moveMat[ghost.getXPos()][ghost.getYPos()] = oldValue;
                     ghost.setXPos(ghost.getXPos() - 1);
+                    oldValue = moveMat[ghost.getXPos()][ghost.getYPos()];
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 }
                 break;
+
             case caseDown:
                 if (ghost.getXPos() == gridLimit) {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 } else {
-                    moveMat[ghost.getXPos()][ghost.getYPos()] = "[*]";
+                    moveMat[ghost.getXPos()][ghost.getYPos()] = oldValue;
                     ghost.setXPos(ghost.getXPos() + 1);
+                    oldValue = moveMat[ghost.getXPos()][ghost.getYPos()];
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 }
                 break;
+
             case caseLeft:
                 if (ghost.getYPos() == 0) {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 } else {
-                    moveMat[ghost.getXPos()][ghost.getYPos()] = "[*]";
+                    moveMat[ghost.getXPos()][ghost.getYPos()] = oldValue;
                     ghost.setYPos(ghost.getYPos() - 1);
+                    oldValue = moveMat[ghost.getXPos()][ghost.getYPos()];
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 }
                 break;
+
             case caseRight:
                 if (ghost.getYPos() == gridLimit) {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 } else {
-                    moveMat[ghost.getXPos()][ghost.getYPos()] = "[*]";
-                    ghost.setYPos(ghost.getYPos() + 1);
+                    moveMat[ghost.getXPos()][ghost.getYPos()] = oldValue;
+                    ghost.setXPos(ghost.getYPos() + 1);
+                    oldValue = moveMat[ghost.getXPos()][ghost.getYPos()];
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 }
                 break;
-            default:
-                moveMat[pacman.getPosx()][pacman.getPosy()] = "[G]";
         }
         return moveMat;
     }
-
     public void print(String[][] matriz) {
         for (int col = 0; col < matriz.length; col++) {
             for (int row = 0; row < matriz.length; row++) {
