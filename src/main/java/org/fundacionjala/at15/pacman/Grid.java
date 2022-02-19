@@ -37,7 +37,8 @@ public class Grid {
     public String[][] movimientoPacman(int entrada, String[][] matriz, int random) {
         switch (entrada) {
             case caseUp:
-                if (pacman.getPosx() == 0 || matriz[pacman.getPosx()-1][pacman.getPosy()] == "[|]" || matriz[pacman.getPosx()-1][pacman.getPosy()] == "[_]") {
+                if (pacman.getPosx() == 0 || matriz[pacman.getPosx() - 1][pacman.getPosy()] == "[|]"
+                        || matriz[pacman.getPosx() - 1][pacman.getPosy()] == "[_]") {
                     matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
                 } else {
                     matriz[pacman.getPosx()][pacman.getPosy()] = "[ ]";
@@ -47,7 +48,8 @@ public class Grid {
                 }
                 break;
             case caseDown:
-                if (pacman.getPosx() == gridLimit || matriz[pacman.getPosx()+1][pacman.getPosy()] == "[|]" || matriz[pacman.getPosx()+1][pacman.getPosy()] == "[_]") {
+                if (pacman.getPosx() == gridLimit || matriz[pacman.getPosx() + 1][pacman.getPosy()] == "[|]"
+                        || matriz[pacman.getPosx() + 1][pacman.getPosy()] == "[_]") {
                     matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
                 } else {
                     matriz[pacman.getPosx()][pacman.getPosy()] = "[ ]";
@@ -57,7 +59,8 @@ public class Grid {
                 }
                 break;
             case caseLeft:
-                if (pacman.getPosy() == 0 || matriz[pacman.getPosx()][pacman.getPosy()-1] == "[|]" || matriz[pacman.getPosx()][pacman.getPosy()-1] == "[_]") {
+                if (pacman.getPosy() == 0 || matriz[pacman.getPosx()][pacman.getPosy() - 1] == "[|]"
+                        || matriz[pacman.getPosx()][pacman.getPosy() - 1] == "[_]") {
                     matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
                 } else {
                     matriz[pacman.getPosx()][pacman.getPosy()] = "[ ]";
@@ -67,7 +70,8 @@ public class Grid {
                 }
                 break;
             case caseRight:
-                if (pacman.getPosy() == gridLimit || matriz[pacman.getPosx()][pacman.getPosy()+1] == "[|]" || matriz[pacman.getPosx()][pacman.getPosy()+1] == "[_]") {
+                if (pacman.getPosy() == gridLimit || matriz[pacman.getPosx()][pacman.getPosy() + 1] == "[|]"
+                        || matriz[pacman.getPosx()][pacman.getPosy() + 1] == "[_]") {
                     matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
                 } else {
                     matriz[pacman.getPosx()][pacman.getPosy()] = "[ ]";
@@ -87,10 +91,11 @@ public class Grid {
 
     public String[][] ghostMove(String[][] matriz, Ghost ghost, int random) {
         String[][] moveMat = matriz;
-        //int random =   (int) Math.floor(Math.random() * (limitRandom - 1) + 1);
+        // int random = (int) Math.floor(Math.random() * (limitRandom - 1) + 1);
         switch (random) {
             case caseUp:
-                if (ghost.getXPos() == 0 || moveMat[ghost.getXPos()-1][ghost.getYPos()] == "[|]" || moveMat[ghost.getXPos()-1][ghost.getYPos()] == "[_]") {
+                if (ghost.getXPos() == 0 || moveMat[ghost.getXPos() - 1][ghost.getYPos()] == "[|]"
+                        || moveMat[ghost.getXPos() - 1][ghost.getYPos()] == "[_]") {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 } else {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = matAux[ghost.getXPos()][ghost.getYPos()];
@@ -99,7 +104,8 @@ public class Grid {
                 }
                 break;
             case caseDown:
-                if (ghost.getXPos() == gridLimit || moveMat[ghost.getXPos()+1][ghost.getYPos()] == "[|]" || moveMat[ghost.getXPos()+1][ghost.getYPos()] == "[_]") {
+                if (ghost.getXPos() == gridLimit || moveMat[ghost.getXPos() + 1][ghost.getYPos()] == "[|]"
+                        || moveMat[ghost.getXPos() + 1][ghost.getYPos()] == "[_]") {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 } else {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = matAux[ghost.getXPos()][ghost.getYPos()];
@@ -108,7 +114,8 @@ public class Grid {
                 }
                 break;
             case caseLeft:
-                if (ghost.getYPos() == 0 || moveMat[ghost.getXPos()][ghost.getYPos()-1] == "[|]" || moveMat[ghost.getXPos()][ghost.getYPos()-1] == "[_]") {
+                if (ghost.getYPos() == 0 || moveMat[ghost.getXPos()][ghost.getYPos() - 1] == "[|]"
+                        || moveMat[ghost.getXPos()][ghost.getYPos() - 1] == "[_]") {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 } else {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = matAux[ghost.getXPos()][ghost.getYPos()];
@@ -117,7 +124,8 @@ public class Grid {
                 }
                 break;
             case caseRight:
-                if (ghost.getYPos() == gridLimit || moveMat[ghost.getXPos()][ghost.getYPos()+1] == "[|]" || moveMat[ghost.getXPos()][ghost.getYPos()+1] == "[_]") {
+                if (ghost.getYPos() == gridLimit || moveMat[ghost.getXPos()][ghost.getYPos() + 1] == "[|]"
+                        || moveMat[ghost.getXPos()][ghost.getYPos() + 1] == "[_]") {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = "[G]";
                 } else {
                     moveMat[ghost.getXPos()][ghost.getYPos()] = matAux[ghost.getXPos()][ghost.getYPos()];
@@ -141,19 +149,19 @@ public class Grid {
         System.out.println();
     }
 
-    public String[][] board(){
-        String mataux[][]={
-            {"[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]"},
-            {"[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]"},
-            {"[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]"},
-            {"[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]"},
-            {"[*]","[*]","[*]","[*]","[*]","[|]","[*]","[*]","[*]","[*]","[*]"},
-            {"[*]","[*]","[*]","[*]","[*]","[|]","[*]","[*]","[*]","[*]","[*]"},
-            {"[*]","[*]","[*]","[*]","[*]","[|]","[*]","[*]","[*]","[*]","[*]"},
-            {"[*]","[*]","[*]","[*]","[*]","[|]","[_]","[_]","[*]","[*]","[*]"},
-            {"[*]","[*]","[*]","[*]","[*]","[*]","[*]","[|]","[*]","[*]","[*]"},
-            {"[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]"},
-            {"[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]","[*]"}
+    public String[][] board() {
+        String[][] mataux = {
+                {"[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]" },
+                {"[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]" },
+                {"[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]" },
+                {"[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]" },
+                {"[*]", "[*]", "[*]", "[*]", "[*]", "[|]", "[*]", "[*]", "[*]", "[*]", "[*]" },
+                {"[*]", "[*]", "[*]", "[*]", "[*]", "[|]", "[*]", "[*]", "[*]", "[*]", "[*]" },
+                {"[*]", "[*]", "[*]", "[*]", "[*]", "[|]", "[*]", "[*]", "[*]", "[*]", "[*]" },
+                {"[*]", "[*]", "[*]", "[*]", "[*]", "[|]", "[_]", "[_]", "[*]", "[*]", "[*]" },
+                {"[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[|]", "[*]", "[*]", "[*]" },
+                {"[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]" },
+                {"[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]", "[*]" }
         };
         return mataux;
     }
