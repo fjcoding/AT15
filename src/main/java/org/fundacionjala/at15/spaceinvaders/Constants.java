@@ -24,7 +24,7 @@ public final class Constants {
 
         static final int ALIEN_INIT_X = 10;
         static final int ALIEN_INIT_Y = 10;
-        static final int ALIEN_HEIGHT = 20;
+        static final int ALIEN_HEIGHT = 10;
         static final int ALIEN_WIDTH = 20;
         static final int ALIEN_ROWS = 5;
         static final int ALIEN_COLUMNS = 12;
