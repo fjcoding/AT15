@@ -34,7 +34,7 @@ public class Grid {
         return mat;
     }
 
-    public String[][] movimientoPacman(int entrada, String[][] matriz) {
+    public String[][] movimientoPacman(int entrada, String[][] matriz, int random) {
         switch (entrada) {
             case caseUp:
                 if (pacman.getPosx() == 0 || matriz[pacman.getPosx()-1][pacman.getPosy()] == "[|]" || matriz[pacman.getPosx()-1][pacman.getPosy()] == "[_]") {
@@ -79,15 +79,15 @@ public class Grid {
             default:
                 matriz[pacman.getPosx()][pacman.getPosy()] = "[P]";
         }
-        matriz = ghostMove(matriz, ghost1);
-        matriz = ghostMove(matriz, ghost2);
-        matriz = ghostMove(matriz, ghost3);
+        matriz = ghostMove(matriz, ghost1, random);
+        matriz = ghostMove(matriz, ghost2, random);
+        matriz = ghostMove(matriz, ghost3, random);
         return matriz;
     }
 
-    public String[][] ghostMove(String[][] matriz, Ghost ghost) {
+    public String[][] ghostMove(String[][] matriz, Ghost ghost, int random) {
         String[][] moveMat = matriz;
-        int random =   (int) Math.floor(Math.random() * (limitRandom - 1) + 1);
+        //int random =   (int) Math.floor(Math.random() * (limitRandom - 1) + 1);
         switch (random) {
             case caseUp:
                 if (ghost.getXPos() == 0 || moveMat[ghost.getXPos()-1][ghost.getYPos()] == "[|]" || moveMat[ghost.getXPos()-1][ghost.getYPos()] == "[_]") {
