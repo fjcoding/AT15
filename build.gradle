@@ -8,6 +8,7 @@ repositories {
 
 dependencies {
     testImplementation 'junit:junit:4.12'
+    implementation 'commons-io:commons-io:2.11.0'
 }
 
 test {
@@ -83,6 +84,10 @@ task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
+task runBankAgustin(dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.bankocr.agustin.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
 task runBanckocrDiana(dependsOn: 'check', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.bankocr.diana.Main'
     classpath = sourceSets.main.runtimeClasspath
