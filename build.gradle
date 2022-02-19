@@ -88,3 +88,8 @@ task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.agustin.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
+
+task runSpaceInvaders (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.spaceinvaders.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
