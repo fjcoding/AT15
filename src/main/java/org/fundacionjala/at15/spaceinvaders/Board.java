@@ -15,6 +15,7 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 public class Board extends JPanel {
     private List<Alien> aliens;
     private Ship ship = new Ship();
+    private Gun gun = new Gun(ship);
     public Board() {
         aliens = new ArrayList<>();
         createAliens(ALIEN_ROWS, ALIEN_COLUMNS);
@@ -25,7 +26,7 @@ public class Board extends JPanel {
             @Override
             public void keyPressed(KeyEvent e) {
                 ship.keyPressed(e);
-               //gun.keyPressed(e);
+                gun.keyPressed(e);
             }
             @Override
             public void keyReleased(KeyEvent e) {
@@ -56,6 +57,10 @@ public class Board extends JPanel {
         //Font score = new Font("Arial" ,Font.BOLD, 25) ;
         //g.setFont (score);
         ship.paint(g);
+        if (gun.shooted()) {
+            gun.paint(g);
+            gun.move();
+        }
         g.dispose();
         repaint();
     }
