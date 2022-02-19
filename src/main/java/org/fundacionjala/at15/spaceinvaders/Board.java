@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 
 public class Board extends JPanel {
     private List<Alien> aliens;
@@ -61,6 +62,21 @@ public class Board extends JPanel {
             gun.paint(g);
             gun.move();
         }
+
+        for (Alien alien : this.aliens) {
+            alien.paint(g);
+        }
+        for (Alien alien : this.getAliens()) {
+            int posX = alien.getPosX();
+            if (posX >= BOARD_WIDTH - ALIEN_WIDTH && alien.getDeltaX() == ALIEN_DELTA_X) {
+                alien.setDeltaX(-ALIEN_DELTA_X);
+            }
+            if (posX == 0 && alien.getDeltaX() == -ALIEN_DELTA_X) {
+                alien.setDeltaX(ALIEN_DELTA_X);
+            }
+            alien.moveX();
+        }
+
         g.dispose();
         repaint();
     }

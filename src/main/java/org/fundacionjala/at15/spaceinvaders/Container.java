@@ -5,14 +5,14 @@ import javax.swing.JFrame;
 
 public class Container extends JFrame {
     public Container() {
-        add(new Board());
+        Board game = new Board();
+        add(game);
         setTitle("Space Invaders");
         setSize(BOARD_WIDTH, BOARD_HEIGHT);
         setLocationRelativeTo(null);
         setFocusable(true);
         setVisible(true);
         setResizable(false);
-        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
