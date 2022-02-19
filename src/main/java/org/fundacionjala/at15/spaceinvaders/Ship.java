@@ -22,6 +22,7 @@ public class Ship {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             if (posX > 0) {
                 posX = moveUptoLimit(posX - VELOCITY_X, 0, BOARD_WIDTH - 2 * DIAMETER);
+
             }
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
