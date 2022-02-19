@@ -1,16 +1,8 @@
 package org.fundacionjala.at15.spaceinvaders;
 
 import static org.fundacionjala.at15.spaceinvaders.Constants.Block.*;
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.awt.Color;
-import java.awt.Rectangle;
-import java.awt.TexturePaint;
 
 public class Block {
     private int lifeAsteroid;

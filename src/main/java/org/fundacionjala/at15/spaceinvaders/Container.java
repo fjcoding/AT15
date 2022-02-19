@@ -1,4 +1,5 @@
 package org.fundacionjala.at15.spaceinvaders;
+
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 
 import javax.swing.JFrame;
