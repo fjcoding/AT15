@@ -18,10 +18,14 @@ public final class Constants {
     }
 
     public final class Alien {
-        static final int ALIEN_HEIGHT = 12;
-        static final int ALIEN_WIDTH = 12;
-        static final int ALIEN_INIT_X = 150;
-        static final int ALIEN_INIT_Y = 5;
+
+        static final int ALIEN_INIT_X = 10;
+        static final int ALIEN_INIT_Y = 10;
+        static final int ALIEN_HEIGHT = 20;
+        static final int ALIEN_WIDTH = 20;
+        static final int ALIEN_ROWS = 5;
+        static final int ALIEN_COLUMNS = 12;
+        static final int ALIEN_SEPARATION = 35;
     }
 
     public final class Bullet {

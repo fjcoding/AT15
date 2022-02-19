@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
+
 public class Ship extends JComponent {
     private int life;
     private float posX;
@@ -16,8 +19,8 @@ public class Ship extends JComponent {
 
     public Ship(int life) {
         this.life = life;
-        this.posX = Commons.START_X;
-        this.posY = Commons.START_Y;
+        this.posX = START_X;
+        this.posY = START_Y;
         setPreferredSize(new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT));
         addKeyListener(new KeyAdapter() {
                 public void keyPressed(KeyEvent e) {
@@ -77,7 +80,7 @@ public class Ship extends JComponent {
         graphic.setColor(Color.BLACK);
         graphic.fillRect(0, 0, Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
         graphic.setColor(Color.RED);
-        graphic.fillRect(Commons.ALIEN_INIT_X, Commons.ALIEN_INIT_Y, Commons.ALIEN_WIDTH, Commons.ALIEN_HEIGHT);
+        graphic.fillRect(ALIEN_INIT_X, ALIEN_INIT_Y, ALIEN_WIDTH, ALIEN_HEIGHT);
         graphic.setColor(Color.GREEN);
         graphic.fillOval(Math.round(posX), Math.round(posY), Commons.DIAMETER, Commons.DIAMETER);
     }
