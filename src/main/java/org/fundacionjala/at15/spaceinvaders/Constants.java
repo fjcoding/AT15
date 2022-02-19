@@ -7,21 +7,28 @@ public final class Constants {
         static final int BOARD_WIDTH = 800;
         static final int BOARD_HEIGHT = 600;
         static final int GROUND = 290;
+        static final int SLEEP = 290;
     }
 
     public final class Player {
 
         static final int PLAYER_WIDTH = 15;
         static final int PLAYER_HEIGHT = 10;
-        static final int START_X = 270;
-        static final int START_Y = 280;
+        static final int START_X = 400;
+        static final int START_Y = 545;
+        static final int VELOCITY_X = 15;
+        static final int DIAMETER = 15;
     }
 
     public final class Alien {
-        static final int ALIEN_HEIGHT = 12;
-        static final int ALIEN_WIDTH = 12;
-        static final int ALIEN_INIT_X = 150;
-        static final int ALIEN_INIT_Y = 5;
+
+        static final int ALIEN_INIT_X = 10;
+        static final int ALIEN_INIT_Y = 10;
+        static final int ALIEN_HEIGHT = 20;
+        static final int ALIEN_WIDTH = 20;
+        static final int ALIEN_ROWS = 5;
+        static final int ALIEN_COLUMNS = 12;
+        static final int ALIEN_SEPARATION = 35;
     }
 
     public final class Bullet {
