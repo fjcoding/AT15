@@ -49,6 +49,6 @@ public final class Constants {
         static final int ASTEROIDS_HEIGHT = 50;
         static final int ASTEROIDS_ARCWIDTH = 25;
         static final int ASTEROIDS_ARCHEIGHT = 25;
-        static final int LIFE_ASTEROID = 3;
+        static final int ASTEROID_LIFE = 3;
     }
 }
