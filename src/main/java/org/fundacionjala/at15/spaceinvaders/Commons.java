@@ -4,10 +4,13 @@ public interface Commons {
     int BOARD_WIDTH = 800;
     int BOARD_HEIGHT = 600;
 
-    int ALIEN_INIT_X = 400;
-    int ALIEN_INIT_Y = 20;
-    int ALIEN_HEIGHT = 12;
-    int ALIEN_WIDTH = 12;
+    int ALIEN_INIT_X = 10;
+    int ALIEN_INIT_Y = 10;
+    int ALIEN_HEIGHT = 20;
+    int ALIEN_WIDTH = 20;
+    int ALIEN_ROWS = 5;
+    int ALIEN_COLUMNS = 12;
+    int ALIEN_SEPARATION = 35;
 
     int BORDER_RIGHT = 30;
     int BORDER_LEFT = 5;
