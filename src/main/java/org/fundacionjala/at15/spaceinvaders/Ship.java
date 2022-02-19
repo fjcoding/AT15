@@ -3,6 +3,7 @@ package org.fundacionjala.at15.spaceinvaders;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import org.fundacionjala.at15.spaceinvaders.Constants.*;
 
 public class Ship extends JComponent {
     private int life;
@@ -14,10 +15,10 @@ public class Ship extends JComponent {
     private boolean left;
     private boolean right;
 
-    public Ship(int life) {
+    public Ship(int life, float posX, float posY) {
         this.life = life;
-        this.posX = Commons.START_X;
-        this.posY = Commons.START_Y;
+        this.posX = posX;
+        this.posY = posY;
         setPreferredSize(new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT));
         addKeyListener(new KeyAdapter() {
                 public void keyPressed(KeyEvent e) {
@@ -28,7 +29,7 @@ public class Ship extends JComponent {
                     updateKeyPressed(e.getKeyCode(), false);
                 }
 
-                private void updateKeyPressed(int keyCode, boolean pressed) {
+                public void updateKeyPressed(int keyCode, boolean pressed) {
                     switch (keyCode) {
                         case KeyEvent.VK_LEFT:
                             left = pressed;
@@ -55,7 +56,7 @@ public class Ship extends JComponent {
         posX = moveUptoLimit(posX + velocityX * deltaT, 0, Commons.BOARD_WIDTH - Commons.DIAMETER);
     }
 
-    private float moveUptoLimit(float value, float min, float max) {
+    public float moveUptoLimit(float value, float min, float max) {
         if (value > max) {
             return max;
         }
@@ -64,15 +65,6 @@ public class Ship extends JComponent {
         }
         return value;
     }
-
-    public void render() throws Exception {
-        SwingUtilities.invokeAndWait(new Runnable() {
-                public void run() {
-                    paintImmediately(0, 0, Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
-                }
-            });
-    }
-
     public void paint(Graphics graphic) {
         graphic.setColor(Color.BLACK);
         graphic.fillRect(0, 0, Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
@@ -80,6 +72,14 @@ public class Ship extends JComponent {
         graphic.fillRect(Commons.ALIEN_INIT_X, Commons.ALIEN_INIT_Y, Commons.ALIEN_WIDTH, Commons.ALIEN_HEIGHT);
         graphic.setColor(Color.GREEN);
         graphic.fillOval(Math.round(posX), Math.round(posY), Commons.DIAMETER, Commons.DIAMETER);
+    }
+
+    public void render() throws Exception {
+        SwingUtilities.invokeAndWait(new Runnable() {
+                public void run() {
+                    paintImmediately(0, 0, Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
+                }
+            });
     }
 
     public int getLife() {

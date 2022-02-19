@@ -1,5 +1,6 @@
 package org.fundacionjala.at15.spaceinvaders;
 
+import java.awt.*;
 import javax.swing.*;
 
 public class Game extends JComponent {

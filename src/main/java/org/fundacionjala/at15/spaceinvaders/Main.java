@@ -8,11 +8,12 @@ public class Main {
         JFrame jframe = new JFrame("Space Invaders");
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.setResizable(false);
-        Ship ship = new Ship(shipLife);
+        Ship ship = new Ship(shipLife, 250, 385);
         jframe.getContentPane().add(ship);
         jframe.pack();
         jframe.setVisible(true);
         Game game = new Game(ship);
         game.mainCycle();
     }
+
 }
