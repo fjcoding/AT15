@@ -29,6 +29,7 @@ public final class Constants {
         static final int ALIEN_ROWS = 5;
         static final int ALIEN_COLUMNS = 12;
         static final int ALIEN_SEPARATION = 35;
+        static final int ALIEN_DELTA_X = 1;
     }
 
     public final class Bullet {

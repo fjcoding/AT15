@@ -65,11 +65,11 @@ public class Board extends JPanel {
         }
         for (Alien alien : this.getAliens()) {
             int posX = alien.getPosX();
-            if (posX >= BOARD_WIDTH - ALIEN_WIDTH && alien.getDeltaX() == 1) {
-                alien.setDeltaX(-1);
+            if (posX >= BOARD_WIDTH - ALIEN_WIDTH && alien.getDeltaX() == ALIEN_DELTA_X) {
+                alien.setDeltaX(-ALIEN_DELTA_X);
             }
-            if (posX == 0 && alien.getDeltaX() == -1) {
-                alien.setDeltaX(1);
+            if (posX == 0 && alien.getDeltaX() == -ALIEN_DELTA_X) {
+                alien.setDeltaX(ALIEN_DELTA_X);
             }
             alien.moveX();
         }

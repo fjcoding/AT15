@@ -1,13 +1,14 @@
 package org.fundacionjala.at15.spaceinvaders;
 
 import java.awt.*;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 
 public class Alien {
     private int posX;
     private int posY;
     private int width;
     private int height;
-    private int deltaX = 1;
+    private int deltaX = ALIEN_DELTA_X;
 
     public Alien(int posX, int posY, int width, int height) {
         this.posX = posX;
