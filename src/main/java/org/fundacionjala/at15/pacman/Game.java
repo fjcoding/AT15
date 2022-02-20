@@ -4,12 +4,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
+
+    public static final int DEFAULT_CONSTANT = 10;
+
     private Pacman pacman;
-    Ghost ghost;
-    Ghost2 ghost2;
+    private Ghost ghost;
+    private Ghost2 ghost2;
     private Board board;
     private int score;
-    private static final String[] DIRECTION = new String[] {"w","a","s","d"};
+    private static final String[] DIRECTION = new String[] {"w", "a", "s", "d" };
 
     public Game() {
         this.board = new Board();
@@ -18,6 +21,14 @@ public class Game {
         this.ghost2 = new Ghost2(board);
         this.score = 0;
 
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public String[] getDirection() {
+        return DIRECTION;
     }
 
     public void start(Scanner scanner) {
@@ -32,7 +43,8 @@ public class Game {
                 System.out.println("Game Over");
                 System.out.println("Score: " + this.score);
                 break;
-            } else if (pacman.getScore() == ((board.getBoard().length - 2) * (board.getBoard()[0].length - 2)-1)*10){
+            } else if (pacman.getScore() == ((board.getBoard().length - 2) * (board.getBoard()[0].length - 2) - 1)
+                    * DEFAULT_CONSTANT) {
                 System.out.println("Next Level");
                 System.out.println("Score: " + this.score);
                 System.out.println("Level: " + board.getLevel());
