@@ -4,11 +4,11 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class BoardTest {
+public class AliensTest {
     @Test
     public void itShouldHaveAliens() {
-        Board theBoard = new Board();
+        Aliens aliens = new Aliens(ALIEN_ROWS, ALIEN_COLUMNS);
 
-        assertEquals(ALIEN_ROWS * ALIEN_COLUMNS, theBoard.getAliens().size());
+        assertEquals(ALIEN_ROWS * ALIEN_COLUMNS, aliens.getAliens().size());
     }
 }
