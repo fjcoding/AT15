@@ -27,7 +27,7 @@ public class Game {
             this.ghost.move(DIRECTION[new Random().nextInt(DIRECTION.length)]);
             this.ghost2.move(DIRECTION[new Random().nextInt(DIRECTION.length)]);
             this.score += this.board.getScore();
-            //this.board.setScore(0);
+
             if (this.pacman.isDead()) {
                 System.out.println("Game Over");
                 System.out.println("Score: " + this.score);

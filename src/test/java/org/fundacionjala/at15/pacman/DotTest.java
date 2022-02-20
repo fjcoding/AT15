@@ -5,15 +5,15 @@ import org.junit.Test;
 
 public class DotTest {
 
-    @Test
-    public void itShouldHaveAnStatusAndDissapearAndPrint() {
-        String dot_character = "*";
-        boolean status = true;
-        String dot_dissapear = " ";
-        Dot theDot = new Dot(dot_character);
+    // @Test
+    // public void itShouldHaveAnStatusAndDissapearAndPrint() {
+    //     String dot_character = "*";
+    //     boolean status = true;
+    //     String dot_dissapear = " ";
+    //     Dot theDot = new Dot(dot_character);
 
-        assertEquals(status, theDot.getStatus());
-        assertEquals(dot_character, theDot.printDot());
-        assertEquals(dot_dissapear, theDot.dissapear());
-    }
+    //     assertEquals(status, theDot.getStatus());
+    //     assertEquals(dot_character, theDot.printDot());
+    //     assertEquals(dot_dissapear, theDot.dissapear());
+    // }
 }

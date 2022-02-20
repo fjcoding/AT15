@@ -4,14 +4,12 @@ public class Ghost {
     private Board board;
     private int x;
     private int y;
-    private boolean isDead;
     String direction;
 
     public Ghost(Board board) {
         this.board = board;
         this.x = board.getGhostX();
         this.y = board.getGhostY();
-        this.isDead = false;
         direction = "w";
     }
     public void setX(int newX){
@@ -51,11 +49,5 @@ public class Ghost {
             board.setGhostX(x);
             board.setGhostY(y);
         }
-
-
-    }
-
-    public boolean isDead() {
-        return this.isDead;
     }
 }

@@ -10,7 +10,7 @@ public class Board {
     private int ghostY2;
     private int score;
     private int level;
-    private boolean fruit;
+
 
     public Board() {
         this.board = new int[10][10];
@@ -22,7 +22,6 @@ public class Board {
         this.ghostY2 = 6;
         this.score = 0;
         this.level = 1;
-        this.fruit = false;
         this.initializeBoard();
         this.fillWall();
     }
@@ -63,11 +62,18 @@ public class Board {
         this.ghostY = 4;
         this.ghostX2 = 6;
         this.ghostY2 = 6;
-        this.score = 0;
+        setScore(0);
         this.level = level + 1;
-        this.fruit = false;
         this.initializeBoard();
         this.fillWall();
+    }
+    public void restartAfterDie(){
+        this.pacmanX = 1;
+        this.pacmanY = 1;
+        this.ghostX = 4;
+        this.ghostY = 4;
+        this.ghostX2 = 6;
+        this.ghostY2 = 6;
     }
 
     public void printBoard() {
@@ -81,13 +87,13 @@ public class Board {
                     System.out.print("G ");
                 } else if (i == ghostX && j == ghostY) {
                     System.out.print("G ");
+                } else if (board[i][j] == 3) {
+                    System.out.print("G ");
                 } else if (board[i][j] == 2) {
                     System.out.print(". ");
                 } else if (board[i][j] == 4) {
                     System.out.print("* ");
-                } else if (board[i][j] == 5) {
-                    System.out.print("F ");
-                } else {
+                }  else {
                     System.out.print("  ");
                 }
             }
@@ -96,9 +102,7 @@ public class Board {
         System.out.println("Score: " + this.score);
     }
 
-    public void setBoard(int[][] board) {
-        this.board = board;
-    }
+
     public int getLevel(){
         return this.level;
     }
@@ -129,10 +133,6 @@ public class Board {
 
     public void setScore(int score) {
         this.score = score;
-    }
-
-    public void setFruit(boolean fruit) {
-        this.fruit = fruit;
     }
 
     public int getPacmanX() {
@@ -167,10 +167,6 @@ public class Board {
         return x == this.pacmanX && y == this.pacmanY;
     }
 
-    public boolean isFruit() {
-        return fruit;
-    }
-
     public int[][] getBoard() {
         return board;
     }
@@ -187,14 +183,15 @@ public class Board {
         return board[x][y] == 4;
     }
 
-    public boolean isFruit(int x, int y) {
-        return board[x][y] == 5;
-    }
-
     public boolean isGhost(int x, int y) {
-        return board[x][y] == 3;
+        boolean confirmation = false;
+        if (pacmanX == ghostX && pacmanY == ghostY){
+            confirmation = true;
+        } else if (pacmanX == ghostX2 && pacmanY == ghostY2){
+            confirmation = true;
+        }
+        return confirmation;
     }
-
     public void setDot(int x, int y) {
         board[x][y] = 2;
     }
