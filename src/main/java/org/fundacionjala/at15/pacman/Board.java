@@ -6,6 +6,8 @@ public class Board {
     private int pacmanY;
     private int ghostX;
     private int ghostY;
+    private int ghostX2;
+    private int ghostY2;
     private int score;
     private boolean fruit;
 
@@ -15,6 +17,8 @@ public class Board {
         this.pacmanY = 1;
         this.ghostX = 4;
         this.ghostY = 4;
+        this.ghostX2 = 6;
+        this.ghostY2 = 6;
         this.score = 0;
         this.fruit = false;
         this.initializeBoard();
@@ -28,6 +32,7 @@ public class Board {
             }
         }
         this.board[1][1] = 2;
+
     }
 
     private void fillWall() {
@@ -65,6 +70,8 @@ public class Board {
                     System.out.print("P ");
                 } else if (board[i][j] == 1) {
                     System.out.print("# ");
+                } else if (i == ghostX2 && j == ghostY2) {
+                    System.out.print("G ");
                 } else if (i == ghostX && j == ghostY) {
                     System.out.print("G ");
                 } else if (board[i][j] == 2) {
@@ -102,6 +109,14 @@ public class Board {
         this.ghostY = ghostY;
     }
 
+    public void setGhostX2(int ghostX2) {
+        this.ghostX2 = ghostX2;
+    }
+
+    public void setGhostY2(int ghostY2) {
+        this.ghostY2 = ghostY2;
+    }
+
     public void setScore(int score) {
         this.score = score;
     }
@@ -124,6 +139,14 @@ public class Board {
 
     public int getGhostY() {
         return ghostY;
+    }
+
+    public int getGhostX2() {
+        return ghostX2;
+    }
+
+    public int getGhostY2() {
+        return ghostY2;
     }
 
     public int getScore() {

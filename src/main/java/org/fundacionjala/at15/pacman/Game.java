@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Game {
     private Pacman pacman;
     Ghost ghost;
+    Ghost2 ghost2;
     private Board board;
     private int score;
     private static final String[] DIRECTION = new String[] {"w","a","s","d"};
@@ -14,6 +15,7 @@ public class Game {
         this.board = new Board();
         this.pacman = new Pacman(board);
         this.ghost = new Ghost(board);
+        this.ghost2 = new Ghost2(board);
         this.score = 0;
 
     }
@@ -22,8 +24,8 @@ public class Game {
         while (true) {
             this.board.printBoard();
             this.pacman.move(scanner.nextLine());
-            int random = new Random().nextInt(DIRECTION.length);
-            this.ghost.move(DIRECTION[random]);
+            this.ghost.move(DIRECTION[new Random().nextInt(DIRECTION.length)]);
+            this.ghost2.move(DIRECTION[new Random().nextInt(DIRECTION.length)]);
             this.score += this.board.getScore();
             //this.board.setScore(0);
             if (this.pacman.isDead()) {
