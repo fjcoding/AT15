@@ -13,6 +13,8 @@ public class Board {
         this.board = new int[10][10];
         this.pacmanX = 1;
         this.pacmanY = 1;
+        this.ghostX = 4;
+        this.ghostY = 4;
         this.score = 0;
         this.fruit = false;
         this.initializeBoard();
@@ -42,9 +44,9 @@ public class Board {
             board[9][i] = 1;
         }
 
-        board[4][5] = 1;
-        board[5][5] = 1;
-        board[6][5] = 1;
+        // board[4][5] = 1;
+        // board[5][5] = 1;
+        // board[6][5] = 1;
     }
 
     public void restart() {
@@ -63,10 +65,10 @@ public class Board {
                     System.out.print("P ");
                 } else if (board[i][j] == 1) {
                     System.out.print("# ");
+                } else if (i == ghostX && j == ghostY) {
+                    System.out.print("G ");
                 } else if (board[i][j] == 2) {
                     System.out.print(". ");
-                } else if (board[i][j] == 3) {
-                    System.out.print("G ");
                 } else if (board[i][j] == 4) {
                     System.out.print("* ");
                 } else if (board[i][j] == 5) {
@@ -162,5 +164,8 @@ public class Board {
 
     public void setDot(int x, int y) {
         board[x][y] = 2;
+    }
+    public void setPellet(int x, int y){
+        board[x][y] = 4;
     }
 }
