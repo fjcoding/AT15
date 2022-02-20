@@ -14,7 +14,6 @@ public class Gun {
         this.ship = ship;
         this.posx = this.ship.getPosX();
         this.bullet = new Bullet(this.ship.getPosX(), this.ship.getPosY(), false);
-        
     }
 
     public void paint(Graphics graphic) {
