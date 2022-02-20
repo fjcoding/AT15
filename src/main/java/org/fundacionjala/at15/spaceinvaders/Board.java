@@ -68,18 +68,23 @@ public class Board extends JPanel {
         for (Alien alien : this.aliens) {
             alien.paint(g);
         }
-        for (Alien alien : this.getAliens()) {
-            int posX = alien.getPosX();
-            if (posX >= BOARD_WIDTH - ALIEN_WIDTH && alien.getDeltaX() == ALIEN_DELTA_X) {
-                alien.setDeltaX(-ALIEN_DELTA_X);
-            }
-            if (posX == 0 && alien.getDeltaX() == -ALIEN_DELTA_X) {
-                alien.setDeltaX(ALIEN_DELTA_X);
-            }
-            alien.moveX();
-        }
+        this.moveAliens();
 
         g.dispose();
         repaint();
+    }
+
+    public void moveAliens() {
+        int firstAlienX = this.aliens.get(0).getPosX();
+        int lastAlienX = this.aliens.get(aliens.size() - 1).getPosX();
+        for (Alien alien : this.aliens) {
+            if (firstAlienX == 0 && alien.getDeltaX() == -ALIEN_DELTA_X) {
+                alien.setDeltaX(ALIEN_DELTA_X);
+            }
+            if (lastAlienX == BOARD_WIDTH - ALIEN_WIDTH && alien.getDeltaX() == ALIEN_DELTA_X) {
+                alien.setDeltaX(-ALIEN_DELTA_X);
+            }
+            alien.moveX();
+        }
     }
 }

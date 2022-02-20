@@ -8,13 +8,14 @@ public class Alien {
     private int posY;
     private int width;
     private int height;
-    private int deltaX = ALIEN_DELTA_X;
+    private int deltaX;
 
     public Alien(int posX, int posY, int width, int height) {
         this.posX = posX;
         this.posY = posY;
         this.width = width;
         this.height = height;
+        this.deltaX = ALIEN_DELTA_X;
     }
 
     public int getPosX() {
