@@ -6,10 +6,12 @@ public class Ghost {
     private int y;
 
 
+
     public Ghost(Board board) {
         this.board = board;
         this.x = board.getGhostX();
         this.y = board.getGhostY();
+
     }
 
     public void setX(int newX) {
@@ -42,6 +44,8 @@ public class Ghost {
             this.x = this.board.getGhostX();
             this.y = this.board.getGhostY();
         } else if (this.board.isPacman(this.x, this.y)) {
+            board.setLives(board.getLives() - 1);
+            board.restartAfterDie();
             this.x = this.board.getGhostX();
             this.y = this.board.getGhostY();
         } else if (this.board.isDot(this.x, this.y)) {

@@ -10,6 +10,8 @@ public class Board {
     private int ghostY2;
     private int score;
     private int level;
+    private int lives;
+    private static final int NUMBER_3 = 3;
     private static final int SIZE = 10;
     private static final int NUMBER_4 = 4;
     private static final int NUMBER_6 = 6;
@@ -25,6 +27,7 @@ public class Board {
         this.ghostY2 = NUMBER_6;
         this.score = 0;
         this.level = 1;
+        this.lives = NUMBER_3;
         this.initializeBoard();
         this.fillWall();
     }
@@ -102,6 +105,14 @@ public class Board {
 
     public int getLevel() {
         return this.level;
+    }
+
+    public int getLives() {
+        return this.lives;
+    }
+
+    public void setLives(int newLives) {
+        this.lives = newLives;
     }
 
     public void setPacmanX(int newPacmanX) {

@@ -1,13 +1,11 @@
 package org.fundacionjala.at15.pacman;
 
-
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class GhostTest {
-
+public class Ghost2Test {
     Board board = new Board();
-    Ghost ghost = new Ghost(board);
+    Ghost2 ghost = new Ghost2(board);
 
     @Test
     public void itShouldSetXY(){
@@ -24,11 +22,11 @@ public class GhostTest {
     @Test
     public void itShouldChangePositionWithDirection(){
         Board board = new Board();
-        Ghost ghost = new Ghost(board);
-        int xExpectedW = 3;
-        int xExpectedS = 4;
-        int yExpectedD = 5;
-        int yExpectedA = 4;
+        Ghost2 ghost = new Ghost2(board);
+        int xExpectedW = 5;
+        int xExpectedS = 6;
+        int yExpectedD = 7;
+        int yExpectedA = 6;
         ghost.move("w");
         assertEquals(xExpectedW,ghost.getX());
         ghost.move("s");
@@ -41,8 +39,8 @@ public class GhostTest {
     @Test
     public void itShouldStopIfIsWallUp(){
         Board board = new Board();
-        board.setGhostX(1);
-        Ghost ghost = new Ghost(board);
+        board.setGhostX2(1);
+        Ghost2 ghost = new Ghost2(board);
         ghost.move("w");
         int xExpectedIsWall = 1;
         assertEquals(xExpectedIsWall,ghost.getX());
@@ -50,8 +48,8 @@ public class GhostTest {
     @Test
     public void itShouldStopIfIsWallDown(){
         Board board = new Board();
-        board.setGhostX(8);
-        Ghost ghost = new Ghost(board);
+        board.setGhostX2(8);
+        Ghost2 ghost = new Ghost2(board);
         ghost.move("s");
         int xExpectedIsWall = 8;
         assertEquals(xExpectedIsWall,ghost.getX());
@@ -59,8 +57,8 @@ public class GhostTest {
     @Test
     public void itShouldStopIfIsWallRight(){
         Board board = new Board();
-        board.setGhostY(8);
-        Ghost ghost = new Ghost(board);
+        board.setGhostY2(8);
+        Ghost2 ghost = new Ghost2(board);
         ghost.move("d");
         int yExpectedIsWall = 8;
         assertEquals(yExpectedIsWall,ghost.getY());
@@ -68,8 +66,8 @@ public class GhostTest {
     @Test
     public void itShouldStopIfIsWallLeft(){
         Board board = new Board();
-        board.setGhostY(1);
-        Ghost ghost = new Ghost(board);
+        board.setGhostY2(1);
+        Ghost2 ghost = new Ghost2(board);
         ghost.move("a");
         int yExpectedIsWall = 1;
         assertEquals(yExpectedIsWall,ghost.getY());
@@ -77,9 +75,9 @@ public class GhostTest {
     @Test
     public void itShouldKillPacman(){
         Board board = new Board();
-        board.setPacmanX(5);
-        board.setPacmanY(4);
-        Ghost ghost = new Ghost(board);
+        board.setPacmanX(7);
+        board.setPacmanY(6);
+        Ghost2 ghost = new Ghost2(board);
         ghost.move("s");
         int lifeDimished = 2;
         assertEquals(lifeDimished,board.getLives());
@@ -88,7 +86,7 @@ public class GhostTest {
     public void itShouldntChangeDot(){
         Board board = new Board();
         board.setDot(5, 4);
-        Ghost ghost = new Ghost(board);
+        Ghost2 ghost = new Ghost2(board);
         ghost.move("s");
         assertTrue(board.isDot(5,4));
     }
@@ -96,9 +94,9 @@ public class GhostTest {
     public void itShouldntChagePellet(){
         Board board = new Board();
         board.setPellet(5, 4);
-        Ghost ghost = new Ghost(board);
+        Ghost2 ghost = new Ghost2(board);
         ghost.move("s");
         assertTrue(board.isPellet(5,4));
     }
-}
 
+}

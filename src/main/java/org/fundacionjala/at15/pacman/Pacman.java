@@ -4,17 +4,14 @@ public class Pacman {
     private Board board;
     private int x;
     private int y;
-    private int lives;
     private int score;
     private boolean isDead;
-    private static final int NUMBER_3 = 3;
     private static final int NUMBER_10 = 10;
 
     public Pacman(Board board) {
         this.board = board;
         this.x = board.getPacmanX();
         this.y = board.getPacmanY();
-        this.lives = NUMBER_3;
         this.score = 0;
         this.isDead = false;
     }
@@ -45,22 +42,19 @@ public class Pacman {
             board.setPacmanY(y);
         }
         if (this.board.isGhost(this.x, this.y)) {
-            this.lives--;
+            int life = board.getLives() - 1;
+            board.setLives(life);
             board.restartAfterDie();
             this.x = this.board.getPacmanX();
             this.y = this.board.getPacmanY();
         }
-        if (this.lives == 0) {
+        if (board.getLives() == 0) {
             this.isDead = true;
         }
     }
 
     public boolean isDead() {
         return this.isDead;
-    }
-
-    public int getLives() {
-        return this.lives;
     }
 
     public int getScore() {

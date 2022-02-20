@@ -19,6 +19,13 @@ public class Ghost2 {
     public void setY(int newY) {
         this.y = newY;
     }
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
 
     public void move(String direction) {
         if (direction.compareTo("w") == 0) {
@@ -34,8 +41,10 @@ public class Ghost2 {
             this.x = this.board.getGhostX2();
             this.y = this.board.getGhostY2();
         } else if (this.board.isPacman(this.x, this.y)) {
-            this.x = this.board.getGhostX2();
-            this.y = this.board.getGhostY2();
+            board.setLives(board.getLives() - 1);
+            board.restartAfterDie();
+            this.x = this.board.getGhostX();
+            this.y = this.board.getGhostY();
         } else if (this.board.isDot(this.x, this.y)) {
             board.setGhostX2(x);
             board.setGhostY2(y);
