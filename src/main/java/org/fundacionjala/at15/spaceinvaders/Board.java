@@ -33,6 +33,7 @@ public class Board extends JPanel {
 
             @Override
             public void keyReleased(KeyEvent e) {
+                ship.keyReleased(e);
             }
         });
         setFocusable(true);
@@ -66,6 +67,7 @@ public class Board extends JPanel {
         // Font score = new Font("Arial" ,Font.BOLD, 25) ;
         // g.setFont (score);
         block.paint(g);
+        ship.move();
         ship.paint(g);
         if (gun.shooted()) {
             gun.paint(g);
