@@ -12,6 +12,7 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Block.*;
 
 public class Board extends JPanel {
     private List<Alien> aliens;
+    private int alienDeltaX = ALIEN_DELTA_X;
     private Ship ship = new Ship();
     private Gun gun = new Gun(ship);
     private Block block = new Block(ASTEROID_LIFE);
@@ -75,16 +76,15 @@ public class Board extends JPanel {
     }
 
     public void moveAliens() {
-        int firstAlienX = this.aliens.get(0).getPosX();
-        int lastAlienX = this.aliens.get(aliens.size() - 1).getPosX();
         for (Alien alien : this.aliens) {
-            if (firstAlienX == 0 && alien.getDeltaX() == -ALIEN_DELTA_X) {
-                alien.setDeltaX(ALIEN_DELTA_X);
+            int posX = alien.getPosX();
+            if (posX == 0 && this.alienDeltaX == -ALIEN_DELTA_X) {
+                this.alienDeltaX = ALIEN_DELTA_X;
             }
-            if (lastAlienX == BOARD_WIDTH - ALIEN_WIDTH && alien.getDeltaX() == ALIEN_DELTA_X) {
-                alien.setDeltaX(-ALIEN_DELTA_X);
+            if (posX == BOARD_WIDTH - ALIEN_WIDTH && this.alienDeltaX == ALIEN_DELTA_X) {
+                this.alienDeltaX = -ALIEN_DELTA_X;
             }
-            alien.moveX();
+            alien.moveX(this.alienDeltaX);
         }
     }
 }
