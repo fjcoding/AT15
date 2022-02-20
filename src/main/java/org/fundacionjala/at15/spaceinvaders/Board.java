@@ -52,6 +52,12 @@ public class Board extends JPanel {
             }
         }
     }
+    public static void pause() {
+        try {
+            Thread.sleep(SLEEP);
+        } catch (Exception ignored) {
+        }
+    }
 
     @Override
     public void paint(Graphics g) {
@@ -69,6 +75,7 @@ public class Board extends JPanel {
         for (Alien alien : this.aliens) {
             alien.paint(g);
         }
+        pause();
         this.moveAliens();
         g.dispose();
         repaint();

@@ -7,7 +7,7 @@ public final class Constants {
         static final int BOARD_WIDTH = 800;
         static final int BOARD_HEIGHT = 600;
         static final int GROUND = 290;
-        static final int SLEEP = 100;
+        static final int SLEEP = 3;
     }
 
     public final class Player {
@@ -16,7 +16,7 @@ public final class Constants {
         static final int PLAYER_HEIGHT = 10;
         static final int START_X = 400;
         static final int START_Y = 545;
-        static final int VELOCITY_X = 15;
+        static final int VELOCITY_X = 17;
         static final int DIAMETER = 15;
     }
 

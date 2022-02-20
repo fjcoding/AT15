@@ -20,7 +20,7 @@ public class Block {
     }
 
     public void paint(Graphics graph) {
-        graph.setColor(Color.PINK);
+        graph.setColor(Color.DARK_GRAY);
         graph.fillRoundRect(ASTEROIDS_POSX_FIRST, ASTEROIDS_POSY, ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT, ASTEROIDS_ARCWIDTH,
                 ASTEROIDS_ARCHEIGHT);
         graph.fillRoundRect(ASTEROIDS_POSX_SECOND, ASTEROIDS_POSY, ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT,
