@@ -7,16 +7,17 @@ public class Pacman {
     private int lives;
     private int score;
     private boolean isDead;
+    private static final int NUMBER_3 = 3;
+    private static final int NUMBER_10 = 10;
 
     public Pacman(Board board) {
         this.board = board;
         this.x = board.getPacmanX();
         this.y = board.getPacmanY();
-        this.lives = 3;
+        this.lives = NUMBER_3;
         this.score = 0;
         this.isDead = false;
     }
-
 
     public void move(String direction) {
         if (direction.compareTo("w") == 0) {
@@ -37,7 +38,7 @@ public class Pacman {
             board.setPacmanY(y);
         }
         if (this.board.isPellet(x, y)) {
-            this.score += 10;
+            this.score += NUMBER_10;
             this.board.setScore(score);
             this.board.setDot(x, y);
             board.setPacmanX(x);
@@ -74,11 +75,11 @@ public class Pacman {
         return this.y;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setX(int newX) {
+        this.x = newX;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setY(int newY) {
+        this.y = newY;
     }
 }

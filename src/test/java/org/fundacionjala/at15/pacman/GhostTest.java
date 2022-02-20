@@ -3,32 +3,86 @@ package org.fundacionjala.at15.pacman;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+
 public class GhostTest {
 
-    // @Test
-    // public void itShouldChangePosition(){
+    Board board = new Board();
+    Ghost ghost = new Ghost(board);
 
-    //     int xPos = 4;
-    //     int yPos = 4;
-    //     Ghost ghost = new Ghost(xPos, yPos);
+    @Test
+    public void itShouldSetXY(){
+        int expectedX = 5;
+        int expectedY = 3;
+        int newX = 5;
+        int newY = 3;
+        ghost.setX(newX);
+        ghost.setY(newY);
+        assertEquals(expectedX, ghost.getX());
+        assertEquals(expectedY, ghost.getY());
+    }
 
-    //     ghost.movementUp();
-    //     int yPos1 = 3;
-    //     assertEquals(yPos1, ghost.getYPos());
-
-    //     ghost.movementDown();
-    //     int yPos2 = 4;
-    //     assertEquals(yPos2, ghost.getYPos());
-
-    //     ghost.movementRight();
-    //     int xPos1 = 5;
-    //     assertEquals(xPos1, ghost.getXPos());
-
-    //     ghost.movementLeft();
-    //     int xPos2 = 4;
-    //     assertEquals(xPos2, ghost.getYPos());
-    // }
-
-
-
+    @Test
+    public void itShouldChangePositionWithDirection(){
+        Board board = new Board();
+        Ghost ghost = new Ghost(board);
+        int xExpectedW = 3;
+        int xExpectedS = 4;
+        int yExpectedD = 5;
+        int yExpectedA = 4;
+        ghost.move("w");
+        assertEquals(xExpectedW,ghost.getX());
+        ghost.move("s");
+        assertEquals(xExpectedS,ghost.getX());
+        ghost.move("d");
+        assertEquals(yExpectedD,ghost.getY());
+        ghost.move("a");
+        assertEquals(yExpectedA,ghost.getY());
+    }
+    @Test
+    public void itShouldStopIfIsWallUp(){
+        Board board = new Board();
+        board.setGhostX(1);
+        Ghost ghost = new Ghost(board);
+        ghost.move("w");
+        int xExpectedIsWall = 1;
+        assertEquals(xExpectedIsWall,ghost.getX());
+    }
+    @Test
+    public void itShouldStopIfIsWallDown(){
+        Board board = new Board();
+        board.setGhostX(8);
+        Ghost ghost = new Ghost(board);
+        ghost.move("s");
+        int xExpectedIsWall = 8;
+        assertEquals(xExpectedIsWall,ghost.getX());
+    }
+    @Test
+    public void itShouldStopIfIsWallRight(){
+        Board board = new Board();
+        board.setGhostY(8);
+        Ghost ghost = new Ghost(board);
+        ghost.move("d");
+        int yExpectedIsWall = 8;
+        assertEquals(yExpectedIsWall,ghost.getY());
+    }
+    @Test
+    public void itShouldStopIfIsWallLeft(){
+        Board board = new Board();
+        board.setGhostY(1);
+        Ghost ghost = new Ghost(board);
+        ghost.move("a");
+        int yExpectedIsWall = 1;
+        assertEquals(yExpectedIsWall,ghost.getY());
+    }
+    @Test
+    public void itShouldEnterPacmanSpace(){
+        Board board = new Board();
+        board.setPacmanX(5);
+        board.setPacmanY(4);
+        Ghost ghost = new Ghost(board);
+        ghost.move("s");
+        int xExpectedGhost = 5;
+        assertEquals(xExpectedGhost,ghost.getX());
+    }
 }
+

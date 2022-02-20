@@ -5,11 +5,12 @@ import java.util.Scanner;
 
 public class Game {
     private Pacman pacman;
-    Ghost ghost;
-    Ghost2 ghost2;
+    private Ghost ghost;
+    private Ghost2 ghost2;
     private Board board;
     private int score;
-    private static final String[] DIRECTION = new String[] {"w","a","s","d"};
+    private static final String[] DIRECTION = new String[] {"w", "a", "s", "d" };
+    private static final int NUMBER_10 = 10;
 
     public Game() {
         this.board = new Board();
@@ -32,7 +33,8 @@ public class Game {
                 System.out.println("Game Over");
                 System.out.println("Score: " + this.score);
                 break;
-            } else if (pacman.getScore() == ((board.getBoard().length - 2) * (board.getBoard()[0].length - 2)-1)*10){
+            } else if (pacman.getScore() == ((board.getBoard().length - 2) * (board.getBoard()[0].length - 2) - 1)
+                    * NUMBER_10) {
                 System.out.println("Next Level");
                 System.out.println("Score: " + this.score);
                 System.out.println("Level: " + board.getLevel());

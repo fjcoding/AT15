@@ -4,22 +4,29 @@ public class Ghost {
     private Board board;
     private int x;
     private int y;
-    String direction;
+
 
     public Ghost(Board board) {
         this.board = board;
         this.x = board.getGhostX();
         this.y = board.getGhostY();
-        direction = "w";
     }
-    public void setX(int newX){
+
+    public void setX(int newX) {
         this.x = newX;
     }
-    public void setY(int newY){
+
+    public void setY(int newY) {
         this.y = newY;
     }
 
+    public int getX() {
+        return this.x;
+    }
 
+    public int getY() {
+        return this.y;
+    }
 
     public void move(String direction) {
         if (direction.compareTo("w") == 0) {
@@ -34,17 +41,14 @@ public class Ghost {
         if (this.board.isWall(this.x, this.y)) {
             this.x = this.board.getGhostX();
             this.y = this.board.getGhostY();
-        }
-        else if (this.board.isPacman(this.x, this.y)) {
+        } else if (this.board.isPacman(this.x, this.y)) {
             this.x = this.board.getGhostX();
             this.y = this.board.getGhostY();
-        }
-        else if (this.board.isDot(this.x, this.y)) {
+        } else if (this.board.isDot(this.x, this.y)) {
             board.setGhostX(x);
             board.setGhostY(y);
-            this.board.setDot(x,y);
-        }
-        else if (this.board.isPellet(x, y)) {
+            this.board.setDot(x, y);
+        } else if (this.board.isPellet(x, y)) {
             this.board.setPellet(x, y);
             board.setGhostX(x);
             board.setGhostY(y);
