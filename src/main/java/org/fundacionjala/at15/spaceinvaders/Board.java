@@ -33,6 +33,7 @@ public class Board extends JPanel {
 
             @Override
             public void keyReleased(KeyEvent e) {
+                ship.keyReleased(e);
             }
         });
         setFocusable(true);
@@ -52,6 +53,12 @@ public class Board extends JPanel {
             }
         }
     }
+    public static void pause() {
+        try {
+            Thread.sleep(SLEEP);
+        } catch (Exception ignored) {
+        }
+    }
 
     @Override
     public void paint(Graphics g) {
@@ -60,6 +67,7 @@ public class Board extends JPanel {
         // Font score = new Font("Arial" ,Font.BOLD, 25) ;
         // g.setFont (score);
         block.paint(g);
+        ship.move();
         ship.paint(g);
         if (gun.shooted()) {
             gun.paint(g);
@@ -69,6 +77,7 @@ public class Board extends JPanel {
         for (Alien alien : this.aliens) {
             alien.paint(g);
         }
+        pause();
         this.moveAliens();
         g.dispose();
         repaint();

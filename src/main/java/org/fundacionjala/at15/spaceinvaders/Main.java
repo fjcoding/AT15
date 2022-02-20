@@ -7,8 +7,8 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 public class Main extends JFrame {
     public static void main(String[] args) {
         JFrame myWindow = new JFrame("Space Invaders");
-        Board game = new Board();
-        myWindow.add(game);
+        Board board = new Board();
+        myWindow.add(board);
         myWindow.setSize(BOARD_WIDTH, BOARD_HEIGHT);
         myWindow.setVisible(true);
         myWindow.setResizable(false);
@@ -19,7 +19,7 @@ public class Main extends JFrame {
                 Thread.sleep(SLEEP);
             } catch (InterruptedException ex) {
                 System.out.println(ex.toString());
-                game.repaint();
+                board.repaint();
             }
         }
     }

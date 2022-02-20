@@ -9,6 +9,7 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 public class Ship {
     private int posX = START_X;
     private int posY = START_Y;
+    private int velX;
 
     public void paint(Graphics graphic) {
         // ImageIcon ship = new
@@ -22,18 +23,34 @@ public class Ship {
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            if (posX > 0) {
-                posX = moveUptoLimit(posX - VELOCITY_X, 0, BOARD_WIDTH - 2 * DIAMETER);
-
-            }
+            velX = -VELOCITY_X;
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            if (posX < BOARD_WIDTH) {
-                posX = moveUptoLimit(posX + VELOCITY_X, 0, BOARD_WIDTH - 2 * DIAMETER);
-            }
+            velX = VELOCITY_X;
+        }
+    }
+    public void keyReleased(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            velX = 0;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            velX = 0;
         }
     }
 
+    public void move() {
+        posX += velX;
+
+        if (posX <= 2) {
+
+            posX = 2;
+        }
+
+        if (posX >= BOARD_WIDTH - 2 * DIAMETER) {
+
+            posX = BOARD_WIDTH - 2 * DIAMETER;
+        }
+    }
     public int moveUptoLimit(int value, int min, int max) {
         if (value > max) {
             return max;
