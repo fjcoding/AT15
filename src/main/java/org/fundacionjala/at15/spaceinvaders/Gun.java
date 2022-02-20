@@ -14,7 +14,7 @@ public class Gun {
         this.ship = ship;
         this.posx = this.ship.getPosX();
         this.bullet = new Bullet(this.ship.getPosX(), this.ship.getPosY(), false);
-        System.out.println("entrando al constructor");
+        
     }
 
     public void paint(Graphics graphic) {
