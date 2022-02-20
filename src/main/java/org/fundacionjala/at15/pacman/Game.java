@@ -32,6 +32,11 @@ public class Game {
                 System.out.println("Game Over");
                 System.out.println("Score: " + this.score);
                 break;
+            } else if (pacman.getScore() == ((board.getBoard().length - 2) * (board.getBoard()[0].length - 2)-1)*10){
+                System.out.println("Next Level");
+                System.out.println("Score: " + this.score);
+                System.out.println("Level: " + board.getLevel());
+                board.restart();
             }
         }
     }

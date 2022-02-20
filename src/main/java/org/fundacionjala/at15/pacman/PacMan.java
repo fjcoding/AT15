@@ -17,6 +17,7 @@ public class Pacman {
         this.isDead = false;
     }
 
+
     public void move(String direction) {
         //char direction = this.board.getDirection();
         if (direction.compareTo("w") == 0) {
@@ -43,11 +44,11 @@ public class Pacman {
             board.setPacmanX(x);
             board.setPacmanY(y);
         }
-        if (this.board.isFruit(this.x, this.y)) {
-            this.score += 100;
-            this.board.setScore(score);
-            this.board.setFruit(false);
-        }
+        // if (this.board.isFruit(this.x, this.y)) {
+        //     this.score += 100;
+        //     this.board.setScore(score);
+        //     this.board.setFruit(false);
+        // }
         if (this.board.isGhost(this.x, this.y)) {
             this.lives--;
             this.x = this.board.getPacmanX();

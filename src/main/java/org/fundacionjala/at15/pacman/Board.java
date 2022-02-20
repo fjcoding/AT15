@@ -9,6 +9,7 @@ public class Board {
     private int ghostX2;
     private int ghostY2;
     private int score;
+    private int level;
     private boolean fruit;
 
     public Board() {
@@ -20,6 +21,7 @@ public class Board {
         this.ghostX2 = 6;
         this.ghostY2 = 6;
         this.score = 0;
+        this.level = 1;
         this.fruit = false;
         this.initializeBoard();
         this.fillWall();
@@ -57,7 +59,12 @@ public class Board {
     public void restart() {
         this.pacmanX = 1;
         this.pacmanY = 1;
+        this.ghostX = 4;
+        this.ghostY = 4;
+        this.ghostX2 = 6;
+        this.ghostY2 = 6;
         this.score = 0;
+        this.level = level + 1;
         this.fruit = false;
         this.initializeBoard();
         this.fillWall();
@@ -91,6 +98,9 @@ public class Board {
 
     public void setBoard(int[][] board) {
         this.board = board;
+    }
+    public int getLevel(){
+        return this.level;
     }
 
     public void setPacmanX(int pacmanX) {
