@@ -2,52 +2,53 @@ package org.fundacionjala.at15.pacman;
 
 public class Pacman {
     private Board board;
-    private int x;
-    private int y;
+    private int posX;
+    private int posY;
+    private final int maxlives = 3;
+    private final int dotscore = 10;
     private int lives;
     private int score;
     private boolean isDead;
 
     public Pacman(Board board) {
         this.board = board;
-        this.x = board.getPacmanX();
-        this.y = board.getPacmanY();
-        this.lives = 3;
+        this.posX = board.getPacmanX();
+        this.posY = board.getPacmanY();
+        this.lives = maxlives;
         this.score = 0;
         this.isDead = false;
     }
 
-
     public void move(String direction) {
         if (direction.compareTo("w") == 0) {
-            this.x--;
+            this.posX--;
         } else if (direction.compareTo("s") == 0) {
-            this.x++;
+            this.posX++;
         } else if (direction.compareTo("a") == 0) {
-            this.y--;
+            this.posY--;
         } else if (direction.compareTo("d") == 0) {
-            this.y++;
+            this.posY++;
         }
-        if (this.board.isWall(this.x, this.y)) {
-            this.x = this.board.getPacmanX();
-            this.y = this.board.getPacmanY();
+        if (this.board.isWall(this.posX, this.posY)) {
+            this.posX = this.board.getPacmanX();
+            this.posY = this.board.getPacmanY();
         }
-        if (this.board.isDot(this.x, this.y)) {
-            board.setPacmanX(x);
-            board.setPacmanY(y);
+        if (this.board.isDot(this.posX, this.posY)) {
+            board.setPacmanX(posX);
+            board.setPacmanY(posY);
         }
-        if (this.board.isPellet(x, y)) {
-            this.score += 10;
+        if (this.board.isPellet(posX, posY)) {
+            this.score += dotscore;
             this.board.setScore(score);
-            this.board.setDot(x, y);
-            board.setPacmanX(x);
-            board.setPacmanY(y);
+            this.board.setDot(posX, posY);
+            board.setPacmanX(posX);
+            board.setPacmanY(posY);
         }
-        if (this.board.isGhost(this.x, this.y)) {
+        if (this.board.isGhost(this.posX, this.posY)) {
             this.lives--;
             board.restartAfterDie();
-            this.x = this.board.getPacmanX();
-            this.y = this.board.getPacmanY();
+            this.posX = this.board.getPacmanX();
+            this.posY = this.board.getPacmanY();
         }
         if (this.lives == 0) {
             this.isDead = true;
@@ -67,18 +68,18 @@ public class Pacman {
     }
 
     public int getX() {
-        return this.x;
+        return this.posX;
     }
 
     public int getY() {
-        return this.y;
+        return this.posY;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setX(int newPosX) {
+        this.posX = newPosX;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setY(int newPosY) {
+        this.posY = newPosY;
     }
 }

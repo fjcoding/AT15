@@ -2,52 +2,47 @@ package org.fundacionjala.at15.pacman;
 
 public class Ghost {
     private Board board;
-    private int x;
-    private int y;
-    String direction;
+    private int posX;
+    private int poxY;
 
     public Ghost(Board board) {
         this.board = board;
-        this.x = board.getGhostX();
-        this.y = board.getGhostY();
-        direction = "w";
-    }
-    public void setX(int newX){
-        this.x = newX;
-    }
-    public void setY(int newY){
-        this.y = newY;
+        this.posX = board.getGhostX();
+        this.poxY = board.getGhostY();
     }
 
+    public void setX(int newX) {
+        this.posX = newX;
+    }
 
+    public void setY(int newY) {
+        this.poxY = newY;
+    }
 
     public void move(String direction) {
         if (direction.compareTo("w") == 0) {
-            this.x--;
+            this.posX--;
         } else if (direction.compareTo("s") == 0) {
-            this.x++;
+            this.posX++;
         } else if (direction.compareTo("a") == 0) {
-            this.y--;
+            this.poxY--;
         } else if (direction.compareTo("d") == 0) {
-            this.y++;
+            this.poxY++;
         }
-        if (this.board.isWall(this.x, this.y)) {
-            this.x = this.board.getGhostX();
-            this.y = this.board.getGhostY();
-        }
-        else if (this.board.isPacman(this.x, this.y)) {
-            this.x = this.board.getGhostX();
-            this.y = this.board.getGhostY();
-        }
-        else if (this.board.isDot(this.x, this.y)) {
-            board.setGhostX(x);
-            board.setGhostY(y);
-            this.board.setDot(x,y);
-        }
-        else if (this.board.isPellet(x, y)) {
-            this.board.setPellet(x, y);
-            board.setGhostX(x);
-            board.setGhostY(y);
+        if (this.board.isWall(this.posX, this.poxY)) {
+            this.posX = this.board.getGhostX();
+            this.poxY = this.board.getGhostY();
+        } else if (this.board.isPacman(this.posX, this.poxY)) {
+            this.posX = this.board.getGhostX();
+            this.poxY = this.board.getGhostY();
+        } else if (this.board.isDot(this.posX, this.poxY)) {
+            board.setGhostX(posX);
+            board.setGhostY(poxY);
+            this.board.setDot(posX, poxY);
+        } else if (this.board.isPellet(posX, poxY)) {
+            this.board.setPellet(posX, poxY);
+            board.setGhostX(posX);
+            board.setGhostY(poxY);
         }
     }
 }
