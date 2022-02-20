@@ -23,6 +23,10 @@ public class Alien {
         return this.posY;
     }
 
+    public void setPosY(int posYNew) {
+        this.posY = posYNew;
+    }
+
     public int getWidth() {
         return this.width;
     }
