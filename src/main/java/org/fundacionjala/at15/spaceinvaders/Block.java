@@ -5,27 +5,27 @@ import java.awt.Graphics;
 import java.awt.Color;
 
 public class Block {
-    private int lifeAsteroid;
+    private int asteroidLife;
 
     public Block(int life) {
-        this.lifeAsteroid = life;
+        this.asteroidLife = life;
     }
 
     public int getLife() {
-        return lifeAsteroid;
+        return asteroidLife;
     }
 
     public void setLife(int parameter) {
-        this.lifeAsteroid = parameter;
+        this.asteroidLife = parameter;
     }
 
     public void paint(Graphics graph) {
         graph.setColor(Color.PINK);
-        graph.fillRoundRect(ASTEROIDS_POSX_FIRST, ASTEROIDS_POSY, ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT,
-                ASTEROIDS_ARCWIDTH, ASTEROIDS_ARCHEIGHT);
+        graph.fillRoundRect(ASTEROIDS_POSX_FIRST, ASTEROIDS_POSY, ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT, ASTEROIDS_ARCWIDTH,
+                ASTEROIDS_ARCHEIGHT);
         graph.fillRoundRect(ASTEROIDS_POSX_SECOND, ASTEROIDS_POSY, ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT,
                 ASTEROIDS_ARCWIDTH, ASTEROIDS_ARCHEIGHT);
-        graph.fillRoundRect(ASTEROIDS_POSX_THIRD, ASTEROIDS_POSY, ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT,
-                ASTEROIDS_ARCWIDTH, ASTEROIDS_ARCHEIGHT);
+        graph.fillRoundRect(ASTEROIDS_POSX_THIRD, ASTEROIDS_POSY, ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT, ASTEROIDS_ARCWIDTH,
+                ASTEROIDS_ARCHEIGHT);
     }
 }
