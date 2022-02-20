@@ -25,9 +25,7 @@ public class Gun {
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            if (bullet.bulletStatus()) {
-                System.out.println("No se puede disparar aun");
-            } else {
+            if (!bullet.bulletStatus()) {
                 bullet.fire();
                 bullet.setStaticPosX(ship.getPosX());
 
@@ -48,6 +46,7 @@ public class Gun {
     public void move() {
 
         bullet.move();
+
     }
 
 }
