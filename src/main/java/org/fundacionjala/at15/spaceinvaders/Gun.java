@@ -17,16 +17,18 @@ public class Gun {
     }
 
     public void paint(Graphics graphic) {
-
         graphic.setColor(Color.YELLOW);
-        graphic.fillRect(this.ship.getPosX(), bullet.getPosy(), BULLET_WIDTH, BULLET_HEIGHT);
+        graphic.fillRect(bullet.getPosx(), bullet.getPosy(), BULLET_WIDTH, BULLET_HEIGHT);
 
     }
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            if (!bullet.bulletStatus()) {
+                bullet.fire();
+                bullet.setStaticPosX(ship.getPosX());
 
-            bullet.fire();
+            }
         }
     }
 
@@ -43,6 +45,7 @@ public class Gun {
     public void move() {
 
         bullet.move();
+
     }
 
 }
