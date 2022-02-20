@@ -7,9 +7,9 @@ public class Sprite {
     private Image image;
     private boolean dying;
 
-    int posX;
-    int posY;
-    int dirX;
+    private int posX;
+    private int posY;
+    private int dirX;
 
     public Sprite() {
         visible = true;
@@ -23,20 +23,20 @@ public class Sprite {
         return visible;
     }
 
-    protected void setVisible(boolean visible) {
-        this.visible = visible;
+    protected void setVisible(boolean isVisible) {
+        this.visible = isVisible;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public void setImage(Image imageParam) {
+        this.image = imageParam;
     }
 
     public Image getImage() {
         return image;
     }
 
-    public void setY(int posY) {
-        this.posY = posY;
+    public void setY(int posYParam) {
+        this.posY = posYParam;
     }
 
     public int getY() {
@@ -47,8 +47,8 @@ public class Sprite {
         return posX;
     }
 
-    public void setDying(boolean dying) {
-        this.dying = dying;
+    public void setDying(boolean isDying) {
+        this.dying = isDying;
     }
 
     public boolean isDying() {
