@@ -12,6 +12,7 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Block.*;
 
 public class Board extends JPanel {
     private List<Alien> aliens;
+    private int alienDeltaX = ALIEN_DELTA_X;
     private Ship ship = new Ship();
     private Gun gun = new Gun(ship);
     private Block block = new Block(ASTEROID_LIFE);
@@ -68,18 +69,30 @@ public class Board extends JPanel {
         for (Alien alien : this.aliens) {
             alien.paint(g);
         }
-        for (Alien alien : this.getAliens()) {
-            int posX = alien.getPosX();
-            if (posX >= BOARD_WIDTH - ALIEN_WIDTH && alien.getDeltaX() == ALIEN_DELTA_X) {
-                alien.setDeltaX(-ALIEN_DELTA_X);
-            }
-            if (posX == 0 && alien.getDeltaX() == -ALIEN_DELTA_X) {
-                alien.setDeltaX(ALIEN_DELTA_X);
-            }
-            alien.moveX();
-        }
+        this.moveAliens();
 
         g.dispose();
         repaint();
+    }
+
+    public void moveAliens() {
+        for (Alien alien : this.aliens) {
+            int posX = alien.getPosX();
+            if (posX == 0 && this.alienDeltaX == -ALIEN_DELTA_X) {
+                this.alienDeltaX = ALIEN_DELTA_X;
+                List<Alien> aliens2 = aliens;
+                for (Alien alien2 : aliens2) {
+                    alien2.setPosY(alien2.getPosY() + ALIEN_SEPARATION);
+                }
+            }
+            if (posX == BOARD_WIDTH - ALIEN_WIDTH && this.alienDeltaX == ALIEN_DELTA_X) {
+                this.alienDeltaX = -ALIEN_DELTA_X;
+                List<Alien> aliens2 = aliens;
+                for (Alien alien2 : aliens2) {
+                    alien2.setPosY(alien2.getPosY() + ALIEN_SEPARATION);
+                }
+            }
+            alien.moveX(this.alienDeltaX);
+        }
     }
 }
