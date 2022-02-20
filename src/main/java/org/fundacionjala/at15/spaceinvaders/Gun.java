@@ -14,19 +14,24 @@ public class Gun {
         this.ship = ship;
         this.posx = this.ship.getPosX();
         this.bullet = new Bullet(this.ship.getPosX(), this.ship.getPosY(), false);
+        System.out.println("entrando al constructor");
     }
 
     public void paint(Graphics graphic) {
-
         graphic.setColor(Color.YELLOW);
-        graphic.fillRect(this.ship.getPosX(), bullet.getPosy(), BULLET_WIDTH, BULLET_HEIGHT);
+        graphic.fillRect(bullet.getPosx(), bullet.getPosy(), BULLET_WIDTH, BULLET_HEIGHT);
 
     }
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            if (bullet.bulletStatus()) {
+                System.out.println("No se puede disparar aun");
+            } else {
+                bullet.fire();
+                bullet.setStaticPosX(ship.getPosX());
 
-            bullet.fire();
+            }
         }
     }
 

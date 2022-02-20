@@ -5,15 +5,18 @@ public class Bullet {
 
     private int posx = 0;
     private int posy = 0;
+    private int posStaticx = 0;
     private boolean fired = false;
 
-    public Bullet(int posx, int posy, boolean fired) {
+    public Bullet(int posx, int posy, boolean fire) {
         this.posx = posx;
         this.posy = posy;
         this.fired = fired;
+
     }
     public int getPosx() {
-        return posx;
+
+        return posStaticx;
     }
     public void setPosx(int posX) {
         this.posx = posX;
@@ -26,6 +29,7 @@ public class Bullet {
     }
     public void fire() {
         this.fired = true;
+        this.posx = posStaticx;
 
     }
 
@@ -39,10 +43,16 @@ public class Bullet {
                 destroyed();
             } else {
                 posy = posy - SPEED;
+
             }
         }
     }
     public boolean bulletStatus() {
         return fired;
     }
+    public void setStaticPosX(int parameter) {
+        posStaticx = parameter;
+
+    }
+
 }
