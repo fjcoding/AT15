@@ -1,57 +1,48 @@
 package org.fundacionjala.at15.pacman;
 
 public class Ghost {
-    private int xPos;
-    private int yPos;
+    private Board board;
+    private int posX;
+    private int poxY;
 
-    public Ghost(int currentXPos, int currentYPos) {
-        this.xPos = currentXPos;
-        this.yPos = currentYPos;
+    public Ghost(Board board) {
+        this.board = board;
+        this.posX = board.getGhostX();
+        this.poxY = board.getGhostY();
     }
 
-    public int getXPos() {
-        return xPos;
+    public void setX(int newX) {
+        this.posX = newX;
     }
 
-    public int getYPos() {
-        return yPos;
+    public void setY(int newY) {
+        this.poxY = newY;
     }
 
-    public void setXPos(int posX) {
-        this.xPos = posX;
+    public void move(String direction) {
+        if (direction.compareTo("w") == 0) {
+            this.posX--;
+        } else if (direction.compareTo("s") == 0) {
+            this.posX++;
+        } else if (direction.compareTo("a") == 0) {
+            this.poxY--;
+        } else if (direction.compareTo("d") == 0) {
+            this.poxY++;
+        }
+        if (this.board.isWall(this.posX, this.poxY)) {
+            this.posX = this.board.getGhostX();
+            this.poxY = this.board.getGhostY();
+        } else if (this.board.isPacman(this.posX, this.poxY)) {
+            this.posX = this.board.getGhostX();
+            this.poxY = this.board.getGhostY();
+        } else if (this.board.isDot(this.posX, this.poxY)) {
+            board.setGhostX(posX);
+            board.setGhostY(poxY);
+            this.board.setDot(posX, poxY);
+        } else if (this.board.isPellet(posX, poxY)) {
+            this.board.setPellet(posX, poxY);
+            board.setGhostX(posX);
+            board.setGhostY(poxY);
+        }
     }
-
-    public void setYPos(int posY) {
-        this.yPos = posY;
-    }
-
-    public void movementUp() {
-        yPos = yPos - 1;
-    }
-
-    public void movementRight() {
-        xPos = xPos + 1;
-    }
-
-    public void movementDown() {
-        yPos = yPos + 1;
-    }
-
-    public void movementLeft() {
-        xPos = xPos - 1;
-    }
-
-    // public void ghostMoveUp(){
-
-    // DirectionEnum random = DirectionEnum.getDirectionEnum();
-    // if(random.equals(DirectionEnum.UP)){
-    // this.yPos--;
-    // } else if(random.equals(DirectionEnum.RIGHT)){
-    // this.xPos++;
-    // } else if(random.equals(DirectionEnum.DOWN)){
-    // this.yPos++;
-    // } else if(random.equals(DirectionEnum.LEFT)){
-    // this.xPos--;
-    // }
-    // }
 }
