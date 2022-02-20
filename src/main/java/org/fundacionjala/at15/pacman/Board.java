@@ -1,76 +1,106 @@
 package org.fundacionjala.at15.pacman;
 
 public class Board {
-    private int[][] board;  // 0 = empty, 1 = wall, 2 = pacman, 3 = ghost, 4 = DOT, 5 = POWER_DOT
+    private int[][] board; // 0 = empty, 1 = wall, 2 = pacman, 3 = ghost, 4 = dot
+    private final int rowLength = 10;
+    private final int colLength = 10;
+    private final int startPositionPacmanX = 1;
+    private final int startPositionPacmanY = 1;
+    private final int startPositionGhostX = 4;
+    private final int startPositionGhostY = 4;
+    private final int startPositionGhostX2 = 6;
+    private final int startPositionGhostY2 = 6;
+    private final int wall = 1;
+    private final int pacman = 2;
+    private final int ghost = 3;
+    private final int dot = 4;
     private int pacmanX;
     private int pacmanY;
     private int ghostX;
     private int ghostY;
+    private int ghostX2;
+    private int ghostY2;
     private int score;
-    private boolean fruit;
+    private int level;
 
     public Board() {
-        this.board = new int[10][10];
-        this.pacmanX = 1;
-        this.pacmanY = 1;
+        this.board = new int[rowLength][colLength];
+        this.pacmanX = startPositionPacmanX;
+        this.pacmanY = startPositionPacmanY;
+        this.ghostX = startPositionGhostX;
+        this.ghostY = startPositionGhostY;
+        this.ghostX2 = startPositionGhostX2;
+        this.ghostY2 = startPositionGhostY2;
         this.score = 0;
-        this.fruit = false;
+        this.level = 1;
         this.initializeBoard();
         this.fillWall();
     }
 
     private void initializeBoard() {
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                this.board[i][j] = 4;
+        for (int indexI = 0; indexI < rowLength; indexI++) {
+            for (int indexJ = 0; indexJ < colLength; indexJ++) {
+                this.board[indexI][indexJ] = dot;
             }
         }
-        this.board[1][1] = 2;
+        this.board[1][1] = pacman;
+
     }
 
     private void fillWall() {
-        for (int i = 0; i < board.length; i++) {
-            board[i][0] = 1;
-        }
-        for (int i = 0; i < board.length; i++) {
-            board[i][9] = 1;
-        }
-        for (int i = 0; i < board[0].length; i++) {
-            board[0][i] = 1;
-        }
-        for (int i = 0; i < board[0].length; i++) {
-            board[9][i] = 1;
+        for (int indexI = 0; indexI < rowLength; indexI++) {
+            board[indexI][0] = wall;
+            board[indexI][colLength - 1] = wall;
         }
 
-        board[4][5] = 1;
-        board[5][5] = 1;
-        board[6][5] = 1;
+        for (int indexJ = 0; indexJ < colLength; indexJ++) {
+            board[0][indexJ] = wall;
+            board[rowLength - 1][indexJ] = wall;
+        }
+        // board[4][5] = 1;
+        // board[5][5] = 1;
+        // board[6][5] = 1;
     }
 
     public void restart() {
-        this.pacmanX = 1;
-        this.pacmanY = 1;
-        this.score = 0;
-        this.fruit = false;
-        this.initializeBoard();
-        this.fillWall();
+        pacmanX = startPositionPacmanX;
+        pacmanY = startPositionPacmanY;
+        ghostX = startPositionGhostX;
+        ghostY = startPositionGhostY;
+        ghostX2 = startPositionGhostY2;
+        ghostY2 = startPositionGhostY2;
+        setScore(0);
+        level = level + 1;
+        initializeBoard();
+        fillWall();
+    }
+
+    public void restartAfterDie() {
+        pacmanY = startPositionPacmanY;
+        pacmanX = startPositionPacmanX;
+        ghostX = startPositionGhostX;
+        ghostY = startPositionGhostY;
+        ghostX2 = startPositionGhostX2;
+        ghostY2 = startPositionGhostY2;
     }
 
     public void printBoard() {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                if (i == pacmanX && j == pacmanY) {
+        for (int indexI = 0; indexI < board.length; indexI++) {
+            for (int indexJ = 0; indexJ < board[indexI].length; indexJ++) {
+                if (indexI == pacmanX && indexJ == pacmanY) {
                     System.out.print("P ");
-                } else if (board[i][j] == 1) {
+                } else if (board[indexI][indexJ] == wall) {
                     System.out.print("# ");
-                } else if (board[i][j] == 2) {
-                    System.out.print(". ");
-                } else if (board[i][j] == 3) {
+                } else if (indexI == ghostX2 && indexJ == ghostY2) {
                     System.out.print("G ");
-                } else if (board[i][j] == 4) {
+                } else if (indexI == ghostX && indexJ == ghostY) {
+                    System.out.print("G ");
+                } else if (board[indexI][indexJ] == ghost) {
+                    System.out.print("G ");
+                } else if (board[indexI][indexJ] == pacman) {
+                    System.out.print(". ");
+                } else if (board[indexI][indexJ] == dot) {
                     System.out.print("* ");
-                } else if (board[i][j] == 5) {
-                    System.out.print("F ");
                 } else {
                     System.out.print("  ");
                 }
@@ -80,32 +110,36 @@ public class Board {
         System.out.println("Score: " + this.score);
     }
 
-    public void setBoard(int[][] board) {
-        this.board = board;
+    public int getLevel() {
+        return level;
     }
 
-    public void setPacmanX(int pacmanX) {
-        this.pacmanX = pacmanX;
+    public void setPacmanX(int posX) {
+        pacmanX = posX;
     }
 
-    public void setPacmanY(int pacmanY) {
-        this.pacmanY = pacmanY;
+    public void setPacmanY(int posY) {
+        pacmanY = posY;
     }
 
-    public void setGhostX(int ghostX) {
-        this.ghostX = ghostX;
+    public void setGhostX(int posX) {
+        ghostX = posX;
     }
 
-    public void setGhostY(int ghostY) {
-        this.ghostY = ghostY;
+    public void setGhostY(int posY) {
+        ghostY = posY;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setGhostX2(int posX) {
+        ghostX2 = posX;
     }
 
-    public void setFruit(boolean fruit) {
-        this.fruit = fruit;
+    public void setGhostY2(int posY) {
+        ghostY2 = posY;
+    }
+
+    public void setScore(int newScore) {
+        score = newScore;
     }
 
     public int getPacmanX() {
@@ -124,43 +158,53 @@ public class Board {
         return ghostY;
     }
 
+    public int getGhostX2() {
+        return ghostX2;
+    }
+
+    public int getGhostY2() {
+        return ghostY2;
+    }
+
     public int getScore() {
         return score;
     }
 
-    public boolean isPacman(int x, int y) {
-        return x == this.pacmanX && y == this.pacmanY;
-    }
-
-    public boolean isFruit() {
-        return fruit;
+    public boolean isPacman(int posX, int posY) {
+        return posX == pacmanX && posY == pacmanY;
     }
 
     public int[][] getBoard() {
         return board;
     }
 
-    public boolean isWall(int x, int y) {
-        return board[x][y] == 1;
+    public boolean isWall(int posX, int posY) {
+        return board[posX][posY] == wall;
     }
 
-    public boolean isDot(int x, int y) {
-        return board[x][y] == 2;
+    public boolean isDot(int posX, int posY) {
+        return board[posX][posY] == 2;
     }
 
-    public boolean isPellet(int x, int y) {
-        return board[x][y] == 4;
+    public boolean isPellet(int posX, int posY) {
+        return board[posX][posY] == dot;
     }
 
-    public boolean isFruit(int x, int y) {
-        return board[x][y] == 5;
+    public boolean isGhost(int posX, int posY) {
+        boolean confirmation = false;
+        if (posX == ghostX && posY == ghostY) {
+            confirmation = true;
+        } else if (posX == ghostX2 && posY == ghostY2) {
+            confirmation = true;
+        }
+        return confirmation;
     }
 
-    public boolean isGhost(int x, int y) {
-        return board[x][y] == 3;
+    public void setDot(int posX, int posY) {
+        board[posX][posY] = 2;
     }
 
-    public void setDot(int x, int y) {
-        board[x][y] = 2;
+    public void setPellet(int posX, int posY) {
+        board[posX][posY] = dot;
     }
 }
