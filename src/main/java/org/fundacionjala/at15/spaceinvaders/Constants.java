@@ -7,7 +7,7 @@ public final class Constants {
         static final int BOARD_WIDTH = 800;
         static final int BOARD_HEIGHT = 600;
         static final int GROUND = 290;
-        static final int SLEEP = 290;
+        static final int SLEEP = 100;
     }
 
     public final class Player {
@@ -24,15 +24,31 @@ public final class Constants {
 
         static final int ALIEN_INIT_X = 10;
         static final int ALIEN_INIT_Y = 10;
-        static final int ALIEN_HEIGHT = 20;
+        static final int ALIEN_HEIGHT = 10;
         static final int ALIEN_WIDTH = 20;
         static final int ALIEN_ROWS = 5;
         static final int ALIEN_COLUMNS = 12;
         static final int ALIEN_SEPARATION = 35;
+        static final int ALIEN_DELTA_X = 1;
     }
 
     public final class Bullet {
-        static final int BULLET_WIDTH = 1;
-        static final int BULLET_HEIGHT = 5;
+        static final int BULLET_WIDTH = 5;
+        static final int BULLET_HEIGHT = 15;
+        static final int SPEED = 1;
+    }
+
+    public final class Block {
+        static final int IMAGE_WIDTH = 50;
+        static final int IMAGE_HEIGHT = 50;
+        static final int ASTEROIDS_POSX_FIRST = 125;
+        static final int ASTEROIDS_POSX_SECOND = 350;
+        static final int ASTEROIDS_POSX_THIRD = 575;
+        static final int ASTEROIDS_POSY = 400;
+        static final int ASTEROIDS_WIDTH = 100;
+        static final int ASTEROIDS_HEIGHT = 50;
+        static final int ASTEROIDS_ARCWIDTH = 25;
+        static final int ASTEROIDS_ARCHEIGHT = 25;
+        static final int ASTEROID_LIFE = 3;
     }
 }

@@ -1,5 +1,7 @@
 package org.fundacionjala.at15.spaceinvaders;
 
+import java.awt.*;
+
 public class Alien {
     private int posX;
     private int posY;
@@ -21,11 +23,24 @@ public class Alien {
         return this.posY;
     }
 
+    public void setPosY(int posYNew) {
+        this.posY = posYNew;
+    }
+
     public int getWidth() {
         return this.width;
     }
 
     public int getHeight() {
         return this.height;
+    }
+
+    public void moveX(int deltaX) {
+        this.posX += deltaX;
+    }
+
+    public void paint(Graphics graphics) {
+        graphics.setColor(Color.RED);
+        graphics.fillOval(this.getPosX(), this.getPosY(), this.getWidth(), this.getHeight());
     }
 }
