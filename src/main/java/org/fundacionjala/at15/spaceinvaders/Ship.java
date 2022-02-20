@@ -6,7 +6,7 @@ import java.awt.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 
-public class Ship {
+public class Ship extends Sprite {
     private int posX = START_X;
     private int posY = START_Y;
 

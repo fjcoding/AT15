@@ -4,7 +4,7 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Block.*;
 import java.awt.Graphics;
 import java.awt.Color;
 
-public class Block {
+public class Block extends Sprite {
     private int asteroidLife;
 
     public Block(int life) {

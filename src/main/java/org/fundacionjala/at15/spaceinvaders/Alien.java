@@ -2,7 +2,7 @@ package org.fundacionjala.at15.spaceinvaders;
 
 import java.awt.*;
 
-public class Alien {
+public class Alien extends Sprite {
     private int posX;
     private int posY;
     private int width;

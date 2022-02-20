@@ -1,7 +1,7 @@
 package org.fundacionjala.at15.spaceinvaders;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
-public class Bullet {
+public class Bullet extends Sprite {
 
     private int posx = 0;
     private int posy = 0;
