@@ -200,7 +200,7 @@ public class Board {
         }
         return confirmation;
     }
-    public void setDot(int x, int y){
+    public void setDot(int x, int y) {
         board[x][y] = 2;
     }
 
