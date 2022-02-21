@@ -7,9 +7,12 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 
 public class Ship extends Sprite {
-    private int posX = START_X;
-    private int posY = START_Y;
     private int velX;
+
+    public Ship(int posX, int posY) {
+        this.posX = posX;
+        this.posY = posY;
+    }
 
     public void paint(Graphics graphic) {
         // ImageIcon ship = new
@@ -71,20 +74,4 @@ public class Ship extends Sprite {
      * return cuadradoArea.contains(getBoundsBicho().getBounds()) ;
      * }
      */
-
-    public int getPosX() {
-        return posX;
-    }
-
-    public void setPosX(int parameter) {
-        this.posX = parameter;
-    }
-
-    public int getPosY() {
-        return posY;
-    }
-
-    public void setPosY(int parameter) {
-        this.posY = parameter;
-    }
 }

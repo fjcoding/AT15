@@ -3,8 +3,6 @@ package org.fundacionjala.at15.spaceinvaders;
 import java.awt.*;
 
 public class Alien extends Sprite {
-    private int posX;
-    private int posY;
     private int width;
     private int height;
 
@@ -13,18 +11,6 @@ public class Alien extends Sprite {
         this.posY = posY;
         this.width = width;
         this.height = height;
-    }
-
-    public int getPosX() {
-        return this.posX;
-    }
-
-    public int getPosY() {
-        return this.posY;
-    }
-
-    public void setPosY(int posYNew) {
-        this.posY = posYNew;
     }
 
     public int getWidth() {

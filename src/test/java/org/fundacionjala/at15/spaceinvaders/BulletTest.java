@@ -13,9 +13,6 @@ public class BulletTest {
         boolean fired = false;
         Bullet bullet = new Bullet(posX, posY, fired);
         //assertEquals(posX, bullet.getPosx());
-        assertEquals(posY, bullet.getPosy());
-
-
-
+        assertEquals(posY, bullet.getPosY());
     }
 }
