@@ -5,6 +5,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class BoardTest {
@@ -180,5 +185,36 @@ public class BoardTest {
         assertFalse(board.isPacman(1, 1));
         board.restartAfterDie();
         assertTrue(board.isPacman(1, 1));
+    }
+
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+
+    @Before
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @After
+    public void restoreStreams() {
+        System.setOut(originalOut);
+    }
+    @Test
+    public void itShouldPrintTheBoard() {
+        Board board = new Board();
+        board.printBoard();
+        String newline = System.lineSeparator();
+        assertEquals("# # # # # # # # # # "+newline+
+                    "# P * * * * * * * # "+newline+
+                    "# * * * * * * * * # "+newline+
+                    "# * * * * * * * * # "+newline+
+                    "# * * * G * * * * # "+newline+
+                    "# * * * * * * * * # "+newline+
+                    "# * * * * * G * * # "+newline+
+                    "# * * * * * * * * # "+newline+
+                    "# * * * * * * * * # "+newline+
+                    "# # # # # # # # # # "+newline+
+                    "Score: 0"+newline
+                    , outContent.toString());
     }
 }
