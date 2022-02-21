@@ -89,8 +89,13 @@ task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
+<<<<<<< HEAD
 task runPacman(dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.pacman.Main'
+=======
+task runPacmanSergio (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.pacman.Main'
+>>>>>>> 553886c4d2e534a6e8ef89d463efa4a257b4d2ed
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
 }

@@ -1,19 +1,7 @@
 package org.fundacionjala.at15.pacman;
 
 public class Board {
-    private int[][] board; // 0 = empty, 1 = wall, 2 = pacman, 3 = ghost, 4 = dot
-    private final int rowLength = 10;
-    private final int colLength = 10;
-    private final int startPositionPacmanX = 1;
-    private final int startPositionPacmanY = 1;
-    private final int startPositionGhostX = 4;
-    private final int startPositionGhostY = 4;
-    private final int startPositionGhostX2 = 6;
-    private final int startPositionGhostY2 = 6;
-    private final int wall = 1;
-    private final int pacman = 2;
-    private final int ghost = 3;
-    private final int dot = 4;
+    private int[][] board; // 0 = empty, 1 = wall, 2 = pacman, 3 = ghost, 4 = DOT, 5 = POWER_DOT
     private int pacmanX;
     private int pacmanY;
     private int ghostX;
@@ -22,84 +10,89 @@ public class Board {
     private int ghostY2;
     private int score;
     private int level;
+    private int lives;
+    private static final int NUMBER_3 = 3;
+    private static final int SIZE = 10;
+    private static final int NUMBER_4 = 4;
+    private static final int NUMBER_6 = 6;
+    private static final int NUMBER_9 = 9;
 
     public Board() {
-        this.board = new int[rowLength][colLength];
-        this.pacmanX = startPositionPacmanX;
-        this.pacmanY = startPositionPacmanY;
-        this.ghostX = startPositionGhostX;
-        this.ghostY = startPositionGhostY;
-        this.ghostX2 = startPositionGhostX2;
-        this.ghostY2 = startPositionGhostY2;
+        this.board = new int[SIZE][SIZE];
+        this.pacmanX = 1;
+        this.pacmanY = 1;
+        this.ghostX = NUMBER_4;
+        this.ghostY = NUMBER_4;
+        this.ghostX2 = NUMBER_6;
+        this.ghostY2 = NUMBER_6;
         this.score = 0;
         this.level = 1;
+        this.lives = NUMBER_3;
         this.initializeBoard();
         this.fillWall();
     }
 
     private void initializeBoard() {
-        for (int indexI = 0; indexI < rowLength; indexI++) {
-            for (int indexJ = 0; indexJ < colLength; indexJ++) {
-                this.board[indexI][indexJ] = dot;
+        for (int indI = 0; indI < SIZE; indI++) {
+            for (int indJ = 0; indJ < SIZE; indJ++) {
+                this.board[indI][indJ] = NUMBER_4;
             }
         }
-        this.board[1][1] = pacman;
+        this.board[1][1] = 2;
 
     }
 
     private void fillWall() {
-        for (int indexI = 0; indexI < rowLength; indexI++) {
-            board[indexI][0] = wall;
-            board[indexI][colLength - 1] = wall;
+        for (int indI = 0; indI < board.length; indI++) {
+            board[indI][0] = 1;
         }
-
-        for (int indexJ = 0; indexJ < colLength; indexJ++) {
-            board[0][indexJ] = wall;
-            board[rowLength - 1][indexJ] = wall;
+        for (int indI = 0; indI < board.length; indI++) {
+            board[indI][NUMBER_9] = 1;
         }
-        // board[4][5] = 1;
-        // board[5][5] = 1;
-        // board[6][5] = 1;
+        for (int indI = 0; indI < board[0].length; indI++) {
+            board[0][indI] = 1;
+        }
+        for (int indI = 0; indI < board[0].length; indI++) {
+            board[NUMBER_9][indI] = 1;
+        }
     }
 
     public void restart() {
-        pacmanX = startPositionPacmanX;
-        pacmanY = startPositionPacmanY;
-        ghostX = startPositionGhostX;
-        ghostY = startPositionGhostY;
-        ghostX2 = startPositionGhostY2;
-        ghostY2 = startPositionGhostY2;
+        this.pacmanX = 1;
+        this.pacmanY = 1;
+        this.ghostX = NUMBER_4;
+        this.ghostY = NUMBER_4;
+        this.ghostX2 = NUMBER_6;
+        this.ghostY2 = NUMBER_6;
         setScore(0);
-        level = level + 1;
-        initializeBoard();
-        fillWall();
+        this.level = level + 1;
+        this.initializeBoard();
+        this.fillWall();
     }
 
     public void restartAfterDie() {
-        pacmanY = startPositionPacmanY;
-        pacmanX = startPositionPacmanX;
-        ghostX = startPositionGhostX;
-        ghostY = startPositionGhostY;
-        ghostX2 = startPositionGhostX2;
-        ghostY2 = startPositionGhostY2;
+        this.pacmanX = 1;
+        this.pacmanY = 1;
+        this.ghostX = NUMBER_4;
+        this.ghostY = NUMBER_4;
+        this.ghostX2 = NUMBER_6;
+        this.ghostY2 = NUMBER_6;
     }
 
     public void printBoard() {
-        for (int indexI = 0; indexI < board.length; indexI++) {
-            for (int indexJ = 0; indexJ < board[indexI].length; indexJ++) {
-                if (indexI == pacmanX && indexJ == pacmanY) {
+        for (int indI = 0; indI < board.length; indI++) {
+            for (int indJ = 0; indJ < board[indI].length; indJ++) {
+                if (indI == pacmanX && indJ == pacmanY) {
                     System.out.print("P ");
-                } else if (board[indexI][indexJ] == wall) {
+                } else if (board[indI][indJ] == 1) {
                     System.out.print("# ");
-                } else if (indexI == ghostX2 && indexJ == ghostY2) {
+                } else if (indI == ghostX2 && indJ == ghostY2) {
                     System.out.print("G ");
-                } else if (indexI == ghostX && indexJ == ghostY) {
+                } else if (indI == ghostX && indJ == ghostY) {
                     System.out.print("G ");
-                } else if (board[indexI][indexJ] == ghost) {
-                    System.out.print("G ");
-                } else if (board[indexI][indexJ] == pacman) {
+                } else if (board[indI][indJ] == 2) {
                     System.out.print(". ");
-                } else if (board[indexI][indexJ] == dot) {
+                } else if (board[indI][indJ] == NUMBER_4) {
                     System.out.print("* ");
                 } else {
                     System.out.print("  ");
@@ -111,35 +104,43 @@ public class Board {
     }
 
     public int getLevel() {
-        return level;
+        return this.level;
     }
 
-    public void setPacmanX(int posX) {
-        pacmanX = posX;
+    public int getLives() {
+        return this.lives;
     }
 
-    public void setPacmanY(int posY) {
-        pacmanY = posY;
+    public void setLives(int newLives) {
+        this.lives = newLives;
     }
 
-    public void setGhostX(int posX) {
-        ghostX = posX;
+    public void setPacmanX(int newPacmanX) {
+        this.pacmanX = newPacmanX;
     }
 
-    public void setGhostY(int posY) {
-        ghostY = posY;
+    public void setPacmanY(int newPacmanY) {
+        this.pacmanY = newPacmanY;
     }
 
-    public void setGhostX2(int posX) {
-        ghostX2 = posX;
+    public void setGhostX(int newGhostX) {
+        this.ghostX = newGhostX;
     }
 
-    public void setGhostY2(int posY) {
-        ghostY2 = posY;
+    public void setGhostY(int newGhostY) {
+        this.ghostY = newGhostY;
+    }
+
+    public void setGhostX2(int newGhostX2) {
+        this.ghostX2 = newGhostX2;
+    }
+
+    public void setGhostY2(int newGhostY2) {
+        this.ghostY2 = newGhostY2;
     }
 
     public void setScore(int newScore) {
-        score = newScore;
+        this.score = newScore;
     }
 
     public int getPacmanX() {
@@ -170,8 +171,8 @@ public class Board {
         return score;
     }
 
-    public boolean isPacman(int posX, int posY) {
-        return posX == pacmanX && posY == pacmanY;
+    public boolean isPacman(int x, int y) {
+        return x == this.pacmanX && y == this.pacmanY;
     }
 
     public int[][] getBoard() {
@@ -179,32 +180,31 @@ public class Board {
     }
 
     public boolean isWall(int posX, int posY) {
-        return board[posX][posY] == wall;
+        return board[posX][posY] == 1;
     }
 
     public boolean isDot(int posX, int posY) {
         return board[posX][posY] == 2;
     }
 
-    public boolean isPellet(int posX, int posY) {
-        return board[posX][posY] == dot;
+    public boolean isPellet(int x, int y) {
+        return board[x][y] == NUMBER_4;
     }
 
-    public boolean isGhost(int posX, int posY) {
+    public boolean isGhost(int x, int y) {
         boolean confirmation = false;
-        if (posX == ghostX && posY == ghostY) {
+        if (pacmanX == ghostX && pacmanY == ghostY) {
             confirmation = true;
-        } else if (posX == ghostX2 && posY == ghostY2) {
+        } else if (pacmanX == ghostX2 && pacmanY == ghostY2) {
             confirmation = true;
         }
         return confirmation;
     }
-
-    public void setDot(int posX, int posY) {
-        board[posX][posY] = 2;
+    public void setDot(int x, int y){
+        board[x][y] = 2;
     }
 
-    public void setPellet(int posX, int posY) {
-        board[posX][posY] = dot;
+    public void setPellet(int x, int y) {
+        board[x][y] = NUMBER_4;
     }
 }
