@@ -5,7 +5,6 @@ public class Bullet extends Sprite {
 
     private int posx = 0;
     private int posy = 0;
-    private int posStaticx = 0;
     private boolean fired = false;
 
     public Bullet(int posx, int posy, boolean fire) {
@@ -16,7 +15,7 @@ public class Bullet extends Sprite {
     }
     public int getPosx() {
 
-        return posStaticx;
+        return posx;
     }
     public void setPosx(int posX) {
         this.posx = posX;
@@ -29,7 +28,6 @@ public class Bullet extends Sprite {
     }
     public void fire() {
         this.fired = true;
-        this.posx = posStaticx;
 
     }
 
@@ -38,7 +36,7 @@ public class Bullet extends Sprite {
     }
     public void move() {
         if (fired) {
-            if (getPosy() == 0) {
+            if (getPosy() <= 0) {
                 setPosy(START_Y);
                 destroyed();
             } else {
@@ -50,9 +48,6 @@ public class Bullet extends Sprite {
     public boolean bulletStatus() {
         return fired;
     }
-    public void setStaticPosX(int parameter) {
-        posStaticx = parameter;
 
-    }
 
 }

@@ -35,7 +35,7 @@ public final class Constants {
     public final class Bullet {
         static final int BULLET_WIDTH = 5;
         static final int BULLET_HEIGHT = 15;
-        static final int SPEED = 1;
+        static final int SPEED = 10;
     }
 
     public final class Block {

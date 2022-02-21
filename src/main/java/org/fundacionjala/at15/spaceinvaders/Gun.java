@@ -26,7 +26,7 @@ public class Gun {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             if (!bullet.bulletStatus()) {
                 bullet.fire();
-                bullet.setStaticPosX(ship.getPosX());
+                bullet.setPosx(ship.getPosX());
 
             }
         }
