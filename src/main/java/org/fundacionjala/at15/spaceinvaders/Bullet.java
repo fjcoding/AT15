@@ -10,7 +10,7 @@ public class Bullet extends Sprite {
     public Bullet(int posx, int posy, boolean fire) {
         this.posx = posx;
         this.posy = posy;
-        this.fired = fired;
+        this.fired = fire;
 
     }
     public int getPosx() {
