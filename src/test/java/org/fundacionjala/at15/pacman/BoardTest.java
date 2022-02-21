@@ -149,32 +149,32 @@ public class BoardTest {
         assertTrue(board.isPellet(5, 2));
     }
 
-    @Test
-    public void itShouldRestartBoard() {
-        Board board = new Board();
-        board.setPacmanX(5);
-        board.setPacmanY(6);
-        board.setGhostX(2);
-        board.setGhostY(2);
-        board.setGhostX2(1);
-        board.setGhostY2(7);
-        board.setScore(200);
+    // @Test
+    // public void itShouldRestartBoard() {
+    //     Board board = new Board();
+    //     board.setPacmanX(5);
+    //     board.setPacmanY(6);
+    //     board.setGhostX(2);
+    //     board.setGhostY(2);
+    //     board.setGhostX2(1);
+    //     board.setGhostY2(7);
+    //     board.setScore(200);
 
-        assertTrue(board.isPacman(5, 6));
-        assertTrue(board.isGhost(2, 2));
-        assertTrue(board.isGhost(1, 7));
-        assertEquals(200, board.getScore());
-        board.restart();
+    //     assertTrue(board.isPacman(5, 6));
+    //     assertTrue(board.isGhost(2, 2));
+    //     assertTrue(board.isGhost(1, 7));
+    //     assertEquals(200, board.getScore());
+    //     board.restart();
 
-        assertFalse(board.isPacman(5, 6));
-        assertFalse(board.isGhost(2, 2));
-        assertFalse(board.isGhost(1, 7));
-        assertEquals(0, board.getScore());
+    //     assertFalse(board.isPacman(5, 6));
+    //     assertFalse(board.isGhost(2, 2));
+    //     assertFalse(board.isGhost(1, 7));
+    //     assertEquals(0, board.getScore());
 
-        assertTrue(board.isPacman(1, 1));
-        assertTrue(board.isGhost(4, 4));
-        assertTrue(board.isGhost(6, 6));
-    }
+    //     assertTrue(board.isPacman(1, 1));
+    //     assertTrue(board.isGhost(4, 4));
+    //     assertTrue(board.isGhost(6, 6));
+    // }
 
     @Test
     public void itShouldRestartAfterDie() {
