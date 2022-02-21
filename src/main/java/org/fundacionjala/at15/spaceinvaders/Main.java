@@ -14,14 +14,14 @@ public class Main extends JFrame {
         myWindow.setResizable(false);
         myWindow.setLocationRelativeTo(null);
         myWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        while (true) {
-            try {
-                Thread.sleep(SLEEP);
-            } catch (InterruptedException ex) {
-                System.out.println(ex.toString());
-                board.repaint();
-            }
-        }
+        // while (true) {
+        //     try {
+        //         Thread.sleep(SLEEP);
+        //     } catch (InterruptedException ex) {
+        //         System.out.println(ex.toString());
+        //         board.repaint();
+        //     }
+        // }
     }
 
 }
