@@ -8,7 +8,8 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
 public class GunTest {
-    @Test
+    
+    /**
     public void itShouldShooted() throws AWTException {
         Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_SPACE);
@@ -21,4 +22,5 @@ public class GunTest {
 
 
     }
+    */
 }
