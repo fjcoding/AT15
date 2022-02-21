@@ -19,6 +19,14 @@ public class Ghost {
         this.poxY = newY;
     }
 
+    public int getX() {
+        return posX;
+    }
+
+    public int getY() {
+        return poxY;
+    }
+
     public void move(String direction) {
         if (direction.compareTo("w") == 0) {
             this.posX--;
