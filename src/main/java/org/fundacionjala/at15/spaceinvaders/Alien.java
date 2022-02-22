@@ -7,6 +7,7 @@ public class Alien extends Sprite {
     private int posY;
     private int width;
     private int height;
+    private Bullet bullet;
 
     public Alien(int posX, int posY, int width, int height) {
         this.posX = posX;
@@ -37,6 +38,14 @@ public class Alien extends Sprite {
 
     public void moveX(int deltaX) {
         this.posX += deltaX;
+    }
+
+    public void setBullet(Bullet param) {
+        this.bullet = param;
+    }
+
+    public Bullet getBullet() {
+        return this.bullet;
     }
 
     public void paint(Graphics graphics) {
