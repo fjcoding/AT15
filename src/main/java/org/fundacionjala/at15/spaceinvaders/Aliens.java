@@ -1,9 +1,12 @@
 package org.fundacionjala.at15.spaceinvaders;
 
 import java.util.List;
+import java.util.Random;
 import java.util.ArrayList;
+import java.awt.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 
 public class Aliens {
     private List<Alien> aliens;
@@ -43,6 +46,42 @@ public class Aliens {
                 }
             }
             alien.moveX(this.alienDeltaX);
+        }
+    }
+
+    public void aliensShoot() {
+        Random generator = new Random();
+
+        for (Alien alien : aliens) {
+
+            int shot = generator.nextInt(ALIEN_RANGE_OF_PROBABILITY);
+            Bullet bomb = new Bullet(alien.getPosX(), alien.getPosY(), false);
+            alien.setBullet(bomb);
+
+            if (shot == ALIEN_CHANCE && !bomb.bulletStatus()) {
+                bomb.fire();
+                //bomb.setPosX(alien.getPosX());
+                //bomb.setPosY(alien.getPosY());
+            }
+
+            if (bomb.bulletStatus()) {
+                bomb.setPosY(bomb.getPosY() + SPEED);
+                if (bomb.getPosY() >= BOARD_HEIGHT - BULLET_HEIGHT) {
+                    bomb.destroyed();
+                }
+            }
+        }
+    }
+
+    public void paint(Graphics graphic) {
+        graphic.setColor(Color.YELLOW);
+
+        for (Alien alien : aliens) {
+            Bullet bullet = alien.getBullet();
+
+            if (bullet.bulletStatus()) {
+                graphic.fillRect(bullet.getPosX(), bullet.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
+            }
         }
     }
 }

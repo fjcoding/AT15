@@ -30,6 +30,9 @@ public final class Constants {
         static final int ALIEN_COLUMNS = 12;
         static final int ALIEN_SEPARATION = 35;
         static final int ALIEN_DELTA_X = 1;
+        static final int ALIEN_RANGE_OF_PROBABILITY = 100;
+        static final int ALIEN_CHANCE = 7;
+
     }
 
     public final class Bullet {

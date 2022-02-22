@@ -12,6 +12,7 @@ public class Alien extends Sprite {
         this.posY = posY;
         this.width = width;
         this.height = height;
+        this.bullet = null;
     }
 
     public int getWidth() {
