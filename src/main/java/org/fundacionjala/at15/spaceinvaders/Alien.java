@@ -2,6 +2,9 @@ package org.fundacionjala.at15.spaceinvaders;
 
 import java.awt.*;
 
+import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.BULLET_HEIGHT;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.BULLET_WIDTH;
+
 public class Alien extends Sprite {
     private int width;
     private int height;
@@ -38,5 +41,9 @@ public class Alien extends Sprite {
     public void paint(Graphics graphics) {
         graphics.setColor(Color.RED);
         graphics.fillOval(this.getPosX(), this.getPosY(), this.getWidth(), this.getHeight());
+        graphics.setColor(Color.CYAN);
+        if (bullet.bulletStatus()) {
+            graphics.fillRect(bullet.getPosX(), bullet.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
+        }
     }
 }

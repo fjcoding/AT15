@@ -4,6 +4,7 @@ import java.awt.event.*;
 import javax.swing.Timer;
 import javax.swing.JPanel;
 import java.awt.*;
+import javax.swing.ImageIcon;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Block.*;
@@ -15,6 +16,8 @@ public class Board extends JPanel {
     private Gun gun = new Gun(ship);
     private Block block = new Block(ASTEROID_LIFE);
     private Timer timer;
+    private int deaths;
+    private String explote = "src/main/resources/spaceinvaders/alien.png";
 
     public Board() {
         addKeyListener(new KeyListener() {
@@ -46,33 +49,69 @@ public class Board extends JPanel {
         // Font score = new Font("Arial" ,Font.BOLD, 25) ;
         // g.setFont (score);
         block.paint(g);
-        ship.move();
         ship.paint(g);
         if (gun.shooted()) {
             gun.paint(g);
             gun.move();
         }
-
         for (Alien alien : this.aliens.getAliens()) {
             alien.paint(g);
         }
-        this.aliens.moveAliens();
-        this.aliens.aliensShoot();
-        this.aliens.paint(g);
         g.dispose();
         Toolkit.getDefaultToolkit().sync();
+    }
+
+    private void update() {
+        if (deaths == ALIENS_TO_DESTROY) {
+            // game must to stop
+            timer.stop();
+            // message of game win
+        }
+
+        if(gun.bullet.isVisible()) {
+            System.out.println("sshout");
+        }
+
+        ship.move();
+        aliens.moveAliens();
+        aliens.aliensShoot();
+
+        if (gun.isVisible()) {
+
+            int shotY = gun.getPosYBullet();
+            int shotX = gun.getPosXBullet();
+
+            for (Alien alien: this.aliens.getAliens()) {
+                int alienX = alien.getPosX();
+                int alienY = alien.getPosY();
+
+                if (alien.isVisible() && gun.shooted()) {
+                    if(shotX >= (alienX) &&
+                            shotX <= (alienX + ALIEN_WIDTH) &&
+                            shotY >= (alienY) &&
+                            shotY <= (alienY + ALIEN_HEIGHT)) {
+                        var imageIcon = new ImageIcon(explote);
+                        alien.setImage(imageIcon.getImage());
+                        alien.setDying(true);
+                        deaths++;
+                        gun.die();
+                    }
+                }
+            }
+        }
+
     }
 
     private class GameCycle implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
             doGameCycle();
         }
     }
 
     private void doGameCycle() {
+        update();
         repaint();
     }
 }

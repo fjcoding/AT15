@@ -69,16 +69,4 @@ public class Aliens {
             }
         }
     }
-
-    public void paint(Graphics graphic) {
-        graphic.setColor(Color.CYAN);
-
-        for (Alien alien : aliens) {
-            Bullet bullet = alien.getBullet();
-
-            if (bullet.bulletStatus()) {
-                graphic.fillRect(bullet.getPosX(), bullet.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
-            }
-        }
-    }
 }
