@@ -3,7 +3,6 @@ package org.fundacionjala.at15.spaceinvaders;
 import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
-import java.awt.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
@@ -66,18 +65,6 @@ public class Aliens {
                 if (bomb.getPosY() >= BOARD_HEIGHT - BULLET_HEIGHT) {
                     bomb.destroyed();
                 }
-            }
-        }
-    }
-
-    public void paint(Graphics graphic) {
-        graphic.setColor(Color.CYAN);
-
-        for (Alien alien : aliens) {
-            Bullet bullet = alien.getBullet();
-
-            if (bullet.bulletStatus()) {
-                graphic.fillRect(bullet.getPosX(), bullet.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
             }
         }
     }

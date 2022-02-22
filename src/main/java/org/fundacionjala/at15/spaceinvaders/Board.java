@@ -58,7 +58,6 @@ public class Board extends JPanel {
         }
         this.aliens.moveAliens();
         this.aliens.aliensShoot();
-        this.aliens.paint(g);
         g.dispose();
         Toolkit.getDefaultToolkit().sync();
     }
