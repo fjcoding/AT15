@@ -12,7 +12,7 @@ public class BulletTest {
         int posY = 10;
         boolean fired = false;
         Bullet bullet = new Bullet(posX, posY, fired);
-        //assertEquals(posX, bullet.getPosx());
+        assertEquals(posX, bullet.getPosX());
         assertEquals(posY, bullet.getPosY());
     }
     @Test
@@ -61,7 +61,7 @@ public class BulletTest {
         boolean fired = true;
         Bullet bullet = new Bullet(posX, posY, fired);
         bullet.move();
-        assertEquals(490, bullet.getPosY());
+        assertEquals(480, bullet.getPosY());
 
     }
     @Test

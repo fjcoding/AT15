@@ -10,20 +10,22 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 public class GunTest {
 
     @Test
-    public void itShouldShooted() throws AWTException {
-        //Robot robot = new Robot();
-        //robot.keyPress(KeyEvent.VK_SPACE);
-        //Bullet bullet = new Bullet(START_X, START_Y, true);
-        Ship ship = new Ship();
+    public void itShouldShooted() {
+        Ship ship = new Ship(START_X,START_Y);
         Gun gun = new Gun(ship);
 
         assertEquals(false,gun.shooted());
 
+
+
+    }
+    @Test
+    public void itShouldMoveTheBullet() {
+        Ship ship = new Ship(START_X,START_Y);
+        Gun gun = new Gun(ship);
         gun.fire();
         gun.move();
-
-        assertEquals(535, gun.getPosYBullet());
-
+        assertEquals(525, gun.getPosYBullet());
     }
 
 }

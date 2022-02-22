@@ -23,7 +23,7 @@ public class Gun {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             if (!bullet.bulletStatus()) {
-                bullet.fire();
+                fire();
                 bullet.setPosX(ship.getPosX());
 
             }
