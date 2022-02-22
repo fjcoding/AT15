@@ -9,6 +9,16 @@ public class BlockTest {
     public void itShouldHaveLifes() {
         int life = 3;
         Block asteroid = new Block(life);
+
+        assertEquals(3, asteroid.getLife());
+    }
+
+    @Test
+    public void itShouldChangeLifes() {
+        int life = 3;
+        Block asteroid = new Block(life);
+        life--;
+        asteroid.setLife(life);
         assertEquals(life, asteroid.getLife());
     }
 }
