@@ -47,5 +47,11 @@ public class Gun {
         bullet.move();
 
     }
+    public int getPosYBullet() {
+        return bullet.getPosy();
+    }
+    public void fire() {
+        bullet.fire();
+    }
 
 }
