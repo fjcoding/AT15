@@ -39,13 +39,6 @@ public class Board extends JPanel {
         timer.start();
     }
 
-    // public static void pause() {
-    //     try {
-    //         Thread.sleep(SLEEP);
-    //     } catch (Exception ignored) {
-    //     }
-    // }
-
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -64,9 +57,10 @@ public class Board extends JPanel {
             alien.paint(g);
         }
         this.aliens.moveAliens();
+        this.aliens.aliensShoot();
+        this.aliens.paint(g);
         g.dispose();
         Toolkit.getDefaultToolkit().sync();
-        // repaint();
     }
 
     private class GameCycle implements ActionListener {

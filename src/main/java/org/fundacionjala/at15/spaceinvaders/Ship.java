@@ -63,15 +63,4 @@ public class Ship extends Sprite {
         }
         return value;
     }
-
-    /*
-     * public Ellipse2D getBoundsBicho(){
-     * return new Ellipse2D.Double(posX + 10, posY + 30, 80, 50) ;
-     * }
-     * public boolean llegaFinal() {
-     * Rectangle cuadrado=new Rectangle (520, 520, 110, 110) ;
-     * Area cuadradoArea=new Area(cuadrado) ;
-     * return cuadradoArea.contains(getBoundsBicho().getBounds()) ;
-     * }
-     */
 }

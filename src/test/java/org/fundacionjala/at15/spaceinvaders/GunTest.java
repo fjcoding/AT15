@@ -7,6 +7,8 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
+
 public class GunTest {
 
     @Test
@@ -21,6 +23,6 @@ public class GunTest {
         Gun gun = new Gun(ship);
         gun.fire();
         gun.move();
-        assertEquals(525, gun.getPosYBullet());
+        assertEquals(START_Y - SPEED, gun.getPosYBullet());
     }
 }

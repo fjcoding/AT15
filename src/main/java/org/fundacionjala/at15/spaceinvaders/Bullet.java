@@ -9,17 +9,16 @@ public class Bullet extends Sprite {
         this.posX = posx;
         this.posY = posy;
         this.fired = fired;
-
     }
 
     public void fire() {
         this.fired = true;
-
     }
 
     public void destroyed() {
         this.fired = false;
     }
+
     public void move() {
         if (fired) {
             if (getPosY() <= 0) {
@@ -31,6 +30,7 @@ public class Bullet extends Sprite {
             }
         }
     }
+
     public boolean bulletStatus() {
         return fired;
     }

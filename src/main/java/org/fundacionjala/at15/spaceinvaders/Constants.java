@@ -27,15 +27,19 @@ public final class Constants {
         static final int ALIEN_HEIGHT = 10;
         static final int ALIEN_WIDTH = 20;
         static final int ALIEN_ROWS = 3;
-        static final int ALIEN_COLUMNS = 12;
-        static final int ALIEN_SEPARATION = 35;
+        static final int ALIEN_COLUMNS = 15;
+        static final int ALIEN_SEPARATION = 30;
         static final int ALIEN_DELTA_X = 1;
+        static final int ALIEN_RANGE_OF_PROBABILITY = 1000;
+        static final int ALIEN_CHANCE = 7;
+        static final int ALIEN_BULLET_SPEED = 5;
+
     }
 
     public final class Bullet {
         static final int BULLET_WIDTH = 5;
         static final int BULLET_HEIGHT = 15;
-        static final int SPEED = 20;
+        static final int SPEED = 10;
     }
 
     public final class Block {

@@ -1,4 +1,5 @@
 package org.fundacionjala.at15.spaceinvaders;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -61,7 +62,7 @@ public class BulletTest {
         boolean fired = true;
         Bullet bullet = new Bullet(posX, posY, fired);
         bullet.move();
-        assertEquals(480, bullet.getPosY());
+        assertEquals(posY - SPEED, bullet.getPosY());
     }
     @Test
     public void itShouldDestroyTheBulletWhenArrivedToEndOfTheBoard() {
