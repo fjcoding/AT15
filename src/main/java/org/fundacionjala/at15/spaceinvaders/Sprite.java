@@ -7,8 +7,8 @@ public class Sprite {
     private Image image;
     private boolean dying;
 
-    private int posX;
-    private int posY;
+    protected int posX;
+    protected int posY;
     private int dirX;
 
     public Sprite() {
@@ -35,15 +35,19 @@ public class Sprite {
         return image;
     }
 
-    public void setY(int posYParam) {
+    public void setPosX(int posXParam) {
+        this.posX = posXParam;
+    }
+
+    public void setPosY(int posYParam) {
         this.posY = posYParam;
     }
 
-    public int getY() {
+    public int getPosY() {
         return posY;
     }
 
-    public int getX() {
+    public int getPosX() {
         return posX;
     }
 

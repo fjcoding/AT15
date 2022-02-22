@@ -1,31 +1,17 @@
 package org.fundacionjala.at15.spaceinvaders;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
-public class Bullet extends Sprite {
 
-    private int posx = 0;
-    private int posy = 0;
+public class Bullet extends Sprite {
     private boolean fired = false;
 
-    public Bullet(int posx, int posy, boolean fire) {
-        this.posx = posx;
-        this.posy = posy;
-        this.fired = fire;
+    public Bullet(int posx, int posy, boolean fired) {
+        this.posX = posx;
+        this.posY = posy;
+        this.fired = fired;
 
     }
-    public int getPosx() {
 
-        return posx;
-    }
-    public void setPosx(int posX) {
-        this.posx = posX;
-    }
-    public int getPosy() {
-        return posy;
-    }
-    public void setPosy(int posY) {
-        this.posy = posY;
-    }
     public void fire() {
         this.fired = true;
 
@@ -36,11 +22,11 @@ public class Bullet extends Sprite {
     }
     public void move() {
         if (fired) {
-            if (getPosy() <= 0) {
-                setPosy(START_Y);
+            if (getPosY() <= 0) {
+                setPosY(START_Y);
                 destroyed();
             } else {
-                posy = posy - SPEED;
+                posY -= SPEED;
 
             }
         }
@@ -48,6 +34,4 @@ public class Bullet extends Sprite {
     public boolean bulletStatus() {
         return fired;
     }
-
-
 }

@@ -12,11 +12,8 @@ public class BulletTest {
         int posY = 10;
         boolean fired = false;
         Bullet bullet = new Bullet(posX, posY, fired);
-        assertEquals(posX, bullet.getPosx());
-        assertEquals(posY, bullet.getPosy());
-
-
-
+        //assertEquals(posX, bullet.getPosx());
+        assertEquals(posY, bullet.getPosY());
     }
     @Test
     public void itShouldExistBullet() {
@@ -34,10 +31,10 @@ public class BulletTest {
         int newPosy = 20;
         boolean fired = true;
         Bullet bullet = new Bullet(posX, posY, fired);
-        bullet.setPosx(newPosx);
-        bullet.setPosy(newPosy);
-        assertEquals(20, bullet.getPosx());
-        assertEquals(20, bullet.getPosy());
+        bullet.setPosX(newPosx);
+        bullet.setPosY(newPosy);
+        assertEquals(20, bullet.getPosX());
+        assertEquals(20, bullet.getPosY());
     }
     @Test
     public void itShouldShoot() {
@@ -64,8 +61,8 @@ public class BulletTest {
         boolean fired = true;
         Bullet bullet = new Bullet(posX, posY, fired);
         bullet.move();
-        assertEquals(490, bullet.getPosy());
-        
+        assertEquals(490, bullet.getPosY());
+
     }
     @Test
     public void itShouldDestroyTheBulletWhenArrivedToEndOfTheBoard() {

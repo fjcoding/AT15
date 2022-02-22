@@ -1,18 +1,20 @@
 package org.fundacionjala.at15.spaceinvaders;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
+import javax.swing.Timer;
 import javax.swing.JPanel;
 import java.awt.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Block.*;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 
 public class Board extends JPanel {
     private Aliens aliens = new Aliens(ALIEN_ROWS, ALIEN_COLUMNS);
-    private Ship ship = new Ship();
+    private Ship ship = new Ship(START_X, START_Y);
     private Gun gun = new Gun(ship);
     private Block block = new Block(ASTEROID_LIFE);
+    private Timer timer;
 
     public Board() {
         addKeyListener(new KeyListener() {
@@ -32,14 +34,17 @@ public class Board extends JPanel {
             }
         });
         setFocusable(true);
+
+        timer = new Timer(DELAY, new GameCycle());
+        timer.start();
     }
 
-    public static void pause() {
-        try {
-            Thread.sleep(SLEEP);
-        } catch (Exception ignored) {
-        }
-    }
+    // public static void pause() {
+    //     try {
+    //         Thread.sleep(SLEEP);
+    //     } catch (Exception ignored) {
+    //     }
+    // }
 
     @Override
     public void paint(Graphics g) {
@@ -58,9 +63,22 @@ public class Board extends JPanel {
         for (Alien alien : this.aliens.getAliens()) {
             alien.paint(g);
         }
-        pause();
         this.aliens.moveAliens();
         g.dispose();
+        Toolkit.getDefaultToolkit().sync();
+        // repaint();
+    }
+
+    private class GameCycle implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            doGameCycle();
+        }
+    }
+
+    private void doGameCycle() {
         repaint();
     }
 }

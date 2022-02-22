@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ShipTest {
     @Test
     public void itShouldHaveAndSetAPosition() {
-        Ship theShip = new Ship();
+        Ship theShip = new Ship(START_X, START_Y);
         assertEquals(START_X, theShip.getPosX());
         assertEquals(START_Y, theShip.getPosY());
         theShip.setPosX(50);
@@ -20,7 +20,7 @@ public class ShipTest {
 
     @Test
     public void itShouldMoveUpToLimit() {
-        Ship theShip = new Ship();
+        Ship theShip = new Ship(START_X, START_Y);
         int min = 0;
         int max = 800;
         assertEquals(100, theShip.moveUptoLimit(100, min, max));
@@ -30,7 +30,7 @@ public class ShipTest {
 
     @Test
     public void itShouldMove() {
-        Ship theShip = new Ship();
+        Ship theShip = new Ship(START_X, START_Y);
         theShip.setPosX(1);
         theShip.move();
         assertEquals(2, theShip.getPosX());

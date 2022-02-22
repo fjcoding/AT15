@@ -8,17 +8,15 @@ public class Gun {
 
     private Ship ship;
     private Bullet bullet;
-    private int posx;
 
     public Gun(Ship ship) {
         this.ship = ship;
-        this.posx = this.ship.getPosX();
         this.bullet = new Bullet(this.ship.getPosX(), this.ship.getPosY(), false);
     }
 
     public void paint(Graphics graphic) {
         graphic.setColor(Color.YELLOW);
-        graphic.fillRect(bullet.getPosx(), bullet.getPosy(), BULLET_WIDTH, BULLET_HEIGHT);
+        graphic.fillRect(bullet.getPosX(), bullet.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
 
     }
 
@@ -26,7 +24,7 @@ public class Gun {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             if (!bullet.bulletStatus()) {
                 bullet.fire();
-                bullet.setPosx(ship.getPosX());
+                bullet.setPosX(ship.getPosX());
 
             }
         }
@@ -48,7 +46,7 @@ public class Gun {
 
     }
     public int getPosYBullet() {
-        return bullet.getPosy();
+        return bullet.getPosY();
     }
     public void fire() {
         bullet.fire();
