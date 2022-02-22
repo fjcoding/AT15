@@ -62,7 +62,6 @@ public class BulletTest {
         Bullet bullet = new Bullet(posX, posY, fired);
         bullet.move();
         assertEquals(480, bullet.getPosY());
-
     }
     @Test
     public void itShouldDestroyTheBulletWhenArrivedToEndOfTheBoard() {

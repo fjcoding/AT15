@@ -13,11 +13,7 @@ public class GunTest {
     public void itShouldShooted() {
         Ship ship = new Ship(START_X,START_Y);
         Gun gun = new Gun(ship);
-
         assertEquals(false,gun.shooted());
-
-
-
     }
     @Test
     public void itShouldMoveTheBullet() {
@@ -27,5 +23,4 @@ public class GunTest {
         gun.move();
         assertEquals(525, gun.getPosYBullet());
     }
-
 }

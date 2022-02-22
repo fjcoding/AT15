@@ -13,23 +13,19 @@ public class Gun {
         this.ship = ship;
         this.bullet = new Bullet(this.ship.getPosX(), this.ship.getPosY(), false);
     }
-
     public void paint(Graphics graphic) {
         graphic.setColor(Color.YELLOW);
         graphic.fillRect(bullet.getPosX(), bullet.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
 
     }
-
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             if (!bullet.bulletStatus()) {
                 fire();
                 bullet.setPosX(ship.getPosX());
-
             }
         }
     }
-
     /**
      * public Ellipse2D getBoundsBala() {
      * return new Ellipse2D.Double(posx + 10, posy + 30, 80, 50);
@@ -41,9 +37,7 @@ public class Gun {
     }
 
     public void move() {
-
         bullet.move();
-
     }
     public int getPosYBullet() {
         return bullet.getPosY();
@@ -51,5 +45,4 @@ public class Gun {
     public void fire() {
         bullet.fire();
     }
-
 }
