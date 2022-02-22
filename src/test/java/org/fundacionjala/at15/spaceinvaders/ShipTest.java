@@ -3,7 +3,6 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 import static org.junit.Assert.assertEquals;
 
-import java.awt.event.KeyEvent;
 import org.junit.Test;
 
 public class ShipTest {

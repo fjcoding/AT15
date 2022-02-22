@@ -19,7 +19,7 @@ public class Main {
         int userPositionRows = read.nextInt();
         System.out.println("Enter column position for the ant:");
         int userPositionColumns = read.nextInt();
-
+        read.close();
         Grid matrix = new Grid(userRows, userColumns);
         Ant ant = new Ant(userPositionRows - 1, userPositionColumns - 1, matrix, "up");
         ant.run(userSteps);

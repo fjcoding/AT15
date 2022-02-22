@@ -51,21 +51,18 @@ public class Aliens {
 
     public void aliensShoot() {
         Random generator = new Random();
-
         for (Alien alien : aliens) {
-
             int shot = generator.nextInt(ALIEN_RANGE_OF_PROBABILITY);
-            Bullet bomb = new Bullet(alien.getPosX(), alien.getPosY(), false);
-            alien.setBullet(bomb);
+            Bullet bomb = alien.getBullet();
 
             if (shot == ALIEN_CHANCE && !bomb.bulletStatus()) {
                 bomb.fire();
-                //bomb.setPosX(alien.getPosX());
-                //bomb.setPosY(alien.getPosY());
+                bomb.setPosX(alien.getPosX());
+                bomb.setPosY(alien.getPosY());
             }
 
             if (bomb.bulletStatus()) {
-                bomb.setPosY(bomb.getPosY() + SPEED);
+                bomb.setPosY(bomb.getPosY() + ALIEN_BULLET_SPEED);
                 if (bomb.getPosY() >= BOARD_HEIGHT - BULLET_HEIGHT) {
                     bomb.destroyed();
                 }
@@ -74,7 +71,7 @@ public class Aliens {
     }
 
     public void paint(Graphics graphic) {
-        graphic.setColor(Color.YELLOW);
+        graphic.setColor(Color.CYAN);
 
         for (Alien alien : aliens) {
             Bullet bullet = alien.getBullet();

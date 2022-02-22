@@ -9,7 +9,6 @@ public class Sprite {
 
     protected int posX;
     protected int posY;
-    private int dirX;
 
     public Sprite() {
         visible = true;
