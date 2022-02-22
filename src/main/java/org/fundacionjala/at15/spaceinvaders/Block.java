@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.awt.Color;
 
 public class Block extends Sprite {
-    public Graphics blockGraph;
     private int asteroidLife;
 
     public Block(int life) {
@@ -28,6 +27,5 @@ public class Block extends Sprite {
                 ASTEROIDS_ARCWIDTH, ASTEROIDS_ARCHEIGHT);
         graph.fillRoundRect(ASTEROIDS_POSX_THIRD, ASTEROIDS_POSY, ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT, ASTEROIDS_ARCWIDTH,
                 ASTEROIDS_ARCHEIGHT);
-        blockGraph = graph;
     }
 }
