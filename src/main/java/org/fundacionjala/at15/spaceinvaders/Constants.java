@@ -7,7 +7,7 @@ public final class Constants {
         static final int BOARD_WIDTH = 800;
         static final int BOARD_HEIGHT = 600;
         static final int GROUND = 290;
-        static final int DELAY = 20;
+        static final int DELAY = 5;
     }
 
     public final class Player {
