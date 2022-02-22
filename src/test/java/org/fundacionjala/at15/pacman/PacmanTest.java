@@ -76,8 +76,8 @@ public class PacmanTest {
         board.setGhostY(1);
         Pacman pacman = new Pacman(board);
         pacman.move("s");
-        int lifeDimished = 2;
-        assertEquals(lifeDimished,pacman.getLives());
+        int lifeDiminished = 2;
+        assertEquals(lifeDiminished,pacman.getLives());
     }
     @Test
     public void itShouldDieGhost2(){
@@ -85,8 +85,8 @@ public class PacmanTest {
         board.setGhostY2(2);
         Pacman pacman = new Pacman(board);
         pacman.move("d");
-        int lifeDimished = 2;
-        assertEquals(lifeDimished,pacman.getLives());
+        int lifeDiminished = 2;
+        assertEquals(lifeDiminished,pacman.getLives());
     }
     @Test
     public void itShouldChangeDot(){
@@ -97,7 +97,7 @@ public class PacmanTest {
         assertFalse(board.isDot(2,2));
     }
     @Test
-    public void itShouldChagePellet(){
+    public void itShouldChangePellet(){
         board.setPellet(2, 1);
         pacman.move("s");
         assertFalse(board.isPellet(2,1));

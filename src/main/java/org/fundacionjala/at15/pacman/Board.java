@@ -1,26 +1,13 @@
 package org.fundacionjala.at15.pacman;
 
-public class Board {
+public class Board extends CommonFeatures {
     private int[][] board; // 0 = empty, 1 = wall, 2 = pacman, 3 = ghost, 4 = dot
-    private final int rowLength = 10;
-    private final int colLength = 10;
-    private final int startPositionPacmanX = 1;
-    private final int startPositionPacmanY = 1;
-    private final int startPositionGhostX = 4;
-    private final int startPositionGhostY = 4;
-    private final int startPositionGhostX2 = 6;
-    private final int startPositionGhostY2 = 6;
-    private final int wall = 1;
-    private final int pacman = 2;
-    private final int ghost = 3;
-    private final int dot = 4;
     private int pacmanX;
     private int pacmanY;
     private int ghostX;
     private int ghostY;
     private int ghostX2;
     private int ghostY2;
-    private int score;
     private int level;
 
     public Board() {
@@ -31,7 +18,7 @@ public class Board {
         this.ghostY = startPositionGhostY;
         this.ghostX2 = startPositionGhostX2;
         this.ghostY2 = startPositionGhostY2;
-        this.score = 0;
+        //this.score = 0;
         this.level = 1;
         this.initializeBoard();
         this.fillWall();
@@ -69,20 +56,11 @@ public class Board {
         ghostY = startPositionGhostY;
         ghostX2 = startPositionGhostY2;
         ghostY2 = startPositionGhostY2;
-        setScore(0);
         level = level + 1;
         initializeBoard();
         fillWall();
     }
 
-    public void restartAfterDie() {
-        pacmanY = startPositionPacmanY;
-        pacmanX = startPositionPacmanX;
-        ghostX = startPositionGhostX;
-        ghostY = startPositionGhostY;
-        ghostX2 = startPositionGhostX2;
-        ghostY2 = startPositionGhostY2;
-    }
 
     public void printBoard() {
         for (int indexI = 0; indexI < board.length; indexI++) {
@@ -107,7 +85,6 @@ public class Board {
             }
             System.out.println();
         }
-        System.out.println("Score: " + this.score);
     }
 
     public int getLevel() {
@@ -138,38 +115,6 @@ public class Board {
         ghostY2 = posY;
     }
 
-    public void setScore(int newScore) {
-        score = newScore;
-    }
-
-    public int getPacmanX() {
-        return pacmanX;
-    }
-
-    public int getPacmanY() {
-        return pacmanY;
-    }
-
-    public int getGhostX() {
-        return ghostX;
-    }
-
-    public int getGhostY() {
-        return ghostY;
-    }
-
-    public int getGhostX2() {
-        return ghostX2;
-    }
-
-    public int getGhostY2() {
-        return ghostY2;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
     public boolean isPacman(int posX, int posY) {
         return posX == pacmanX && posY == pacmanY;
     }
@@ -178,9 +123,9 @@ public class Board {
         return board;
     }
 
-    public boolean isWall(int posX, int posY) {
-        return board[posX][posY] == wall;
-    }
+    // public boolean isWall(int posX, int posY) {
+    //     return board[posX][posY] == wall;
+    // }
 
     public boolean isDot(int posX, int posY) {
         return board[posX][posY] == 2;
