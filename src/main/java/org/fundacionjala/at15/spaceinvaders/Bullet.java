@@ -28,6 +28,8 @@ public class Bullet extends Sprite {
                 posY -= SPEED;
 
             }
+        } else {
+            fired = false;
         }
     }
 

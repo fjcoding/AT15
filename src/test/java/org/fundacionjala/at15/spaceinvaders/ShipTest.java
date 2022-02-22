@@ -2,7 +2,7 @@ package org.fundacionjala.at15.spaceinvaders;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 import static org.junit.Assert.assertEquals;
-
+import java.awt.event.KeyEvent;
 import org.junit.Test;
 
 public class ShipTest {
@@ -37,5 +37,39 @@ public class ShipTest {
         theShip.move();
         assertEquals(BOARD_WIDTH - 2 * DIAMETER, theShip.getPosX());
 
+    }
+    @Test
+    public void itShouldMovedWhenYouPressAKeyLeft() {
+
+        Ship ship = new Ship(START_X,START_Y);
+        Board board = new Board();
+        KeyEvent key = new KeyEvent(board, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0,  KeyEvent.VK_LEFT,' ');
+        board.getKeyListeners()[0].keyPressed(key);
+        ship.keyPressed(key);
+        assertEquals(-VELOCITY_X,ship.getVelX());
+    }
+    @Test
+    public void itShouldMovedWhenYouPressAKeyRight() {
+
+        Ship ship = new Ship(START_X,START_Y);
+        Board board = new Board();
+        KeyEvent key = new KeyEvent(board, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0,  KeyEvent.VK_RIGHT,' ');
+        board.getKeyListeners()[0].keyPressed(key);
+        ship.keyPressed(key);
+        assertEquals(+VELOCITY_X,ship.getVelX());
+    }
+    @Test
+    public void itShouldStopWhenYouReleaseTheKey() {
+
+        Ship ship = new Ship(START_X,START_Y);
+        Board board = new Board();
+        KeyEvent key = new KeyEvent(board, KeyEvent.KEY_RELEASED, System.currentTimeMillis(), 0,  KeyEvent.VK_RIGHT,' ');
+        board.getKeyListeners()[0].keyPressed(key);
+        ship.keyReleased(key);
+        assertEquals(0,ship.getVelX());
+        KeyEvent key2 = new KeyEvent(board, KeyEvent.KEY_RELEASED, System.currentTimeMillis(), 0,  KeyEvent.VK_LEFT,' ');
+        board.getKeyListeners()[0].keyPressed(key2);
+        ship.keyReleased(key2);
+        assertEquals(0,ship.getVelX());
     }
 }
