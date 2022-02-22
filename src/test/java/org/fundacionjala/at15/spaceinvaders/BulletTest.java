@@ -2,7 +2,6 @@ package org.fundacionjala.at15.spaceinvaders;
 
 import static org.junit.Assert.assertEquals;
 
-import org.fundacionjala.at15.spaceinvaders.Bullet;
 import org.junit.Test;
 
 public class BulletTest {

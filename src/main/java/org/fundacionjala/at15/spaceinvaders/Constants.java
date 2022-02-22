@@ -7,7 +7,7 @@ public final class Constants {
         static final int BOARD_WIDTH = 800;
         static final int BOARD_HEIGHT = 600;
         static final int GROUND = 290;
-        static final int DELAY = 5;
+        static final int DELAY = 20;
     }
 
     public final class Player {
@@ -27,11 +27,12 @@ public final class Constants {
         static final int ALIEN_HEIGHT = 10;
         static final int ALIEN_WIDTH = 20;
         static final int ALIEN_ROWS = 3;
-        static final int ALIEN_COLUMNS = 12;
-        static final int ALIEN_SEPARATION = 35;
+        static final int ALIEN_COLUMNS = 15;
+        static final int ALIEN_SEPARATION = 30;
         static final int ALIEN_DELTA_X = 1;
         static final int ALIEN_RANGE_OF_PROBABILITY = 100;
         static final int ALIEN_CHANCE = 7;
+        static final int ALIEN_BULLET_SPEED = 5;
 
     }
 
