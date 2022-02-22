@@ -51,17 +51,16 @@ public class Aliens {
 
     public void aliensShoot() {
         Random generator = new Random();
+        Bullet bomb = new Bullet(0, 0, false);
 
         for (Alien alien : aliens) {
-
             int shot = generator.nextInt(ALIEN_RANGE_OF_PROBABILITY);
-            Bullet bomb = new Bullet(alien.getPosX(), alien.getPosY(), false);
             alien.setBullet(bomb);
 
             if (shot == ALIEN_CHANCE && !bomb.bulletStatus()) {
                 bomb.fire();
-                //bomb.setPosX(alien.getPosX());
-                //bomb.setPosY(alien.getPosY());
+                bomb.setPosX(alien.getPosX());
+                bomb.setPosY(alien.getPosY());
             }
 
             if (bomb.bulletStatus()) {
