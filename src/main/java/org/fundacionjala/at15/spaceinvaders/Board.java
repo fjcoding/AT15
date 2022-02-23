@@ -54,7 +54,8 @@ public class Board extends JPanel {
         //ship.paint(g);
         drawShip(g);
         if (gun.shooted()) {
-            gun.paint(g);
+            //gun.paint(g);
+            drawBullet(g);
             gun.move();
         }
         drawAliens(g);
@@ -66,6 +67,10 @@ public class Board extends JPanel {
 
     private void drawShip(Graphics g) {
         g.drawImage(ship.getImage(), ship.getPosX(), ship.getPosY(), this);
+    }
+    private void drawBullet(Graphics g) {
+        g.setColor(Color.YELLOW);
+        g.fillRect(gun.getPosXBullet(), gun.getPosYBullet(), BULLET_WIDTH, BULLET_HEIGHT);
     }
 
     private void drawAliens(Graphics g) {
