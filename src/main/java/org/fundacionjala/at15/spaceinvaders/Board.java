@@ -20,8 +20,10 @@ public class Board extends JPanel {
     private Timer timer;
     private int deaths;
     private String explote = "src/main/resources/spaceinvaders/explosion.png";
+    private boolean aliensDrawed;
 
     public Board() {
+        this.aliensDrawed = false;
         addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -42,6 +44,10 @@ public class Board extends JPanel {
 
         timer = new Timer(DELAY, new GameCycle());
         timer.start();
+    }
+
+    public boolean getAliensDrawed() {
+        return this.aliensDrawed;
     }
 
     @Override
@@ -69,7 +75,7 @@ public class Board extends JPanel {
         g.fillRect(gun.getPosXBullet(), gun.getPosYBullet(), BULLET_WIDTH, BULLET_HEIGHT);
     }
 
-    private void drawAliens(Graphics g) {
+    public void drawAliens(Graphics g) {
         for (Alien alien : this.aliens.getAliens()) {
             if (alien.getBomb().bombStatus()) {
                 g.setColor(Color.CYAN);
@@ -77,6 +83,7 @@ public class Board extends JPanel {
             }
             g.drawImage(alien.getImage(), alien.getPosX(), alien.getPosY(), this);
         }
+        this.aliensDrawed = true;
     }
 
     private void update() {
