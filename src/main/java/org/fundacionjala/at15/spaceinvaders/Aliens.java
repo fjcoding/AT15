@@ -30,14 +30,14 @@ public class Aliens {
     public void moveAliens() {
         for (Alien alien : this.aliens) {
             int posX = alien.getPosX();
-            if (posX == 0 && this.alienDeltaX == -ALIEN_DELTA_X) {
+            if (posX <= 0 && this.alienDeltaX == -ALIEN_DELTA_X) {
                 this.alienDeltaX = ALIEN_DELTA_X;
                 List<Alien> aliens2 = aliens;
                 for (Alien alien2 : aliens2) {
                     alien2.setPosY(alien2.getPosY() + ALIEN_SEPARATION);
                 }
             }
-            if (posX == BOARD_WIDTH - ALIEN_WIDTH && this.alienDeltaX == ALIEN_DELTA_X) {
+            if (posX >= BOARD_WIDTH - ALIEN_WIDTH - ALIEN_WIDTH && this.alienDeltaX == ALIEN_DELTA_X) {
                 this.alienDeltaX = -ALIEN_DELTA_X;
                 List<Alien> aliens2 = aliens;
                 for (Alien alien2 : aliens2) {
