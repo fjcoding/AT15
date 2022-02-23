@@ -11,4 +11,11 @@ public class AliensTest {
 
         assertEquals(ALIEN_ROWS * ALIEN_COLUMNS, aliens.getAliens().size());
     }
+
+    @Test
+    public void itShouldMoveRight() {
+        Aliens theAliens = new Aliens(ALIEN_ROWS, ALIEN_COLUMNS);
+        theAliens.moveAliens();
+        assertEquals(ALIEN_INIT_X + ALIEN_DELTA_X, theAliens.getAliens().get(0).getPosX());
+    }
 }

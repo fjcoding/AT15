@@ -65,4 +65,7 @@ public class Ship extends Sprite {
         }
         return value;
     }
+    public int getVelX() {
+        return velX;
+    }
 }
