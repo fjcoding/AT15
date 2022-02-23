@@ -1,24 +1,24 @@
 package org.fundacionjala.at15.pacman;
 
 public class CommonFeatures {
-    protected final int rowLength = 10;
-    protected final int colLength = 10;
-    protected final int startPositionPacmanX = 1;
-    protected final int startPositionPacmanY = 1;
-    protected final int startPositionGhostX = 4;
-    protected final int startPositionGhostY = 4;
-    protected final int startPositionGhostX2 = 6;
-    protected final int startPositionGhostY2 = 6;
+    protected static final int ROW_LENGTH = 10;
+    protected static final int COL_LENGTH = 10;
+    protected static final int START_POSITION_PACMAN_X = 1;
+    protected static final int START_POSITION_PACMAN_Y = 1;
+    protected static final int START_POSITION_GHOST_X = 4;
+    protected static final int START_POSITION_GHOST_Y = 4;
+    protected static final int START_POSITION_GHOST_X_2 = 6;
+    protected static final int START_POSITION_GHOST_Y_2 = 6;
     protected static int transitionX = 0;
     protected static int transitionY = 0;
-    protected final int wall = 1;
-    protected final int pacman = 2;
-    protected final int ghost = 3;
-    protected final int dot = 4;
-    protected final int maxLives = 3;
-    protected final int dotScore = 10;
-    protected final String[] DIRECTION = new String[] {"w", "a", "s", "d" };
-    protected final int DEFAULT_CONSTANT = 10;
+    protected static final int WALL = 1;
+    protected static final int PACMAN = 2;
+    protected static final int GHOST = 3;
+    protected static final int DOT = 4;
+    protected static final int MAX_LIVES = 3;
+    protected static final int DOT_SCORE = 10;
+    protected static final String[] DIRECTION = new String[] {"w", "a", "s", "d" };
+    protected static final int DEFAULT_CONSTANT = 10;
 
     public CommonFeatures() {
 
@@ -35,4 +35,22 @@ public class CommonFeatures {
             this.transitionY++;
         }
     }
+
+    public int getTransitionX() {
+        return transitionX;
+    }
+
+    public int getTransitionY() {
+        return transitionY;
+    }
+
+    public void setTransitionX(int numberX) {
+        this.transitionX = numberX;
+    }
+
+    public void setTransitionY(int numberY) {
+        this.transitionY = numberY;
+    }
+
+
 }

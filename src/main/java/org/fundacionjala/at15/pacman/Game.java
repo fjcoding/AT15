@@ -13,9 +13,9 @@ public class Game extends CommonFeatures {
 
     public Game() {
         this.board = new Board();
-        this.pacman = new Pacman(startPositionPacmanX, startPositionPacmanY);
-        this.ghost1 = new Ghost(startPositionGhostX, startPositionGhostY);
-        this.ghost2 = new Ghost(startPositionGhostX2, startPositionGhostY2);
+        this.pacman = new Pacman(START_POSITION_PACMAN_X, START_POSITION_PACMAN_Y);
+        this.ghost1 = new Ghost(START_POSITION_GHOST_X, START_POSITION_GHOST_Y);
+        this.ghost2 = new Ghost(START_POSITION_GHOST_X_2, START_POSITION_GHOST_Y_2);
         this.score = 0;
 
     }
@@ -33,26 +33,24 @@ public class Game extends CommonFeatures {
     }
 
     public void restartAfterDie() {
-        pacman.setY(startPositionPacmanY);
-        pacman.setX(startPositionPacmanX);
-        ghost1.setX(startPositionGhostX);
-        ghost1.setY(startPositionGhostY);
-        ghost2.setX(startPositionGhostX2);
-        ghost2.setY(startPositionGhostY2);
+        pacman.setY(START_POSITION_PACMAN_Y);
+        pacman.setX(START_POSITION_PACMAN_X);
+        ghost1.setX(START_POSITION_GHOST_X);
+        ghost1.setY(START_POSITION_GHOST_Y);
+        ghost2.setX(START_POSITION_GHOST_X_2);
+        ghost2.setY(START_POSITION_GHOST_Y_2);
     }
 
     public void pacmanInFrontDot() {
         if (this.board.isDot(transitionX, transitionY)) {
             pacman.setX(transitionX);
             pacman.setY(transitionY);
-            // board.setPacmanX(pacman.getX());
-            // board.setPacmanY(pacman.getY());
         }
     }
 
     public void pacmanInFrontPellet() {
         if (this.board.isPellet(transitionX, transitionY)) {
-            this.score += dotScore;
+            this.score += DOT_SCORE;
             this.board.setDot(transitionX, transitionY);
             pacman.setX(transitionX);
             pacman.setY(transitionY);
@@ -60,7 +58,7 @@ public class Game extends CommonFeatures {
     }
 
     public void pacmanInFrontGhost() {
-        if (this.board.isGhost(transitionX, transitionY)) {// to board or game
+        if (this.board.isGhost(transitionX, transitionY)) {
             int currentPacmanLives = pacman.getLives() - 1;
             if (currentPacmanLives == 0) {
                 pacman.setIsDead(true);

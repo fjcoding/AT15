@@ -1,6 +1,6 @@
 package org.fundacionjala.at15.pacman;
 
-public class Pacman extends CommonFeatures{
+public class Pacman extends CommonFeatures {
 
     private int posX;
     private int posY;
@@ -11,7 +11,7 @@ public class Pacman extends CommonFeatures{
     public Pacman(int x, int y) {
         this.posX = x;
         this.posY = y;
-        this.lives = maxLives;
+        this.lives = MAX_LIVES;
         this.score = 0;
         this.isDead = false;
     }
@@ -23,7 +23,8 @@ public class Pacman extends CommonFeatures{
     public boolean isDead() {
         return this.isDead;
     }
-    public void setLives(int currentLife){
+
+    public void setLives(int currentLife) {
         this.lives = currentLife;
     }
 
