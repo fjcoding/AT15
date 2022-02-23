@@ -65,6 +65,8 @@ public class Board extends JPanel {
             g.drawImage(alien.getImage(), alien.getPosX(), alien.getPosY(), this);
 
         }
+        this.aliens.moveAliens();
+        this.aliens.aliensShoot();
         g.dispose();
         Toolkit.getDefaultToolkit().sync();
     }
