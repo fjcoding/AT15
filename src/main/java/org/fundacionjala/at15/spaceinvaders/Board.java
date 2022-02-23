@@ -87,8 +87,8 @@ public class Board extends JPanel {
     }
 
     private void gameOver(Graphics g) {
-        var small = new Font("Helvetica", Font.BOLD, FONT_SIZE);
-        var fontMetrics = this.getFontMetrics(small);
+        Font small = new Font("Helvetica", Font.BOLD, FONT_SIZE);
+        FontMetrics fontMetrics = this.getFontMetrics(small);
         g.setColor(Color.white);
         g.setFont(small);
         g.drawString(message, (BOARD_WIDTH - fontMetrics.stringWidth(message)) / 2, BOARD_HEIGHT / 2);
