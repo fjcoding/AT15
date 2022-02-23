@@ -2,6 +2,8 @@ package org.fundacionjala.at15.spaceinvaders;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import javax.swing.*;
+
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import java.awt.*;
 
@@ -21,6 +23,6 @@ public class BoardTest extends JPanel{
         myWindow.setLocationRelativeTo(null);
         myWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        assertTrue(true);
+        assertTrue(board.getAliensDrawed());
     }
 }

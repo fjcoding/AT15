@@ -23,7 +23,7 @@ public class Board extends JPanel {
     private boolean aliensDrawed;
 
     public Board() {
-        this.aliensDrawed = false;
+        this.aliensDrawed = true;
         addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
