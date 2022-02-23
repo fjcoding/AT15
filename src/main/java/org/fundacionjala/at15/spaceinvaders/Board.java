@@ -55,7 +55,8 @@ public class Board extends JPanel {
             gun.move();
         }
         for (Alien alien : this.aliens.getAliens()) {
-            alien.paint(g);
+            aliens.paint(g);
+            g.drawImage(alien.getImage(), alien.getPosX(), alien.getPosY(), this);
 
         }
         g.dispose();
@@ -64,14 +65,11 @@ public class Board extends JPanel {
 
     private void update() {
         if (deaths == ALIENS_TO_DESTROY) {
-            // game must to stop
+            // game must stop
             timer.stop();
             // message of game win
         }
 
-        if (gun.shooted()) {
-            System.out.println("shoot");
-        }
 
         ship.move();
         aliens.moveAliens();

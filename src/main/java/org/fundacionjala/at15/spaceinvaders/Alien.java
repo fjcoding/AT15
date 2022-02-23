@@ -79,11 +79,10 @@ public class Alien extends Sprite {
     }
 
     public void paint(Graphics graphics) {
-        graphics.setColor(Color.RED);
-        graphics.fillOval(this.getPosX(), this.getPosY(), this.getWidth(), this.getHeight());
-        graphics.setColor(Color.CYAN);
-        if (bomb.bombStatus()) {
-            graphics.fillRect(bomb.getPosX(), bomb.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
-        }
+
+            Alien.Bomb bomb = this.getBomb();
+            if (bomb.bombStatus()) {
+                graphics.fillRect(bomb.getPosX(), bomb.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
+            }
     }
 }
