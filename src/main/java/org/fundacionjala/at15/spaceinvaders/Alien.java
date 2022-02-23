@@ -1,10 +1,6 @@
 package org.fundacionjala.at15.spaceinvaders;
 
 import javax.swing.*;
-import java.awt.*;
-import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
-
-import static org.fundacionjala.at15.spaceinvaders.Constants.Player.START_Y;
 
 public class Alien extends Sprite {
     private int width;
@@ -41,47 +37,5 @@ public class Alien extends Sprite {
 
     public Bomb getBomb() {
         return this.bomb;
-    }
-
-
-    public class Bomb extends Sprite {
-
-        private boolean fired = false;
-
-        public Bomb(int posX, int posY, boolean fired) {
-            this.posX = posX;
-            this.posY = posY;
-            this.fired = fired;
-        }
-
-        public void fire() {
-            this.fired = true;
-        }
-
-        public void destroyed() {
-            this.fired = false;
-        }
-
-        public void move() {
-            if (fired) {
-                if (getPosY() <= 0) {
-                    setPosY(START_Y);
-                    destroyed();
-                } else {
-                    posY -= SPEED;
-                }
-            }
-        }
-
-        public boolean bombStatus() {
-            return fired;
-        }
-    }
-
-    public void paint(Graphics graphics) {
-        if (bomb.bombStatus()) {
-            graphics.setColor(Color.CYAN);
-            graphics.fillRect(bomb.getPosX(), bomb.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
-        }
     }
 }

@@ -10,9 +10,13 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 public class Aliens {
     private List<Alien> aliens;
     private int alienDeltaX = ALIEN_DELTA_X;
+    private int bulletsShooted;
+    private int bulletsDestroyed;
 
     public Aliens(int alienRows, int alienColumns) {
         aliens = new ArrayList<>();
+        bulletsShooted = 0;
+        bulletsDestroyed = 0;
         for (int yIndex = 0; yIndex < alienRows; yIndex++) {
             for (int xIndex = 0; xIndex < alienColumns; xIndex++) {
                 Alien alien = new Alien(
@@ -30,14 +34,14 @@ public class Aliens {
     public void moveAliens() {
         for (Alien alien : this.aliens) {
             int posX = alien.getPosX();
-            if (posX == 0 && this.alienDeltaX == -ALIEN_DELTA_X) {
+            if (posX <= 0 && this.alienDeltaX == -ALIEN_DELTA_X) {
                 this.alienDeltaX = ALIEN_DELTA_X;
                 List<Alien> aliens2 = aliens;
                 for (Alien alien2 : aliens2) {
                     alien2.setPosY(alien2.getPosY() + ALIEN_SEPARATION);
                 }
             }
-            if (posX == BOARD_WIDTH - ALIEN_WIDTH && this.alienDeltaX == ALIEN_DELTA_X) {
+            if (posX >= BOARD_WIDTH - ALIEN_WIDTH - ALIEN_WIDTH && this.alienDeltaX == ALIEN_DELTA_X) {
                 this.alienDeltaX = -ALIEN_DELTA_X;
                 List<Alien> aliens2 = aliens;
                 for (Alien alien2 : aliens2) {
@@ -52,20 +56,34 @@ public class Aliens {
         Random generator = new Random();
         for (Alien alien : aliens) {
             int shot = generator.nextInt(ALIEN_RANGE_OF_PROBABILITY);
-            Alien.Bomb bomb = alien.getBomb();
+            Bomb bomb = alien.getBomb();
 
             if (shot == ALIEN_CHANCE && !bomb.bombStatus()) {
                 bomb.fire();
                 bomb.setPosX(alien.getPosX());
                 bomb.setPosY(alien.getPosY());
+                bulletsShooted++;
             }
 
             if (bomb.bombStatus()) {
                 bomb.setPosY(bomb.getPosY() + ALIEN_BULLET_SPEED);
                 if (bomb.getPosY() >= BOARD_HEIGHT - BULLET_HEIGHT) {
                     bomb.destroyed();
+                    bulletsDestroyed++;
                 }
             }
         }
+    }
+
+    public void setAlienDeltaX(int param) {
+        this.alienDeltaX = param;
+    }
+
+    public int getBulletsShooted() {
+        return this.bulletsShooted;
+    }
+
+    public int getBulletsDestroyed() {
+        return this.bulletsDestroyed;
     }
 }

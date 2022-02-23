@@ -22,4 +22,18 @@ public class AlienTest {
 
         assertEquals(ALIEN_INIT_X + ALIEN_DELTA_X, theAlien.getPosX());
     }
+
+    @Test
+    public void itShouldHaveABullet() {
+        Alien theAlien = new Alien(ALIEN_INIT_X, ALIEN_INIT_Y, ALIEN_WIDTH, ALIEN_HEIGHT);
+
+        assertEquals(ALIEN_INIT_X, theAlien.getBomb().getPosX());
+        assertEquals(ALIEN_INIT_Y, theAlien.getBomb().getPosY());
+
+        Bomb bomb = new Bomb(0, 0, false);
+        theAlien.setBomb(bomb);
+
+        assertEquals(0, theAlien.getBomb().getPosX());
+        assertEquals(0, theAlien.getBomb().getPosY());
+    }
 }
