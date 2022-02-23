@@ -51,15 +51,12 @@ public class Board extends JPanel {
         // Font score = new Font("Arial" ,Font.BOLD, 25) ;
         // g.setFont (score);
         block.paint(g);
-        //ship.paint(g);
         drawShip(g);
         if (gun.shooted()) {
             gun.paint(g);
             gun.move();
         }
         drawAliens(g);
-        this.aliens.moveAliens();
-        this.aliens.aliensShoot();
         g.dispose();
         Toolkit.getDefaultToolkit().sync();
     }
