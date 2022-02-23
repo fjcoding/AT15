@@ -18,9 +18,9 @@ public class Menu {
         buttons = new JButton[2];
     }
 
-    public void introMenu(Window window, Presentation presentacion){
+    public void introMenu(Window window){
 
-        presentacion.panelPresentation.setVisible(false);
+        //presentacion.panelPresentation.setVisible(false);
         panelMenu = new JPanel();
         panelMenu.setLayout(null);
         panelMenu.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());
@@ -48,7 +48,7 @@ public class Menu {
 
     }
 
-    public void eventoMenu(Window window, Play play){
+    public void menuEvent(Window window, Play play){
 
         buttons[0].addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e){

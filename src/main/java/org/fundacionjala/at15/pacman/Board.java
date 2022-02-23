@@ -49,8 +49,6 @@ public class Board {
         }
     }
 
-
-
     public void moverPacman(Window window, JPanel gamePanel, JPanel menuPanel, JLabel records){
         timer = new Timer (200, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
