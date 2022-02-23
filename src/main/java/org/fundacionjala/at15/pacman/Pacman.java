@@ -1,54 +1,28 @@
 package org.fundacionjala.at15.pacman;
 
-public class Pacman extends CommonFeatures {
-
+public class Pacman {
     private int posX;
     private int posY;
-    private int lives;
-    private int score;
-    private boolean isDead;
 
-    public Pacman(int x, int y) {
-        this.posX = x;
-        this.posY = y;
-        this.lives = MAX_LIVES;
-        this.score = 0;
-        this.isDead = false;
+    public Pacman() {
+        posX = 1;
+        posY = 1;
     }
 
-    public void setIsDead(boolean newState) {
-        this.isDead = true;
+    public int getPosX() {
+        return posX;
     }
 
-    public boolean isDead() {
-        return this.isDead;
+    public int getPosY() {
+        return posY;
     }
 
-    public void setLives(int currentLife) {
-        this.lives = currentLife;
-    }
-
-    public int getLives() {
-        return this.lives;
-    }
-
-    public int getScore() {
-        return this.score;
-    }
-
-    public int getX() {
-        return this.posX;
-    }
-
-    public int getY() {
-        return this.posY;
-    }
-
-    public void setX(int newPosX) {
+    public void setPosX(int newPosX) {
         this.posX = newPosX;
     }
 
-    public void setY(int newPosY) {
+    public void setPosY(int newPosY) {
         this.posY = newPosY;
     }
+
 }

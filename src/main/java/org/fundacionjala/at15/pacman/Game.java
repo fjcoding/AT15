@@ -1,141 +1,28 @@
 package org.fundacionjala.at15.pacman;
 
-import java.util.Random;
-import java.util.Scanner;
+import javax.swing.*;
 
 public class Game extends CommonFeatures {
 
-    private Board board;
-    private Pacman pacman;
-    private Ghost ghost1;
-    private Ghost ghost2;
-    private int score;
+    private Window window;
+    private Menu menu;
+    private Play play;
 
     public Game() {
-        this.board = new Board();
-        this.pacman = new Pacman(START_POSITION_PACMAN_X, START_POSITION_PACMAN_Y);
-        this.ghost1 = new Ghost(START_POSITION_GHOST_X, START_POSITION_GHOST_Y);
-        this.ghost2 = new Ghost(START_POSITION_GHOST_X_2, START_POSITION_GHOST_Y_2);
-        this.score = 0;
 
-    }
+        window = new Window();
 
-    public int getScore() {
-        return score;
-    }
+        menu = new Menu();
 
-    public void setScore(int newScore) {
-        this.score = newScore;
-    }
+        play = new Play();
 
-    public String[] getDirection() {
-        return DIRECTION;
-    }
-
-    public void restartAfterDie() {
-        pacman.setY(START_POSITION_PACMAN_Y);
-        pacman.setX(START_POSITION_PACMAN_X);
-        ghost1.setX(START_POSITION_GHOST_X);
-        ghost1.setY(START_POSITION_GHOST_Y);
-        ghost2.setX(START_POSITION_GHOST_X_2);
-        ghost2.setY(START_POSITION_GHOST_Y_2);
-    }
-
-    public void pacmanInFrontDot() {
-        if (this.board.isDot(transitionX, transitionY)) {
-            pacman.setX(transitionX);
-            pacman.setY(transitionY);
+        for (int ind = 0; ind < menu.getButtons().length; ind++) {
+            menu.getButtons()[ind] = new JButton();
         }
-    }
 
-    public void pacmanInFrontPellet() {
-        if (this.board.isPellet(transitionX, transitionY)) {
-            this.score += DOT_SCORE;
-            this.board.setDot(transitionX, transitionY);
-            pacman.setX(transitionX);
-            pacman.setY(transitionY);
-        }
-    }
+        menu.introMenu(window);
+        menu.menuEvent(window, play);
 
-    public void pacmanInFrontGhost() {
-        if (this.board.isGhost(transitionX, transitionY)) {
-            int currentPacmanLives = pacman.getLives() - 1;
-            if (currentPacmanLives == 0) {
-                pacman.setIsDead(true);
-            }
-            pacman.setLives(currentPacmanLives);
-            restartAfterDie();
-        }
-    }
-
-    public void ghostInFrontPacman() {
-        if (this.board.isPacman(transitionX, transitionY)) {
-            int currentPacmanLives = pacman.getLives() - 1;
-            if (currentPacmanLives == 0) {
-                pacman.setIsDead(true);
-            }
-            pacman.setLives(currentPacmanLives);
-            restartAfterDie();
-        }
-    }
-
-    public void ghostInFrontDot(Ghost newGhost) {
-        if (this.board.isDot(transitionX, transitionY)) {
-            newGhost.setX(transitionX);
-            newGhost.setY(transitionY);
-            this.board.setDot(transitionX, transitionY);
-        }
-    }
-
-    public void ghostInFrontPellet(Ghost newGhost) {
-        if (this.board.isPellet(transitionX, transitionY)) {
-            this.board.setPellet(transitionX, transitionY);
-            newGhost.setX(transitionX);
-            newGhost.setY(transitionY);
-        }
-    }
-
-    public void start(Scanner scanner) {
-        while (true) {
-            this.board.printBoard();
-            transitionX = pacman.getX();
-            transitionY = pacman.getY();
-            this.pacman.move(scanner.nextLine());
-            pacmanInFrontDot();
-            pacmanInFrontPellet();
-            pacmanInFrontGhost();
-            board.setPacmanX(pacman.getX());
-            board.setPacmanY(pacman.getY());
-            transitionX = ghost1.getX();
-            transitionY = ghost1.getY();
-            this.ghost1.move(DIRECTION[new Random().nextInt(DIRECTION.length)]);
-            ghostInFrontPacman();
-            ghostInFrontDot(ghost1);
-            ghostInFrontPellet(ghost1);
-            board.setGhostX(ghost1.getX());
-            board.setGhostY(ghost1.getY());
-            transitionX = ghost2.getX();
-            transitionY = ghost2.getY();
-            this.ghost2.move(DIRECTION[new Random().nextInt(DIRECTION.length)]);
-            ghostInFrontPacman();
-            ghostInFrontDot(ghost2);
-            ghostInFrontPellet(ghost2);
-            board.setGhostX2(ghost2.getX());
-            board.setGhostY2(ghost2.getY());
-            System.out.println("Score: " + this.score);
-
-            if (this.pacman.isDead()) {
-                System.out.println("Game Over");
-                System.out.println("Score: " + this.score);
-                break;
-            } else if (score == ((board.getBoard().length - 2) * (board.getBoard()[0].length - 2) - 1)
-                    * DEFAULT_CONSTANT) {
-                System.out.println("Next Level");
-                System.out.println("Score: " + this.score);
-                System.out.println("Level: " + board.getLevel());
-                setScore(0);
-                board.restart();
-            }
-        }
+        window.getWindow().setVisible(true);
     }
 }

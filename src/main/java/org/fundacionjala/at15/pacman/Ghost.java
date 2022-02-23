@@ -1,27 +1,28 @@
 package org.fundacionjala.at15.pacman;
 
-public class Ghost extends CommonFeatures {
+public class Ghost {
     private int posX;
     private int posY;
 
-    public Ghost(int x, int y) {
-        this.posX = x;
-        this.posY = y;
+    public Ghost(int newPosX, int newPosY) {
+        this.posX = newPosX;
+        this.posY = newPosY;
     }
 
-    public void setX(int newX) {
-        this.posX = newX;
-    }
-
-    public void setY(int newY) {
-        this.posY = newY;
-    }
-
-    public int getX() {
+    public int getPosX() {
         return posX;
     }
 
-    public int getY() {
+    public int getPosY() {
         return posY;
     }
+
+    public void setPosX(int newPosX) {
+        this.posX = newPosX;
+    }
+
+    public void setPosY(int newPosY) {
+        this.posY = newPosY;
+    }
+
 }
