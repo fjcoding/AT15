@@ -68,4 +68,8 @@ public class Aliens {
             }
         }
     }
+
+    public void setAlienDeltaX(int param) {
+        this.alienDeltaX = param;
+    }
 }
