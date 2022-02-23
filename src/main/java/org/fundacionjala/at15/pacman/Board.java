@@ -49,12 +49,11 @@ public class Board {
         }
     }
 
-    public void moverPacman(Window window, JPanel gamePanel, JPanel menuPanel, JLabel records){
+    public void moverPacman(Window window, JPanel gamePanel, JLabel records){
         timer = new Timer (200, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (up == 1 && (board[pacman.getPosX()][pacman.getPosY()-1]==4 || board[pacman.getPosX()][pacman.getPosY()-1]==0)) {
                     if (board[pacman.getPosX()][pacman.getPosY()-1]==4) {
-
                         point+=5;
                         records.setText("points: "+point);
                     }
@@ -71,8 +70,6 @@ public class Board {
                         records.setText("points: "+point);
                     }
                     board[pacman.getPosX()][pacman.getPosY()]=0;
-
-
                     pacman.setPosY(pacman.getPosY()+1);
                     board[pacman.getPosX()][pacman.getPosY()]=2;
                     insertBoard(gamePanel);
@@ -84,11 +81,9 @@ public class Board {
                         records.setText("points: "+point);
                     }
                     board[pacman.getPosX()][pacman.getPosY()]=0;
-
                     pacman.setPosX(pacman.getPosX()-1);
                     board[pacman.getPosX()][pacman.getPosY()]=2;
                     insertBoard(gamePanel);
-
                 }
                 if (right == 1 && (board[pacman.getPosX()+1][pacman.getPosY()]==4 || board[pacman.getPosX()+1][pacman.getPosY()]==0)) {
                     if (board[pacman.getPosX()+1][pacman.getPosY()]==4) {
@@ -100,7 +95,6 @@ public class Board {
                     pacman.setPosX(pacman.getPosX()+1);
                     board[pacman.getPosX()][pacman.getPosY()]=2;
                     insertBoard(gamePanel);
-
                 }
                 int enc = 0;
                 for (int i = 0; i < board.length; i++) {
@@ -113,7 +107,7 @@ public class Board {
                 if (enc == 0) {
                     JOptionPane.showMessageDialog(window.getWindow(), "YOU WIN!!!!");
                     gamePanel.setVisible(false);
-                    menuPanel.setVisible(true);
+                    Menu.panelMenu.setVisible(true);
                     timer.stop();
                 }
             }
@@ -165,12 +159,9 @@ public class Board {
                         left=0;
                         right=1;
                     }
-
-
                 }
                 //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
-
             @Override
             public void keyReleased(KeyEvent e) {
                 //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

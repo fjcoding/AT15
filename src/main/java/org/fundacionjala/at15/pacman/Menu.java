@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Menu {
 
-    JPanel panelMenu;
+    static JPanel panelMenu;
     JButton buttons[];
     JLabel menuBackground;
     ImageIcon imageMenuBackground;
@@ -59,7 +59,7 @@ public class Menu {
                 while (player == null || player.compareTo("Write here") == 0 || player.compareTo("")==0) {
                     player = JOptionPane.showInputDialog(window.getWindow(), "Write player name", "Write here");
                 }
-                play.jugar(window, panelMenu, player);
+                play.jugar(window, player);
             }
         });
 

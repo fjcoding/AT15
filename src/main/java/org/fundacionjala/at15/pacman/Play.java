@@ -21,8 +21,8 @@ public class Play {
        points = 0;
     }
 
-    public void jugar(Window window, JPanel panelMenu, String player){
-        panelMenu.setVisible(false);
+    public void jugar(Window window, String player){
+        Menu.panelMenu.setVisible(false);
         gamePanel = new JPanel();
         gamePanel.setLayout(null);
         gamePanel.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());
@@ -56,7 +56,7 @@ public class Play {
         records.setVisible(true);
         gamePanel.add(records,0);
 
-        board.moverPacman(window, gamePanel, panelMenu, records);
+        board.moverPacman(window, gamePanel, records);
 
         window.getWindow().add(gamePanel);
     }
