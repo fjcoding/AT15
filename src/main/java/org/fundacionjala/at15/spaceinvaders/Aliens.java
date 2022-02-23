@@ -1,6 +1,5 @@
 package org.fundacionjala.at15.spaceinvaders;
 
-import java.awt.image.ImageObserver;
 import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;

@@ -7,7 +7,7 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 public class Gun extends Sprite {
 
     private Ship ship;
-    Bullet bullet;
+    private Bullet bullet;
 
     public Gun(Ship ship) {
         this.ship = ship;

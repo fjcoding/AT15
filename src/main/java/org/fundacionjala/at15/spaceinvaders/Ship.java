@@ -3,7 +3,6 @@ package org.fundacionjala.at15.spaceinvaders;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.*;
-import java.awt.image.ImageObserver;
 
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;

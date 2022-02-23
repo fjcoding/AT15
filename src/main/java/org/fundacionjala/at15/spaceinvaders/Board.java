@@ -82,20 +82,17 @@ public class Board extends JPanel {
         aliens.aliensShoot();
 
         if (gun.isVisible()) {
-
             int shotY = gun.getPosYBullet();
             int shotX = gun.getPosXBullet();
-
             for (Alien alien: this.aliens.getAliens()) {
                 int alienX = alien.getPosX();
                 int alienY = alien.getPosY();
-
                 if (alien.isVisible() && gun.shooted()) {
-                    if(shotX >= (alienX) &&
-                            shotX <= (alienX + ALIEN_WIDTH) &&
-                            shotY >= (alienY) &&
-                            shotY <= (alienY + ALIEN_HEIGHT)) {
-                        var imageIcon = new ImageIcon(explote);
+                    if (shotX >= (alienX)
+                        && shotX <= (alienX + ALIEN_WIDTH)
+                        && shotY >= (alienY)
+                        && shotY <= (alienY + ALIEN_HEIGHT)) {
+                        ImageIcon imageIcon = new ImageIcon(explote);
                         alien.setImage(imageIcon.getImage());
                         alien.setDying(true);
                         deaths++;

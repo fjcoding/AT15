@@ -63,8 +63,8 @@ public class Alien extends Sprite {
         }
 
         public void move() {
-            if(fired) {
-                if (getPosY() <=0) {
+            if (fired) {
+                if (getPosY() <= 0) {
                     setPosY(START_Y);
                     destroyed();
                 } else {
@@ -79,10 +79,9 @@ public class Alien extends Sprite {
     }
 
     public void paint(Graphics graphics) {
-
-            Alien.Bomb bomb = this.getBomb();
-            if (bomb.bombStatus()) {
-                graphics.fillRect(bomb.getPosX(), bomb.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
-            }
+        Alien.Bomb thebomb = this.getBomb();
+        if (thebomb.bombStatus()) {
+            graphics.fillRect(thebomb.getPosX(), thebomb.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
+        }
     }
 }
