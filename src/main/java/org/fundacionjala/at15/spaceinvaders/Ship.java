@@ -19,11 +19,11 @@ public class Ship extends Sprite {
         setImage(imageIcon.getImage());
     }
 
-    public void paint(Graphics graphic) {
+    /*public void paint(Graphics graphic) {
 
-//        graphic.setColor(Color.GREEN);
-//        graphic.fillOval(Math.round(posX), Math.round(posY), DIAMETER, DIAMETER);
-    }
+      graphic.setColor(Color.GREEN);
+      graphic.fillOval(Math.round(posX), Math.round(posY), DIAMETER, DIAMETER);
+    }*/
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
