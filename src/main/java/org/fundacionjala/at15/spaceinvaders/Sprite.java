@@ -5,7 +5,7 @@ public class Sprite {
 
     private boolean visible;
     private Image image;
-    private boolean dying;
+    protected boolean dying;
 
     protected int posX;
     protected int posY;

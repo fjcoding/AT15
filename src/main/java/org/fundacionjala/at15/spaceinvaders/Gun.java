@@ -31,7 +31,6 @@ public class Gun extends Sprite {
      * }
      */
     public boolean shooted() {
-
         return bullet.bulletStatus();
     }
 
