@@ -15,7 +15,7 @@ public final class Constants {
         static final int PLAYER_WIDTH = 15;
         static final int PLAYER_HEIGHT = 10;
         static final int START_X = 400;
-        static final int START_Y = 545;
+        static final int START_Y = 510;
         static final int VELOCITY_X = 8;
         static final int DIAMETER = 15;
     }

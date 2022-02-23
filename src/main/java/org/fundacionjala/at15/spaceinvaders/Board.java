@@ -5,6 +5,7 @@ import javax.swing.Timer;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.ImageIcon;
+
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Block.*;
@@ -42,6 +43,10 @@ public class Board extends JPanel {
         timer.start();
     }
 
+    private void drawShip(Graphics g) {
+        g.drawImage(ship.getImage(), ship.getPosX(), ship.getPosY(), this);
+    }
+
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -49,7 +54,8 @@ public class Board extends JPanel {
         // Font score = new Font("Arial" ,Font.BOLD, 25) ;
         // g.setFont (score);
         block.paint(g);
-        ship.paint(g);
+        //ship.paint(g);
+        drawShip(g);
         if (gun.shooted()) {
             gun.paint(g);
             gun.move();
