@@ -20,8 +20,10 @@ public class Gun extends Sprite {
                 fire();
                 bullet.setPosX(ship.getPosX());
             } else {
+                System.out.print(' ');
             }
         } else {
+            System.out.print(' ');
         }
     }
     /**
