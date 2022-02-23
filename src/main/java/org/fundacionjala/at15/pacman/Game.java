@@ -1,55 +1,45 @@
 package org.fundacionjala.at15.pacman;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.*;
 
 public class Game {
 
-    public static final int DEFAULT_CONSTANT = 10;
+    Window window;
+    Presentation presentation;
+    Menu menu;
+    Play play;
+    Board board;
 
-    private Pacman pacman;
-    private Ghost ghost;
-    private Ghost2 ghost2;
-    private Board board;
-    private int score;
-    private static final String[] DIRECTION = new String[] {"w", "a", "s", "d" };
+    static int mat[][];
+    static JLabel matriz [][];
 
     public Game() {
-        this.board = new Board();
-        this.pacman = new Pacman(board);
-        this.ghost = new Ghost(board);
-        this.ghost2 = new Ghost2(board);
-        this.score = 0;
 
-    }
+        window = new Window();
 
-    public int getScore() {
-        return score;
-    }
+        presentation = new Presentation(window);
 
-    public String[] getDirection() {
-        return DIRECTION;
-    }
+        menu = new Menu();
 
-    public void start(Scanner scanner) {
-        while (true) {
-            this.board.printBoard();
-            this.pacman.move(scanner.nextLine());
-            this.ghost.move(DIRECTION[new Random().nextInt(DIRECTION.length)]);
-            this.ghost2.move(DIRECTION[new Random().nextInt(DIRECTION.length)]);
-            this.score += this.board.getScore();
+        play = new Play();
 
-            if (this.pacman.isDead()) {
-                System.out.println("Game Over");
-                System.out.println("Score: " + this.score);
-                break;
-            } else if (pacman.getScore() == ((board.getBoard().length - 2) * (board.getBoard()[0].length - 2) - 1)
-                    * DEFAULT_CONSTANT) {
-                System.out.println("Next Level");
-                System.out.println("Score: " + this.score);
-                System.out.println("Level: " + board.getLevel());
-                board.restart();
-            }
+
+        board = new Board();
+        for (int i = 0; i < menu.getButtons().length; i++) {
+            menu.getButtons()[i] = new JButton();
         }
+
+        presentation.getStart().addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e){
+                System.out.println("START");
+                menu.introMenu(window, presentation);
+                menu.eventoMenu(window, play);
+            }
+        });
+
+        window.getWindow().add(presentation.getPanelPresentation());
+        window.getWindow().setVisible(true);
     }
 }

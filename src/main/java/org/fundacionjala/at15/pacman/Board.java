@@ -1,210 +1,214 @@
 package org.fundacionjala.at15.pacman;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
 public class Board {
     private int[][] board; // 0 = empty, 1 = wall, 2 = pacman, 3 = ghost, 4 = dot
-    private final int rowLength = 10;
-    private final int colLength = 10;
-    private final int startPositionPacmanX = 1;
-    private final int startPositionPacmanY = 1;
-    private final int startPositionGhostX = 4;
-    private final int startPositionGhostY = 4;
-    private final int startPositionGhostX2 = 6;
-    private final int startPositionGhostY2 = 6;
-    private final int wall = 1;
-    private final int pacman = 2;
-    private final int ghost = 3;
-    private final int dot = 4;
-    private int pacmanX;
-    private int pacmanY;
-    private int ghostX;
-    private int ghostY;
-    private int ghostX2;
-    private int ghostY2;
-    private int score;
-    private int level;
+    private JLabel[][] matriz ;
+    Pacman pacman;
+    Ghost ghost;
+    Play play;
+    int up=0, down=0, left=0, right=0;
+    Timer timer;
+    int point = 0;
 
     public Board() {
-        this.board = new int[rowLength][colLength];
-        this.pacmanX = startPositionPacmanX;
-        this.pacmanY = startPositionPacmanY;
-        this.ghostX = startPositionGhostX;
-        this.ghostY = startPositionGhostY;
-        this.ghostX2 = startPositionGhostX2;
-        this.ghostY2 = startPositionGhostY2;
-        this.score = 0;
-        this.level = 1;
-        this.initializeBoard();
-        this.fillWall();
-    }
+        board = new int[15][15];
+        matriz = new JLabel[15][15];
+        pacman = new Pacman();
+        ghost = new Ghost();
 
-    private void initializeBoard() {
-        for (int indexI = 0; indexI < rowLength; indexI++) {
-            for (int indexJ = 0; indexJ < colLength; indexJ++) {
-                this.board[indexI][indexJ] = dot;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                matriz[i][j] = new JLabel();
             }
         }
-        this.board[1][1] = pacman;
 
+        board = defectTable();
+        board[pacman.getPosX()][pacman.getPosY()] = 2;
+        board[ghost.getPosX()][ghost.getPosY()] = 3;
     }
 
-    private void fillWall() {
-        for (int indexI = 0; indexI < rowLength; indexI++) {
-            board[indexI][0] = wall;
-            board[indexI][colLength - 1] = wall;
+
+    public void insertBoard(JPanel gamePanel) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                matriz[i][j].setIcon(new ImageIcon("src/main/java/org/fundacionjala/at15/pacman/images/"+board[i][j]+".png"));
+                matriz[i][j].setBounds(120+(i*30), 120+(j*30), 30, 30);
+                matriz[i][j].setVisible(true);
+                gamePanel.add(matriz[i][j],0);
+            }
         }
-
-        for (int indexJ = 0; indexJ < colLength; indexJ++) {
-            board[0][indexJ] = wall;
-            board[rowLength - 1][indexJ] = wall;
-        }
-        // board[4][5] = 1;
-        // board[5][5] = 1;
-        // board[6][5] = 1;
     }
 
-    public void restart() {
-        pacmanX = startPositionPacmanX;
-        pacmanY = startPositionPacmanY;
-        ghostX = startPositionGhostX;
-        ghostY = startPositionGhostY;
-        ghostX2 = startPositionGhostY2;
-        ghostY2 = startPositionGhostY2;
-        setScore(0);
-        level = level + 1;
-        initializeBoard();
-        fillWall();
-    }
 
-    public void restartAfterDie() {
-        pacmanY = startPositionPacmanY;
-        pacmanX = startPositionPacmanX;
-        ghostX = startPositionGhostX;
-        ghostY = startPositionGhostY;
-        ghostX2 = startPositionGhostX2;
-        ghostY2 = startPositionGhostY2;
-    }
 
-    public void printBoard() {
-        for (int indexI = 0; indexI < board.length; indexI++) {
-            for (int indexJ = 0; indexJ < board[indexI].length; indexJ++) {
-                if (indexI == pacmanX && indexJ == pacmanY) {
-                    System.out.print("P ");
-                } else if (board[indexI][indexJ] == wall) {
-                    System.out.print("# ");
-                } else if (indexI == ghostX2 && indexJ == ghostY2) {
-                    System.out.print("G ");
-                } else if (indexI == ghostX && indexJ == ghostY) {
-                    System.out.print("G ");
-                } else if (board[indexI][indexJ] == ghost) {
-                    System.out.print("G ");
-                } else if (board[indexI][indexJ] == pacman) {
-                    System.out.print(". ");
-                } else if (board[indexI][indexJ] == dot) {
-                    System.out.print("* ");
-                } else {
-                    System.out.print("  ");
+    public void moverPacman(Window window, JPanel gamePanel, JPanel menuPanel, JLabel records){
+        timer = new Timer (200, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (up == 1 && (board[pacman.getPosX()][pacman.getPosY()-1]==4 || board[pacman.getPosX()][pacman.getPosY()-1]==0)) {
+                    if (board[pacman.getPosX()][pacman.getPosY()-1]==4) {
+
+                        point+=5;
+                        records.setText("points: "+point);
+                    }
+                    board[pacman.getPosX()][pacman.getPosY()]=0;
+
+                    pacman.setPosY(pacman.getPosY()-1);
+                    board[pacman.getPosX()][pacman.getPosY()]=2;
+                    insertBoard(gamePanel);
+
+                }
+                if (down == 1 && (board[pacman.getPosX()][pacman.getPosY()+1]==4 || board[pacman.getPosX()][pacman.getPosY()+1]==0)) {
+                    if (board[pacman.getPosX()][pacman.getPosY()+1]==4) {
+                        point+=5;
+                        records.setText("points: "+point);
+                    }
+                    board[pacman.getPosX()][pacman.getPosY()]=0;
+
+
+                    pacman.setPosY(pacman.getPosY()+1);
+                    board[pacman.getPosX()][pacman.getPosY()]=2;
+                    insertBoard(gamePanel);
+
+                }
+                if (left == 1 && (board[pacman.getPosX()-1][pacman.getPosY()]==4 || board[pacman.getPosX()-1][pacman.getPosY()]==0)) {
+                    if (board[pacman.getPosX()-1][pacman.getPosY()]==4) {
+                        point+=5;
+                        records.setText("points: "+point);
+                    }
+                    board[pacman.getPosX()][pacman.getPosY()]=0;
+
+                    pacman.setPosX(pacman.getPosX()-1);
+                    board[pacman.getPosX()][pacman.getPosY()]=2;
+                    insertBoard(gamePanel);
+
+                }
+                if (right == 1 && (board[pacman.getPosX()+1][pacman.getPosY()]==4 || board[pacman.getPosX()+1][pacman.getPosY()]==0)) {
+                    if (board[pacman.getPosX()+1][pacman.getPosY()]==4) {
+                        point+=5;
+                        records.setText("points: "+point);
+                    }
+                    board[pacman.getPosX()][pacman.getPosY()]=0;
+
+                    pacman.setPosX(pacman.getPosX()+1);
+                    board[pacman.getPosX()][pacman.getPosY()]=2;
+                    insertBoard(gamePanel);
+
+                }
+                int enc = 0;
+                for (int i = 0; i < board.length; i++) {
+                    for (int j = 0; j < board.length; j++) {
+                        if (board[i][j] == 4) {
+                            enc=1;
+                        }
+                    }
+                }
+                if (enc == 0) {
+                    JOptionPane.showMessageDialog(window.getWindow(), "YOU WIN!!!!");
+                    gamePanel.setVisible(false);
+                    menuPanel.setVisible(true);
+                    timer.stop();
                 }
             }
-            System.out.println();
-        }
-        System.out.println("Score: " + this.score);
+        });
+        timer.start();
+
+
+        window.getWindow().addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    System.out.println(" up");
+                    if (board[pacman.getPosX()][pacman.getPosY()-1]==4 || board[pacman.getPosX()][pacman.getPosY()-1]==0) {
+                        up = 1;
+                        down = 0;
+                        left=0;
+                        right=0;
+                    }
+                }
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    System.out.println(" down");
+                    if (board[pacman.getPosX()][pacman.getPosY()+1]==4 || board[pacman.getPosX()][pacman.getPosY()+1]==0) {
+                        up = 0;
+                        down = 1;
+                        left=0;
+                        right=0;
+                    }
+                }
+                if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                    System.out.println(" left");
+                    if (board[pacman.getPosX()-1][pacman.getPosY()]==4|| board[pacman.getPosX()-1][pacman.getPosY()]==0) {
+                        up = 0;
+                        down = 0;
+                        left=1;
+                        right=0;
+                    }
+
+                }
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                    System.out.println(" right");
+                    if (board[pacman.getPosX()+1][pacman.getPosY()]==4 || board[pacman.getPosX()+1][pacman.getPosY()]==0) {
+                        up = 0;
+                        down = 0;
+                        left=0;
+                        right=1;
+                    }
+
+
+                }
+                //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        });
     }
 
-    public int getLevel() {
-        return level;
-    }
 
-    public void setPacmanX(int posX) {
-        pacmanX = posX;
-    }
 
-    public void setPacmanY(int posY) {
-        pacmanY = posY;
-    }
-
-    public void setGhostX(int posX) {
-        ghostX = posX;
-    }
-
-    public void setGhostY(int posY) {
-        ghostY = posY;
-    }
-
-    public void setGhostX2(int posX) {
-        ghostX2 = posX;
-    }
-
-    public void setGhostY2(int posY) {
-        ghostY2 = posY;
-    }
-
-    public void setScore(int newScore) {
-        score = newScore;
-    }
-
-    public int getPacmanX() {
-        return pacmanX;
-    }
-
-    public int getPacmanY() {
-        return pacmanY;
-    }
-
-    public int getGhostX() {
-        return ghostX;
-    }
-
-    public int getGhostY() {
-        return ghostY;
-    }
-
-    public int getGhostX2() {
-        return ghostX2;
-    }
-
-    public int getGhostY2() {
-        return ghostY2;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public boolean isPacman(int posX, int posY) {
-        return posX == pacmanX && posY == pacmanY;
+    public int[][] defectTable(){
+        int aux[][]={
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,4,4,4,4,4,4,4,4,4,4,4,4,4,1},
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+                    };
+        return aux;
     }
 
     public int[][] getBoard() {
         return board;
     }
 
-    public boolean isWall(int posX, int posY) {
-        return board[posX][posY] == wall;
+    public void setBoard(int[][] board) {
+        this.board = board;
     }
 
-    public boolean isDot(int posX, int posY) {
-        return board[posX][posY] == 2;
-    }
-
-    public boolean isPellet(int posX, int posY) {
-        return board[posX][posY] == dot;
-    }
-
-    public boolean isGhost(int posX, int posY) {
-        boolean confirmation = false;
-        if (posX == ghostX && posY == ghostY) {
-            confirmation = true;
-        } else if (posX == ghostX2 && posY == ghostY2) {
-            confirmation = true;
-        }
-        return confirmation;
-    }
-
-    public void setDot(int posX, int posY) {
-        board[posX][posY] = 2;
-    }
-
-    public void setPellet(int posX, int posY) {
-        board[posX][posY] = dot;
-    }
 }
