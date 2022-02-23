@@ -14,8 +14,8 @@ public class Ship extends Sprite {
         this.posX = posX;
         this.posY = posY;
 
-        var shipImage = "src/main/resources/spaceinvaders/player.png";
-        var imageIcon = new ImageIcon(shipImage);
+        String shipImage = "src/main/resources/spaceinvaders/player.png";
+        ImageIcon imageIcon = new ImageIcon(shipImage);
         setImage(imageIcon.getImage());
     }
 

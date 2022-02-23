@@ -18,8 +18,8 @@ public class Alien extends Sprite {
         this.height = height;
         this.bomb = new Bomb(posX, posY, false);
 
-        var alienImg = "src/main/resources/spaceinvaders/alien.png";
-        var imageIcon = new ImageIcon(alienImg);
+        String alienImg = "src/main/resources/spaceinvaders/alien.png";
+        ImageIcon imageIcon = new ImageIcon(alienImg);
         this.setImage(imageIcon.getImage());
     }
 
