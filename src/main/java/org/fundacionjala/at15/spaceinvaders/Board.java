@@ -2,7 +2,7 @@ package org.fundacionjala.at15.spaceinvaders;
 
 import java.awt.event.*;
 import javax.swing.Timer;
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.*;
 import javax.swing.ImageIcon;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
@@ -17,7 +17,7 @@ public class Board extends JPanel {
     private Block block = new Block(ASTEROID_LIFE);
     private Timer timer;
     private int deaths;
-    private String explote = "src/main/resources/spaceinvaders/alien.png";
+    private String explote = "src/main/resources/spaceinvaders/explosion.png";
 
     public Board() {
         addKeyListener(new KeyListener() {
@@ -56,6 +56,7 @@ public class Board extends JPanel {
         }
         for (Alien alien : this.aliens.getAliens()) {
             alien.paint(g);
+
         }
         g.dispose();
         Toolkit.getDefaultToolkit().sync();
@@ -68,8 +69,8 @@ public class Board extends JPanel {
             // message of game win
         }
 
-        if(gun.bullet.isVisible()) {
-            System.out.println("sshout");
+        if (gun.shooted()) {
+            System.out.println("shoot");
         }
 
         ship.move();
