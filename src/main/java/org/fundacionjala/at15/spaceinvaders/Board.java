@@ -10,6 +10,7 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Block.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 
 public class Board extends JPanel {
     private Aliens aliens = new Aliens(ALIEN_ROWS, ALIEN_COLUMNS);
@@ -69,7 +70,10 @@ public class Board extends JPanel {
 
     private void drawAliens(Graphics g) {
         for (Alien alien : this.aliens.getAliens()) {
-            alien.paint(g);
+            if (alien.getBomb().bombStatus()) {
+                g.setColor(Color.CYAN);
+                g.fillRect(alien.getBomb().getPosX(), alien.getBomb().getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
+            }
             g.drawImage(alien.getImage(), alien.getPosX(), alien.getPosY(), this);
         }
     }

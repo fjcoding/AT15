@@ -56,7 +56,7 @@ public class Aliens {
         Random generator = new Random();
         for (Alien alien : aliens) {
             int shot = generator.nextInt(ALIEN_RANGE_OF_PROBABILITY);
-            Alien.Bomb bomb = alien.getBomb();
+            Bomb bomb = alien.getBomb();
 
             if (shot == ALIEN_CHANCE && !bomb.bombStatus()) {
                 bomb.fire();
