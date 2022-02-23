@@ -1,29 +1,28 @@
 package org.fundacionjala.at15.spaceinvaders;
 
 import java.awt.event.KeyEvent;
-import java.awt.*;
-import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
+
 
 public class Gun extends Sprite {
 
     private Ship ship;
-    Bullet bullet;
+    private Bullet bullet;
 
     public Gun(Ship ship) {
         this.ship = ship;
         this.bullet = new Bullet(this.ship.getPosX(), this.ship.getPosY(), false);
     }
-    public void paint(Graphics graphic) {
-        graphic.setColor(Color.YELLOW);
-        graphic.fillRect(bullet.getPosX(), bullet.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
 
-    }
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             if (!bullet.bulletStatus()) {
                 fire();
                 bullet.setPosX(ship.getPosX());
+            } else {
+                System.out.print(' ');
             }
+        } else {
+            System.out.print(' ');
         }
     }
     /**

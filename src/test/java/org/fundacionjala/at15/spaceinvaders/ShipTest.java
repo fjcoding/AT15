@@ -1,6 +1,9 @@
 package org.fundacionjala.at15.spaceinvaders;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
+
+import java.awt.*;
+
 import static org.junit.Assert.assertEquals;
 import java.awt.event.KeyEvent;
 import org.junit.Test;
@@ -21,10 +24,10 @@ public class ShipTest {
     public void itShouldMoveUpToLimit() {
         Ship theShip = new Ship(START_X, START_Y);
         int min = 0;
-        int max = 800;
+        int max = BOARD_WIDTH;
         assertEquals(100, theShip.moveUptoLimit(100, min, max));
         assertEquals(0, theShip.moveUptoLimit(-1, min, max));
-        assertEquals(800, theShip.moveUptoLimit(801, min, max));
+        assertEquals(BOARD_WIDTH, theShip.moveUptoLimit(801, min, max));
     }
 
     @Test
