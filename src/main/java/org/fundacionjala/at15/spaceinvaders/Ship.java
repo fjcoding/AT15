@@ -1,5 +1,6 @@
 package org.fundacionjala.at15.spaceinvaders;
 
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.*;
 
@@ -12,16 +13,16 @@ public class Ship extends Sprite {
     public Ship(int posX, int posY) {
         this.posX = posX;
         this.posY = posY;
+
+        String shipImage = "src/main/resources/spaceinvaders/player.png";
+        ImageIcon imageIcon = new ImageIcon(shipImage);
+        setImage(imageIcon.getImage());
     }
 
     public void paint(Graphics graphic) {
-        // ImageIcon ship = new
-        // ImageIcon(getClass().getResource("src/main/resources/spaceinvaders/ship.png"));
-        // graphic.drawImage(ship.getImage(), posX, posY, PLAYER_WIDTH, PLAYER_HEIGHT,
-        // null);
 
-        graphic.setColor(Color.GREEN);
-        graphic.fillOval(Math.round(posX), Math.round(posY), DIAMETER, DIAMETER);
+//        graphic.setColor(Color.GREEN);
+//        graphic.fillOval(Math.round(posX), Math.round(posY), DIAMETER, DIAMETER);
     }
 
     public void keyPressed(KeyEvent e) {

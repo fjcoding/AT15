@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 
-public class Gun {
+public class Gun extends Sprite {
 
     private Ship ship;
     private Bullet bullet;
@@ -41,6 +41,10 @@ public class Gun {
     }
     public int getPosYBullet() {
         return bullet.getPosY();
+    }
+
+    public int getPosXBullet() {
+        return bullet.getPosX();
     }
     public void fire() {
         bullet.fire();

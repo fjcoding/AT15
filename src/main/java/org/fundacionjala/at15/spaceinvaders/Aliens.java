@@ -52,15 +52,15 @@ public class Aliens {
         Random generator = new Random();
         for (Alien alien : aliens) {
             int shot = generator.nextInt(ALIEN_RANGE_OF_PROBABILITY);
-            Bullet bomb = alien.getBullet();
+            Alien.Bomb bomb = alien.getBomb();
 
-            if (shot == ALIEN_CHANCE && !bomb.bulletStatus()) {
+            if (shot == ALIEN_CHANCE && !bomb.bombStatus()) {
                 bomb.fire();
                 bomb.setPosX(alien.getPosX());
                 bomb.setPosY(alien.getPosY());
             }
 
-            if (bomb.bulletStatus()) {
+            if (bomb.bombStatus()) {
                 bomb.setPosY(bomb.getPosY() + ALIEN_BULLET_SPEED);
                 if (bomb.getPosY() >= BOARD_HEIGHT - BULLET_HEIGHT) {
                     bomb.destroyed();
