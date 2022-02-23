@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 
-import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.START_Y;
 
 public class Alien extends Sprite {
@@ -80,17 +79,9 @@ public class Alien extends Sprite {
     }
 
     public void paint(Graphics graphics) {
-<<<<<<< HEAD
-        Alien.Bomb thebomb = this.getBomb();
-        if (thebomb.bombStatus()) {
-            graphics.fillRect(thebomb.getPosX(), thebomb.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
-=======
-        graphics.setColor(Color.RED);
-        graphics.fillOval(this.getPosX(), this.getPosY(), this.getWidth(), this.getHeight());
-        if (bullet.bulletStatus()) {
+        if (bomb.bombStatus()) {
             graphics.setColor(Color.CYAN);
-            graphics.fillRect(bullet.getPosX(), bullet.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
->>>>>>> dev/spaceinvaders
+            graphics.fillRect(bomb.getPosX(), bomb.getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
         }
     }
 }

@@ -61,15 +61,12 @@ public class Board extends JPanel {
             gun.move();
         }
         for (Alien alien : this.aliens.getAliens()) {
-            aliens.paint(g);
+            alien.paint(g);
             g.drawImage(alien.getImage(), alien.getPosX(), alien.getPosY(), this);
 
         }
-<<<<<<< HEAD
-=======
         this.aliens.moveAliens();
         this.aliens.aliensShoot();
->>>>>>> dev/spaceinvaders
         g.dispose();
         Toolkit.getDefaultToolkit().sync();
     }

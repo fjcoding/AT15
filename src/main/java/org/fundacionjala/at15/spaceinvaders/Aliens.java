@@ -68,13 +68,4 @@ public class Aliens {
             }
         }
     }
-<<<<<<< HEAD
-
-    public void paint(Graphics graphic) {
-        graphic.setColor(Color.CYAN);
-
-    }
 }
-=======
-}
->>>>>>> dev/spaceinvaders
