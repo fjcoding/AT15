@@ -6,8 +6,7 @@ import org.junit.Test;
 
 public class GhostTest {
 
-    Board board = new Board();
-    Ghost ghost = new Ghost(board);
+    Ghost ghost = new Ghost(4,4);
 
     @Test
     public void itShouldSetXY(){

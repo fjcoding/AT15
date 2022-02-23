@@ -58,12 +58,6 @@ public class BoardTest {
     }
 
     @Test
-    public void itShouldHaveAScore() {
-        Board board = new Board();
-        assertEquals(0, board.getScore());
-    }
-
-    @Test
     public void itShouldHaveALevel() {
         Board board = new Board();
         assertEquals(1, board.getLevel());
@@ -100,15 +94,6 @@ public class BoardTest {
     }
 
     @Test
-    public void itShouldSetNewScore() {
-        Board board = new Board();
-        int newScore = 500;
-
-        board.setScore(newScore);
-        assertEquals(newScore, board.getScore());
-    }
-
-    @Test
     public void itShouldCheckIfPacmanExistInAGivenPosition() {
         Board board = new Board();
         int newX = 1;
@@ -129,15 +114,6 @@ public class BoardTest {
         assertFalse(board.isDot(3, 3));
         board.setDot(3, 3);
         assertTrue(board.isDot(3, 3));
-    }
-
-    @Test
-    public void itShouldVerifiesIfExistAWall() {
-        Board board = new Board();
-        assertFalse(board.isWall(1, 1));
-        assertFalse(board.isWall(3, 5));
-        assertTrue(board.isWall(0, 0));
-        assertTrue(board.isWall(9, 9));
     }
 
     @Test
@@ -163,33 +139,19 @@ public class BoardTest {
         board.setGhostY(2);
         board.setGhostX2(1);
         board.setGhostY2(7);
-        board.setScore(200);
 
         assertTrue(board.isPacman(5, 6));
         assertTrue(board.isGhost(2, 2));
         assertTrue(board.isGhost(1, 7));
-        assertEquals(200, board.getScore());
         board.restart();
 
         assertFalse(board.isPacman(5, 6));
         assertFalse(board.isGhost(2, 2));
         assertFalse(board.isGhost(1, 7));
-        assertEquals(0, board.getScore());
 
         assertTrue(board.isPacman(1, 1));
         assertTrue(board.isGhost(4, 4));
         assertTrue(board.isGhost(6, 6));
-    }
-
-    @Test
-    public void itShouldRestartAfterDie() {
-        Board board = new Board();
-        board.setPacmanX(4);
-        board.setPacmanY(4);
-
-        assertFalse(board.isPacman(1, 1));
-        board.restartAfterDie();
-        assertTrue(board.isPacman(1, 1));
     }
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -218,8 +180,7 @@ public class BoardTest {
                     "# * * * * * G * * # "+newline+
                     "# * * * * * * * * # "+newline+
                     "# * * * * * * * * # "+newline+
-                    "# # # # # # # # # # "+newline+
-                    "Score: 0"+newline
+                    "# # # # # # # # # # "+newline
                     , outContent.toString());
     }*/
 }
