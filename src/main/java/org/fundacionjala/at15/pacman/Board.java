@@ -1,61 +1,48 @@
 package org.fundacionjala.at15.pacman;
 
-public class Board {
+public class Board extends CommonFeatures {
     private int[][] board; // 0 = empty, 1 = wall, 2 = pacman, 3 = ghost, 4 = dot
-    private final int rowLength = 10;
-    private final int colLength = 10;
-    private final int startPositionPacmanX = 1;
-    private final int startPositionPacmanY = 1;
-    private final int startPositionGhostX = 4;
-    private final int startPositionGhostY = 4;
-    private final int startPositionGhostX2 = 6;
-    private final int startPositionGhostY2 = 6;
-    private final int wall = 1;
-    private final int pacman = 2;
-    private final int ghost = 3;
-    private final int dot = 4;
     private int pacmanX;
     private int pacmanY;
     private int ghostX;
     private int ghostY;
     private int ghostX2;
     private int ghostY2;
-    private int score;
     private int level;
 
     public Board() {
-        this.board = new int[rowLength][colLength];
-        this.pacmanX = startPositionPacmanX;
-        this.pacmanY = startPositionPacmanY;
-        this.ghostX = startPositionGhostX;
-        this.ghostY = startPositionGhostY;
-        this.ghostX2 = startPositionGhostX2;
-        this.ghostY2 = startPositionGhostY2;
-        this.score = 0;
+        this.board = new int[ROW_LENGTH][COL_LENGTH];
+        this.pacmanX = START_POSITION_PACMAN_X;
+        this.pacmanY = START_POSITION_PACMAN_Y;
+        this.ghostX = START_POSITION_GHOST_X;
+        this.ghostY = START_POSITION_GHOST_Y;
+        this.ghostX2 = START_POSITION_GHOST_X_2;
+        this.ghostY2 = START_POSITION_GHOST_Y_2;
+        //this.score = 0;
         this.level = 1;
         this.initializeBoard();
         this.fillWall();
     }
 
     private void initializeBoard() {
-        for (int indexI = 0; indexI < rowLength; indexI++) {
-            for (int indexJ = 0; indexJ < colLength; indexJ++) {
-                this.board[indexI][indexJ] = dot;
+        for (int indexI = 0; indexI < ROW_LENGTH; indexI++) {
+            for (int indexJ = 0; indexJ < COL_LENGTH; indexJ++) {
+                this.board[indexI][indexJ] = DOT;
             }
         }
-        this.board[1][1] = pacman;
+        this.board[1][1] = PACMAN;
 
     }
 
     private void fillWall() {
-        for (int indexI = 0; indexI < rowLength; indexI++) {
-            board[indexI][0] = wall;
-            board[indexI][colLength - 1] = wall;
+        for (int indexI = 0; indexI < ROW_LENGTH; indexI++) {
+            board[indexI][0] = WALL;
+            board[indexI][COL_LENGTH - 1] = WALL;
         }
 
-        for (int indexJ = 0; indexJ < colLength; indexJ++) {
-            board[0][indexJ] = wall;
-            board[rowLength - 1][indexJ] = wall;
+        for (int indexJ = 0; indexJ < COL_LENGTH; indexJ++) {
+            board[0][indexJ] = WALL;
+            board[ROW_LENGTH - 1][indexJ] = WALL;
         }
         // board[4][5] = 1;
         // board[5][5] = 1;
@@ -63,43 +50,34 @@ public class Board {
     }
 
     public void restart() {
-        pacmanX = startPositionPacmanX;
-        pacmanY = startPositionPacmanY;
-        ghostX = startPositionGhostX;
-        ghostY = startPositionGhostY;
-        ghostX2 = startPositionGhostY2;
-        ghostY2 = startPositionGhostY2;
-        setScore(0);
+        pacmanX = START_POSITION_PACMAN_X;
+        pacmanY = START_POSITION_PACMAN_Y;
+        ghostX = START_POSITION_GHOST_X;
+        ghostY = START_POSITION_GHOST_Y;
+        ghostX2 = START_POSITION_GHOST_Y_2;
+        ghostY2 = START_POSITION_GHOST_Y_2;
         level = level + 1;
         initializeBoard();
         fillWall();
     }
 
-    public void restartAfterDie() {
-        pacmanY = startPositionPacmanY;
-        pacmanX = startPositionPacmanX;
-        ghostX = startPositionGhostX;
-        ghostY = startPositionGhostY;
-        ghostX2 = startPositionGhostX2;
-        ghostY2 = startPositionGhostY2;
-    }
 
     public void printBoard() {
         for (int indexI = 0; indexI < board.length; indexI++) {
             for (int indexJ = 0; indexJ < board[indexI].length; indexJ++) {
                 if (indexI == pacmanX && indexJ == pacmanY) {
                     System.out.print("P ");
-                } else if (board[indexI][indexJ] == wall) {
+                } else if (board[indexI][indexJ] == WALL) {
                     System.out.print("# ");
                 } else if (indexI == ghostX2 && indexJ == ghostY2) {
                     System.out.print("G ");
                 } else if (indexI == ghostX && indexJ == ghostY) {
                     System.out.print("G ");
-                } else if (board[indexI][indexJ] == ghost) {
+                } else if (board[indexI][indexJ] == GHOST) {
                     System.out.print("G ");
-                } else if (board[indexI][indexJ] == pacman) {
+                } else if (board[indexI][indexJ] == PACMAN) {
                     System.out.print(". ");
-                } else if (board[indexI][indexJ] == dot) {
+                } else if (board[indexI][indexJ] == DOT) {
                     System.out.print("* ");
                 } else {
                     System.out.print("  ");
@@ -107,7 +85,6 @@ public class Board {
             }
             System.out.println();
         }
-        System.out.println("Score: " + this.score);
     }
 
     public int getLevel() {
@@ -138,10 +115,6 @@ public class Board {
         ghostY2 = posY;
     }
 
-    public void setScore(int newScore) {
-        score = newScore;
-    }
-
     public int getPacmanX() {
         return pacmanX;
     }
@@ -166,10 +139,6 @@ public class Board {
         return ghostY2;
     }
 
-    public int getScore() {
-        return score;
-    }
-
     public boolean isPacman(int posX, int posY) {
         return posX == pacmanX && posY == pacmanY;
     }
@@ -178,16 +147,12 @@ public class Board {
         return board;
     }
 
-    public boolean isWall(int posX, int posY) {
-        return board[posX][posY] == wall;
-    }
-
     public boolean isDot(int posX, int posY) {
         return board[posX][posY] == 2;
     }
 
     public boolean isPellet(int posX, int posY) {
-        return board[posX][posY] == dot;
+        return board[posX][posY] == DOT;
     }
 
     public boolean isGhost(int posX, int posY) {
@@ -205,6 +170,6 @@ public class Board {
     }
 
     public void setPellet(int posX, int posY) {
-        board[posX][posY] = dot;
+        board[posX][posY] = DOT;
     }
 }
