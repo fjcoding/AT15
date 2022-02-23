@@ -10,9 +10,13 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 public class Aliens {
     private List<Alien> aliens;
     private int alienDeltaX = ALIEN_DELTA_X;
+    private int bulletsShooted;
+    private int bulletsDestroyed;
 
     public Aliens(int alienRows, int alienColumns) {
         aliens = new ArrayList<>();
+        bulletsShooted = 0;
+        bulletsDestroyed = 0;
         for (int yIndex = 0; yIndex < alienRows; yIndex++) {
             for (int xIndex = 0; xIndex < alienColumns; xIndex++) {
                 Alien alien = new Alien(
@@ -58,12 +62,14 @@ public class Aliens {
                 bomb.fire();
                 bomb.setPosX(alien.getPosX());
                 bomb.setPosY(alien.getPosY());
+                bulletsShooted++;
             }
 
             if (bomb.bombStatus()) {
                 bomb.setPosY(bomb.getPosY() + ALIEN_BULLET_SPEED);
                 if (bomb.getPosY() >= BOARD_HEIGHT - BULLET_HEIGHT) {
                     bomb.destroyed();
+                    bulletsDestroyed++;
                 }
             }
         }
@@ -71,5 +77,13 @@ public class Aliens {
 
     public void setAlienDeltaX(int param) {
         this.alienDeltaX = param;
+    }
+
+    public int getBulletsShooted() {
+        return this.bulletsShooted;
+    }
+
+    public int getBulletsDestroyed() {
+        return this.bulletsDestroyed;
     }
 }
