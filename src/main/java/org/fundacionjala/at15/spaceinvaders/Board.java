@@ -53,7 +53,6 @@ public class Board extends JPanel {
         block.paint(g);
         drawShip(g);
         if (gun.shooted()) {
-            //gun.paint(g);
             drawBullet(g);
             gun.move();
         }

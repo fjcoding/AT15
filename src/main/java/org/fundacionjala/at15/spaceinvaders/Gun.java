@@ -1,8 +1,7 @@
 package org.fundacionjala.at15.spaceinvaders;
 
 import java.awt.event.KeyEvent;
-import java.awt.*;
-import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
+
 
 public class Gun extends Sprite {
 
