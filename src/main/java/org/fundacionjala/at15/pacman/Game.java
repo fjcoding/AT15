@@ -1,18 +1,12 @@
 package org.fundacionjala.at15.pacman;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.*;
 
 public class Game {
 
-    Window window;
-    Menu menu;
-    Play play;
-    Board board;
-
-    static int mat[][];
-    static JLabel matriz [][];
+    private Window window;
+    private Menu menu;
+    private Play play;
 
     public Game() {
 
@@ -22,11 +16,8 @@ public class Game {
 
         play = new Play();
 
-
-        board = new Board();
-
-        for (int i = 0; i < menu.getButtons().length; i++) {
-            menu.getButtons()[i] = new JButton();
+        for (int ind = 0; ind < menu.getButtons().length; ind++) {
+            menu.getButtons()[ind] = new JButton();
         }
 
         menu.introMenu(window);

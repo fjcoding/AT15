@@ -3,11 +3,13 @@ package org.fundacionjala.at15.pacman;
 import javax.swing.*;
 
 public class Window {
-    JFrame window;
+    private JFrame window;
+    private final int windowX = 700;
+    private final int windowY = 700;
 
     public Window() {
         window = new JFrame("PACMAN");
-        window.setSize(700,700);
+        window.setSize(windowX, windowY);
         window.setLayout(null);
         window.setLocationRelativeTo(null);
         window.setResizable(false);

@@ -1,6 +1,5 @@
 package org.fundacionjala.at15.pacman;
 
-
 public class Pacman {
     private int posX;
     private int posY;
@@ -18,13 +17,12 @@ public class Pacman {
         return posY;
     }
 
-    public void setPosX(int posX) {
-        this.posX = posX;
+    public void setPosX(int newPosX) {
+        this.posX = newPosX;
     }
 
-    public void setPosY(int posY) {
-        this.posY = posY;
+    public void setPosY(int newPosY) {
+        this.posY = newPosY;
     }
-
 
 }

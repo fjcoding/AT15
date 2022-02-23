@@ -1,5 +1,5 @@
 package org.fundacionjala.at15.pacman;
-
+/*
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -90,3 +90,4 @@ public class Ghost2Test {
     }
 
 }
+*/
