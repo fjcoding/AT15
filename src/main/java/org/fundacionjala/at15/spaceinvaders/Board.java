@@ -82,7 +82,9 @@ public class Board extends JPanel {
                 g.setColor(Color.CYAN);
                 g.fillRect(alien.getBomb().getPosX(), alien.getBomb().getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
             }
-            g.drawImage(alien.getImage(), alien.getPosX(), alien.getPosY(), this);
+            if (!alien.isDying()) {
+                g.drawImage(alien.getImage(), alien.getPosX(), alien.getPosY(), this);
+            }
         }
     }
 
@@ -95,10 +97,10 @@ public class Board extends JPanel {
     }
 
     private void update() {
-        if (deaths == ALIENS_TO_DESTROY) {
-            // game must stop
+        if (deaths == ALIEN_ROWS * ALIEN_COLUMNS) {
+            inGame = false;
             timer.stop();
-            // message of game win
+            message = "YOU WON";
         }
         if (ship.isDying()) {
             inGame = false;
@@ -111,26 +113,29 @@ public class Board extends JPanel {
         aliens.moveAliens();
         aliens.aliensShoot();
 
-        if (gun.isVisible()) {
+
+        //if (gun.isVisible()) {
+        for (Alien alien: this.aliens.getAliens()) {
             int shotY = gun.getPosYBullet();
             int shotX = gun.getPosXBullet();
-            for (Alien alien: this.aliens.getAliens()) {
-                int alienX = alien.getPosX();
-                int alienY = alien.getPosY();
-                if (alien.isVisible() && gun.shooted()) {
-                    if (shotX >= (alienX)
-                        && shotX <= (alienX + ALIEN_WIDTH)
-                        && shotY >= (alienY)
-                        && shotY <= (alienY + ALIEN_HEIGHT)) {
-                        ImageIcon imageIcon = new ImageIcon(explote);
-                        alien.setImage(imageIcon.getImage());
-                        alien.setDying(true);
-                        deaths++;
-                        gun.die();
-                    }
+            int alienX = alien.getPosX();
+            int alienY = alien.getPosY();
+            if (!alien.isDying() && gun.shooted()) {
+                if (shotX >= (alienX)
+                    && shotX <= (alienX + ALIEN_WIDTH)
+                    && shotY >= (alienY)
+                    && shotY <= (alienY + ALIEN_HEIGHT)) {
+                    ImageIcon imageIcon = new ImageIcon(explote);
+                    alien.setImage(imageIcon.getImage());
+                    alien.setDying(true);
+                    deaths++;
+                    gun.die();
                 }
             }
         }
+        //}
+
+
 
         for (Alien alien : this.aliens.getAliens()) {
             int bombX = alien.getBomb().getPosX();

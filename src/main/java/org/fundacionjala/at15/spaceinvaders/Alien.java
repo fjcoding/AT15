@@ -13,6 +13,7 @@ public class Alien extends Sprite {
         this.width = width;
         this.height = height;
         this.bomb = new Bomb(posX, posY, false);
+        this.dying = false;
 
         String alienImg = "src/main/resources/spaceinvaders/alien.png";
         ImageIcon imageIcon = new ImageIcon(alienImg);
