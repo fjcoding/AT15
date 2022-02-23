@@ -7,13 +7,14 @@ public final class Constants {
         static final int BOARD_HEIGHT = 600;
         static final int GROUND = 290;
         static final int DELAY = 20;
+        static final int FONT_SIZE = 17;
     }
 
     public final class Player {
         static final int PLAYER_WIDTH = 15;
         static final int PLAYER_HEIGHT = 10;
         static final int START_X = 400;
-        static final int START_Y = 510;
+        static final int START_Y = 550;
         static final int VELOCITY_X = 8;
         static final int DIAMETER = 15;
     }
