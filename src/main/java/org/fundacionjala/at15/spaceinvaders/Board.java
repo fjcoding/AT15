@@ -19,6 +19,8 @@ public class Board extends JPanel {
     private Block block = new Block(ASTEROID_LIFE);
     private Timer timer;
     private int deaths;
+    private String message;
+    private boolean inGame = true;
     private String explote = "src/main/resources/spaceinvaders/explosion.png";
 
     public Board() {
@@ -50,14 +52,19 @@ public class Board extends JPanel {
         setBackground(Color.BLACK);
         // Font score = new Font("Arial" ,Font.BOLD, 25) ;
         // g.setFont (score);
-        block.paint(g);
-        drawShip(g);
-        if (gun.shooted()) {
-            drawBullet(g);
-            gun.move();
+        if (inGame) {
+            block.paint(g);
+            drawShip(g);
+            if (gun.shooted()) {
+                drawBullet(g);
+                gun.move();
+            }
+            drawAliens(g);
+            g.dispose();
+        } else {
+            gameOver(g);
         }
-        drawAliens(g);
-        g.dispose();
+
         Toolkit.getDefaultToolkit().sync();
     }
 
@@ -79,11 +86,24 @@ public class Board extends JPanel {
         }
     }
 
+    private void gameOver(Graphics g) {
+        Font small = new Font("Helvetica", Font.BOLD, FONT_SIZE);
+        FontMetrics fontMetrics = this.getFontMetrics(small);
+        g.setColor(Color.white);
+        g.setFont(small);
+        g.drawString(message, (BOARD_WIDTH - fontMetrics.stringWidth(message)) / 2, BOARD_HEIGHT / 2);
+    }
+
     private void update() {
         if (deaths == ALIENS_TO_DESTROY) {
             // game must stop
             timer.stop();
             // message of game win
+        }
+        if (ship.isDying()) {
+            inGame = false;
+            timer.stop();
+            message = "YOU LOSE";
         }
 
 
@@ -108,6 +128,27 @@ public class Board extends JPanel {
                         deaths++;
                         gun.die();
                     }
+                }
+            }
+        }
+
+        for (Alien alien : this.aliens.getAliens()) {
+            int bombX = alien.getBomb().getPosX();
+            int bombY = alien.getBomb().getPosY();
+            int playerX = this.ship.getPosX();
+            int playerY = this.ship.getPosY();
+
+            if (this.ship.isVisible()) {
+
+                if (bombX >= (playerX)
+                        && bombX <= (playerX + PLAYER_WIDTH)
+                        && bombY >= (playerY)
+                        && bombY <= (playerY + PLAYER_HEIGHT)) {
+
+                    ImageIcon imageIcon = new ImageIcon(explote);
+                    this.ship.setImage(imageIcon.getImage());
+                    ship.setDying(true);
+                    alien.getBomb().destroyed();
                 }
             }
         }
