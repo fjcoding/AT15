@@ -80,10 +80,10 @@ public class Board extends JPanel {
             if (alien.getBomb().bombStatus()) {
                 g.setColor(Color.CYAN);
                 g.fillRect(alien.getBomb().getPosX(), alien.getBomb().getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
+                this.aliensDrawed = true;
             }
             g.drawImage(alien.getImage(), alien.getPosX(), alien.getPosY(), this);
         }
-        this.aliensDrawed = true;
     }
 
     private void update() {
