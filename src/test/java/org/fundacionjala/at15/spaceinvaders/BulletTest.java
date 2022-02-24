@@ -74,7 +74,7 @@ public class BulletTest {
         assertEquals(false, bullet.bulletStatus());
     }
     @Test
-    public void itShouldSetTheStateOfTheBallToFalse() {
+    public void itShouldSetTheStateOfTheBulletToFalse() {
         int posX = 10;
         int posY = 10;
         boolean fired = false;
@@ -82,4 +82,5 @@ public class BulletTest {
         bullet.move();
         assertEquals(false, bullet.bulletStatus());
     }
+    
 }

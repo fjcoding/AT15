@@ -13,7 +13,7 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 
 public class Board extends JPanel {
-    private Aliens aliens = new Aliens(ALIEN_ROWS, ALIEN_COLUMNS);
+    protected Aliens aliens = new Aliens(ALIEN_ROWS, ALIEN_COLUMNS);
     protected Ship ship = new Ship(START_X, START_Y);
     private Gun gun = new Gun(ship);
     private Timer timer;

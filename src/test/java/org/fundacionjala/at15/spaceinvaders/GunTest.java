@@ -64,4 +64,11 @@ public class GunTest {
         gun.keyPressed(key);
         assertEquals(true,gun.shooted());
     }
+    @Test
+    public void itShoulDestroyBullet() {
+        Ship ship = new Ship(START_X,START_Y);
+        Gun gun = new Gun(ship);
+        gun.destroy();
+        assertEquals(false,gun.shooted());
+    }
 }
