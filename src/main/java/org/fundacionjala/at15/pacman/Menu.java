@@ -59,7 +59,7 @@ public class Menu {
                 System.out.println("Play");
 
                 player = JOptionPane.showInputDialog(window.getWindow(), "Player name", "Write here");
-                while (player == null || player.compareTo("Write here") == 0 || player.compareTo("") == 0) {
+                while (player.compareTo("Write here") == 0 || player.compareTo("") == 0) {
                     player = JOptionPane.showInputDialog(window.getWindow(), "Write player name", "Write here");
                 }
                 play.jugar(window, player, panelMenu);

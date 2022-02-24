@@ -36,9 +36,9 @@ public class Board {
     private final int boardLimit = 14;
     private final int randomLimit = 5;
     private final int randomOne = 1;
-    private final int randomTwo = 1;
-    private final int randomThree = 1;
-    private final int randomFour = 1;
+    private final int randomTwo = 2;
+    private final int randomThree = 3;
+    private final int randomFour = 4;
 
 
     public Board() {
@@ -223,7 +223,7 @@ public class Board {
                         board[ghost.getPosX()][ghost.getPosY()] = ghostp;
                     } else if (ghost.getPosX() > 0 && board[ghost.getPosX() - 1][ghost.getPosY()] == 1) {
                         ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
-                    } else if (board[ghost.getPosX() - 1][ghost.getPosY()] == ghostp) {
+                    }  else if (board[ghost.getPosX() - 1][ghost.getPosY()] == ghostp) {
                         ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
                     }
                 } else if (ghost.getDirection() == randomTwo) {
