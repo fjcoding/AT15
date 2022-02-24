@@ -16,7 +16,6 @@ public class Board extends JPanel {
     private Aliens aliens = new Aliens(ALIEN_ROWS, ALIEN_COLUMNS);
     protected Ship ship = new Ship(START_X, START_Y);
     private Gun gun = new Gun(ship);
-    private Block block = new Block(ASTEROID_LIFE);
     private Timer timer;
     private int deaths;
     protected String message;
@@ -54,7 +53,6 @@ public class Board extends JPanel {
         setBackground(Color.BLACK);
         if (inGame) {
             score(g);
-            block.paint(g);
             drawShip(g);
             if (gun.shooted()) {
                 drawBullet(g);
