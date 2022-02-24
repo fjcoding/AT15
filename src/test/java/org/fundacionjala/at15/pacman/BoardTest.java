@@ -30,29 +30,29 @@ public class BoardTest {
                         };
         assertArrayEquals(sample, board.getBoard());
     }
-    /*
+
     @Test
     public void itShouldHaveADefectTable() {
         Board board = new Board();
         int[][] expected = {
                             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
-                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 1, 1, 4, 1, 4, 1, 4, 1, 1, 4, 1, 4, 1},
+                            {1, 4, 1, 4, 4, 1, 4, 1, 4, 1, 1, 4, 1, 4, 1},
+                            {1, 4, 4, 4, 1, 1, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 1, 4, 4, 4, 4, 4, 1, 1, 1, 4, 1, 1, 1},
+                            {1, 4, 1, 1, 4, 1, 1, 4, 4, 1, 1, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 1, 1, 4, 4, 4, 4, 1, 4, 1},
+                            {1, 1, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1},
+                            {1, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 1, 4, 4, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1},
+                            {1, 4, 4, 4, 1, 4, 1, 4, 4, 4, 4, 4, 1, 4, 1},
+                            {1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
                         };
-        //assertArrayEquals(expected, board.defectTable());
-    }*/
+        assertArrayEquals(expected, board.defectTable());
+    }
 
     @Test
     public void itShouldHaveABoard() {
@@ -85,12 +85,12 @@ public class BoardTest {
         play.jugar(window, player, panel);
         int x = board.getPacman().getPosX();
         int y = board.getPacman().getPosY();
-        assertEquals(2, board.getBoard()[x][y]);
+        assertEquals(PACMAN, board.getBoard()[x][y]);
     }
 
     @Test
     public void itShouldListenKeyEvent() {
-        Board board = new Board();
+
         Play play = new Play();
         Window window = new Window();
         String player = "player";

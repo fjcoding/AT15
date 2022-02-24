@@ -169,9 +169,7 @@ public class Board {
         window.getWindow().addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                // throw new UnsupportedOperationException("Not supported yet."); // Generated
-                // from
-                // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
             }
 
             @Override
