@@ -8,6 +8,7 @@ public final class Constants {
         static final int GROUND = 290;
         static final int DELAY = 20;
         static final int FONT_SIZE = 17;
+        static final int TEN = 10;
     }
 
     public final class Player {
