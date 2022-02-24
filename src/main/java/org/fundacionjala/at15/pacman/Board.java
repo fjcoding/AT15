@@ -15,7 +15,7 @@ public class Board {
     private int[][] auxBoard;
     private JLabel[][] matriz;
     private Pacman pacman;
-    private Ghost ghost;
+
     private int up = 0;
     private int down = 0;
     private int left = 0;
