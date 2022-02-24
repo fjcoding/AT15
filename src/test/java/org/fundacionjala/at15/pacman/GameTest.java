@@ -1,23 +1,13 @@
 package org.fundacionjala.at15.pacman;
-/*
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 public class GameTest {
+    private Game game = new Game();
 
     @Test
-    public void itShouldHaveAScore() {
-        Game theGame = new Game();
-
-        assertEquals(0, theGame.getScore());
+    public void itShouldHaveAWindow() {
+        assertTrue(game.getClass().isInstance(new Game()));
     }
-    @Test
-    public void itShouldHaveADirection() {
-        Game theGame = new Game();
-        String[] direction = {"w","a","s","d"};
-
-        assertArrayEquals(direction, theGame.getDirection());
-    }
-}*/
+}

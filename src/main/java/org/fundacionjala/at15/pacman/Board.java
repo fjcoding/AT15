@@ -15,7 +15,6 @@ public class Board {
     private JLabel[][] matriz;
     private Pacman pacman;
     private Ghost ghost;
-    private Play play;
     private int up = 0;
     private int down = 0;
     private int  left = 0;
@@ -219,5 +218,9 @@ public class Board {
 
     public int[][] getBoard() {
         return board;
+    }
+
+    public Pacman getPacman() {
+        return pacman;
     }
 }

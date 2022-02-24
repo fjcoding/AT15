@@ -58,4 +58,7 @@ public class Play {
         window.getWindow().add(gamePanel);
     }
 
+    public Board getBoard() {
+        return board;
+    }
 }

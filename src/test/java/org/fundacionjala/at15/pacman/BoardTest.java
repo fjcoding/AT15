@@ -2,14 +2,9 @@ package org.fundacionjala.at15.pacman;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import javax.swing.JPanel;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 public class BoardTest {
@@ -35,152 +30,73 @@ public class BoardTest {
                         };
         assertArrayEquals(sample, board.getBoard());
     }
-/*
-    @Test
-    public void itShouldHaveAPacmanPosition() {
-        Board board = new Board();
-        assertEquals(1, board.getPacmanX());
-        assertEquals(1, board.getPacmanY());
-    }
 
     @Test
-    public void itShouldHaveAGhostPosition() {
+    public void itShouldHaveADefectTable() {
         Board board = new Board();
-        assertEquals(4, board.getGhostX());
-        assertEquals(4, board.getGhostY());
-    }
-
-    @Test
-    public void itShouldHaveAGhost2Position() {
-        Board board = new Board();
-        assertEquals(6, board.getGhostX2());
-        assertEquals(6, board.getGhostY2());
-    }
-
-    @Test
-    public void itShouldHaveALevel() {
-        Board board = new Board();
-        assertEquals(1, board.getLevel());
+        int[][] expected = {
+                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        };
+        assertArrayEquals(expected, board.defectTable());
     }
 
     @Test
-    public void itShouldSetNewPacmanPosition() {
+    public void itShouldHaveABoard() {
         Board board = new Board();
-        int newX = 5;
-        int newY = 1;
+        Play play = new Play();
+        Window window = new Window();
+        String player = "player";
+        JPanel panel = new JPanel();
+        int wall = 1;
+        int dot = 4;
 
-        board.setPacmanX(newX);
-        board.setPacmanY(newY);
-        assertEquals(newX, board.getPacmanX());
-        assertEquals(newY, board.getPacmanY());
+        play.jugar(window, player, panel);
+
+        for (int i = 0; i < board.getBoard().length; i++) {
+            assertEquals(wall, board.getBoard()[0][i]);
+            assertEquals(wall, board.getBoard()[board.getBoard()[0].length-1][i]);
+        }
+        assertEquals(dot, board.getBoard()[5][5]);
     }
 
     @Test
-    public void itShouldSetNewGhostsPosition() {
+    public void itShouldHaveAPacman() {
         Board board = new Board();
-        int newX = 7;
-        int newY = 3;
-        int newX2 = 8;
-        int newY2 = 4;
+        Play play = new Play();
+        Window window = new Window();
+        String player = "player";
+        JPanel panel = new JPanel();
+        int PACMAN = 2;
 
-        board.setGhostX(newX);
-        board.setGhostY(newY);
-        board.setGhostX2(newX2);
-        board.setGhostY2(newY2);
-        assertEquals(newX, board.getGhostX());
-        assertEquals(newY, board.getGhostY());
-        assertEquals(newX2, board.getGhostX2());
-        assertEquals(newY2, board.getGhostY2());
+        play.jugar(window, player, panel);
+        int x = board.getPacman().getPosX();
+        int y = board.getPacman().getPosY();
+        assertEquals(2, board.getBoard()[x][y]);
     }
 
     @Test
-    public void itShouldCheckIfPacmanExistInAGivenPosition() {
+    public void itShouldListenKeyEvent() {
         Board board = new Board();
-        int newX = 1;
-        int newY = 3;
-        board.setPacmanX(newX);
-        board.setPacmanY(newY);
-        assertEquals(true, board.isPacman(newX, newY));
-        newX = 8;
-        newY = 8;
-        board.setPacmanX(newX);
-        board.setPacmanY(newY);
-        assertTrue(board.isPacman(newX, newY));
+        Play play = new Play();
+        Window window = new Window();
+        String player = "player";
+        JPanel panel = new JPanel();
+
+        play.jugar(window, player, panel);
+
     }
-
-    @Test
-    public void itShouldCheckIfIsADot() {
-        Board board = new Board();
-        assertFalse(board.isDot(3, 3));
-        board.setDot(3, 3);
-        assertTrue(board.isDot(3, 3));
-    }
-
-    @Test
-    public void itShouldVerifiesIfExistAPellet() {
-        Board board = new Board();
-        assertFalse(board.isPellet(0, 0));
-        assertFalse(board.isPellet(0, 8));
-        assertTrue(board.isPellet(1, 2));
-        assertTrue(board.isPellet(5, 2));
-
-        board.setDot(5, 2);
-        assertFalse(board.isPellet(5, 2));
-        board.setPellet(5, 2);
-        assertTrue(board.isPellet(5, 2));
-    }
-
-    @Test
-    public void itShouldRestartBoard() {
-        Board board = new Board();
-        board.setPacmanX(5);
-        board.setPacmanY(6);
-        board.setGhostX(2);
-        board.setGhostY(2);
-        board.setGhostX2(1);
-        board.setGhostY2(7);
-
-        assertTrue(board.isPacman(5, 6));
-        assertTrue(board.isGhost(2, 2));
-        assertTrue(board.isGhost(1, 7));
-        board.restart();
-
-        assertFalse(board.isPacman(5, 6));
-        assertFalse(board.isGhost(2, 2));
-        assertFalse(board.isGhost(1, 7));
-
-        assertTrue(board.isPacman(1, 1));
-        assertTrue(board.isGhost(4, 4));
-        assertTrue(board.isGhost(6, 6));
-    }
-
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
-
-    @Before
-    public void setUpStreams() {
-        System.setOut(new PrintStream(outContent));
-    }
-
-    @After
-    public void restoreStreams() {
-        System.setOut(originalOut);
-    }
-    @Test
-    public void itShouldPrintTheBoard() {
-        Board board = new Board();
-        board.printBoard();
-        String newline = System.lineSeparator();
-        assertEquals("# # # # # # # # # # "+newline+
-                    "# P * * * * * * * # "+newline+
-                    "# * * * * * * * * # "+newline+
-                    "# * * * * * * * * # "+newline+
-                    "# * * * G * * * * # "+newline+
-                    "# * * * * * * * * # "+newline+
-                    "# * * * * * G * * # "+newline+
-                    "# * * * * * * * * # "+newline+
-                    "# * * * * * * * * # "+newline+
-                    "# # # # # # # # # # "+newline
-                    , outContent.toString());
-    }*/
 }
