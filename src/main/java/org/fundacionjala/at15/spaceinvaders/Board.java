@@ -107,6 +107,11 @@ public class Board extends JPanel {
             timer.stop();
             message = "YOU LOSE";
         }
+        if (aliens.getInvasion()) {
+            inGame = false;
+            timer.stop();
+            message = "ALIENS INVADED YOUR PLANET";
+        }
 
 
         ship.move();

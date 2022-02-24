@@ -6,14 +6,17 @@ import java.util.ArrayList;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 
 public class Aliens {
     private List<Alien> aliens;
     private int alienDeltaX = ALIEN_DELTA_X;
     private int bulletsShooted;
     private int bulletsDestroyed;
+    private boolean invasion;
 
     public Aliens(int alienRows, int alienColumns) {
+        invasion = false;
         aliens = new ArrayList<>();
         bulletsShooted = 0;
         bulletsDestroyed = 0;
@@ -47,6 +50,9 @@ public class Aliens {
                 for (Alien alien2 : aliens2) {
                     alien2.setPosY(alien2.getPosY() + ALIEN_SEPARATION);
                 }
+            }
+            if (alien.getPosY() >= START_Y) {
+                invasion = true;
             }
             alien.moveX(this.alienDeltaX);
         }
@@ -85,5 +91,9 @@ public class Aliens {
 
     public int getBulletsDestroyed() {
         return this.bulletsDestroyed;
+    }
+
+    public boolean getInvasion() {
+        return this.invasion;
     }
 }
