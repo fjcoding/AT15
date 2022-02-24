@@ -11,15 +11,16 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Board {
-    private int[][] board; // 0 = empty, 1 = wall, 2 = pacman, 3 = ghost, dot = dot
+    private int[][] board; // 0 = empty, 1 = wall, 2 = pacman, 3 = ghost, 4 = dot
+    private int[][] auxBoard;
     private JLabel[][] matriz;
     private Pacman pacman;
-    private Ghost ghost;
+    // private Ghost ghost;
     private Play play;
     private int up = 0;
     private int down = 0;
-    private int  left = 0;
-    private int  right = 0;
+    private int left = 0;
+    private int right = 0;
     private Timer timer;
     private int point = 0;
     private final int rows = 15;
@@ -32,30 +33,40 @@ public class Board {
     private final int boardHeight = 30;
     private final int incre = 5;
     private final int time = 200;
+    private final int boardLimit = 14;
+    private final int randomLimit = 5;
+    private final int randomOne = 1;
+    private final int randomTwo = 1;
+    private final int randomThree = 1;
+    private final int randomFour = 1;
+
 
     public Board() {
         board = new int[rows][cols];
+        auxBoard = new int[rows][cols];
         matriz = new JLabel[rows][cols];
         pacman = new Pacman();
-        ghost = new Ghost(ghostPos, ghostPos);
+        // ghost = new Ghost(ghostPos, ghostPos);
 
         for (int indI = 0; indI < board.length; indI++) {
             for (int indJ = 0; indJ < board.length; indJ++) {
                 matriz[indI][indJ] = new JLabel();
             }
         }
-
+        auxBoard = defectTable();
         board = defectTable();
         board[pacman.getPosX()][pacman.getPosY()] = 2;
-        board[ghost.getPosX()][ghost.getPosY()] = ghostp;
+        // board[ghost.getPosX()][ghost.getPosY()] = ghostp;
     }
 
     public void insertBoard(JPanel gamePanel) {
         for (int indI = 0; indI < board.length; indI++) {
             for (int indJ = 0; indJ < board.length; indJ++) {
                 matriz[indI][indJ].setIcon(
-                        new ImageIcon("src/main/java/org/fundacionjala/at15/pacman/images/" + board[indI][indJ] + ".png"));
-                matriz[indI][indJ].setBounds(boardPos + (indI * boardHeight), boardPos + (indJ * boardHeight), boardHeight, boardHeight);
+                        new ImageIcon(
+                                "src/main/java/org/fundacionjala/at15/pacman/images/" + board[indI][indJ] + ".png"));
+                matriz[indI][indJ].setBounds(boardPos + (indI * boardHeight), boardPos + (indJ * boardHeight),
+                        boardHeight, boardHeight);
                 matriz[indI][indJ].setVisible(true);
                 gamePanel.add(matriz[indI][indJ], 0);
             }
@@ -72,7 +83,7 @@ public class Board {
                         records.setText("points: " + point);
                     }
                     board[pacman.getPosX()][pacman.getPosY()] = 0;
-
+                    auxBoard[pacman.getPosX()][pacman.getPosY()] = board[pacman.getPosX()][pacman.getPosY()];
                     pacman.setPosY(pacman.getPosY() - 1);
                     board[pacman.getPosX()][pacman.getPosY()] = 2;
                     insertBoard(gamePanel);
@@ -85,6 +96,7 @@ public class Board {
                         records.setText("points: " + point);
                     }
                     board[pacman.getPosX()][pacman.getPosY()] = 0;
+                    auxBoard[pacman.getPosX()][pacman.getPosY()] = board[pacman.getPosX()][pacman.getPosY()];
                     pacman.setPosY(pacman.getPosY() + 1);
                     board[pacman.getPosX()][pacman.getPosY()] = 2;
                     insertBoard(gamePanel);
@@ -97,6 +109,7 @@ public class Board {
                         records.setText("points: " + point);
                     }
                     board[pacman.getPosX()][pacman.getPosY()] = 0;
+                    auxBoard[pacman.getPosX()][pacman.getPosY()] = board[pacman.getPosX()][pacman.getPosY()];
                     pacman.setPosX(pacman.getPosX() - 1);
                     board[pacman.getPosX()][pacman.getPosY()] = 2;
                     insertBoard(gamePanel);
@@ -108,7 +121,7 @@ public class Board {
                         records.setText("points: " + point);
                     }
                     board[pacman.getPosX()][pacman.getPosY()] = 0;
-
+                    auxBoard[pacman.getPosX()][pacman.getPosY()] = board[pacman.getPosX()][pacman.getPosY()];
                     pacman.setPosX(pacman.getPosX() + 1);
                     board[pacman.getPosX()][pacman.getPosY()] = 2;
                     insertBoard(gamePanel);
@@ -196,22 +209,84 @@ public class Board {
         });
     }
 
+    public void ghostMove(JPanel gamePanel, Ghost ghost) {
+        timer = new Timer(time, new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
+                if (ghost.getDirection() == randomOne) {
+                    if (board[ghost.getPosX() - 1][ghost.getPosY()] != 1
+                            && (board[ghost.getPosX() - 1][ghost.getPosY()] == 0
+                                    || board[ghost.getPosX() - 1][ghost.getPosY()] == dot)) {
+                        board[ghost.getPosX()][ghost.getPosY()] = auxBoard[ghost.getPosX()][ghost.getPosY()];
+                        ghost.setPosX(ghost.getPosX() - 1);
+                        board[ghost.getPosX()][ghost.getPosY()] = ghostp;
+                    } else if (ghost.getPosX() > 0 && board[ghost.getPosX() - 1][ghost.getPosY()] == 1) {
+                        ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
+                    } else if (board[ghost.getPosX() - 1][ghost.getPosY()] == ghostp) {
+                        ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
+                    }
+                } else if (ghost.getDirection() == randomTwo) {
+                    if (board[ghost.getPosX() + 1][ghost.getPosY()] != 1
+                            && (board[ghost.getPosX() + 1][ghost.getPosY()] == 0
+                                    || board[ghost.getPosX() - 1][ghost.getPosY()] == dot)) {
+                        board[ghost.getPosX()][ghost.getPosY()] = auxBoard[ghost.getPosX()][ghost.getPosY()];
+                        ghost.setPosX(ghost.getPosX() + 1);
+                        board[ghost.getPosX()][ghost.getPosY()] = ghostp;
+                    } else if (ghost.getPosX() < boardLimit && board[ghost.getPosX() + 1][ghost.getPosY()] == 1) {
+                        ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
+                    } else if (board[ghost.getPosX() + 1][ghost.getPosY()] == ghostp) {
+                        ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
+                    }
+                } else if (ghost.getDirection() == randomThree) {
+                    if (board[ghost.getPosX()][ghost.getPosY() - 1] != 1
+                            && (board[ghost.getPosX()][ghost.getPosY() - 1] == 0
+                                    || board[ghost.getPosX()][ghost.getPosY() - 1] == dot)) {
+                        board[ghost.getPosX()][ghost.getPosY()] = auxBoard[ghost.getPosX()][ghost.getPosY()];
+                        ghost.setPosY(ghost.getPosY() - 1);
+                        board[ghost.getPosX()][ghost.getPosY()] = ghostp;
+                    } else if (ghost.getPosY() > 0 && board[ghost.getPosX()][ghost.getPosY() - 1] == 1) {
+                        ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
+                    } else if (board[ghost.getPosX()][ghost.getPosY() - 1] == ghostp) {
+                        ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
+                    }
+                } else if (ghost.getDirection() == randomFour) {
+                    if (board[ghost.getPosX()][ghost.getPosY() + 1] != 1
+                            && (board[ghost.getPosX()][ghost.getPosY() + 1] == 0
+                                    || board[ghost.getPosX()][ghost.getPosY() + 1] == dot)) {
+                        board[ghost.getPosX()][ghost.getPosY()] = auxBoard[ghost.getPosX()][ghost.getPosY()];
+                        ghost.setPosY(ghost.getPosY() + 1);
+                        board[ghost.getPosX()][ghost.getPosY()] = ghostp;
+                    } else if (ghost.getPosY() < boardLimit && board[ghost.getPosX()][ghost.getPosY() + 1] == 1) {
+                        ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
+                    } else if (board[ghost.getPosX()][ghost.getPosY() + 1] == ghostp) {
+                        ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
+                    }
+                }
+
+                insertBoard(gamePanel);
+
+            }
+        });
+        timer.start();
+    }
+
     public int[][] defectTable() {
         int[][] aux = {
                 {wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
+                {wall, dot, dot, dot, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, wall},
+                {wall, dot, wall, wall, dot, wall, dot, wall, dot, wall, wall, dot, wall, dot, wall},
+                {wall, dot, wall, dot, dot, wall, dot, wall, dot, wall, wall, dot, wall, dot, wall},
+                {wall, dot, dot, dot, wall, wall, dot, dot, dot, dot, dot, dot, dot, dot, wall},
+                {wall, dot, wall, dot, dot, dot, dot, dot, wall, wall, wall, dot, wall, wall, wall},
+                {wall, dot, wall, wall, dot, wall, wall, dot, dot, wall, wall, dot, dot, dot, wall},
+                {wall, dot, dot, dot, dot, dot, wall, wall, dot, dot, dot, dot, wall, dot, wall},
+                {wall, wall, wall, dot, wall, dot, wall, wall, wall, dot, wall, dot, wall, dot, wall},
+                {wall, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
+                {wall, dot, wall, dot, dot, dot, wall, wall, wall, dot, wall, dot, wall, dot, wall},
+                {wall, dot, dot, dot, wall, dot, wall, dot, dot, dot, dot, dot, wall, dot, wall},
+                {wall, dot, wall, dot, wall, dot, wall, dot, wall, dot, wall, dot, dot, dot, wall},
+                {wall, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
                 {wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall}
         };
         return aux;
@@ -219,5 +294,9 @@ public class Board {
 
     public int[][] getBoard() {
         return board;
+    }
+
+    public void setBoard(int[][] newBoard) {
+        this.board = newBoard;
     }
 }
