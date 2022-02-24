@@ -26,7 +26,6 @@ public class Board {
     private final int rows = 15;
     private final int cols = 15;
     private final int ghostp = 3;
-    private final int ghostPos = 13;
     private final int dot = 4;
     private final int wall = 1;
     private final int boardPos = 120;
@@ -40,13 +39,11 @@ public class Board {
     private final int randomThree = 3;
     private final int randomFour = 4;
 
-
     public Board() {
         board = new int[rows][cols];
         auxBoard = new int[rows][cols];
         matriz = new JLabel[rows][cols];
         pacman = new Pacman();
-        // ghost = new Ghost(ghostPos, ghostPos);
 
         for (int indI = 0; indI < board.length; indI++) {
             for (int indJ = 0; indJ < board.length; indJ++) {
@@ -56,7 +53,6 @@ public class Board {
         auxBoard = defectTable();
         board = defectTable();
         board[pacman.getPosX()][pacman.getPosY()] = 2;
-        // board[ghost.getPosX()][ghost.getPosY()] = ghostp;
     }
 
     public void insertBoard(JPanel gamePanel) {
@@ -85,8 +81,7 @@ public class Board {
                 matriz[indI][indJ].setIcon(
                         new ImageIcon(
                                 "src/main/java/org/fundacionjala/at15/pacman/images/" + board[indI][indJ] + aux));
-                //System.out.println("Direction: " + getRight());
-                //System.out.println("Direction: " + getLeft());
+
                 matriz[indI][indJ].setBounds(boardPos + (indI * boardHeight), boardPos + (indJ * boardHeight),
                         boardHeight, boardHeight);
                 matriz[indI][indJ].setVisible(true);
@@ -151,8 +146,8 @@ public class Board {
                 }
                 if (board[pacman.getPosX() + 1][pacman.getPosY()] == ghostp
                         || board[pacman.getPosX() - 1][pacman.getPosY()] == ghostp
-                            || board[pacman.getPosX()][pacman.getPosY() + 1] == ghostp
-                                || board[pacman.getPosX()][pacman.getPosY() - 1] == ghostp) {
+                        || board[pacman.getPosX()][pacman.getPosY() + 1] == ghostp
+                        || board[pacman.getPosX()][pacman.getPosY() - 1] == ghostp) {
                     timerG.stop();
                     JOptionPane.showMessageDialog(window.getWindow(), "DEAD, YOU LOSE!");
                     gamePanel.setVisible(false);
@@ -226,16 +221,11 @@ public class Board {
                         right = 1;
                     }
                 }
-                // throw new UnsupportedOperationException("Not supported yet."); // Generated
-                // from
-                // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                // throw new UnsupportedOperationException("Not supported yet."); // Generated
-                // from
-                // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
             }
         });
     }
@@ -254,7 +244,7 @@ public class Board {
                         board[ghost.getPosX()][ghost.getPosY()] = ghostp;
                     } else if (ghost.getPosX() > 0 && board[ghost.getPosX() - 1][ghost.getPosY()] == 1) {
                         ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
-                    }  else if (board[ghost.getPosX() - 1][ghost.getPosY()] == ghostp) {
+                    } else if (board[ghost.getPosX() - 1][ghost.getPosY()] == ghostp) {
                         ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
                     }
                 } else if (ghost.getDirection() == randomTwo) {
@@ -304,21 +294,21 @@ public class Board {
 
     public int[][] defectTable() {
         int[][] aux = {
-                {wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall},
-                {wall, dot, dot, dot, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, wall, wall, dot, wall, dot, wall, dot, wall, wall, dot, wall, dot, wall},
-                {wall, dot, wall, dot, dot, wall, dot, wall, dot, wall, wall, dot, wall, dot, wall},
-                {wall, dot, dot, dot, wall, wall, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, wall, dot, dot, dot, dot, dot, wall, wall, wall, dot, wall, wall, wall},
-                {wall, dot, wall, wall, dot, wall, wall, dot, dot, wall, wall, dot, dot, dot, wall},
-                {wall, dot, dot, dot, dot, dot, wall, wall, dot, dot, dot, dot, wall, dot, wall},
-                {wall, wall, wall, dot, wall, dot, wall, wall, wall, dot, wall, dot, wall, dot, wall},
-                {wall, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, dot, wall, dot, dot, dot, wall, wall, wall, dot, wall, dot, wall, dot, wall},
-                {wall, dot, dot, dot, wall, dot, wall, dot, dot, dot, dot, dot, wall, dot, wall},
-                {wall, dot, wall, dot, wall, dot, wall, dot, wall, dot, wall, dot, dot, dot, wall},
-                {wall, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall},
-                {wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall}
+                { wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall },
+                { wall, dot, dot, dot, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, wall },
+                { wall, dot, wall, wall, dot, wall, dot, wall, dot, wall, wall, dot, wall, dot, wall },
+                { wall, dot, wall, dot, dot, wall, dot, wall, dot, wall, wall, dot, wall, dot, wall },
+                { wall, dot, dot, dot, wall, wall, dot, dot, dot, dot, dot, dot, dot, dot, wall },
+                { wall, dot, wall, dot, dot, dot, dot, dot, wall, wall, wall, dot, wall, wall, wall },
+                { wall, dot, wall, wall, dot, wall, wall, dot, dot, wall, wall, dot, dot, dot, wall },
+                { wall, dot, dot, dot, dot, dot, wall, wall, dot, dot, dot, dot, wall, dot, wall },
+                { wall, wall, wall, dot, wall, dot, wall, wall, wall, dot, wall, dot, wall, dot, wall },
+                { wall, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall },
+                { wall, dot, wall, dot, dot, dot, wall, wall, wall, dot, wall, dot, wall, dot, wall },
+                { wall, dot, dot, dot, wall, dot, wall, dot, dot, dot, dot, dot, wall, dot, wall },
+                { wall, dot, wall, dot, wall, dot, wall, dot, wall, dot, wall, dot, dot, dot, wall },
+                { wall, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall },
+                { wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall }
         };
         return aux;
     }
@@ -334,17 +324,20 @@ public class Board {
     public void setBoard(int[][] newBoard) {
         this.board = newBoard;
     }
+
     public int getUp() {
         return up;
     }
+
     public int getDown() {
         return down;
     }
+
     public int getLeft() {
         return left;
     }
+
     public int getRight() {
         return right;
     }
-
 }
