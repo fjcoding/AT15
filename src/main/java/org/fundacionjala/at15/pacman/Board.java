@@ -60,15 +60,38 @@ public class Board {
     }
 
     public void insertBoard(JPanel gamePanel) {
+        String aux = ".png";
+        int auxUp = getUp();
+        int auxDown = getDown();
+        int auxLeft = getLeft();
+        int auxRight = getRight();
         for (int indI = 0; indI < board.length; indI++) {
             for (int indJ = 0; indJ < board.length; indJ++) {
+                if (board[indI][indJ] == 2) {
+                    if (auxRight == 1) {
+                        aux = "pacmanright.gif";
+                    }
+                    if (auxLeft == 1) {
+                        aux = "pacmanleft.gif";
+                    }
+                    if (auxUp == 1) {
+                        aux = "pacmanup.gif";
+                    }
+                    if (auxDown == 1) {
+                        aux = "pacmandown.gif";
+                    }
+
+                }
                 matriz[indI][indJ].setIcon(
                         new ImageIcon(
-                                "src/main/java/org/fundacionjala/at15/pacman/images/" + board[indI][indJ] + ".png"));
+                                "src/main/java/org/fundacionjala/at15/pacman/images/" + board[indI][indJ] + aux));
+                //System.out.println("Direction: " + getRight());
+                //System.out.println("Direction: " + getLeft());
                 matriz[indI][indJ].setBounds(boardPos + (indI * boardHeight), boardPos + (indJ * boardHeight),
                         boardHeight, boardHeight);
                 matriz[indI][indJ].setVisible(true);
                 gamePanel.add(matriz[indI][indJ], 0);
+                aux = ".png";
             }
         }
     }
@@ -299,4 +322,17 @@ public class Board {
     public void setBoard(int[][] newBoard) {
         this.board = newBoard;
     }
+    public int getUp() {
+        return up;
+    }
+    public int getDown() {
+        return down;
+    }
+    public int getLeft() {
+        return left;
+    }
+    public int getRight() {
+        return right;
+    }
+
 }
