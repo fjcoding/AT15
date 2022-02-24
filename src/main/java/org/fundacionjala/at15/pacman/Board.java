@@ -150,7 +150,10 @@ public class Board {
                     board[pacman.getPosX()][pacman.getPosY()] = 2;
                     insertBoard(gamePanel);
                 }
-                if (board[pacman.getPosX() + 1][pacman.getPosY()] == ghostp || board[pacman.getPosX() - 1][pacman.getPosY()] == ghostp ||board[pacman.getPosX()][pacman.getPosY() + 1] == ghostp ||board[pacman.getPosX()][pacman.getPosY() - 1] == ghostp) {
+                if (board[pacman.getPosX() + 1][pacman.getPosY()] == ghostp
+                        || board[pacman.getPosX() - 1][pacman.getPosY()] == ghostp
+                            || board[pacman.getPosX()][pacman.getPosY() + 1] == ghostp
+                                || board[pacman.getPosX()][pacman.getPosY() - 1] == ghostp) {
                     timerG.stop();
                     JOptionPane.showMessageDialog(window.getWindow(), "DEAD, YOU LOSE!");
                     gamePanel.setVisible(false);
