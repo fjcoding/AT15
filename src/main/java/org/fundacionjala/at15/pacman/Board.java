@@ -294,21 +294,21 @@ public class Board {
 
     public int[][] defectTable() {
         int[][] aux = {
-                { wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall },
-                { wall, dot, dot, dot, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, wall },
-                { wall, dot, wall, wall, dot, wall, dot, wall, dot, wall, wall, dot, wall, dot, wall },
-                { wall, dot, wall, dot, dot, wall, dot, wall, dot, wall, wall, dot, wall, dot, wall },
-                { wall, dot, dot, dot, wall, wall, dot, dot, dot, dot, dot, dot, dot, dot, wall },
-                { wall, dot, wall, dot, dot, dot, dot, dot, wall, wall, wall, dot, wall, wall, wall },
-                { wall, dot, wall, wall, dot, wall, wall, dot, dot, wall, wall, dot, dot, dot, wall },
-                { wall, dot, dot, dot, dot, dot, wall, wall, dot, dot, dot, dot, wall, dot, wall },
-                { wall, wall, wall, dot, wall, dot, wall, wall, wall, dot, wall, dot, wall, dot, wall },
-                { wall, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall },
-                { wall, dot, wall, dot, dot, dot, wall, wall, wall, dot, wall, dot, wall, dot, wall },
-                { wall, dot, dot, dot, wall, dot, wall, dot, dot, dot, dot, dot, wall, dot, wall },
-                { wall, dot, wall, dot, wall, dot, wall, dot, wall, dot, wall, dot, dot, dot, wall },
-                { wall, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall },
-                { wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall }
+                {wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall },
+                {wall, dot, dot, dot, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, wall },
+                {wall, dot, wall, wall, dot, wall, dot, wall, dot, wall, wall, dot, wall, dot, wall },
+                {wall, dot, wall, dot, dot, wall, dot, wall, dot, wall, wall, dot, wall, dot, wall },
+                {wall, dot, dot, dot, wall, wall, dot, dot, dot, dot, dot, dot, dot, dot, wall },
+                {wall, dot, wall, dot, dot, dot, dot, dot, wall, wall, wall, dot, wall, wall, wall },
+                {wall, dot, wall, wall, dot, wall, wall, dot, dot, wall, wall, dot, dot, dot, wall },
+                {wall, dot, dot, dot, dot, dot, wall, wall, dot, dot, dot, dot, wall, dot, wall },
+                {wall, wall, wall, dot, wall, dot, wall, wall, wall, dot, wall, dot, wall, dot, wall },
+                {wall, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall },
+                {wall, dot, wall, dot, dot, dot, wall, wall, wall, dot, wall, dot, wall, dot, wall },
+                {wall, dot, dot, dot, wall, dot, wall, dot, dot, dot, dot, dot, wall, dot, wall },
+                {wall, dot, wall, dot, wall, dot, wall, dot, wall, dot, wall, dot, dot, dot, wall },
+                {wall, dot, dot, dot, wall, dot, dot, dot, dot, dot, dot, dot, dot, dot, wall },
+                {wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall }
         };
         return aux;
     }

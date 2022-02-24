@@ -2,7 +2,6 @@ package org.fundacionjala.at15.pacman;
 
 import static org.junit.Assert.assertFalse;
 
-import javax.swing.JApplet;
 import javax.swing.JPanel;
 
 import org.junit.Test;
