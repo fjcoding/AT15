@@ -82,9 +82,7 @@ public class Board extends JPanel {
                 g.setColor(Color.CYAN);
                 g.fillRect(alien.getBomb().getPosX(), alien.getBomb().getPosY(), BULLET_WIDTH, BULLET_HEIGHT);
             }
-            if (!alien.isDying()) {
-                g.drawImage(alien.getImage(), alien.getPosX(), alien.getPosY(), this);
-            }
+            g.drawImage(alien.getImage(), alien.getPosX(), alien.getPosY(), this);
         }
     }
 
@@ -113,35 +111,29 @@ public class Board extends JPanel {
             message = "ALIENS INVADED YOUR PLANET";
         }
 
-
         ship.move();
         aliens.moveAliens();
         aliens.aliensShoot();
 
-
-        //if (gun.isVisible()) {
-        for (Alien alien: this.aliens.getAliens()) {
+        for (int index = 0; index < aliens.getAliens().size(); index++) {
             int shotY = gun.getPosYBullet();
             int shotX = gun.getPosXBullet();
-            int alienX = alien.getPosX();
-            int alienY = alien.getPosY();
-            if (!alien.isDying() && gun.shooted()) {
+            int alienX = aliens.getAliens().get(index).getPosX();
+            int alienY = aliens.getAliens().get(index).getPosY();
+            if (!aliens.getAliens().get(index).isDying() && gun.shooted()) {
                 if (shotX >= (alienX)
                     && shotX <= (alienX + ALIEN_WIDTH)
                     && shotY >= (alienY)
                     && shotY <= (alienY + ALIEN_HEIGHT)) {
                     ImageIcon imageIcon = new ImageIcon(explote);
-                    alien.setImage(imageIcon.getImage());
-                    alien.setDying(true);
+                    aliens.getAliens().get(index).setImage(imageIcon.getImage());
+                    aliens.getAliens().get(index).setDying(true);
+                    aliens.getAliens().remove(index);
                     gun.destroy();
                     deaths++;
-                    gun.die();
                 }
             }
         }
-        //}
-
-
 
         for (Alien alien : this.aliens.getAliens()) {
             int bombX = alien.getBomb().getPosX();

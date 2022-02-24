@@ -25,11 +25,7 @@ public class Gun extends Sprite {
             System.out.print(' ');
         }
     }
-    /**
-     * public Ellipse2D getBoundsBala() {
-     * return new Ellipse2D.Double(posx + 10, posy + 30, 80, 50);
-     * }
-     */
+
     public boolean shooted() {
         return bullet.bulletStatus();
     }
