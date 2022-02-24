@@ -20,7 +20,7 @@ public class Board extends JPanel {
     private Timer timer;
     private int deaths;
     protected String message;
-    private boolean inGame = true;
+    protected boolean inGame = true;
     private int scores;
     private String score;
     private String explote = "src/main/resources/spaceinvaders/explosion.png";
@@ -72,6 +72,7 @@ public class Board extends JPanel {
     private void drawShip(Graphics g) {
         g.drawImage(ship.getImage(), ship.getPosX(), ship.getPosY(), this);
     }
+
     private void drawBullet(Graphics g) {
         g.setColor(Color.YELLOW);
         g.fillRect(gun.getPosXBullet(), gun.getPosYBullet(), BULLET_WIDTH, BULLET_HEIGHT);
@@ -131,9 +132,9 @@ public class Board extends JPanel {
             int alienY = aliens.getAliens().get(index).getPosY();
             if (!aliens.getAliens().get(index).isDying() && gun.shooted()) {
                 if (shotX >= (alienX)
-                    && shotX <= (alienX + ALIEN_WIDTH)
-                    && shotY >= (alienY)
-                    && shotY <= (alienY + ALIEN_HEIGHT)) {
+                        && shotX <= (alienX + ALIEN_WIDTH)
+                        && shotY >= (alienY)
+                        && shotY <= (alienY + ALIEN_HEIGHT)) {
                     ImageIcon imageIcon = new ImageIcon(explote);
                     aliens.getAliens().get(index).setImage(imageIcon.getImage());
                     aliens.getAliens().get(index).setDying(true);
