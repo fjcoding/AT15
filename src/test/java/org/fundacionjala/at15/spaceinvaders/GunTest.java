@@ -2,9 +2,6 @@ package org.fundacionjala.at15.spaceinvaders;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import java.awt.event.*;
-import java.awt.AWTException;
-import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;

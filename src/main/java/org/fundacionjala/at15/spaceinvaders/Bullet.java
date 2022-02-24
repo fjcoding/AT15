@@ -16,6 +16,7 @@ public class Bullet extends Sprite {
     }
 
     public void destroyed() {
+        this.posY = START_Y;
         this.fired = false;
     }
 

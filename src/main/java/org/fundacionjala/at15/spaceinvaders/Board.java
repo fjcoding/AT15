@@ -133,6 +133,7 @@ public class Board extends JPanel {
                     ImageIcon imageIcon = new ImageIcon(explote);
                     alien.setImage(imageIcon.getImage());
                     alien.setDying(true);
+                    gun.destroy();
                     deaths++;
                     gun.die();
                 }
