@@ -21,6 +21,8 @@ public class Board extends JPanel {
     private int deaths;
     protected String message;
     private boolean inGame = true;
+    private int scores;
+    private String score;
     private String explote = "src/main/resources/spaceinvaders/explosion.png";
 
     public Board() {
@@ -50,9 +52,8 @@ public class Board extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
         setBackground(Color.BLACK);
-        // Font score = new Font("Arial" ,Font.BOLD, 25) ;
-        // g.setFont (score);
         if (inGame) {
+            score(g);
             block.paint(g);
             drawShip(g);
             if (gun.shooted()) {
@@ -94,6 +95,14 @@ public class Board extends JPanel {
         g.drawString(message, (BOARD_WIDTH - fontMetrics.stringWidth(message)) / 2, BOARD_HEIGHT / 2);
     }
 
+    private void score(Graphics graphic) {
+        Font small = new Font("Arial", Font.BOLD, TEN);
+        graphic.setColor(Color.white);
+        graphic.setFont(small);
+        score = "SCORE: " + String.valueOf(scores);
+        graphic.drawString(score, TEN, TEN);
+    }
+
     private void update() {
         if (deaths == ALIEN_ROWS * ALIEN_COLUMNS) {
             inGame = false;
@@ -131,6 +140,7 @@ public class Board extends JPanel {
                     aliens.getAliens().remove(index);
                     gun.destroy();
                     deaths++;
+                    scores = TEN * deaths;
                 }
             }
         }
