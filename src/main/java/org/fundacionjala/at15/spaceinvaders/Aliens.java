@@ -96,4 +96,9 @@ public class Aliens {
     public boolean getInvasion() {
         return this.invasion;
     }
+    public void setInvasion(boolean param) {
+
+        this.invasion = param;
+
+    }
 }

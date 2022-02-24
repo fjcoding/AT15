@@ -21,6 +21,20 @@ public class BoardTest {
         board.doGameCycle();
         assertEquals(compare, board.message);
     }
+    @Test
 
+    public void suldBeAnAliensInvadedText() {
+
+        Board board = new Board();
+
+        String compare = "ALIENS INVADED YOUR PLANET";
+
+        board.aliens.setInvasion(true);;
+
+        board.doGameCycle();
+
+        assertEquals(compare, board.message);
+
+    }
 
 }

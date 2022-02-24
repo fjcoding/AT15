@@ -57,6 +57,30 @@ public class BombTest {
         bomb.move();
         assertEquals(505 - SPEED, bomb.getPosY());
 
-    }
 
+    }
+    @Test
+    public void itShouldSetTheStateOfTheBulletToFalse() {
+        Bomb bomb = new Bomb(10, 500, false);
+
+        bomb.move();
+        assertEquals(false, bomb.bombStatus());
+    }
+    @Test
+    public void itShouldMoveTheBullet() {
+        int posX = 10;
+        int posY = 500;
+        boolean fired = true;
+        Bullet bullet = new Bullet(posX, posY, fired);
+        bullet.move();
+        assertEquals(posY - SPEED, bullet.getPosY());
+    }
+    @Test
+    public void itShouldDestroyTheBombWhenArriveToEndOfTheBoard() {
+        Bomb bomb = new Bomb(10, 0, true);
+        bomb.move();
+        assertEquals(false, bomb.bombStatus());
+
+
+    }
 }

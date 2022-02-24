@@ -28,6 +28,8 @@ public class Bomb extends Sprite {
             } else {
                 posY -= ALIEN_BULLET_SPEED;
             }
+        } else {
+            fired = false;
         }
     }
 
