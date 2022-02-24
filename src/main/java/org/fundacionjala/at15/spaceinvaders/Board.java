@@ -113,11 +113,9 @@ public class Board extends JPanel {
             message = "ALIENS INVADED YOUR PLANET";
         }
 
-
         ship.move();
         aliens.moveAliens();
         aliens.aliensShoot();
-
 
         //if (gun.isVisible()) {
         for (Alien alien: this.aliens.getAliens()) {
@@ -140,8 +138,6 @@ public class Board extends JPanel {
             }
         }
         //}
-
-
 
         for (Alien alien : this.aliens.getAliens()) {
             int bombX = alien.getBomb().getPosX();
