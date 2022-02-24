@@ -14,12 +14,12 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 
 public class Board extends JPanel {
     private Aliens aliens = new Aliens(ALIEN_ROWS, ALIEN_COLUMNS);
-    private Ship ship = new Ship(START_X, START_Y);
+    protected Ship ship = new Ship(START_X, START_Y);
     private Gun gun = new Gun(ship);
     private Block block = new Block(ASTEROID_LIFE);
     private Timer timer;
     private int deaths;
-    private String message;
+    protected String message;
     private boolean inGame = true;
     private String explote = "src/main/resources/spaceinvaders/explosion.png";
 
@@ -168,8 +168,12 @@ public class Board extends JPanel {
         }
     }
 
-    private void doGameCycle() {
+    protected void doGameCycle() {
         update();
         repaint();
+    }
+
+    protected void setDeaths(int parameter) {
+        this.deaths = parameter;
     }
 }
