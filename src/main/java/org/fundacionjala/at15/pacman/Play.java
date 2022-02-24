@@ -12,10 +12,17 @@ public class Play {
     private JLabel name;
     private int points;
     private JLabel records;
+    private Ghost ghost1;
+    private Ghost ghost2;
+    private Ghost ghost3;
+    private int[][] auxMat;
     private final int labelPos1 = 150;
     private final int labelPos = 20;
     private final int labelWeight = 150;
     private final int labelHeight = 30;
+    private final int ghostPos = 13;
+    private final int ghostPos1 = 12;
+    private final int ghostArray = 3;
 
     public Play() {
         points = 0;
@@ -39,6 +46,16 @@ public class Play {
 
         board = new Board();
         board.insertBoard(gamePanel);
+        ghost1 = new Ghost(ghostPos, ghostPos);
+        ghost2 = new Ghost(ghostPos1, ghostPos);
+        ghost3 = new Ghost(ghostPos, ghostPos1);
+
+        auxMat = board.getBoard();
+        auxMat[ghost1.getPosX()][ghost1.getPosY()] = ghostArray;
+        auxMat[ghost2.getPosX()][ghost2.getPosY()] = ghostArray;
+        auxMat[ghost3.getPosX()][ghost3.getPosY()] = ghostArray;
+
+        board.setBoard(auxMat);
 
         name = new JLabel("PLAYER: " + player);
         name.setBounds(labelPos, labelPos, labelWeight, labelHeight);
@@ -53,7 +70,11 @@ public class Play {
         records.setVisible(true);
         gamePanel.add(records, 0);
 
+        board.ghostMove(gamePanel, ghost1);
+        board.ghostMove(gamePanel, ghost2);
+        board.ghostMove(gamePanel, ghost3);
         board.moverPacman(window, gamePanel, records, panelMenu);
+
 
         window.getWindow().add(gamePanel);
     }
