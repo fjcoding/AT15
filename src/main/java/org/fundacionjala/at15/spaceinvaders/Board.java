@@ -8,7 +8,6 @@ import javax.swing.ImageIcon;
 
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
-import static org.fundacionjala.at15.spaceinvaders.Constants.Block.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 
