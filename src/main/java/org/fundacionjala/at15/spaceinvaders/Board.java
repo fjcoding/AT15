@@ -173,8 +173,7 @@ public class Board extends JPanel {
         repaint();
     }
 
-    protected int setDeaths() {
-        deaths = DEATHE;
-        return deaths;
+    protected void setDeaths(int parameter) {
+        this.deaths = parameter;
     }
 }
