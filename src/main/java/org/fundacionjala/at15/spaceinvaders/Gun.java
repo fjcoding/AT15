@@ -31,7 +31,9 @@ public class Gun extends Sprite {
      * }
      */
     public boolean shooted() {
+        
         return bullet.bulletStatus();
+
     }
 
     public void move() {
@@ -46,5 +48,8 @@ public class Gun extends Sprite {
     }
     public void fire() {
         bullet.fire();
+    }
+    public void destroy() {
+        bullet.destroyed();
     }
 }
