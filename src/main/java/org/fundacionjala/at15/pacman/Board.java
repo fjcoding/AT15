@@ -22,6 +22,7 @@ public class Board {
     private int left = 0;
     private int right = 0;
     private Timer timer;
+    private Timer timerG;
     private int point = 0;
     private final int rows = 15;
     private final int cols = 15;
@@ -149,6 +150,16 @@ public class Board {
                     board[pacman.getPosX()][pacman.getPosY()] = 2;
                     insertBoard(gamePanel);
                 }
+                if (board[pacman.getPosX() + 1][pacman.getPosY()] == ghostp
+                        || board[pacman.getPosX() - 1][pacman.getPosY()] == ghostp
+                            || board[pacman.getPosX()][pacman.getPosY() + 1] == ghostp
+                                || board[pacman.getPosX()][pacman.getPosY() - 1] == ghostp) {
+                    timerG.stop();
+                    JOptionPane.showMessageDialog(window.getWindow(), "DEAD, YOU LOSE!");
+                    gamePanel.setVisible(false);
+                    panelMenu.setVisible(true);
+                    timer.stop();
+                }
                 int enc = 0;
                 for (int indI = 0; indI < board.length; indI++) {
                     for (int indJ = 0; indJ < board.length; indJ++) {
@@ -233,7 +244,7 @@ public class Board {
     }
 
     public void ghostMove(JPanel gamePanel, Ghost ghost) {
-        timer = new Timer(time, new ActionListener() {
+        timerG = new Timer(time, new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
@@ -291,7 +302,7 @@ public class Board {
 
             }
         });
-        timer.start();
+        timerG.start();
     }
 
     public int[][] defectTable() {
