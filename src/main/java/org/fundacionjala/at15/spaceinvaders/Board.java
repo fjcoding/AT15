@@ -117,7 +117,6 @@ public class Board extends JPanel {
         aliens.moveAliens();
         aliens.aliensShoot();
 
-        //if (gun.isVisible()) {
         for (Alien alien: this.aliens.getAliens()) {
             int shotY = gun.getPosYBullet();
             int shotX = gun.getPosXBullet();
@@ -133,11 +132,9 @@ public class Board extends JPanel {
                     alien.setDying(true);
                     gun.destroy();
                     deaths++;
-                    gun.die();
                 }
             }
         }
-        //}
 
         for (Alien alien : this.aliens.getAliens()) {
             int bombX = alien.getBomb().getPosX();
