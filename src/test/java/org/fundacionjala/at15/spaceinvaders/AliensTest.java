@@ -60,7 +60,7 @@ public class AliensTest {
     }
 
     @Test
-    public void itShouldMoveRighttDown() {
+    public void itShouldMoveRightDown() {
         Aliens theAliens = new Aliens(ALIEN_ROWS, ALIEN_COLUMNS);
         int[] newPosY = new int[ALIEN_ROWS * ALIEN_COLUMNS];
         for (Alien alien : theAliens.getAliens()) {
@@ -92,7 +92,7 @@ public class AliensTest {
         Aliens theAliens = new Aliens(1, 1);
         theAliens.getAliens().get(0).setPosY(START_Y);
         theAliens.moveAliens();
-        
+
         assertTrue(theAliens.getInvasion());
     }
 
@@ -120,5 +120,19 @@ public class AliensTest {
 
         assertEquals(0, theAliens.getDeaths());
         assertEquals(0, theAliens.getScores());
+    }
+
+    @Test
+    public void shouldKillShipAndDestroyBomb() {
+        Aliens theAliens = new Aliens(1,1);
+        Ship ship = new Ship(START_X, START_Y);
+        Bomb bomb = new Bomb(START_X, START_Y, true);
+        for (Alien alien : theAliens.getAliens()) {
+            bomb.fire();
+            alien.getBomb().setPosX(START_X);
+            alien.getBomb().setPosY(START_Y);
+        }
+        theAliens.killShip(ship);
+        assertTrue(ship.isDying());
     }
 }
