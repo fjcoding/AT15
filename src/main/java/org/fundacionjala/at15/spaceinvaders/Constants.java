@@ -17,6 +17,7 @@ public final class Constants {
         static final int START_Y = 550;
         static final int VELOCITY_X = 8;
         static final int DIAMETER = 15;
+        static final int DEATHE = 45;
     }
 
     public final class Alien {
