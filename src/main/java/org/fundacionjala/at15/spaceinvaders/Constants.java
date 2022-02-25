@@ -32,7 +32,7 @@ public final class Constants {
         static final int ALIEN_RANGE_OF_PROBABILITY = 500;
         static final int ALIEN_CHANCE = 7;
         static final int ALIEN_BULLET_SPEED = 5;
-        static final int ALIENS_TO_DESTROY = 24;
+        static final int ALIENS_TO_DESTROY = ALIEN_ROWS * ALIEN_COLUMNS;
 
     }
 
