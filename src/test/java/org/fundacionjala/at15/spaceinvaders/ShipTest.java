@@ -2,8 +2,6 @@ package org.fundacionjala.at15.spaceinvaders;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 
-import java.awt.*;
-
 import static org.junit.Assert.assertEquals;
 import java.awt.event.KeyEvent;
 import org.junit.Test;
