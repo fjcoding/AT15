@@ -106,6 +106,25 @@ public class Aliens {
         }
     }
 
+    public void killShip(Ship ship) {
+        for (Alien alien : this.aliens) {
+            int bombX = alien.getBomb().getPosX();
+            int bombY = alien.getBomb().getPosY();
+            int playerX = ship.getPosX();
+            int playerY = ship.getPosY();
+
+            if (ship.isVisible()) {
+                if (bombX >= (playerX)
+                        && bombX <= (playerX + PLAYER_WIDTH)
+                        && bombY >= (playerY)
+                        && bombY <= (playerY + PLAYER_HEIGHT)) {
+                    ship.setDying(true);
+                    alien.getBomb().destroyed();
+                }
+            }
+        }
+    }
+
     public void setAlienDeltaX(int param) {
         this.alienDeltaX = param;
     }

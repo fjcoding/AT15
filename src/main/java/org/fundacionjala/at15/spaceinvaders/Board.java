@@ -4,7 +4,6 @@ import java.awt.event.*;
 import javax.swing.Timer;
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.ImageIcon;
 
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
@@ -19,7 +18,6 @@ public class Board extends JPanel {
     protected String message;
     protected boolean inGame = true;
     private String score;
-    private String explote = "src/main/resources/spaceinvaders/explosion.png";
 
     public Board() {
         addKeyListener(new KeyListener() {
@@ -100,7 +98,7 @@ public class Board extends JPanel {
     }
 
     private void update() {
-        if (aliens.getDeaths() == ALIEN_ROWS * ALIEN_COLUMNS) {
+        if (aliens.getDeaths() == ALIENS_TO_DESTROY) {
             inGame = false;
             timer.stop();
             message = "YOU WON";
@@ -120,28 +118,7 @@ public class Board extends JPanel {
         aliens.moveAliens();
         aliens.aliensShoot();
         aliens.killAliens(gun);
-
-        for (Alien alien : this.aliens.getAliens()) {
-            int bombX = alien.getBomb().getPosX();
-            int bombY = alien.getBomb().getPosY();
-            int playerX = this.ship.getPosX();
-            int playerY = this.ship.getPosY();
-
-            if (this.ship.isVisible()) {
-
-                if (bombX >= (playerX)
-                        && bombX <= (playerX + PLAYER_WIDTH)
-                        && bombY >= (playerY)
-                        && bombY <= (playerY + PLAYER_HEIGHT)) {
-
-                    ImageIcon imageIcon = new ImageIcon(explote);
-                    this.ship.setImage(imageIcon.getImage());
-                    ship.setDying(true);
-                    alien.getBomb().destroyed();
-                }
-            }
-        }
-
+        aliens.killShip(ship);
     }
 
     private class GameCycle implements ActionListener {
