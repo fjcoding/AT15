@@ -235,6 +235,7 @@ public class Board {
 
             public void actionPerformed(ActionEvent e) {
                 ghost.setDirection((int) Math.floor(Math.random() * (randomLimit - 1) + 1));
+
                 if (ghost.getDirection() == randomOne) {
                     if (board[ghost.getPosX() - 1][ghost.getPosY()] != 1
                             && (board[ghost.getPosX() - 1][ghost.getPosY()] == 0

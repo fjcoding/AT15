@@ -4,7 +4,6 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 import javax.swing.JPanel;
-
 import org.junit.Test;
 
 public class BoardTest {
@@ -97,6 +96,45 @@ public class BoardTest {
         JPanel panel = new JPanel();
 
         play.jugar(window, player, panel);
+    }
 
+    @Test
+    public void itShouldMoveGhost() {
+        Board board = new Board();
+        Window window = new Window();
+        JPanel gamePanel = new JPanel();
+        gamePanel.setLayout(null);
+        gamePanel.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());
+
+        int posX = 13;
+        int posY = 13;
+        Ghost ghost = new Ghost(posX, posY);
+
+        ghost.setDirection(1);
+        board.ghostMove(gamePanel, ghost);
+        assertEquals(posX, ghost.getPosX());
+        assertEquals(posY, ghost.getPosY());
+
+        ghost.setDirection(2);
+        board.ghostMove(gamePanel, ghost);
+        assertEquals(posX, ghost.getPosX());
+        assertEquals(posY, ghost.getPosY());
+
+        ghost.setDirection(3);
+        board.ghostMove(gamePanel, ghost);
+        assertEquals(posX, ghost.getPosX());
+        assertEquals(posY, ghost.getPosY());
+
+        ghost.setDirection(4);
+        board.ghostMove(gamePanel, ghost);
+        assertEquals(posX, ghost.getPosX());
+        assertEquals(posY, ghost.getPosY());
+
+        board.ghostMove(gamePanel, ghost);
+        board.ghostMove(gamePanel, ghost);
+        board.ghostMove(gamePanel, ghost);
+        board.ghostMove(gamePanel, ghost);
+        assertEquals(posX, ghost.getPosX());
+        assertEquals(posY, ghost.getPosY());
     }
 }
