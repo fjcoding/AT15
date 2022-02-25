@@ -41,18 +41,4 @@ public final class Constants {
         static final int BULLET_HEIGHT = 15;
         static final int SPEED = 10;
     }
-
-    public final class Block {
-        static final int IMAGE_WIDTH = 50;
-        static final int IMAGE_HEIGHT = 50;
-        static final int ASTEROIDS_POSX_FIRST = 125;
-        static final int ASTEROIDS_POSX_SECOND = 350;
-        static final int ASTEROIDS_POSX_THIRD = 575;
-        static final int ASTEROIDS_POSY = 400;
-        static final int ASTEROIDS_WIDTH = 100;
-        static final int ASTEROIDS_HEIGHT = 50;
-        static final int ASTEROIDS_ARCWIDTH = 25;
-        static final int ASTEROIDS_ARCHEIGHT = 25;
-        static final int ASTEROID_LIFE = 3;
-    }
 }
