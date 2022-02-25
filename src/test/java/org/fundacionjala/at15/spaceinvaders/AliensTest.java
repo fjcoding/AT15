@@ -1,6 +1,7 @@
 package org.fundacionjala.at15.spaceinvaders;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
+import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -84,5 +85,14 @@ public class AliensTest {
 
         assertTrue(theAliens.getBulletsShooted() > 0);
         assertTrue(theAliens.getBulletsDestroyed() > 0);
+    }
+
+    @Test
+    public void itShouldGetInvasion() {
+        Aliens theAliens = new Aliens(1, 1);
+        theAliens.getAliens().get(0).setPosY(START_Y);
+        theAliens.moveAliens();
+        
+        assertTrue(theAliens.getInvasion());
     }
 }
