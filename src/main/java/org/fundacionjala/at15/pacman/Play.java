@@ -28,7 +28,7 @@ public class Play {
         points = 0;
     }
 
-    public void jugar(Window window, String player, JPanel panelMenu) {
+    public void runGame(Window window, String player, JPanel panelMenu) {
         panelMenu.setVisible(false);
         gamePanel = new JPanel();
         gamePanel.setLayout(null);
@@ -73,7 +73,7 @@ public class Play {
         board.ghostMove(gamePanel, ghost1);
         board.ghostMove(gamePanel, ghost2);
         board.ghostMove(gamePanel, ghost3);
-        board.moverPacman(window, gamePanel, records, panelMenu);
+        board.movPacman(window, gamePanel, records, panelMenu);
 
 
         window.getWindow().add(gamePanel);

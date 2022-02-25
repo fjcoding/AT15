@@ -18,7 +18,7 @@ public class PlayTest {
         panel.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());
         panel.setVisible(true);
 
-        play.jugar(window, player, panel);
+        play.runGame(window, player, panel);
 
         assertFalse(panel.isVisible());
     }
