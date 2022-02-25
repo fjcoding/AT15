@@ -95,4 +95,30 @@ public class AliensTest {
         
         assertTrue(theAliens.getInvasion());
     }
+
+    @Test
+    public void itShouldHaveDeadAliensAndScore() {
+        Aliens theAliens = new Aliens(1, 2);
+        Ship ship = new Ship(START_X, START_Y);
+        Gun gun = new Gun(ship);
+        gun.getBullet().setPosX(ALIEN_INIT_X);
+        gun.getBullet().setPosY(ALIEN_INIT_Y);
+        gun.fire();
+        theAliens.killAliens(gun);
+
+        assertEquals(1, theAliens.getDeaths());
+        assertEquals(10, theAliens.getScores());
+    }
+
+    @Test
+    public void itShouldNotKillAnAlien() {
+        Aliens theAliens = new Aliens(1, 2);
+        Ship ship = new Ship(START_X, START_Y);
+        Gun gun = new Gun(ship);
+        gun.fire();
+        theAliens.killAliens(gun);
+
+        assertEquals(0, theAliens.getDeaths());
+        assertEquals(0, theAliens.getScores());
+    }
 }
