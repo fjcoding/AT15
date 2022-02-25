@@ -14,12 +14,16 @@ public class Aliens {
     private int bulletsShooted;
     private int bulletsDestroyed;
     private boolean invasion;
+    private int deaths;
+    private int scores;
 
     public Aliens(int alienRows, int alienColumns) {
         invasion = false;
         aliens = new ArrayList<>();
         bulletsShooted = 0;
         bulletsDestroyed = 0;
+        deaths = 0;
+        scores = 0;
         for (int yIndex = 0; yIndex < alienRows; yIndex++) {
             for (int xIndex = 0; xIndex < alienColumns; xIndex++) {
                 Alien alien = new Alien(
@@ -81,6 +85,27 @@ public class Aliens {
         }
     }
 
+    public void killAliens(Gun gun) {
+        for (int index = 0; index < aliens.size(); index++) {
+            int shotY = gun.getPosYBullet();
+            int shotX = gun.getPosXBullet();
+            int alienX = aliens.get(index).getPosX();
+            int alienY = aliens.get(index).getPosY();
+            if (!aliens.get(index).isDying() && gun.shooted()) {
+                if (shotX >= (alienX)
+                        && shotX <= (alienX + ALIEN_WIDTH)
+                        && shotY >= (alienY)
+                        && shotY <= (alienY + ALIEN_HEIGHT)) {
+                    aliens.get(index).setDying(true);
+                    aliens.remove(index);
+                    gun.destroy();
+                    deaths++;
+                    scores = TEN * deaths;
+                }
+            }
+        }
+    }
+
     public void setAlienDeltaX(int param) {
         this.alienDeltaX = param;
     }
@@ -96,9 +121,20 @@ public class Aliens {
     public boolean getInvasion() {
         return this.invasion;
     }
+
     public void setInvasion(boolean param) {
-
         this.invasion = param;
+    }
 
+    public int getDeaths() {
+        return this.deaths;
+    }
+
+    public void setDeaths(int param) {
+        this.deaths = param;
+    }
+
+    public int getScores() {
+        return this.scores;
     }
 }
