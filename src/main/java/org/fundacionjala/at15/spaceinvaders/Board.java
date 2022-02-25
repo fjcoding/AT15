@@ -16,10 +16,8 @@ public class Board extends JPanel {
     protected Ship ship = new Ship(START_X, START_Y);
     private Gun gun = new Gun(ship);
     private Timer timer;
-    private int deaths;
     protected String message;
     protected boolean inGame = true;
-    private int scores;
     private String score;
     private String explote = "src/main/resources/spaceinvaders/explosion.png";
 
@@ -97,12 +95,12 @@ public class Board extends JPanel {
         Font small = new Font("Arial", Font.BOLD, TEN);
         graphic.setColor(Color.white);
         graphic.setFont(small);
-        score = "SCORE: " + String.valueOf(scores);
+        score = "SCORE: " + String.valueOf(aliens.getScores());
         graphic.drawString(score, TEN, TEN);
     }
 
     private void update() {
-        if (deaths == ALIEN_ROWS * ALIEN_COLUMNS) {
+        if (aliens.getDeaths() == ALIEN_ROWS * ALIEN_COLUMNS) {
             inGame = false;
             timer.stop();
             message = "YOU WON";
@@ -121,27 +119,7 @@ public class Board extends JPanel {
         ship.move();
         aliens.moveAliens();
         aliens.aliensShoot();
-
-        for (int index = 0; index < aliens.getAliens().size(); index++) {
-            int shotY = gun.getPosYBullet();
-            int shotX = gun.getPosXBullet();
-            int alienX = aliens.getAliens().get(index).getPosX();
-            int alienY = aliens.getAliens().get(index).getPosY();
-            if (!aliens.getAliens().get(index).isDying() && gun.shooted()) {
-                if (shotX >= (alienX)
-                        && shotX <= (alienX + ALIEN_WIDTH)
-                        && shotY >= (alienY)
-                        && shotY <= (alienY + ALIEN_HEIGHT)) {
-                    ImageIcon imageIcon = new ImageIcon(explote);
-                    aliens.getAliens().get(index).setImage(imageIcon.getImage());
-                    aliens.getAliens().get(index).setDying(true);
-                    aliens.getAliens().remove(index);
-                    gun.destroy();
-                    deaths++;
-                    scores = TEN * deaths;
-                }
-            }
-        }
+        aliens.killAliens(gun);
 
         for (Alien alien : this.aliens.getAliens()) {
             int bombX = alien.getBomb().getPosX();
@@ -177,9 +155,5 @@ public class Board extends JPanel {
     protected void doGameCycle() {
         update();
         repaint();
-    }
-
-    protected void setDeaths(int parameter) {
-        this.deaths = parameter;
     }
 }
