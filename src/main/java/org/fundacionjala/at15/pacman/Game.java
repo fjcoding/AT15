@@ -2,7 +2,7 @@ package org.fundacionjala.at15.pacman;
 
 import javax.swing.*;
 
-public class Game extends CommonFeatures {
+public class Game {
 
     private Window window;
     private Menu menu;

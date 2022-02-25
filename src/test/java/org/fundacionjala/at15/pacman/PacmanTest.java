@@ -1,35 +1,28 @@
 package org.fundacionjala.at15.pacman;
-/*
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class PacmanTest {
-    Pacman pacman = new Pacman(1,1);
+    Pacman pacman = new Pacman();
 
     @Test
-    public void itShouldSetXY(){
-        int expectedPosX = 8;
-        int expectedPosY = 8;
+    public void itShouldHavePosXY(){
+        int expectedPosX = 1;
+        int expectedPosY = 1;
+
+        assertEquals(expectedPosX, pacman.getPosX());
+        assertEquals(expectedPosY, pacman.getPosY());
+    }
+
+    @Test
+    public void itShouldSetAPosXY(){
         int newPosX = 8;
         int newPosY = 8;
-        pacman.setX(newPosX);
-        pacman.setY(newPosY);
-        assertEquals(expectedPosX, pacman.getX());
-        assertEquals(expectedPosY, pacman.getY());
+
+        pacman.setPosX(newPosX);
+        pacman.setPosY(newPosY);
+        assertEquals(newPosX, pacman.getPosX());
+        assertEquals(newPosY, pacman.getPosY());
     }
-
-    @Test
-    public void itShouldHaveLife(){
-        int expectedResult = 3;
-
-        assertEquals(expectedResult, pacman.getLives());
-    }
-
-    @Test
-    public void itShouldSetLife(){
-        int expectedResult = 1;
-        pacman.setLives(1);
-
-        assertEquals(expectedResult, pacman.getLives());
-    }
-}*/
+}

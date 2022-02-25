@@ -26,7 +26,6 @@ public class Menu {
 
     public void introMenu(Window window) {
 
-        // presentacion.panelPresentation.setVisible(false);
         panelMenu = new JPanel();
         panelMenu.setLayout(null);
         panelMenu.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());

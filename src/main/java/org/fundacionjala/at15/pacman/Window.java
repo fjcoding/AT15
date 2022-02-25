@@ -19,5 +19,4 @@ public class Window {
     public JFrame getWindow() {
         return window;
     }
-
 }
