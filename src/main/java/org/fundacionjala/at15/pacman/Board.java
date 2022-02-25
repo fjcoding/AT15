@@ -91,7 +91,7 @@ public class Board {
         }
     }
 
-    public void moverPacman(Window window, JPanel gamePanel, JLabel records, JPanel panelMenu) {
+    public void movPacman(Window window, JPanel gamePanel, JLabel records, JPanel panelMenu) {
         timer = new Timer(time, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (up == 1 && (board[pacman.getPosX()][pacman.getPosY() - 1] == dot
@@ -181,7 +181,6 @@ public class Board {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
-                    System.out.println(" up");
                     if (board[pacman.getPosX()][pacman.getPosY() - 1] == dot
                             || board[pacman.getPosX()][pacman.getPosY() - 1] == 0) {
                         up = 1;
@@ -191,7 +190,6 @@ public class Board {
                     }
                 }
                 if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    System.out.println(" down");
                     if (board[pacman.getPosX()][pacman.getPosY() + 1] == dot
                             || board[pacman.getPosX()][pacman.getPosY() + 1] == 0) {
                         up = 0;
@@ -201,7 +199,6 @@ public class Board {
                     }
                 }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    System.out.println(" left");
                     if (board[pacman.getPosX() - 1][pacman.getPosY()] == dot
                             || board[pacman.getPosX() - 1][pacman.getPosY()] == 0) {
                         up = 0;
@@ -212,7 +209,6 @@ public class Board {
 
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    System.out.println(" right");
                     if (board[pacman.getPosX() + 1][pacman.getPosY()] == dot
                             || board[pacman.getPosX() + 1][pacman.getPosY()] == 0) {
                         up = 0;

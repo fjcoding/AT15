@@ -40,8 +40,8 @@ public class Menu {
         menuBackground.setVisible(true);
         panelMenu.add(menuBackground, 0);
 
-        buttons[0].setText("Jugar");
-        buttons[1].setText("Salir");
+        buttons[0].setText("Play");
+        buttons[1].setText("Exit");
 
         for (int ind = 0; ind < buttons.length; ind++) {
             buttons[ind].setBounds(window.getWindow().getWidth() - (buttonPosX + buttonPosY), (ind + 1) * buttonPosY, buttonWeight, buttonHeight);
@@ -57,19 +57,16 @@ public class Menu {
 
         buttons[0].addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
-                System.out.println("Play");
-
                 player = JOptionPane.showInputDialog(window.getWindow(), "Player name", "Write here");
                 while (player.compareTo("Write here") == 0 || player.compareTo("") == 0) {
                     player = JOptionPane.showInputDialog(window.getWindow(), "Write player name", "Write here");
                 }
-                play.jugar(window, player, panelMenu);
+                play.runGame(window, player, panelMenu);
             }
         });
 
         buttons[1].addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
-                System.out.println("Quit");
                 System.exit(0);
             }
         });

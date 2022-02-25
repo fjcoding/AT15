@@ -63,7 +63,7 @@ public class BoardTest {
         int wall = 1;
         int dot = 4;
 
-        play.jugar(window, player, panel);
+        play.runGame(window, player, panel);
 
         for (int i = 0; i < board.getBoard().length; i++) {
             assertEquals(wall, board.getBoard()[0][i]);
@@ -81,7 +81,7 @@ public class BoardTest {
         JPanel panel = new JPanel();
         int PACMAN = 2;
 
-        play.jugar(window, player, panel);
+        play.runGame(window, player, panel);
         int x = board.getPacman().getPosX();
         int y = board.getPacman().getPosY();
         assertEquals(PACMAN, board.getBoard()[x][y]);
@@ -95,7 +95,7 @@ public class BoardTest {
         String player = "player";
         JPanel panel = new JPanel();
 
-        play.jugar(window, player, panel);
+        play.runGame(window, player, panel);
     }
 
     @Test
