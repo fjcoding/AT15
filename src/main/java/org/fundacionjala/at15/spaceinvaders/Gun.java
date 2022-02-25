@@ -46,4 +46,7 @@ public class Gun extends Sprite {
     public void destroy() {
         bullet.destroyed();
     }
+    public Bullet getBullet() {
+        return this.bullet;
+    }
 }
