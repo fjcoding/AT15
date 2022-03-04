@@ -83,6 +83,11 @@ task runLangtonAnt(dependsOn: 'check', type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
+task runBankOcrSaul (dependsOn: 'classes', type: JavaExec) {
+    main = 'org.fundacionjala.at15.katas.bankocr.saul.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
 task runBanckocrDiana(dependsOn: 'check', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.bankocr.diana.Main'
     classpath = sourceSets.main.runtimeClasspath
@@ -92,4 +97,3 @@ task runBankSergio(dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.bankocr.sergio.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
-
