@@ -22,6 +22,9 @@ public class Menu {
 
     public Menu() {
         buttons = new JButton[2];
+        for (int ind = 0; ind < buttons.length; ind++) {
+            buttons[ind] = new JButton();
+        }
     }
 
     public void introMenu(Window window) {
