@@ -2,28 +2,25 @@ package org.fundacionjala.at15.pacman;
 
 //import java.awt.Color;
 import java.awt.Image;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 
 import javax.swing.*;
 
 public class Menu {
 
-    private JPanel panelMenu;
-    private JButton[] buttons;
+    private JPanel panelMenu = new JPanel();
     private JLabel menuBackground;
     private ImageIcon imageMenuBackground;
-    private String player;
-    private Buttons buttons2;
+    private Buttons buttons;
+    private Window window;
+    private Play play;
 
-    public Menu() {
-        buttons = new JButton[2];
+    public Menu(Window window, Play play) {
+        this.window = window;
+        this.play = play;
+        buttons = new Buttons(window, panelMenu);
     }
 
-    public void introMenu(Window window) {
-
-        panelMenu = new JPanel();
+    public void introMenu() {
         panelMenu.setLayout(null);
         panelMenu.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());
         panelMenu.setVisible(true);
@@ -37,37 +34,17 @@ public class Menu {
         menuBackground.setVisible(true);
         panelMenu.add(menuBackground, 0);
 
-        buttons2 = new Buttons(buttons, window, panelMenu);
-        buttons2.setButtons();
+        buttons.setButtons();
+        buttons.buttonsEvent(play);
 
         window.getWindow().add(panelMenu);
-
-    }
-
-    public void menuEvent(Window window, Play play) {
-
-        buttons[0].addMouseListener(new MouseAdapter() {
-            public void mousePressed(MouseEvent e) {
-                player = JOptionPane.showInputDialog(window.getWindow(), "Player name", "Write here");
-                while (player.compareTo("Write here") == 0 || player.compareTo("") == 0) {
-                    player = JOptionPane.showInputDialog(window.getWindow(), "Write player name", "Write here");
-                }
-                play.runGame(window, player, panelMenu);
-            }
-        });
-
-        buttons[1].addMouseListener(new MouseAdapter() {
-            public void mousePressed(MouseEvent e) {
-                System.exit(0);
-            }
-        });
     }
 
     public JPanel getPanelMenu() {
         return panelMenu;
     }
 
-    public JButton[] getButtons() {
+    public Buttons getButtons() {
         return buttons;
     }
 

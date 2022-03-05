@@ -12,16 +12,15 @@ public class Game {
 
         window = new Window();
 
-        menu = new Menu();
-
         play = new Play();
 
-        for (int ind = 0; ind < menu.getButtons().length; ind++) {
-            menu.getButtons()[ind] = new JButton();
+        menu = new Menu(window, play);
+
+        for (int ind = 0; ind < menu.getButtons().getButton().length; ind++) {
+            menu.getButtons().getButton()[ind] = new JButton();
         }
 
-        menu.introMenu(window);
-        menu.menuEvent(window, play);
+        menu.introMenu();
 
         window.getWindow().setVisible(true);
     }

@@ -6,18 +6,16 @@ import org.junit.Test;
 
 public class MenuTest {
     Window window = new Window();
-    Menu menu = new Menu();
+    Play play = new Play();
+    Menu menu = new Menu(window, play);
 
-    /*@Test
-    public void itShoulHaveButtons() {
-        for (int i = 0; i < menu.getButtons().length; i++) {
-            menu.getButtons()[i] = new JButton();
+    @Test
+    public void itShoulHaveAPanel() {
+        for (int i = 0; i < menu.getButtons().getButton().length; i++) {
+            menu.getButtons().getButton()[i] = new JButton();
         }
-        menu.introMenu(window);
+        menu.introMenu();
 
         assertTrue(menu.getPanelMenu().isVisible());
-        for (int i = 0; i < menu.getButtons().length; i++) {
-            assertTrue(menu.getButtons()[i].isVisible());
-        }
-    }*/
+    }
 }

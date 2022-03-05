@@ -6,8 +6,8 @@ import org.junit.Test;
 public class GameTest {
     private Game game = new Game();
 
-    /*@Test
+    @Test
     public void itShouldHaveAWindow() {
         assertTrue(game.getClass().isInstance(new Game()));
-    }*/
+    }
 }
