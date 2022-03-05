@@ -1,8 +1,6 @@
 package org.fundacionjala.at15.pacman;
 
-public class Ghost {
-    private int posX;
-    private int posY;
+public class Ghost extends Sprite {
     private int direction;
     private final int randomLimit = 5;
 
@@ -12,24 +10,8 @@ public class Ghost {
         this.direction = (int) Math.floor(Math.random() * (randomLimit - 1) + 1);
     }
 
-    public int getPosX() {
-        return posX;
-    }
-
-    public int getPosY() {
-        return posY;
-    }
-
     public int getDirection() {
         return direction;
-    }
-
-    public void setPosX(int newPosX) {
-        this.posX = newPosX;
-    }
-
-    public void setPosY(int newPosY) {
-        this.posY = newPosY;
     }
 
     public void setDirection(int newDirection) {
