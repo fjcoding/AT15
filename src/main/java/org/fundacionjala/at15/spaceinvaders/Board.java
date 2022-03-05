@@ -99,19 +99,13 @@ public class Board extends JPanel {
 
     private void update() {
         if (aliens.getDeaths() == ALIENS_TO_DESTROY) {
-            inGame = false;
-            timer.stop();
-            message = "YOU WON";
+            updateWon();
         }
         if (ship.isDying()) {
-            inGame = false;
-            timer.stop();
-            message = "YOU LOSE";
+            updateShipFired();
         }
         if (aliens.getInvasion()) {
-            inGame = false;
-            timer.stop();
-            message = "ALIENS INVADED YOUR PLANET";
+            updateAliensInvaded();
         }
 
         ship.move();
@@ -119,6 +113,22 @@ public class Board extends JPanel {
         aliens.aliensShoot();
         aliens.killAliens(gun);
         aliens.killShip(ship);
+    }
+
+    private void updateWon(){
+        inGame = false;
+        timer.stop();
+        message = "YOU WON";
+    }
+    private void updateShipFired(){
+        inGame = false;
+            timer.stop();
+            message = "YOU LOSE";
+    }
+    private void updateAliensInvaded(){
+        inGame = false;
+            timer.stop();
+            message = "ALIENS INVADED YOUR PLANET";
     }
 
     private class GameCycle implements ActionListener {
