@@ -8,7 +8,7 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 
-public class Aliens {
+public class AlienGroup {
     private List<Alien> aliens;
     private int alienDeltaX = ALIEN_DELTA_X;
     private int bulletsShooted;
@@ -17,7 +17,7 @@ public class Aliens {
     private int deaths;
     private int scores;
 
-    public Aliens(int alienRows, int alienColumns) {
+    public AlienGroup(int alienRows, int alienColumns) {
         invasion = false;
         aliens = new ArrayList<>();
         bulletsShooted = 0;
