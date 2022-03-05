@@ -48,15 +48,7 @@ public class Ship extends Sprite {
             posX = BOARD_WIDTH - 2 * DIAMETER;
         }
     }
-    public int moveUptoLimit(int value, int min, int max) {
-        if (value > max) {
-            return max;
-        }
-        if (value < 0) {
-            return min;
-        }
-        return value;
-    }
+
     public int getVelX() {
         return velX;
     }

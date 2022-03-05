@@ -18,7 +18,7 @@ public class ShipTest {
         assertEquals(70, theShip.getPosY());
     }
 
-    @Test
+    /*@Test
     public void itShouldMoveUpToLimit() {
         Ship theShip = new Ship(START_X, START_Y);
         int min = 0;
@@ -26,7 +26,7 @@ public class ShipTest {
         assertEquals(100, theShip.moveUptoLimit(100, min, max));
         assertEquals(0, theShip.moveUptoLimit(-1, min, max));
         assertEquals(BOARD_WIDTH, theShip.moveUptoLimit(801, min, max));
-    }
+    }*/
 
     @Test
     public void itShouldMove() {
