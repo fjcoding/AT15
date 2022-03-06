@@ -1,6 +1,5 @@
 package org.fundacionjala.at15.pacman;
 
-import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -11,20 +10,15 @@ import javax.swing.*;
 public class Menu {
 
     private JPanel panelMenu;
-    private JButton[] buttons;
     private JLabel menuBackground;
     private ImageIcon imageMenuBackground;
     private String player;
-    private final int buttonPosX = 200;
-    private final int buttonPosY = 50;
-    private final int buttonWeight = 200;
-    private final int buttonHeight = 40;
+    private Button playButton;
+    private Button exitButton;
 
     public Menu() {
-        buttons = new JButton[2];
-        for (int ind = 0; ind < buttons.length; ind++) {
-            buttons[ind] = new JButton();
-        }
+        playButton = new Button("Play", 1);
+        exitButton = new Button("Exit", 2);
     }
 
     public void introMenu(Window window) {
@@ -43,22 +37,15 @@ public class Menu {
         menuBackground.setVisible(true);
         panelMenu.add(menuBackground, 0);
 
-        buttons[0].setText("Play");
-        buttons[1].setText("Exit");
-
-        for (int ind = 0; ind < buttons.length; ind++) {
-            buttons[ind].setBounds(window.getWindow().getWidth() - (buttonPosX + buttonPosY), (ind + 1) * buttonPosY, buttonWeight, buttonHeight);
-            buttons[ind].setVisible(true);
-            buttons[ind].setBackground(Color.white);
-            panelMenu.add(buttons[ind], 0);
-        }
+        panelMenu.add(playButton, 0);
+        panelMenu.add(exitButton, 0);
         window.getWindow().add(panelMenu);
 
     }
 
     public void menuEvent(Window window, Play play) {
 
-        buttons[0].addMouseListener(new MouseAdapter() {
+        playButton.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
                 player = JOptionPane.showInputDialog(window.getWindow(), "Player name", "Write here");
                 while (player.compareTo("Write here") == 0 || player.compareTo("") == 0) {
@@ -68,7 +55,7 @@ public class Menu {
             }
         });
 
-        buttons[1].addMouseListener(new MouseAdapter() {
+        exitButton.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
                 System.exit(0);
             }
@@ -79,12 +66,15 @@ public class Menu {
         return panelMenu;
     }
 
-    public JButton[] getButtons() {
-        return buttons;
-    }
-
     public JLabel getmenuBackground() {
         return menuBackground;
     }
 
+    public Button getPlayButton() {
+        return this.playButton;
+    }
+
+    public Button getExitButton() {
+        return this.exitButton;
+    }
 }
