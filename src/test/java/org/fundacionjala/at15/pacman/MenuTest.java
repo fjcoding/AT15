@@ -1,23 +1,19 @@
 package org.fundacionjala.at15.pacman;
 
 import static org.junit.Assert.assertTrue;
-import javax.swing.JButton;
 import org.junit.Test;
 
 public class MenuTest {
-    Menu menu = new Menu();
-    Window window = new Window();
+    
 
     @Test
-    public void itShoulHaveButtons() {
-        for (int i = 0; i < menu.getButtons().length; i++) {
-            menu.getButtons()[i] = new JButton();
-        }
-        menu.introMenu(window);
+    public void itShouldHaveAMenuWithButtons() {
+        Window window = new Window("PACMAN");
+        Play play = new Play();
+        Menu menu = new Menu(window, play);
 
-        assertTrue(menu.getPanelMenu().isVisible());
-        for (int i = 0; i < menu.getButtons().length; i++) {
-            assertTrue(menu.getButtons()[i].isVisible());
-        }
+        assertTrue(menu.getMenuPanel().isVisible());
+        assertTrue(menu.getPlayButton().isVisible());
+        assertTrue(menu.getExitButton().isVisible());
     }
 }

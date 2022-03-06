@@ -1,7 +1,5 @@
 package org.fundacionjala.at15.pacman;
 
-import java.awt.Color;
-import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -9,79 +7,65 @@ import java.awt.event.MouseEvent;
 import javax.swing.*;
 
 public class Menu {
-
-    private JPanel panelMenu;
-    private JButton[] buttons;
-    private JLabel menuBackground;
-    private ImageIcon imageMenuBackground;
+    private Panel menuPanel;
+    private Background menuBackground;
     private String player;
-    private final int buttonPosX = 200;
-    private final int buttonPosY = 50;
-    private final int buttonWeight = 200;
-    private final int buttonHeight = 40;
+    private Button playButton;
+    private Button exitButton;
+    private Window window;
+    private Play play;
 
-    public Menu() {
-        buttons = new JButton[2];
+    public Menu(Window window, Play play) {
+        this.window = window;
+        this.play = play;
+        menuPanel = new Panel();
+        menuBackground = new Background("src/main/java/org/fundacionjala/at15/pacman/images/menuImage.jpg");
+        playButton = new Button("Play", 1);
+        exitButton = new Button("Exit", 2);
+        introMenu();
+        menuEvent();
     }
 
-    public void introMenu(Window window) {
-
-        panelMenu = new JPanel();
-        panelMenu.setLayout(null);
-        panelMenu.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());
-        panelMenu.setVisible(true);
-
-        menuBackground = new JLabel();
-        menuBackground.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());
-        imageMenuBackground = new ImageIcon("src/main/java/org/fundacionjala/at15/pacman/images/menuImage.jpg");
-        imageMenuBackground = new ImageIcon(imageMenuBackground.getImage()
-                .getScaledInstance(window.getWindow().getWidth(), window.getWindow().getHeight(), Image.SCALE_DEFAULT));
-        menuBackground.setIcon(imageMenuBackground);
-        menuBackground.setVisible(true);
-        panelMenu.add(menuBackground, 0);
-
-        buttons[0].setText("Play");
-        buttons[1].setText("Exit");
-
-        for (int ind = 0; ind < buttons.length; ind++) {
-            buttons[ind].setBounds(window.getWindow().getWidth() - (buttonPosX + buttonPosY), (ind + 1) * buttonPosY, buttonWeight, buttonHeight);
-            buttons[ind].setVisible(true);
-            buttons[ind].setBackground(Color.white);
-            panelMenu.add(buttons[ind], 0);
-        }
-        window.getWindow().add(panelMenu);
-
+    public void introMenu() {
+        menuPanel.add(menuBackground, 0);
+        menuPanel.add(playButton, 0);
+        menuPanel.add(exitButton, 0);
+        window.add(menuPanel);
+        window.setVisible(true);
     }
 
-    public void menuEvent(Window window, Play play) {
+    public void menuEvent() {
 
-        buttons[0].addMouseListener(new MouseAdapter() {
+        playButton.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
-                player = JOptionPane.showInputDialog(window.getWindow(), "Player name", "Write here");
+                player = JOptionPane.showInputDialog(window, "Player name", "Write here");
                 while (player.compareTo("Write here") == 0 || player.compareTo("") == 0) {
-                    player = JOptionPane.showInputDialog(window.getWindow(), "Write player name", "Write here");
+                    player = JOptionPane.showInputDialog(window, "Write player name", "Write here");
                 }
-                play.runGame(window, player, panelMenu);
+                play.runGame(window, player, menuPanel);
             }
         });
 
-        buttons[1].addMouseListener(new MouseAdapter() {
+        exitButton.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
                 System.exit(0);
             }
         });
     }
 
-    public JPanel getPanelMenu() {
-        return panelMenu;
-    }
-
-    public JButton[] getButtons() {
-        return buttons;
+    public JPanel getMenuPanel() {
+        return menuPanel;
     }
 
     public JLabel getmenuBackground() {
         return menuBackground;
     }
 
+    public Button getPlayButton() {
+        return this.playButton;
+    }
+
+    public Button getExitButton() {
+        return this.exitButton;
+    }
 }
