@@ -12,22 +12,28 @@ public class Menu {
     private String player;
     private Button playButton;
     private Button exitButton;
+    private Window window;
+    private Play play;
 
-    public Menu() {
+    public Menu(Window window, Play play) {
+        this.window = window;
+        this.play = play;
         menuPanel = new Panel();
         menuBackground = new Background("src/main/java/org/fundacionjala/at15/pacman/images/menuImage.jpg");
         playButton = new Button("Play", 1);
         exitButton = new Button("Exit", 2);
+        introMenu();
+        menuEvent();
     }
 
-    public void introMenu(Window window) {
+    public void introMenu() {
         menuPanel.add(menuBackground, 0);
         menuPanel.add(playButton, 0);
         menuPanel.add(exitButton, 0);
         window.getWindow().add(menuPanel);
     }
 
-    public void menuEvent(Window window, Play play) {
+    public void menuEvent() {
 
         playButton.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {

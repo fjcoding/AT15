@@ -8,9 +8,9 @@ public class MenuTest {
 
     @Test
     public void itShouldHaveAMenuWithButtons() {
-        Menu menu = new Menu();
         Window window = new Window();
-        menu.introMenu(window);
+        Play play = new Play();
+        Menu menu = new Menu(window, play);
 
         assertTrue(menu.getMenuPanel().isVisible());
         assertTrue(menu.getPlayButton().isVisible());
