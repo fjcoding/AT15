@@ -49,12 +49,12 @@ public class Board extends JPanel {
         setBackground(Color.BLACK);
         if (inGame) {
             score.drawScore(g);;
-            score.setScore(String.valueOf(aliens.getScores()));
             drawShip(g);
             if (gun.shooted()) {
                 drawBullet(g);
                 gun.move();
             }
+            score.setScore(String.valueOf(aliens.getScores()));
             drawAliens(g);
             g.dispose();
         } else {

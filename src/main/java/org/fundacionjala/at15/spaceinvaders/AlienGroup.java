@@ -24,6 +24,10 @@ public class AlienGroup {
         bulletsDestroyed = 0;
         deaths = 0;
         scores = 0;
+        initializeAliens(alienRows, alienColumns);
+    }
+
+    private void initializeAliens(int alienRows, int alienColumns) {
         for (int yIndex = 0; yIndex < alienRows; yIndex++) {
             for (int xIndex = 0; xIndex < alienColumns; xIndex++) {
                 Alien alien = new Alien(
@@ -40,25 +44,35 @@ public class AlienGroup {
 
     public void moveAliens() {
         for (Alien alien : this.aliens) {
-            int posX = alien.getPosX();
-            if (posX <= 0 && this.alienDeltaX == -ALIEN_DELTA_X) {
-                this.alienDeltaX = ALIEN_DELTA_X;
-                List<Alien> aliens2 = aliens;
-                for (Alien alien2 : aliens2) {
-                    alien2.setPosY(alien2.getPosY() + ALIEN_SEPARATION);
-                }
-            }
-            if (posX >= BOARD_WIDTH - ALIEN_WIDTH - ALIEN_WIDTH && this.alienDeltaX == ALIEN_DELTA_X) {
-                this.alienDeltaX = -ALIEN_DELTA_X;
-                List<Alien> aliens2 = aliens;
-                for (Alien alien2 : aliens2) {
-                    alien2.setPosY(alien2.getPosY() + ALIEN_SEPARATION);
-                }
-            }
+            moveLeft(alien);
+            moveRight(alien);
+
             if (alien.getPosY() >= START_Y) {
                 invasion = true;
             }
             alien.moveX(this.alienDeltaX);
+        }
+    }
+
+    private void moveLeft(Alien alien) {
+        int posX = alien.getPosX();
+        if (posX >= BOARD_WIDTH - ALIEN_WIDTH - ALIEN_WIDTH && this.alienDeltaX == ALIEN_DELTA_X) {
+            this.alienDeltaX = -ALIEN_DELTA_X;
+            List<Alien> aliens2 = aliens;
+            for (Alien alien2 : aliens2) {
+                alien2.setPosY(alien2.getPosY() + ALIEN_SEPARATION);
+            }
+        }
+    }
+
+    private void moveRight(Alien alien) {
+        int posX = alien.getPosX();
+        if (posX <= 0 && this.alienDeltaX == -ALIEN_DELTA_X) {
+            this.alienDeltaX = ALIEN_DELTA_X;
+            List<Alien> aliens2 = aliens;
+            for (Alien alien2 : aliens2) {
+                alien2.setPosY(alien2.getPosY() + ALIEN_SEPARATION);
+            }
         }
     }
 
