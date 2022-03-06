@@ -17,7 +17,7 @@ public class Board extends JPanel {
     private Timer timer;
     protected String message;
     protected boolean inGame = true;
-    private String score;
+    private Score score;
 
     public Board() {
         addKeyListener(new KeyListener() {
@@ -37,6 +37,7 @@ public class Board extends JPanel {
             }
         });
         setFocusable(true);
+        this.score = new Score(String.valueOf(aliens.getScores()));
 
         timer = new Timer(DELAY, new GameCycle());
         timer.start();
@@ -47,7 +48,8 @@ public class Board extends JPanel {
         super.paint(g);
         setBackground(Color.BLACK);
         if (inGame) {
-            score(g);
+            score.drawScore(g);;
+            score.setScore(String.valueOf(aliens.getScores()));
             drawShip(g);
             if (gun.shooted()) {
                 drawBullet(g);
@@ -87,14 +89,6 @@ public class Board extends JPanel {
         g.setColor(Color.white);
         g.setFont(small);
         g.drawString(message, (BOARD_WIDTH - fontMetrics.stringWidth(message)) / 2, BOARD_HEIGHT / 2);
-    }
-
-    private void score(Graphics graphic) {
-        Font small = new Font("Arial", Font.BOLD, TEN);
-        graphic.setColor(Color.white);
-        graphic.setFont(small);
-        score = "SCORE: " + String.valueOf(aliens.getScores());
-        graphic.drawString(score, TEN, TEN);
     }
 
     private void update() {
