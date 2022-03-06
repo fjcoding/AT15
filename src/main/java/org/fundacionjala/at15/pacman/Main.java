@@ -2,6 +2,11 @@ package org.fundacionjala.at15.pacman;
 
 public class Main {
     public static void main(String[] args) {
-        Game game = new Game();
+        Window window = new Window();
+        Menu menu = new Menu();
+        Play play = new Play();
+        menu.introMenu(window);
+        menu.menuEvent(window, play);
+        window.getWindow().setVisible(true);
     }
 }
