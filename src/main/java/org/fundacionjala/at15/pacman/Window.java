@@ -1,22 +1,17 @@
 package org.fundacionjala.at15.pacman;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
-public class Window {
-    private JFrame window;
+public class Window extends JFrame {
     static final int WIDTH = 700;
     static final int HEIGHT = 700;
 
-    public Window() {
-        window = new JFrame("PACMAN");
-        window.setSize(WIDTH, HEIGHT);
-        window.setLayout(null);
-        window.setLocationRelativeTo(null);
-        window.setResizable(false);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    public JFrame getWindow() {
-        return window;
+    public Window(String title) {
+        setTitle(title);
+        setSize(WIDTH, HEIGHT);
+        setLayout(null);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

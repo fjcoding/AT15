@@ -30,16 +30,16 @@ public class Menu {
         menuPanel.add(menuBackground, 0);
         menuPanel.add(playButton, 0);
         menuPanel.add(exitButton, 0);
-        window.getWindow().add(menuPanel);
+        window.add(menuPanel);
     }
 
     public void menuEvent() {
 
         playButton.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
-                player = JOptionPane.showInputDialog(window.getWindow(), "Player name", "Write here");
+                player = JOptionPane.showInputDialog(window, "Player name", "Write here");
                 while (player.compareTo("Write here") == 0 || player.compareTo("") == 0) {
-                    player = JOptionPane.showInputDialog(window.getWindow(), "Write player name", "Write here");
+                    player = JOptionPane.showInputDialog(window, "Write player name", "Write here");
                 }
                 play.runGame(window, player, menuPanel);
             }

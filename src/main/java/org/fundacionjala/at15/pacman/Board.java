@@ -149,7 +149,7 @@ public class Board {
                         || board[pacman.getPosX()][pacman.getPosY() + 1] == ghostp
                         || board[pacman.getPosX()][pacman.getPosY() - 1] == ghostp) {
                     timerG.stop();
-                    JOptionPane.showMessageDialog(window.getWindow(), "DEAD, YOU LOSE!");
+                    JOptionPane.showMessageDialog(window, "DEAD, YOU LOSE!");
                     gamePanel.setVisible(false);
                     panelMenu.setVisible(true);
                     timer.stop();
@@ -163,7 +163,7 @@ public class Board {
                     }
                 }
                 if (enc == 0) {
-                    JOptionPane.showMessageDialog(window.getWindow(), "YOU WIN!!!!");
+                    JOptionPane.showMessageDialog(window, "YOU WIN!!!!");
                     gamePanel.setVisible(false);
                     panelMenu.setVisible(true);
                     timer.stop();
@@ -172,7 +172,7 @@ public class Board {
         });
         timer.start();
 
-        window.getWindow().addKeyListener(new KeyListener() {
+        window.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
 

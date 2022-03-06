@@ -52,7 +52,7 @@ public class Play {
 
         points = 0;
         records = new JLabel("POINTS: " + points);
-        records.setBounds(window.getWindow().getWidth() - (labelPos1 + labelPos), labelPos, labelWeight, labelHeight);
+        records.setBounds(window.getWidth() - (labelPos1 + labelPos), labelPos, labelWeight, labelHeight);
         records.setForeground(Color.white);
         records.setVisible(true);
         gamePanel.add(records, 0);
@@ -62,7 +62,7 @@ public class Play {
         board.ghostMove(gamePanel, ghost3);
         board.movPacman(window, gamePanel, records, panelMenu);
 
-        window.getWindow().add(gamePanel);
+        window.add(gamePanel);
     }
 
     public Board getBoard() {

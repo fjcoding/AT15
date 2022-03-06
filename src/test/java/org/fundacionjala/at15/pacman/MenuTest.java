@@ -8,7 +8,7 @@ public class MenuTest {
 
     @Test
     public void itShouldHaveAMenuWithButtons() {
-        Window window = new Window();
+        Window window = new Window("PACMAN");
         Play play = new Play();
         Menu menu = new Menu(window, play);
 

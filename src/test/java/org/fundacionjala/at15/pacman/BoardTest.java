@@ -57,7 +57,7 @@ public class BoardTest {
     public void itShouldHaveABoard() {
         Board board = new Board();
         Play play = new Play();
-        Window window = new Window();
+        Window window = new Window("PACMAN");
         String player = "player";
         JPanel panel = new JPanel();
         int wall = 1;
@@ -76,7 +76,7 @@ public class BoardTest {
     public void itShouldHaveAPacman() {
         Board board = new Board();
         Play play = new Play();
-        Window window = new Window();
+        Window window = new Window("PACMAN");
         String player = "player";
         JPanel panel = new JPanel();
         int PACMAN = 2;
@@ -91,7 +91,7 @@ public class BoardTest {
     public void itShouldListenKeyEvent() {
 
         Play play = new Play();
-        Window window = new Window();
+        Window window = new Window("PACMAN");
         String player = "player";
         JPanel panel = new JPanel();
 
@@ -101,10 +101,10 @@ public class BoardTest {
     @Test
     public void itShouldMoveGhost() {
         Board board = new Board();
-        Window window = new Window();
+        Window window = new Window("PACMAN");
         JPanel gamePanel = new JPanel();
         gamePanel.setLayout(null);
-        gamePanel.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());
+        gamePanel.setBounds(0, 0, window.getWidth(), window.getHeight());
 
         int posX = 13;
         int posY = 13;

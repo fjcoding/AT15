@@ -10,12 +10,12 @@ public class PlayTest {
     Play play = new Play();
     @Test
     public void itShouldInstance() {
-        Window window = new Window();
+        Window window = new Window("PACMAN");
         JPanel panel = new JPanel();
         String player = "player";
 
         panel.setLayout(null);
-        panel.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());
+        panel.setBounds(0, 0, window.getWidth(), window.getHeight());
         panel.setVisible(true);
 
         play.runGame(window, player, panel);
