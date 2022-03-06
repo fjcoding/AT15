@@ -67,20 +67,24 @@ public class Aliens {
         for (Alien alien : aliens) {
             int shot = generator.nextInt(ALIEN_RANGE_OF_PROBABILITY);
             Bomb bomb = alien.getBomb();
+            bombStatus(shot, bomb, alien);
 
-            if (shot == ALIEN_CHANCE && !bomb.bombStatus()) {
-                bomb.fire();
-                bomb.setPosX(alien.getPosX());
-                bomb.setPosY(alien.getPosY());
-                bulletsShooted++;
-            }
+        }
+    }
 
-            if (bomb.bombStatus()) {
-                bomb.setPosY(bomb.getPosY() + ALIEN_BULLET_SPEED);
-                if (bomb.getPosY() >= BOARD_HEIGHT - BULLET_HEIGHT) {
-                    bomb.destroyed();
-                    bulletsDestroyed++;
-                }
+    public void bombStatus(int shot, Bomb bomb, Alien alien) {
+        if (shot == ALIEN_CHANCE && !bomb.bombStatus()) {
+            bomb.fire();
+            bomb.setPosX(alien.getPosX());
+            bomb.setPosY(alien.getPosY());
+            bulletsShooted++;
+        }
+
+        if (bomb.bombStatus()) {
+            bomb.setPosY(bomb.getPosY() + ALIEN_BULLET_SPEED);
+            if (bomb.getPosY() >= BOARD_HEIGHT - BULLET_HEIGHT) {
+                bomb.destroyed();
+                bulletsDestroyed++;
             }
         }
     }
@@ -91,17 +95,21 @@ public class Aliens {
             int shotX = gun.getPosXBullet();
             int alienX = aliens.get(index).getPosX();
             int alienY = aliens.get(index).getPosY();
-            if (!aliens.get(index).isDying() && gun.shooted()) {
-                if (shotX >= (alienX)
-                        && shotX <= (alienX + ALIEN_WIDTH)
-                        && shotY >= (alienY)
-                        && shotY <= (alienY + ALIEN_HEIGHT)) {
-                    aliens.get(index).setDying(true);
-                    aliens.remove(index);
-                    gun.destroy();
-                    deaths++;
-                    scores = TEN * deaths;
-                }
+            alienDead(shotY, shotX, alienX, alienY, index, gun);
+        }
+    }
+
+    public void alienDead(int shotY, int shotX, int alienX, int alienY, int index, Gun gun) {
+        if (!aliens.get(index).isDying() && gun.shooted()) {
+            if (shotX >= (alienX)
+                    && shotX <= (alienX + ALIEN_WIDTH)
+                    && shotY >= (alienY)
+                    && shotY <= (alienY + ALIEN_HEIGHT)) {
+                aliens.get(index).setDying(true);
+                aliens.remove(index);
+                gun.destroy();
+                deaths++;
+                scores = TEN * deaths;
             }
         }
     }
@@ -113,14 +121,18 @@ public class Aliens {
             int playerX = ship.getPosX();
             int playerY = ship.getPosY();
 
-            if (ship.isVisible()) {
-                if (bombX >= (playerX)
-                        && bombX <= (playerX + PLAYER_WIDTH)
-                        && bombY >= (playerY)
-                        && bombY <= (playerY + PLAYER_HEIGHT)) {
-                    ship.setDying(true);
-                    alien.getBomb().destroyed();
-                }
+            shipIsVisible(bombX, bombY, playerX, playerY, ship, alien);
+        }
+    }
+
+    public void shipIsVisible(int bombX, int bombY, int playerX, int playerY, Ship ship, Alien alien) {
+        if (ship.isVisible()) {
+            if (bombX >= (playerX)
+                    && bombX <= (playerX + PLAYER_WIDTH)
+                    && bombY >= (playerY)
+                    && bombY <= (playerY + PLAYER_HEIGHT)) {
+                ship.setDying(true);
+                alien.getBomb().destroyed();
             }
         }
     }
