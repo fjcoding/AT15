@@ -24,8 +24,8 @@ public class BoardTest {
                                 {1, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
                                 {1, 4, 1, 4, 4, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1},
                                 {1, 4, 4, 4, 1, 4, 1, 4, 4, 4, 4, 4, 1, 4, 1},
-                                {1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1},
-                                {1, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1},
+                                {1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 3, 1},
+                                {1, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 4, 3, 3, 1},
                                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
                         };
         assertArrayEquals(sample, board.getBoard());
@@ -100,45 +100,5 @@ public class BoardTest {
         JPanel panel = new JPanel();
 
         play.runGame(window, player, panel);
-    }
-
-    @Test
-    public void itShouldMoveGhost() {
-        Panel gamePanel = new Panel();
-        Board board = new Board(gamePanel);
-        Window window = new Window("PACMAN");
-        gamePanel.setLayout(null);
-        gamePanel.setBounds(0, 0, window.getWidth(), window.getHeight());
-
-        int posX = 13;
-        int posY = 13;
-        Ghost ghost = new Ghost(posX, posY);
-
-        ghost.setDirection(1);
-        board.ghostMove(ghost);
-        assertEquals(posX, ghost.getPosX());
-        assertEquals(posY, ghost.getPosY());
-
-        ghost.setDirection(2);
-        board.ghostMove(ghost);
-        assertEquals(posX, ghost.getPosX());
-        assertEquals(posY, ghost.getPosY());
-
-        ghost.setDirection(3);
-        board.ghostMove(ghost);
-        assertEquals(posX, ghost.getPosX());
-        assertEquals(posY, ghost.getPosY());
-
-        ghost.setDirection(4);
-        board.ghostMove(ghost);
-        assertEquals(posX, ghost.getPosX());
-        assertEquals(posY, ghost.getPosY());
-
-        board.ghostMove(ghost);
-        board.ghostMove(ghost);
-        board.ghostMove(ghost);
-        board.ghostMove(ghost);
-        assertEquals(posX, ghost.getPosX());
-        assertEquals(posY, ghost.getPosY());
     }
 }
