@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Board {
-    private int[][] board; // 0 = empty, 1 = wall, 2 = pacman, 3 = ghost, 4 = dot
-    private int[][] auxBoard;
+    private int[][] grid; // 0 = empty, 1 = wall, 2 = pacman, 3 = ghost, 4 = dot
+    private int[][] auxGrid;
     private JLabel[][] matriz;
     private Pacman pacman;
     private Ghost ghost1;
@@ -40,25 +40,25 @@ public class Board {
 
     public Board(Panel gamePanel) {
         this.gamePanel = gamePanel;
-        board = new int[rows][cols];
-        auxBoard = new int[rows][cols];
+        grid = new int[rows][cols];
+        auxGrid = new int[rows][cols];
         matriz = new JLabel[rows][cols];
         pacman = new Pacman();
         ghost1 = new Ghost(ghostPos, ghostPos);
         ghost2 = new Ghost(ghostPos1, ghostPos);
         ghost3 = new Ghost(ghostPos, ghostPos1);
 
-        for (int indI = 0; indI < board.length; indI++) {
-            for (int indJ = 0; indJ < board.length; indJ++) {
+        for (int indI = 0; indI < grid.length; indI++) {
+            for (int indJ = 0; indJ < grid.length; indJ++) {
                 matriz[indI][indJ] = new JLabel();
             }
         }
-        auxBoard = defectTable();
-        board = defectTable();
-        board[pacman.getPosX()][pacman.getPosY()] = 2;
-        board[ghost1.getPosX()][ghost1.getPosY()] = ghostArray;
-        board[ghost2.getPosX()][ghost2.getPosY()] = ghostArray;
-        board[ghost3.getPosX()][ghost3.getPosY()] = ghostArray;
+        auxGrid = defectTable();
+        grid = defectTable();
+        grid[pacman.getPosX()][pacman.getPosY()] = 2;
+        grid[ghost1.getPosX()][ghost1.getPosY()] = ghostArray;
+        grid[ghost2.getPosX()][ghost2.getPosY()] = ghostArray;
+        grid[ghost3.getPosX()][ghost3.getPosY()] = ghostArray;
     }
 
     public void insertBoard() {
@@ -67,9 +67,9 @@ public class Board {
         int auxDown = getDown();
         int auxLeft = getLeft();
         int auxRight = getRight();
-        for (int indI = 0; indI < board.length; indI++) {
-            for (int indJ = 0; indJ < board.length; indJ++) {
-                if (board[indI][indJ] == 2) {
+        for (int indI = 0; indI < grid.length; indI++) {
+            for (int indJ = 0; indJ < grid.length; indJ++) {
+                if (grid[indI][indJ] == 2) {
                     if (auxRight == 1) {
                         aux = "pacmanright.gif";
                     }
@@ -86,7 +86,7 @@ public class Board {
                 }
                 matriz[indI][indJ].setIcon(
                         new ImageIcon(
-                                "src/main/java/org/fundacionjala/at15/pacman/images/" + board[indI][indJ] + aux));
+                                "src/main/java/org/fundacionjala/at15/pacman/images/" + grid[indI][indJ] + aux));
 
                 matriz[indI][indJ].setBounds(boardPos + (indI * boardHeight), boardPos + (indJ * boardHeight),
                         boardHeight, boardHeight);
@@ -100,60 +100,60 @@ public class Board {
     public void movPacman(Window window, JLabel records, JPanel panelMenu) {
         timer = new Timer(DELAY, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (up == 1 && (board[pacman.getPosX()][pacman.getPosY() - 1] == DOT
-                        || board[pacman.getPosX()][pacman.getPosY() - 1] == 0)) {
-                    if (board[pacman.getPosX()][pacman.getPosY() - 1] == DOT) {
+                if (up == 1 && (grid[pacman.getPosX()][pacman.getPosY() - 1] == DOT
+                        || grid[pacman.getPosX()][pacman.getPosY() - 1] == 0)) {
+                    if (grid[pacman.getPosX()][pacman.getPosY() - 1] == DOT) {
                         point += incre;
                         records.setText("points: " + point);
                     }
-                    board[pacman.getPosX()][pacman.getPosY()] = 0;
-                    auxBoard[pacman.getPosX()][pacman.getPosY()] = board[pacman.getPosX()][pacman.getPosY()];
+                    grid[pacman.getPosX()][pacman.getPosY()] = 0;
+                    auxGrid[pacman.getPosX()][pacman.getPosY()] = grid[pacman.getPosX()][pacman.getPosY()];
                     pacman.setPosY(pacman.getPosY() - 1);
-                    board[pacman.getPosX()][pacman.getPosY()] = 2;
+                    grid[pacman.getPosX()][pacman.getPosY()] = 2;
                     insertBoard();
 
                 }
-                if (down == 1 && (board[pacman.getPosX()][pacman.getPosY() + 1] == DOT
-                        || board[pacman.getPosX()][pacman.getPosY() + 1] == 0)) {
-                    if (board[pacman.getPosX()][pacman.getPosY() + 1] == DOT) {
+                if (down == 1 && (grid[pacman.getPosX()][pacman.getPosY() + 1] == DOT
+                        || grid[pacman.getPosX()][pacman.getPosY() + 1] == 0)) {
+                    if (grid[pacman.getPosX()][pacman.getPosY() + 1] == DOT) {
                         point += incre;
                         records.setText("points: " + point);
                     }
-                    board[pacman.getPosX()][pacman.getPosY()] = 0;
-                    auxBoard[pacman.getPosX()][pacman.getPosY()] = board[pacman.getPosX()][pacman.getPosY()];
+                    grid[pacman.getPosX()][pacman.getPosY()] = 0;
+                    auxGrid[pacman.getPosX()][pacman.getPosY()] = grid[pacman.getPosX()][pacman.getPosY()];
                     pacman.setPosY(pacman.getPosY() + 1);
-                    board[pacman.getPosX()][pacman.getPosY()] = 2;
+                    grid[pacman.getPosX()][pacman.getPosY()] = 2;
                     insertBoard();
 
                 }
-                if (left == 1 && (board[pacman.getPosX() - 1][pacman.getPosY()] == DOT
-                        || board[pacman.getPosX() - 1][pacman.getPosY()] == 0)) {
-                    if (board[pacman.getPosX() - 1][pacman.getPosY()] == DOT) {
+                if (left == 1 && (grid[pacman.getPosX() - 1][pacman.getPosY()] == DOT
+                        || grid[pacman.getPosX() - 1][pacman.getPosY()] == 0)) {
+                    if (grid[pacman.getPosX() - 1][pacman.getPosY()] == DOT) {
                         point += incre;
                         records.setText("points: " + point);
                     }
-                    board[pacman.getPosX()][pacman.getPosY()] = 0;
-                    auxBoard[pacman.getPosX()][pacman.getPosY()] = board[pacman.getPosX()][pacman.getPosY()];
+                    grid[pacman.getPosX()][pacman.getPosY()] = 0;
+                    auxGrid[pacman.getPosX()][pacman.getPosY()] = grid[pacman.getPosX()][pacman.getPosY()];
                     pacman.setPosX(pacman.getPosX() - 1);
-                    board[pacman.getPosX()][pacman.getPosY()] = 2;
+                    grid[pacman.getPosX()][pacman.getPosY()] = 2;
                     insertBoard();
                 }
-                if (right == 1 && (board[pacman.getPosX() + 1][pacman.getPosY()] == DOT
-                        || board[pacman.getPosX() + 1][pacman.getPosY()] == 0)) {
-                    if (board[pacman.getPosX() + 1][pacman.getPosY()] == DOT) {
+                if (right == 1 && (grid[pacman.getPosX() + 1][pacman.getPosY()] == DOT
+                        || grid[pacman.getPosX() + 1][pacman.getPosY()] == 0)) {
+                    if (grid[pacman.getPosX() + 1][pacman.getPosY()] == DOT) {
                         point += incre;
                         records.setText("points: " + point);
                     }
-                    board[pacman.getPosX()][pacman.getPosY()] = 0;
-                    auxBoard[pacman.getPosX()][pacman.getPosY()] = board[pacman.getPosX()][pacman.getPosY()];
+                    grid[pacman.getPosX()][pacman.getPosY()] = 0;
+                    auxGrid[pacman.getPosX()][pacman.getPosY()] = grid[pacman.getPosX()][pacman.getPosY()];
                     pacman.setPosX(pacman.getPosX() + 1);
-                    board[pacman.getPosX()][pacman.getPosY()] = 2;
+                    grid[pacman.getPosX()][pacman.getPosY()] = 2;
                     insertBoard();
                 }
-                if (board[pacman.getPosX() + 1][pacman.getPosY()] == Ghost.GHOSTP
-                        || board[pacman.getPosX() - 1][pacman.getPosY()] == Ghost.GHOSTP
-                        || board[pacman.getPosX()][pacman.getPosY() + 1] == Ghost.GHOSTP
-                        || board[pacman.getPosX()][pacman.getPosY() - 1] == Ghost.GHOSTP) {
+                if (grid[pacman.getPosX() + 1][pacman.getPosY()] == Ghost.GHOSTP
+                        || grid[pacman.getPosX() - 1][pacman.getPosY()] == Ghost.GHOSTP
+                        || grid[pacman.getPosX()][pacman.getPosY() + 1] == Ghost.GHOSTP
+                        || grid[pacman.getPosX()][pacman.getPosY() - 1] == Ghost.GHOSTP) {
                     stopGhostGroup();
                     JOptionPane.showMessageDialog(window, "DEAD, YOU LOSE!");
                     gamePanel.setVisible(false);
@@ -161,9 +161,9 @@ public class Board {
                     timer.stop();
                 }
                 int enc = 0;
-                for (int indI = 0; indI < board.length; indI++) {
-                    for (int indJ = 0; indJ < board.length; indJ++) {
-                        if (board[indI][indJ] == DOT) {
+                for (int indI = 0; indI < grid.length; indI++) {
+                    for (int indJ = 0; indJ < grid.length; indJ++) {
+                        if (grid[indI][indJ] == DOT) {
                             enc = 1;
                         }
                     }
@@ -187,8 +187,8 @@ public class Board {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
-                    if (board[pacman.getPosX()][pacman.getPosY() - 1] == DOT
-                            || board[pacman.getPosX()][pacman.getPosY() - 1] == 0) {
+                    if (grid[pacman.getPosX()][pacman.getPosY() - 1] == DOT
+                            || grid[pacman.getPosX()][pacman.getPosY() - 1] == 0) {
                         up = 1;
                         down = 0;
                         left = 0;
@@ -196,8 +196,8 @@ public class Board {
                     }
                 }
                 if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    if (board[pacman.getPosX()][pacman.getPosY() + 1] == DOT
-                            || board[pacman.getPosX()][pacman.getPosY() + 1] == 0) {
+                    if (grid[pacman.getPosX()][pacman.getPosY() + 1] == DOT
+                            || grid[pacman.getPosX()][pacman.getPosY() + 1] == 0) {
                         up = 0;
                         down = 1;
                         left = 0;
@@ -205,8 +205,8 @@ public class Board {
                     }
                 }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    if (board[pacman.getPosX() - 1][pacman.getPosY()] == DOT
-                            || board[pacman.getPosX() - 1][pacman.getPosY()] == 0) {
+                    if (grid[pacman.getPosX() - 1][pacman.getPosY()] == DOT
+                            || grid[pacman.getPosX() - 1][pacman.getPosY()] == 0) {
                         up = 0;
                         down = 0;
                         left = 1;
@@ -215,8 +215,8 @@ public class Board {
 
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    if (board[pacman.getPosX() + 1][pacman.getPosY()] == DOT
-                            || board[pacman.getPosX() + 1][pacman.getPosY()] == 0) {
+                    if (grid[pacman.getPosX() + 1][pacman.getPosY()] == DOT
+                            || grid[pacman.getPosX() + 1][pacman.getPosY()] == 0) {
                         up = 0;
                         down = 0;
                         left = 0;
@@ -265,20 +265,20 @@ public class Board {
         return aux;
     }
 
-    public int[][] getBoard() {
-        return board;
+    public int[][] getGrid() {
+        return grid;
     }
 
-    public void setBoard(int[][] newBoard) {
-        this.board = newBoard;
+    public void setGrid(int[][] newGrid) {
+        this.grid = newGrid;
     }
 
-    public int[][] getAuxBoard() {
-        return auxBoard;
+    public int[][] getAuxGrid() {
+        return auxGrid;
     }
 
-    public void setAuxBoard(int[][] newBoard) {
-        this.auxBoard = newBoard;
+    public void setAuxGrid(int[][] newGrid) {
+        this.auxGrid = newGrid;
     }
 
     public Pacman getPacman() {

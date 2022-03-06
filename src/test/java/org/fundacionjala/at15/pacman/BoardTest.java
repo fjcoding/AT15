@@ -28,7 +28,7 @@ public class BoardTest {
                                 {1, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 4, 3, 3, 1},
                                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
                         };
-        assertArrayEquals(sample, board.getBoard());
+        assertArrayEquals(sample, board.getGrid());
     }
 
     @Test
@@ -68,11 +68,11 @@ public class BoardTest {
 
         play.runGame(window, player, panel);
 
-        for (int i = 0; i < board.getBoard().length; i++) {
-            assertEquals(wall, board.getBoard()[0][i]);
-            assertEquals(wall, board.getBoard()[board.getBoard()[0].length-1][i]);
+        for (int i = 0; i < board.getGrid().length; i++) {
+            assertEquals(wall, board.getGrid()[0][i]);
+            assertEquals(wall, board.getGrid()[board.getGrid()[0].length-1][i]);
         }
-        assertEquals(dot, board.getBoard()[5][5]);
+        assertEquals(dot, board.getGrid()[5][5]);
     }
 
     @Test
@@ -88,7 +88,7 @@ public class BoardTest {
         play.runGame(window, player, panel);
         int x = board.getPacman().getPosX();
         int y = board.getPacman().getPosY();
-        assertEquals(PACMAN, board.getBoard()[x][y]);
+        assertEquals(PACMAN, board.getGrid()[x][y]);
     }
 
     @Test

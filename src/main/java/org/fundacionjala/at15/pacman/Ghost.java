@@ -50,52 +50,52 @@ public class Ghost {
     public void move(Board theBoard) {
         timerG = new Timer(Board.DELAY, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int[][] board = theBoard.getBoard();
-                int[][] auxBoard = theBoard.getAuxBoard();
+                int[][] grid = theBoard.getGrid();
+                int[][] auxGrid = theBoard.getAuxGrid();
                 direction = (int) Math.floor(Math.random() * (randomLimit - 1) + 1);
 
                 if (direction == randomOne) {
-                    if (board[posX - 1][posY] != 1 && (board[posX - 1][posY] == 0 || board[posX - 1][posY] == Board.DOT)) {
-                        board[posX][posY] = auxBoard[posX][posY];
+                    if (grid[posX - 1][posY] != 1 && (grid[posX - 1][posY] == 0 || grid[posX - 1][posY] == Board.DOT)) {
+                        grid[posX][posY] = auxGrid[posX][posY];
                         posX--;
-                        board[posX][posY] = GHOSTP;
-                    } else if (posX > 0 && board[posX - 1][posY] == 1) {
+                        grid[posX][posY] = GHOSTP;
+                    } else if (posX > 0 && grid[posX - 1][posY] == 1) {
                         direction = (int) Math.floor(Math.random() * (randomLimit - 1) + 1);
-                    } else if (board[posX - 1][posY] == GHOSTP) {
+                    } else if (grid[posX - 1][posY] == GHOSTP) {
                         direction = (int) Math.floor(Math.random() * (randomLimit - 1) + 1);
                     }
                 } else if (direction == randomTwo) {
-                    if (board[posX + 1][posY] != 1 && (board[posX + 1][posY] == 0 || board[posX - 1][posY] == Board.DOT)) {
-                        board[posX][posY] = auxBoard[posX][posY];
+                    if (grid[posX + 1][posY] != 1 && (grid[posX + 1][posY] == 0 || grid[posX - 1][posY] == Board.DOT)) {
+                        grid[posX][posY] = auxGrid[posX][posY];
                         posX++;
-                        board[posX][posY] = GHOSTP;
-                    } else if (posX < boardLimit && board[posX + 1][posY] == 1) {
+                        grid[posX][posY] = GHOSTP;
+                    } else if (posX < boardLimit && grid[posX + 1][posY] == 1) {
                         direction = (int) Math.floor(Math.random() * (randomLimit - 1) + 1);
-                    } else if (board[posX + 1][posY] == GHOSTP) {
+                    } else if (grid[posX + 1][posY] == GHOSTP) {
                         direction = (int) Math.floor(Math.random() * (randomLimit - 1) + 1);
                     }
                 } else if (direction == randomThree) {
-                    if (board[posX][posY - 1] != 1 && (board[posX][posY - 1] == 0 || board[posX][posY - 1] == Board.DOT)) {
-                        board[posX][posY] = auxBoard[posX][posY];
+                    if (grid[posX][posY - 1] != 1 && (grid[posX][posY - 1] == 0 || grid[posX][posY - 1] == Board.DOT)) {
+                        grid[posX][posY] = auxGrid[posX][posY];
                         posY--;
-                        board[posX][posY] = GHOSTP;
-                    } else if (posY > 0 && board[posX][posY - 1] == 1) {
+                        grid[posX][posY] = GHOSTP;
+                    } else if (posY > 0 && grid[posX][posY - 1] == 1) {
                         direction = (int) Math.floor(Math.random() * (randomLimit - 1) + 1);
-                    } else if (board[posX][posY - 1] == GHOSTP) {
+                    } else if (grid[posX][posY - 1] == GHOSTP) {
                         direction = (int) Math.floor(Math.random() * (randomLimit - 1) + 1);
                     }
                 } else if (direction == randomFour) {
-                    if (board[posX][posY + 1] != 1 && (board[posX][posY + 1] == 0 || board[posX][posY + 1] == Board.DOT)) {
-                        board[posX][posY] = auxBoard[posX][posY];
+                    if (grid[posX][posY + 1] != 1 && (grid[posX][posY + 1] == 0 || grid[posX][posY + 1] == Board.DOT)) {
+                        grid[posX][posY] = auxGrid[posX][posY];
                         posY++;
-                        board[posX][posY] = GHOSTP;
-                    } else if (posY < boardLimit && board[posX][posY + 1] == 1) {
+                        grid[posX][posY] = GHOSTP;
+                    } else if (posY < boardLimit && grid[posX][posY + 1] == 1) {
                         direction = (int) Math.floor(Math.random() * (randomLimit - 1) + 1);
-                    } else if (board[posX][posY + 1] == GHOSTP) {
+                    } else if (grid[posX][posY + 1] == GHOSTP) {
                         direction = (int) Math.floor(Math.random() * (randomLimit - 1) + 1);
                     }
                 }
-                theBoard.setBoard(board);
+                theBoard.setGrid(grid);
 
                 theBoard.insertBoard();
             }
