@@ -31,6 +31,7 @@ public class Menu {
         menuPanel.add(playButton, 0);
         menuPanel.add(exitButton, 0);
         window.add(menuPanel);
+        window.setVisible(true);
     }
 
     public void menuEvent() {

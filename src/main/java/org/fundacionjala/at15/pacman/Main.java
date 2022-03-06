@@ -5,6 +5,5 @@ public class Main {
         Window window = new Window("PACMAN");
         Play play = new Play();
         new Menu(window, play);
-        window.setVisible(true);
     }
 }
