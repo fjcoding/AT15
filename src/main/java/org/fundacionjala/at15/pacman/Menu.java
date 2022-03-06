@@ -1,6 +1,5 @@
 package org.fundacionjala.at15.pacman;
 
-import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -9,32 +8,23 @@ import javax.swing.*;
 
 public class Menu {
     private Panel menuPanel;
-    private JLabel menuBackground;
-    private ImageIcon imageMenuBackground;
+    private Background menuBackground;
     private String player;
     private Button playButton;
     private Button exitButton;
 
     public Menu() {
         menuPanel = new Panel();
+        menuBackground = new Background("src/main/java/org/fundacionjala/at15/pacman/images/menuImage.jpg");
         playButton = new Button("Play", 1);
         exitButton = new Button("Exit", 2);
     }
 
     public void introMenu(Window window) {
-        menuBackground = new JLabel();
-        menuBackground.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());
-        imageMenuBackground = new ImageIcon("src/main/java/org/fundacionjala/at15/pacman/images/menuImage.jpg");
-        imageMenuBackground = new ImageIcon(imageMenuBackground.getImage()
-                .getScaledInstance(window.getWindow().getWidth(), window.getWindow().getHeight(), Image.SCALE_DEFAULT));
-        menuBackground.setIcon(imageMenuBackground);
-        menuBackground.setVisible(true);
         menuPanel.add(menuBackground, 0);
-
         menuPanel.add(playButton, 0);
         menuPanel.add(exitButton, 0);
         window.getWindow().add(menuPanel);
-
     }
 
     public void menuEvent(Window window, Play play) {
