@@ -1,11 +1,9 @@
 package org.fundacionjala.at15.spaceinvaders;
 
 import java.util.List;
-import java.util.Random;
 import java.util.ArrayList;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
-import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 
 public class Aliens {
@@ -62,29 +60,6 @@ public class Aliens {
         }
     }
 
-    public void aliensShoot() {
-        Random generator = new Random();
-        for (Alien alien : aliens) {
-            int shot = generator.nextInt(ALIEN_RANGE_OF_PROBABILITY);
-            Bomb bomb = alien.getBomb();
-
-            if (shot == ALIEN_CHANCE && !bomb.bombStatus()) {
-                bomb.fire();
-                bomb.setPosX(alien.getPosX());
-                bomb.setPosY(alien.getPosY());
-                bulletsShooted++;
-            }
-
-            if (bomb.bombStatus()) {
-                bomb.setPosY(bomb.getPosY() + ALIEN_BULLET_SPEED);
-                if (bomb.getPosY() >= BOARD_HEIGHT - BULLET_HEIGHT) {
-                    bomb.destroyed();
-                    bulletsDestroyed++;
-                }
-            }
-        }
-    }
-
     public void killAliens(Gun gun) {
         for (int index = 0; index < aliens.size(); index++) {
             int shotY = gun.getPosYBullet();
@@ -132,9 +107,15 @@ public class Aliens {
     public int getBulletsShooted() {
         return this.bulletsShooted;
     }
+    public void setBulletShooted(int newBulletShooted) {
+        this.bulletsShooted = newBulletShooted;
+    }
 
     public int getBulletsDestroyed() {
         return this.bulletsDestroyed;
+    }
+    public void setBulletsDestroyed(int newBulletDestroyed) {
+        this.bulletsDestroyed = newBulletDestroyed;
     }
 
     public boolean getInvasion() {

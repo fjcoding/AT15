@@ -77,17 +77,6 @@ public class AliensTest {
     }
 
     @Test
-    public void itShouldShoot() {
-        Aliens theAliens = new Aliens(ALIEN_ROWS, ALIEN_COLUMNS);
-        for (int index = 0; index < 1000; index++) {
-            theAliens.aliensShoot();
-        }
-
-        assertTrue(theAliens.getBulletsShooted() > 0);
-        assertTrue(theAliens.getBulletsDestroyed() > 0);
-    }
-
-    @Test
     public void itShouldGetInvasion() {
         Aliens theAliens = new Aliens(1, 1);
         theAliens.getAliens().get(0).setPosY(START_Y);
