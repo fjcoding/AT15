@@ -9,7 +9,8 @@ import org.junit.Test;
 public class BoardTest {
     @Test
     public void itShouldHaveAInitializedBoard() {
-        Board board = new Board();
+        Panel gamePanel = new Panel();
+        Board board = new Board(gamePanel);
         int[][] sample = {
                                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                                 {1, 2, 4, 4, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 1},
@@ -32,7 +33,8 @@ public class BoardTest {
 
     @Test
     public void itShouldHaveADefectTable() {
-        Board board = new Board();
+        Panel gamePanel = new Panel();
+        Board board = new Board(gamePanel);
         int[][] expected = {
                             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                             {1, 4, 4, 4, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 1},
@@ -55,7 +57,8 @@ public class BoardTest {
 
     @Test
     public void itShouldHaveABoard() {
-        Board board = new Board();
+        Panel gamePanel = new Panel();
+        Board board = new Board(gamePanel);
         Play play = new Play();
         Window window = new Window("PACMAN");
         String player = "player";
@@ -74,7 +77,8 @@ public class BoardTest {
 
     @Test
     public void itShouldHaveAPacman() {
-        Board board = new Board();
+        Panel gamePanel = new Panel();
+        Board board = new Board(gamePanel);
         Play play = new Play();
         Window window = new Window("PACMAN");
         String player = "player";
@@ -100,9 +104,9 @@ public class BoardTest {
 
     @Test
     public void itShouldMoveGhost() {
-        Board board = new Board();
+        Panel gamePanel = new Panel();
+        Board board = new Board(gamePanel);
         Window window = new Window("PACMAN");
-        JPanel gamePanel = new JPanel();
         gamePanel.setLayout(null);
         gamePanel.setBounds(0, 0, window.getWidth(), window.getHeight());
 
@@ -111,29 +115,29 @@ public class BoardTest {
         Ghost ghost = new Ghost(posX, posY);
 
         ghost.setDirection(1);
-        board.ghostMove(gamePanel, ghost);
+        board.ghostMove(ghost);
         assertEquals(posX, ghost.getPosX());
         assertEquals(posY, ghost.getPosY());
 
         ghost.setDirection(2);
-        board.ghostMove(gamePanel, ghost);
+        board.ghostMove(ghost);
         assertEquals(posX, ghost.getPosX());
         assertEquals(posY, ghost.getPosY());
 
         ghost.setDirection(3);
-        board.ghostMove(gamePanel, ghost);
+        board.ghostMove(ghost);
         assertEquals(posX, ghost.getPosX());
         assertEquals(posY, ghost.getPosY());
 
         ghost.setDirection(4);
-        board.ghostMove(gamePanel, ghost);
+        board.ghostMove(ghost);
         assertEquals(posX, ghost.getPosX());
         assertEquals(posY, ghost.getPosY());
 
-        board.ghostMove(gamePanel, ghost);
-        board.ghostMove(gamePanel, ghost);
-        board.ghostMove(gamePanel, ghost);
-        board.ghostMove(gamePanel, ghost);
+        board.ghostMove(ghost);
+        board.ghostMove(ghost);
+        board.ghostMove(ghost);
+        board.ghostMove(ghost);
         assertEquals(posX, ghost.getPosX());
         assertEquals(posY, ghost.getPosY());
     }

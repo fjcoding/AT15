@@ -25,14 +25,14 @@ public class Play {
     public Play() {
         gamePanel = new Panel();
         gameBackground = new Background("src/main/java/org/fundacionjala/at15/pacman/images/playImage.jpg");
+        board = new Board(gamePanel);
     }
 
     public void runGame(Window window, String player, JPanel panelMenu) {
         panelMenu.setVisible(false);
         gamePanel.add(gameBackground, 0);
 
-        board = new Board();
-        board.insertBoard(gamePanel);
+        board.insertBoard();
         ghost1 = new Ghost(ghostPos, ghostPos);
         ghost2 = new Ghost(ghostPos1, ghostPos);
         ghost3 = new Ghost(ghostPos, ghostPos1);
@@ -57,10 +57,10 @@ public class Play {
         records.setVisible(true);
         gamePanel.add(records, 0);
 
-        board.ghostMove(gamePanel, ghost1);
-        board.ghostMove(gamePanel, ghost2);
-        board.ghostMove(gamePanel, ghost3);
-        board.movPacman(window, gamePanel, records, panelMenu);
+        board.ghostMove(ghost1);
+        board.ghostMove(ghost2);
+        board.ghostMove(ghost3);
+        board.movPacman(window, records, panelMenu);
 
         window.add(gamePanel);
     }

@@ -15,6 +15,7 @@ public class Board {
     private int[][] auxBoard;
     private JLabel[][] matriz;
     private Pacman pacman;
+    private Panel gamePanel;
 
     private int up = 0;
     private int down = 0;
@@ -39,7 +40,8 @@ public class Board {
     private final int randomThree = 3;
     private final int randomFour = 4;
 
-    public Board() {
+    public Board(Panel gamePanel) {
+        this.gamePanel = gamePanel;
         board = new int[rows][cols];
         auxBoard = new int[rows][cols];
         matriz = new JLabel[rows][cols];
@@ -55,7 +57,7 @@ public class Board {
         board[pacman.getPosX()][pacman.getPosY()] = 2;
     }
 
-    public void insertBoard(JPanel gamePanel) {
+    public void insertBoard() {
         String aux = ".png";
         int auxUp = getUp();
         int auxDown = getDown();
@@ -91,7 +93,7 @@ public class Board {
         }
     }
 
-    public void movPacman(Window window, JPanel gamePanel, JLabel records, JPanel panelMenu) {
+    public void movPacman(Window window, JLabel records, JPanel panelMenu) {
         timer = new Timer(time, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (up == 1 && (board[pacman.getPosX()][pacman.getPosY() - 1] == dot
@@ -104,7 +106,7 @@ public class Board {
                     auxBoard[pacman.getPosX()][pacman.getPosY()] = board[pacman.getPosX()][pacman.getPosY()];
                     pacman.setPosY(pacman.getPosY() - 1);
                     board[pacman.getPosX()][pacman.getPosY()] = 2;
-                    insertBoard(gamePanel);
+                    insertBoard();
 
                 }
                 if (down == 1 && (board[pacman.getPosX()][pacman.getPosY() + 1] == dot
@@ -117,7 +119,7 @@ public class Board {
                     auxBoard[pacman.getPosX()][pacman.getPosY()] = board[pacman.getPosX()][pacman.getPosY()];
                     pacman.setPosY(pacman.getPosY() + 1);
                     board[pacman.getPosX()][pacman.getPosY()] = 2;
-                    insertBoard(gamePanel);
+                    insertBoard();
 
                 }
                 if (left == 1 && (board[pacman.getPosX() - 1][pacman.getPosY()] == dot
@@ -130,7 +132,7 @@ public class Board {
                     auxBoard[pacman.getPosX()][pacman.getPosY()] = board[pacman.getPosX()][pacman.getPosY()];
                     pacman.setPosX(pacman.getPosX() - 1);
                     board[pacman.getPosX()][pacman.getPosY()] = 2;
-                    insertBoard(gamePanel);
+                    insertBoard();
                 }
                 if (right == 1 && (board[pacman.getPosX() + 1][pacman.getPosY()] == dot
                         || board[pacman.getPosX() + 1][pacman.getPosY()] == 0)) {
@@ -142,7 +144,7 @@ public class Board {
                     auxBoard[pacman.getPosX()][pacman.getPosY()] = board[pacman.getPosX()][pacman.getPosY()];
                     pacman.setPosX(pacman.getPosX() + 1);
                     board[pacman.getPosX()][pacman.getPosY()] = 2;
-                    insertBoard(gamePanel);
+                    insertBoard();
                 }
                 if (board[pacman.getPosX() + 1][pacman.getPosY()] == ghostp
                         || board[pacman.getPosX() - 1][pacman.getPosY()] == ghostp
@@ -226,7 +228,7 @@ public class Board {
         });
     }
 
-    public void ghostMove(JPanel gamePanel, Ghost ghost) {
+    public void ghostMove(Ghost ghost) {
         timerG = new Timer(time, new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
@@ -282,8 +284,7 @@ public class Board {
                     }
                 }
 
-                insertBoard(gamePanel);
-
+                insertBoard();
             }
         });
         timerG.start();
