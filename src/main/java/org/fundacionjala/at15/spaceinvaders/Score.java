@@ -10,21 +10,17 @@ public class Score {
     private Color color;
 
     public Score(String score) {
-        setFont(new Font("Arial", Font.BOLD, TEN));
-        setColor(Color.WHITE);
+        this.font = new Font("Arial", Font.BOLD, TEN);
+        this.color = Color.white;
         setScore(score);
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
-    public void setFont(Font font) {
-        this.font = font;
     }
 
     public void setScore(String newScore) {
         this.score = "SCORE: " + newScore;
+    }
+
+    public String getScore() {
+        return score;
     }
 
     public void drawScore(Graphics graphic) {
