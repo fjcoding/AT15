@@ -21,7 +21,7 @@ public class Play {
         board = new Board(gamePanel);
     }
 
-    public void runGame(Window window, String player, JPanel panelMenu) {
+    public void runGame(Window window, String player, Panel panelMenu) {
         panelMenu.setVisible(false);
         gamePanel.add(gameBackground, 0);
 
@@ -41,7 +41,7 @@ public class Play {
         gamePanel.add(records, 0);
 
         board.moveGhostGroup();
-        board.movPacman(window, records, panelMenu);
+        board.getPacman().move(board, records, window, gamePanel, panelMenu);
 
         window.add(gamePanel);
     }

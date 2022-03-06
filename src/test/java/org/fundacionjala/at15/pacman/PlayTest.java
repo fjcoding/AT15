@@ -2,8 +2,6 @@ package org.fundacionjala.at15.pacman;
 
 import static org.junit.Assert.assertFalse;
 
-import javax.swing.JPanel;
-
 import org.junit.Test;
 
 public class PlayTest {
@@ -11,7 +9,7 @@ public class PlayTest {
     @Test
     public void itShouldInstance() {
         Window window = new Window("PACMAN");
-        JPanel panel = new JPanel();
+        Panel panel = new Panel();
         String player = "player";
 
         panel.setLayout(null);

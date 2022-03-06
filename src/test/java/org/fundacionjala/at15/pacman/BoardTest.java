@@ -3,7 +3,6 @@ package org.fundacionjala.at15.pacman;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
-import javax.swing.JPanel;
 import org.junit.Test;
 
 public class BoardTest {
@@ -62,7 +61,7 @@ public class BoardTest {
         Play play = new Play();
         Window window = new Window("PACMAN");
         String player = "player";
-        JPanel panel = new JPanel();
+        Panel panel = new Panel();
         int wall = 1;
         int dot = 4;
 
@@ -82,7 +81,7 @@ public class BoardTest {
         Play play = new Play();
         Window window = new Window("PACMAN");
         String player = "player";
-        JPanel panel = new JPanel();
+        Panel panel = new Panel();
         int PACMAN = 2;
 
         play.runGame(window, player, panel);
@@ -97,7 +96,7 @@ public class BoardTest {
         Play play = new Play();
         Window window = new Window("PACMAN");
         String player = "player";
-        JPanel panel = new JPanel();
+        Panel panel = new Panel();
 
         play.runGame(window, player, panel);
     }
