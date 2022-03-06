@@ -24,10 +24,6 @@ public class Play {
     private final int ghostPos1 = 12;
     private final int ghostArray = 3;
 
-    public Play() {
-        points = 0;
-    }
-
     public void runGame(Window window, String player, JPanel panelMenu) {
         panelMenu.setVisible(false);
         gamePanel = new JPanel();
