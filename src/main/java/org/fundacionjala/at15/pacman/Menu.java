@@ -8,8 +8,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.*;
 
 public class Menu {
-
-    private JPanel panelMenu;
+    private Panel menuPanel;
     private JLabel menuBackground;
     private ImageIcon imageMenuBackground;
     private String player;
@@ -17,17 +16,12 @@ public class Menu {
     private Button exitButton;
 
     public Menu() {
+        menuPanel = new Panel();
         playButton = new Button("Play", 1);
         exitButton = new Button("Exit", 2);
     }
 
     public void introMenu(Window window) {
-
-        panelMenu = new JPanel();
-        panelMenu.setLayout(null);
-        panelMenu.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());
-        panelMenu.setVisible(true);
-
         menuBackground = new JLabel();
         menuBackground.setBounds(0, 0, window.getWindow().getWidth(), window.getWindow().getHeight());
         imageMenuBackground = new ImageIcon("src/main/java/org/fundacionjala/at15/pacman/images/menuImage.jpg");
@@ -35,11 +29,11 @@ public class Menu {
                 .getScaledInstance(window.getWindow().getWidth(), window.getWindow().getHeight(), Image.SCALE_DEFAULT));
         menuBackground.setIcon(imageMenuBackground);
         menuBackground.setVisible(true);
-        panelMenu.add(menuBackground, 0);
+        menuPanel.add(menuBackground, 0);
 
-        panelMenu.add(playButton, 0);
-        panelMenu.add(exitButton, 0);
-        window.getWindow().add(panelMenu);
+        menuPanel.add(playButton, 0);
+        menuPanel.add(exitButton, 0);
+        window.getWindow().add(menuPanel);
 
     }
 
@@ -51,7 +45,7 @@ public class Menu {
                 while (player.compareTo("Write here") == 0 || player.compareTo("") == 0) {
                     player = JOptionPane.showInputDialog(window.getWindow(), "Write player name", "Write here");
                 }
-                play.runGame(window, player, panelMenu);
+                play.runGame(window, player, menuPanel);
             }
         });
 
@@ -62,8 +56,8 @@ public class Menu {
         });
     }
 
-    public JPanel getPanelMenu() {
-        return panelMenu;
+    public JPanel getMenuPanel() {
+        return menuPanel;
     }
 
     public JLabel getmenuBackground() {

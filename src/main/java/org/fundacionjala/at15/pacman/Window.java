@@ -4,12 +4,12 @@ import javax.swing.*;
 
 public class Window {
     private JFrame window;
-    private final int windowX = 700;
-    private final int windowY = 700;
+    static final int WIDTH = 700;
+    static final int HEIGHT = 700;
 
     public Window() {
         window = new JFrame("PACMAN");
-        window.setSize(windowX, windowY);
+        window.setSize(WIDTH, HEIGHT);
         window.setLayout(null);
         window.setLocationRelativeTo(null);
         window.setResizable(false);

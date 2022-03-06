@@ -12,7 +12,7 @@ public class MenuTest {
         Window window = new Window();
         menu.introMenu(window);
 
-        assertTrue(menu.getPanelMenu().isVisible());
+        assertTrue(menu.getMenuPanel().isVisible());
         assertTrue(menu.getPlayButton().isVisible());
         assertTrue(menu.getExitButton().isVisible());
     }
