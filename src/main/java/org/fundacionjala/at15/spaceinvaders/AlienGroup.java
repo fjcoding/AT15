@@ -82,19 +82,28 @@ public class AlienGroup {
             int shot = generator.nextInt(ALIEN_RANGE_OF_PROBABILITY);
             Bomb bomb = alien.getBomb();
 
-            if (shot == ALIEN_CHANCE && !bomb.bombStatus()) {
-                bomb.fire();
-                bomb.setPosX(alien.getPosX());
-                bomb.setPosY(alien.getPosY());
-                bulletsShooted++;
+            if(shot == ALIEN_CHANCE) {
+                startFire(alien, bomb);
             }
+            bombForward(bomb);
+        }
+    }
 
-            if (bomb.bombStatus()) {
-                bomb.setPosY(bomb.getPosY() + ALIEN_BULLET_SPEED);
-                if (bomb.getPosY() >= BOARD_HEIGHT - BULLET_HEIGHT) {
-                    bomb.destroyed();
-                    bulletsDestroyed++;
-                }
+    private void startFire(Alien alien, Bomb bomb) {
+        if (!bomb.bombStatus()) {
+            bomb.fire();
+            bomb.setPosX(alien.getPosX());
+            bomb.setPosY(alien.getPosY());
+            bulletsShooted++;
+        }
+    }
+
+    private void bombForward(Bomb bomb) {
+        if (bomb.bombStatus()) {
+            bomb.setPosY(bomb.getPosY() + ALIEN_BULLET_SPEED);
+            if (bomb.getPosY() >= BOARD_HEIGHT - BULLET_HEIGHT) {
+                bomb.destroyed();
+                bulletsDestroyed++;
             }
         }
     }
