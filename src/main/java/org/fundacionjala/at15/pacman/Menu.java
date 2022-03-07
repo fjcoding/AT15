@@ -10,14 +10,14 @@ public class Menu {
     private JPanel panelMenu = new JPanel();
     private JLabel menuBackground;
     private ImageIcon imageMenuBackground;
-    private Buttons buttons;
+    private ButtonsGroup buttons;
     private Window window;
     private Play play;
 
     public Menu(Window window, Play play) {
         this.window = window;
         this.play = play;
-        buttons = new Buttons(window, panelMenu);
+        buttons = new ButtonsGroup(window, panelMenu);
     }
 
     public void introMenu() {
@@ -44,7 +44,7 @@ public class Menu {
         return panelMenu;
     }
 
-    public Buttons getButtons() {
+    public ButtonsGroup getButtonsGroup() {
         return buttons;
     }
 

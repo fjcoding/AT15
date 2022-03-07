@@ -5,7 +5,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
 
-public class Buttons {
+public class ButtonsGroup {
     private JPanel panelMenu;
     private JButton[] buttons = new JButton[2];
     private Window window;
@@ -15,7 +15,7 @@ public class Buttons {
     private final int buttonWeight = 200;
     private final int buttonHeight = 40;
 
-    public Buttons(Window window, JPanel panelMenu) {
+    public ButtonsGroup(Window window, JPanel panelMenu) {
         this.window = window;
         this.panelMenu = panelMenu;
     }
@@ -50,7 +50,7 @@ public class Buttons {
         });
     }
 
-    public JButton[] getButton() {
+    public JButton[] getButtons() {
         return buttons;
     }
 }

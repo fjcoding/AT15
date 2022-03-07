@@ -11,12 +11,12 @@ public class ButtonTest {
 
     @Test
     public void itShoulHaveButtons() {
-        for (int ind = 0; ind < menu.getButtons().getButton().length; ind++) {
-            menu.getButtons().getButton()[ind] = new JButton();
+        for (int ind = 0; ind < menu.getButtonsGroup().getButtons().length; ind++) {
+            menu.getButtonsGroup().getButtons()[ind] = new JButton();
         }
 
-        for (int i = 0; i < menu.getButtons().getButton().length; i++) {
-            assertTrue(menu.getButtons().getButton()[i].isVisible());
+        for (int i = 0; i < menu.getButtonsGroup().getButtons().length; i++) {
+            assertTrue(menu.getButtonsGroup().getButtons()[i].isVisible());
         }
     }
 

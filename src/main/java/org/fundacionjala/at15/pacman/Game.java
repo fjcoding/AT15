@@ -16,8 +16,8 @@ public class Game {
 
         menu = new Menu(window, play);
 
-        for (int ind = 0; ind < menu.getButtons().getButton().length; ind++) {
-            menu.getButtons().getButton()[ind] = new JButton();
+        for (int ind = 0; ind < menu.getButtonsGroup().getButtons().length; ind++) {
+            menu.getButtonsGroup().getButtons()[ind] = new JButton();
         }
 
         menu.introMenu();

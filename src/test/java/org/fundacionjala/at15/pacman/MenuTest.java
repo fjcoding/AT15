@@ -11,8 +11,8 @@ public class MenuTest {
 
     @Test
     public void itShoulHaveAPanel() {
-        for (int i = 0; i < menu.getButtons().getButton().length; i++) {
-            menu.getButtons().getButton()[i] = new JButton();
+        for (int i = 0; i < menu.getButtonsGroup().getButtons().length; i++) {
+            menu.getButtonsGroup().getButtons()[i] = new JButton();
         }
         menu.introMenu();
 
