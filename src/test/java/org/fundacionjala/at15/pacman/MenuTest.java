@@ -5,19 +5,17 @@ import javax.swing.JButton;
 import org.junit.Test;
 
 public class MenuTest {
-    Menu menu = new Menu();
     Window window = new Window();
+    Play play = new Play();
+    Menu menu = new Menu(window, play);
 
     @Test
-    public void itShoulHaveButtons() {
-        for (int i = 0; i < menu.getButtons().length; i++) {
-            menu.getButtons()[i] = new JButton();
+    public void itShoulHaveAPanel() {
+        for (int i = 0; i < menu.getButtonsGroup().getButtons().length; i++) {
+            menu.getButtonsGroup().getButtons()[i] = new JButton();
         }
-        menu.introMenu(window);
+        menu.introMenu();
 
         assertTrue(menu.getPanelMenu().isVisible());
-        for (int i = 0; i < menu.getButtons().length; i++) {
-            assertTrue(menu.getButtons()[i].isVisible());
-        }
     }
 }
