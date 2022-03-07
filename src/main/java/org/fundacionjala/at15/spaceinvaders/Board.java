@@ -11,13 +11,15 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 
 public class Board extends JPanel {
-    protected Aliens aliens = new Aliens(ALIEN_ROWS, ALIEN_COLUMNS);
+    protected AlienGroup aliens = new AlienGroup(ALIEN_ROWS, ALIEN_COLUMNS);
+    private FireController fireController = new FireController(aliens);
+    protected DeadController deadController = new DeadController(aliens);
     protected Ship ship = new Ship(START_X, START_Y);
     private Gun gun = new Gun(ship);
     private Timer timer;
     protected String message;
     protected boolean inGame = true;
-    private String score;
+    private Score score;
 
     public Board() {
         addKeyListener(new KeyListener() {
@@ -37,6 +39,7 @@ public class Board extends JPanel {
             }
         });
         setFocusable(true);
+        this.score = new Score(String.valueOf(deadController.getScores()));
 
         timer = new Timer(DELAY, new GameCycle());
         timer.start();
@@ -47,12 +50,13 @@ public class Board extends JPanel {
         super.paint(g);
         setBackground(Color.BLACK);
         if (inGame) {
-            score(g);
+            score.drawScore(g);
             drawShip(g);
             if (gun.shooted()) {
                 drawBullet(g);
                 gun.move();
             }
+            score.setScore(String.valueOf(deadController.getScores()));
             drawAliens(g);
             g.dispose();
         } else {
@@ -89,16 +93,8 @@ public class Board extends JPanel {
         g.drawString(message, (BOARD_WIDTH - fontMetrics.stringWidth(message)) / 2, BOARD_HEIGHT / 2);
     }
 
-    private void score(Graphics graphic) {
-        Font small = new Font("Arial", Font.BOLD, TEN);
-        graphic.setColor(Color.white);
-        graphic.setFont(small);
-        score = "SCORE: " + String.valueOf(aliens.getScores());
-        graphic.drawString(score, TEN, TEN);
-    }
-
     private void update() {
-        if (aliens.getDeaths() == ALIENS_TO_DESTROY) {
+        if (deadController.getDeaths() == ALIENS_TO_DESTROY) {
             inGame = false;
             timer.stop();
             message = "YOU WON";
@@ -116,9 +112,9 @@ public class Board extends JPanel {
 
         ship.move();
         aliens.moveAliens();
-        aliens.aliensShoot();
-        aliens.killAliens(gun);
-        aliens.killShip(ship);
+        fireController.aliensStartFire();
+        deadController.killAliens(gun);
+        deadController.killShip(ship);
     }
 
     private class GameCycle implements ActionListener {
