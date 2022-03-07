@@ -18,6 +18,7 @@ public class Play {
     private Ghost ghost2;
     private Ghost ghost3;
     private int[][] auxMat;
+    private Movement moveGhost = new Movement();
 
     public Play() {
         points = 0;
@@ -69,6 +70,9 @@ public class Play {
         board.ghostMove(gamePanel, ghost1);
         board.ghostMove(gamePanel, ghost2);
         board.ghostMove(gamePanel, ghost3);
+        // moveGhost.movementGhost(gamePanel, ghost1);
+        // moveGhost.movementGhost(gamePanel, ghost2);
+        // moveGhost.movementGhost(gamePanel, ghost3);
         board.movPacman(window, gamePanel, records, panelMenu);
 
         window.getWindow().add(gamePanel);
