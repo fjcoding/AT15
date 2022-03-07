@@ -1,10 +1,11 @@
 package org.fundacionjala.at15.pacman;
 
+import static org.fundacionjala.at15.pacman.Constants.Menu.*;
+
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 
 import javax.swing.*;
 
@@ -15,10 +16,6 @@ public class Menu {
     private JLabel menuBackground;
     private ImageIcon imageMenuBackground;
     private String player;
-    private final int buttonPosX = 200;
-    private final int buttonPosY = 50;
-    private final int buttonWeight = 200;
-    private final int buttonHeight = 40;
 
     public Menu() {
         buttons = new JButton[2];
@@ -44,7 +41,8 @@ public class Menu {
         buttons[1].setText("Exit");
 
         for (int ind = 0; ind < buttons.length; ind++) {
-            buttons[ind].setBounds(window.getWindow().getWidth() - (buttonPosX + buttonPosY), (ind + 1) * buttonPosY, buttonWeight, buttonHeight);
+            buttons[ind].setBounds(window.getWindow().getWidth() - (BUTTON_POSX + BUTTON_POSY), (ind + 1) * BUTTON_POSY,
+                    BUTTON_WEIGHT, BUTTON_HEIGHT);
             buttons[ind].setVisible(true);
             buttons[ind].setBackground(Color.white);
             panelMenu.add(buttons[ind], 0);
