@@ -84,33 +84,7 @@ public class AlienGroupTest {
 
         assertTrue(theAliens.getInvasion());
     }
-
-    @Test
-    public void itShouldHaveDeadAliensAndScore() {
-        AlienGroup theAliens = new AlienGroup(1, 2);
-        Ship ship = new Ship(START_X, START_Y);
-        Gun gun = new Gun(ship);
-        gun.getBullet().setPosX(ALIEN_INIT_X);
-        gun.getBullet().setPosY(ALIEN_INIT_Y);
-        gun.fire();
-        theAliens.killAliens(gun);
-
-        assertEquals(1, theAliens.getDeaths());
-        assertEquals(10, theAliens.getScores());
-    }
-
-    @Test
-    public void itShouldNotKillAnAlien() {
-        AlienGroup theAliens = new AlienGroup(1, 2);
-        Ship ship = new Ship(START_X, START_Y);
-        Gun gun = new Gun(ship);
-        gun.fire();
-        theAliens.killAliens(gun);
-
-        assertEquals(0, theAliens.getDeaths());
-        assertEquals(0, theAliens.getScores());
-    }
-
+    /*
     @Test
     public void shouldKillShipAndDestroyBomb() {
         AlienGroup theAliens = new AlienGroup(1,1);
@@ -123,5 +97,5 @@ public class AlienGroupTest {
         }
         theAliens.killShip(ship);
         assertTrue(ship.isDying());
-    }
+    }*/
 }

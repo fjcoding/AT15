@@ -2,8 +2,6 @@ package org.fundacionjala.at15.spaceinvaders;
 
 import static org.junit.Assert.assertEquals;
 
-import java.awt.Color;
-
 import org.junit.Test;
 
 public class ScoreTest {

@@ -17,7 +17,7 @@ public class BoardTest {
     public void itShouldBeAnWonText() {
         Board board = new Board();
         String compare = "YOU WON";
-        board.aliens.setDeaths(45);
+        board.deadController.setDeaths(45);
         board.doGameCycle();
         assertEquals(compare, board.message);
     }
