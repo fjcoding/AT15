@@ -24,7 +24,7 @@ public class FireController {
             int shot = generator.nextInt(ALIEN_RANGE_OF_PROBABILITY);
             Bomb bomb = alien.getBomb();
 
-            if(shot == ALIEN_CHANCE) {
+            if (shot == ALIEN_CHANCE) {
                 startFire(alien, bomb);
             }
             bombForward(bomb);

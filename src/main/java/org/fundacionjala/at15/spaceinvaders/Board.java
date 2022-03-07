@@ -50,7 +50,7 @@ public class Board extends JPanel {
         super.paint(g);
         setBackground(Color.BLACK);
         if (inGame) {
-            score.drawScore(g);;
+            score.drawScore(g);
             drawShip(g);
             if (gun.shooted()) {
                 drawBullet(g);
