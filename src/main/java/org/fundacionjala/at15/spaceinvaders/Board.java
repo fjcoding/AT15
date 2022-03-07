@@ -12,6 +12,7 @@ import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 
 public class Board extends JPanel {
     protected AlienGroup aliens = new AlienGroup(ALIEN_ROWS, ALIEN_COLUMNS);
+    private FireController fireController = new FireController(aliens);
     protected Ship ship = new Ship(START_X, START_Y);
     private Gun gun = new Gun(ship);
     private Timer timer;
@@ -110,7 +111,7 @@ public class Board extends JPanel {
 
         ship.move();
         aliens.moveAliens();
-        aliens.aliensShoot();
+        fireController.aliensStartFire();
         aliens.killAliens(gun);
         aliens.killShip(ship);
     }

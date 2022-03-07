@@ -77,17 +77,6 @@ public class AlienGroupTest {
     }
 
     @Test
-    public void itShouldShoot() {
-        AlienGroup theAliens = new AlienGroup(ALIEN_ROWS, ALIEN_COLUMNS);
-        for (int index = 0; index < 1000; index++) {
-            theAliens.aliensShoot();
-        }
-
-        assertTrue(theAliens.getBulletsShooted() > 0);
-        assertTrue(theAliens.getBulletsDestroyed() > 0);
-    }
-
-    @Test
     public void itShouldGetInvasion() {
         AlienGroup theAliens = new AlienGroup(1, 1);
         theAliens.getAliens().get(0).setPosY(START_Y);

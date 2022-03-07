@@ -1,18 +1,14 @@
 package org.fundacionjala.at15.spaceinvaders;
 
 import java.util.List;
-import java.util.Random;
 import java.util.ArrayList;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Alien.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Board.*;
-import static org.fundacionjala.at15.spaceinvaders.Constants.Bullet.*;
 import static org.fundacionjala.at15.spaceinvaders.Constants.Player.*;
 
 public class AlienGroup {
     private List<Alien> aliens;
     private int alienDeltaX = ALIEN_DELTA_X;
-    private int bulletsShooted;
-    private int bulletsDestroyed;
     private boolean invasion;
     private int deaths;
     private int scores;
@@ -20,8 +16,6 @@ public class AlienGroup {
     public AlienGroup(int alienRows, int alienColumns) {
         invasion = false;
         aliens = new ArrayList<>();
-        bulletsShooted = 0;
-        bulletsDestroyed = 0;
         deaths = 0;
         scores = 0;
         initializeAliens(alienRows, alienColumns);
@@ -76,38 +70,6 @@ public class AlienGroup {
         }
     }
 
-    public void aliensShoot() {
-        Random generator = new Random();
-        for (Alien alien : aliens) {
-            int shot = generator.nextInt(ALIEN_RANGE_OF_PROBABILITY);
-            Bomb bomb = alien.getBomb();
-
-            if(shot == ALIEN_CHANCE) {
-                startFire(alien, bomb);
-            }
-            bombForward(bomb);
-        }
-    }
-
-    private void startFire(Alien alien, Bomb bomb) {
-        if (!bomb.bombStatus()) {
-            bomb.fire();
-            bomb.setPosX(alien.getPosX());
-            bomb.setPosY(alien.getPosY());
-            bulletsShooted++;
-        }
-    }
-
-    private void bombForward(Bomb bomb) {
-        if (bomb.bombStatus()) {
-            bomb.setPosY(bomb.getPosY() + ALIEN_BULLET_SPEED);
-            if (bomb.getPosY() >= BOARD_HEIGHT - BULLET_HEIGHT) {
-                bomb.destroyed();
-                bulletsDestroyed++;
-            }
-        }
-    }
-
     public void killAliens(Gun gun) {
         for (int index = 0; index < aliens.size(); index++) {
             int shotY = gun.getPosYBullet();
@@ -150,14 +112,6 @@ public class AlienGroup {
 
     public void setAlienDeltaX(int param) {
         this.alienDeltaX = param;
-    }
-
-    public int getBulletsShooted() {
-        return this.bulletsShooted;
-    }
-
-    public int getBulletsDestroyed() {
-        return this.bulletsDestroyed;
     }
 
     public boolean getInvasion() {
