@@ -14,11 +14,4 @@ public class CalculatorTest {
         assertEquals(20, result);
     }
 
-    @Test
-    public void itShouldSubstractIntegers() {
-        Calculator calculator = new Calculator();
-        int[] listExample = { 10, 5, 3, 2 };
-        int result = calculator.doOperation(new SubstractOperation(), listExample);
-        assertEquals(0, result);
-    }
 }
