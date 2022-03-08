@@ -5,4 +5,5 @@ public class SumOperation extends Operation {
     public int run(int leftOperand, int rightOperand) {
         return leftOperand + rightOperand;
     }
+
 }
