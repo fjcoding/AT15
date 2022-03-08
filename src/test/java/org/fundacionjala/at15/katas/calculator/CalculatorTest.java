@@ -35,9 +35,9 @@ public class CalculatorTest {
     }
 
     @Test
-    public void itShouldDoThreeOperations() {
+    public void itShouldDoTwoDifferentOperations() {
         Calculator calculator = new Calculator();
-        int result = calculator.doMoreOperation(new SumOperation(), 1, 2,new SumOperation(), 3, 4,new SumOperation(), 5,6);
-        assertEquals(21, result);
+        int result = calculator.doMoreOperation(new DividerOperation(), 4, 2,new MultiplierOperation(), 3, 4);
+        assertEquals(14, result);
     }
 }
