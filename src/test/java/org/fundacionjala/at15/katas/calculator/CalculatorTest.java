@@ -19,4 +19,13 @@ public class CalculatorTest {
         int result = calculator.doOperation(new SubstractOperation(), 5, 1);
         assertEquals(4, result);
     }
+
+    @Test
+    public void itShouldSumNIntegers() {
+        Calculator calculator = new Calculator();
+        int[] numbers = {1,2,3,4};
+        int result = calculator.doOperation(new SumOperationMultiple(),numbers);
+        assertEquals(10, result);
+
+    }
 }
