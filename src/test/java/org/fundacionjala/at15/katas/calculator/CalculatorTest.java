@@ -7,16 +7,20 @@ import org.junit.Test;
 public class CalculatorTest {
 
     @Test
-    public void itShouldSumTwoIntegers() {
+    public void itShouldSum() {
         Calculator calculator = new Calculator();
-        int result = calculator.doOperation(new SumOperation(), 2, 3);
-        assertEquals(5, result);
+        int[] amountOfOperands = {10, 7, 3, 17};
+        int result = calculator.doOperation(new SumOperation(), amountOfOperands);
+        //the operation should be 10+7+3+17
+        assertEquals(37, result);
     }
 
     @Test
-    public void itShouldSubstractTwoIntegers() {
+    public void itShouldSubstract() {
         Calculator calculator = new Calculator();
-        int result = calculator.doOperation(new SubstractOperation(), 5, 1);
-        assertEquals(4, result);
+        int[] amountOfOperands = {10, 9, 1, 10, 7};
+        int result = calculator.doOperation(new SubstractOperation(), amountOfOperands);
+        //the operation should be 10-9-1-10-7
+        assertEquals(-17, result);
     }
 }
