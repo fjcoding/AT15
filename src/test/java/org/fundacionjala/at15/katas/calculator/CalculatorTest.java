@@ -9,14 +9,24 @@ public class CalculatorTest {
     @Test
     public void itShouldSumTwoIntegers() {
         Calculator calculator = new Calculator();
-        int result = calculator.doOperation(new SumOperation(), 2, 3);
+        int[] operands = {2, 3};
+        int result = calculator.doOperation(new SumSubstractOperation(), operands);
         assertEquals(5, result);
     }
-
+    
     @Test
     public void itShouldSubstractTwoIntegers() {
         Calculator calculator = new Calculator();
-        int result = calculator.doOperation(new SubstractOperation(), 5, 1);
+        int[] operands = {5, -1};
+        int result = calculator.doOperation(new SumSubstractOperation(), operands);
         assertEquals(4, result);
+    }
+    
+    @Test
+    public void itShouldSumAndSubstractManyArguments() {
+        Calculator calculator = new Calculator();
+        int[] operands = {2, -3, 5, 1, -2};
+        int result = calculator.doOperation(new SumSubstractOperation(), operands);
+        assertEquals(3, result);
     }
 }
