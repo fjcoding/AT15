@@ -49,7 +49,7 @@ task runLangtonAntVladimir (dependsOn: 'classes', type: JavaExec) {
 task runLangtonAntSaul (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.saul.Main'
     classpath = sourceSets.main.runtimeClasspath
-} 
+}
 
 task runLangtonAntDiana (dependsOn: 'classes', type: JavaExec) {
     main = 'org.fundacionjala.at15.katas.langtonant.diana.Main'
