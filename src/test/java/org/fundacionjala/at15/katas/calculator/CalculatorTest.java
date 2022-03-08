@@ -10,23 +10,23 @@ public class CalculatorTest {
     public void itShouldSumTwoIntegers() {
         Calculator calculator = new Calculator();
         int[] operands = {2, 3};
-        int result = calculator.doOperation(new SumOperation(), operands);
+        int result = calculator.doOperation(new SumSubstractOperation(), operands);
         assertEquals(5, result);
     }
-
+    
     @Test
     public void itShouldSubstractTwoIntegers() {
         Calculator calculator = new Calculator();
-        int[] operands = {5, 1};
-        int result = calculator.doOperation(new SubstractOperation(), operands);
-        assertEquals(-6, result);
+        int[] operands = {5, -1};
+        int result = calculator.doOperation(new SumSubstractOperation(), operands);
+        assertEquals(4, result);
     }
     
     @Test
     public void itShouldSumAndSubstractManyArguments() {
         Calculator calculator = new Calculator();
         int[] operands = {2, -3, 5, 1, -2};
-        int result = calculator.doOperation(new SumOperation(), operands);
+        int result = calculator.doOperation(new SumSubstractOperation(), operands);
         assertEquals(3, result);
     }
 }
