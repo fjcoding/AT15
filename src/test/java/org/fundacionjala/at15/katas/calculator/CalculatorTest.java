@@ -14,6 +14,13 @@ public class CalculatorTest {
     }
 
     @Test
+    public void itShouldSumThreeIntegers() {
+        Calculator calculator = new Calculator();
+        int result = calculator.doOperation(new SumOperation(), 2, 3, 4);
+        assertEquals(9, result);
+    }
+
+    @Test
     public void itShouldSubstractTwoIntegers() {
         Calculator calculator = new Calculator();
         int result = calculator.doOperation(new SubstractOperation(), 5, 1);
