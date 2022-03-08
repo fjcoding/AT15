@@ -27,4 +27,12 @@ public class CalculatorTest {
         int result = calculator.doOperation(new SumOperation(), array);
         assertEquals(29, result);
     }
+
+    @Test
+    public void itShouldSubstractMultipleNumbers() {
+        Calculator calculator = new Calculator();
+        int[] array = {5, 2, 8, 7, 5, 3};
+        int result = calculator.doOperation(new SubstractOperation(), array);
+        assertEquals(-30, result);
+    }
 }
