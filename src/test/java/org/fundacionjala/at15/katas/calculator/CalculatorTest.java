@@ -6,18 +6,19 @@ import org.junit.Test;
 
 public class CalculatorTest {
 
-    // @Test
-    // public void itShouldSumTwoIntegers() {
-    // Calculator calculator = new Calculator();
-    // int[] listExample = { 10, 5, 3, 2 };
-    // int result = calculator.doOperation(new SumOperation(), listExample, 0);
-    // assertEquals(20, result);
-    // }
+    @Test
+    public void itShouldSumIntegers() {
+        Calculator calculator = new Calculator();
+        int[] listExample = { 10, 5, 3, 2 };
+        int result = calculator.doOperation(new SumOperation(), listExample);
+        assertEquals(20, result);
+    }
 
-    // @Test
-    // public void itShouldSubstractTwoIntegers() {
-    // Calculator calculator = new Calculator();
-    // int result = calculator.doOperation(new SubstractOperation(), 5, 1);
-    // assertEquals(4, result);
-    // }
+    @Test
+    public void itShouldSubstractIntegers() {
+        Calculator calculator = new Calculator();
+        int[] listExample = { 10, 5, 3, 2 };
+        int result = calculator.doOperation(new SubstractOperation(), listExample);
+        assertEquals(0, result);
+    }
 }
