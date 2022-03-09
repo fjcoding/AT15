@@ -7,8 +7,8 @@ public class Calculator {
     }
 
     public int doOperationChain(int leftOperand, Object[] arr, Operation operation) {
-        for (int index = 0; index < arr.length; index++) {
-            int rightOperand = (Integer) arr[index];
+        for (Object o : arr) {
+            int rightOperand = (Integer) o;
             leftOperand = operation.run(leftOperand, rightOperand);
         }
 
