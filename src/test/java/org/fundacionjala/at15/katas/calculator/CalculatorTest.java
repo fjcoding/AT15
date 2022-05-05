@@ -7,16 +7,19 @@ import org.junit.Test;
 public class CalculatorTest {
 
     @Test
-    public void itShouldSumTwoIntegers() {
+    public void itShouldSumIntegers() {
         Calculator calculator = new Calculator();
-        int result = calculator.doOperation(new SumOperation(), 2, 3);
-        assertEquals(5, result);
+        int[] listExample = { 10, 5, 3, 2 };
+        int result = calculator.doOperation(new SumOperation(), listExample);
+        assertEquals(20, result);
     }
 
     @Test
-    public void itShouldSubstractTwoIntegers() {
+    public void itShouldSubstractIntegers() {
         Calculator calculator = new Calculator();
-        int result = calculator.doOperation(new SubstractOperation(), 5, 1);
-        assertEquals(4, result);
+        int[] listExample = { 20, 6, 1, 3 };
+        int result = calculator.doOperation(new SubstractOperation(), listExample);
+        assertEquals(10, result);
     }
+
 }
